@@ -1,0 +1,826 @@
+//*****************************************************************************
+//*  CALIBRE DRC COMMAND FILE - CN65_BUMP_6M.20a  (10/16/2009)
+//*  FOR TSMC 65nm 1P6M EU/LF FLIP CHIP BUMP PAD PROCESS 
+//*  DRC COMMAND FILE DOCUMENT: T-N65-CL-DR-001-C1 VER 2.0a
+//*  DESIGN RULE DOCUMENT: T-N65-CL-DR-001 VER. 2.0
+//****************************************************************************
+//****************************************************************************
+//TSMC has developed this deck using Mentor Graphics proprietary SVRF and TVF formats, 
+//it is to only be used in Calibre tools.
+//****************************************************************************
+   
+//OPTIONS
+//=======
+/* select Redistribution Interconnection */
+#DEFINE with_AP	             // Turn on to use AP as the redistribution metal or metal Fuse after passivation (AP_RDL/AP_fuse)
+/* If the design is ground-up for flip chip, please turn off with_AP option */
+
+
+/* select optional mask */   
+//#DEFINE with_PM            // Turn on for polymide process. (Turn off for without-polymide process) 
+
+
+/* select a BUMP pitch */
+//#DEFINE  BUMP_PITCH_150um_175um       //for bump pitch >=150 <175 um
+//#DEFINE  BUMP_PITCH_175um_200um       //for bump pitch >=175 <200 um
+//#DEFINE  BUMP_PITCH_200um_225um	//for bump pitch >=200 <225 um
+//#DEFINE  BUMP_PITCH_225um		//for bump pitch >=225 um
+
+/* select a UBM width */
+//#DEFINE UBM_WIDTH_80um		//for UBM width  80um
+//#DEFINE UBM_WIDTH_85um                //for UBM width  85um
+//#DEFINE UBM_WIDTH_90um		//for UBM width  90um
+//#DEFINE UBM_WIDTH_100um		//for UBM width 100um
+//#DEFINE UBM_WIDTH_108um		//for UBM width 108um
+
+/*Recommendation rules*/
+//#DEFINE DFM                           //Turn on to check UBM.S.4R/UBM.EN.1R/UBM.DN.1R/UBM.DN.3R/BP.R.2R/UBM.R.7R
+   
+/* User-defined BUMP pitch and UBM width*/
+//#DEFINE USR_PITCH_WIDTH     //Turn on to define your own BUMP pitch and UBM width by following two variables.
+VARIABLE USR_BUMP_PITCH  200  //User-defined BUMP pitch. Please consult your bumping house before defining this value.
+VARIABLE USR_UBM_WIDTH   100  //User-defined UBM width. Please consult your bumping house before defining this value.
+   
+// ENVIRONMENT SETUP
+//==================
+PRECISION    1000
+RESOLUTION      5
+
+LAYOUT SYSTEM GDSII
+LAYOUT PATH "GDSFILENAME"
+LAYOUT PRIMARY "TOPCELLNAME"
+
+DRC RESULTS DATABASE "DRC_RES.db"
+DRC SUMMARY REPORT "DRC.rep"
+DRC KEEP EMPTY NO
+DRC CHECK TEXT ALL
+DRC MAXIMUM RESULTS ALL
+
+FLAG ACUTE YES
+FLAG NONSIMPLE YES
+
+
+// RULE VALUE VARIABLES
+//=====================
+VARIABLE TOL        0.1  // tolerance of octagon/circle shape bump
+VARIABLE SRwidth    20.0 // width of seal ring including assembly isolation region
+
+#IFNDEF USR_PITCH_WIDTH
+#IFDEF BUMP_PITCH_150um_175um
+VARIABLE UBM_P_1    150   
+#ELSE
+#IFDEF BUMP_PITCH_175um_200um
+VARIABLE UBM_P_1    175
+#ELSE
+#IFDEF BUMP_PITCH_200um_225um
+VARIABLE UBM_P_1    200
+#ELSE
+#IFDEF BUMP_PITCH_225um
+VARIABLE UBM_P_1    225
+#ELSE
+VARIABLE UBM_P_1    225
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+#ELSE
+VARIABLE UBM_P_1    USR_BUMP_PITCH
+#ENDIF 
+VARIABLE UBM_S_1    50
+VARIABLE UBM_S_3    80
+VARIABLE UBM_EN_1   80
+VARIABLE UBM_S_4R   400
+VARIABLE UBM_EN_1R  300
+VARIABLE UBM_EN_2   2  
+
+VARIABLE UBM_DN_1   0.1
+VARIABLE UBM_DN_3   0.2
+
+VARIABLE UBM_R_5_A   225000000
+
+VARIABLE UBM_R_5_C1  1
+VARIABLE UBM_R_5_C2  3
+
+#IFDEF with_PM
+VARIABLE BP_W_4     50
+#ELSE
+VARIABLE BP_W_4     40
+#ENDIF
+VARIABLE BP_W_5     30
+#IFNDEF USR_PITCH_WIDTH
+#IFDEF UBM_WIDTH_80um
+VARIABLE BP_W_6     80
+#ELSE
+#IFDEF UBM_WIDTH_85um
+VARIABLE BP_W_6     85
+#ELSE
+#IFDEF UBM_WIDTH_90um
+VARIABLE BP_W_6     90
+#ELSE
+#IFDEF UBM_WIDTH_100um
+VARIABLE BP_W_6     100
+#ELSE
+#IFDEF UBM_WIDTH_108um
+VARIABLE BP_W_6     108
+#ELSE
+VARIABLE BP_W_6     108
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+#ELSE
+VARIABLE BP_W_6     USR_UBM_WIDTH
+#ENDIF
+VARIABLE BP_EN_5    10
+VARIABLE BP_EN_6    10
+VARIABLE BP_EN_7    2
+
+VARIABLE PM_W_2     30
+VARIABLE PM_S_1     15
+
+VARIABLE RV_W_1     3
+VARIABLE RV_S_1     3
+VARIABLE RV_EN_1    1.5
+VARIABLE AP_W_1     3
+VARIABLE AP_W_2     35.0
+VARIABLE AP_S_1     2
+VARIABLE AP_S_2     5
+VARIABLE AP_S_3     5
+VARIABLE AP_S_4     3.5
+VARIABLE AP_EN_1    1.5
+VARIABLE AP_DN_1_L  0.1
+VARIABLE AP_DN_1_H  0.7
+
+
+// DRAWN LAYER DEFINITIONS
+//------------------------
+LAYER  VIATi	500 // original top via VIAT
+LAYER MAP 55 DATATYPE 80 500 // Mapping (55:80) to 500 for VIATi
+LAYER MAP 55 DATATYPE 40 500 // Mapping (55:40) to 500 for VIATi
+LAYER MAP 55 DATATYPE 0  500 // Mapping (55:0) to 500 for VIATi
+LAYER  MTi	300 // original top metal MT
+LAYER MAP 36 DATATYPE 80 300 // Mapping (36:80) to 300 for MTi
+LAYER MAP 36 DATATYPE 60 300 // Mapping (36:60) to 300 for MTi
+LAYER MAP 36 DATATYPE 40 300 // Mapping (36:40) to 300 for MTi
+LAYER MAP 36 DATATYPE 20 300 // Mapping (36:20) to 300 for MTi
+LAYER MAP 36 DATATYPE 0  300 // Mapping (36:0) to 300 for MTi
+LAYER  DUMT	301  // dummy MT
+LAYER MAP 36 DATATYPE 81 301 // Mapping (36:81) to 301 for DUMT
+LAYER MAP 36 DATATYPE 61 301 // Mapping (36:61) to 301 for DUMT
+LAYER MAP 36 DATATYPE 41 301 // Mapping (36:41) to 301 for DUMT
+LAYER MAP 36 DATATYPE 21 301 // Mapping (36:21) to 301 for DUMT
+LAYER MAP 36 DATATYPE 1  301 // Mapping (36:1) to 301 for DUMT
+LAYER  VIADi	600 // original top via VIAD
+LAYER MAP 56 DATATYPE 80 600 // Mapping (56:80) to 600 for VIADi
+LAYER MAP 56 DATATYPE 40 600 // Mapping (56:40) to 600 for VIADi
+LAYER MAP 56 DATATYPE 0  600 // Mapping (56:0) to 600 for VIADi
+LAYER  MDi	400               // redistribution metal above MT
+LAYER MAP 37 DATATYPE 80 400 // Mapping (37:80) to 400 for MDi
+LAYER MAP 37 DATATYPE 60 400 // Mapping (37:60) to 400 for MDi
+LAYER MAP 37 DATATYPE 40 400 // Mapping (37:40) to 400 for MDi
+LAYER MAP 37 DATATYPE 20 400 // Mapping (37:20) to 400 for MDi
+LAYER MAP 37 DATATYPE 0 400 // Mapping (37:0) to 400 for MDi
+LAYER  DUMD	401 // dummy MD
+LAYER MAP 37 DATATYPE 81 401 // Mapping (37:81) to 401 for DUMD
+LAYER MAP 37 DATATYPE 61 401 // Mapping (37:61) to 401 for DUMD
+LAYER MAP 37 DATATYPE 41 401 // Mapping (37:41) to 401 for DUMD
+LAYER MAP 37 DATATYPE 21 401 // Mapping (37:21) to 401 for DUMD
+LAYER MAP 37 DATATYPE 1  401 // Mapping (37:1) to 401 for DUMD
+LAYER  CBi	 76 // passivation window for wire bond pad
+LAYER  APi	 74 // AL pad
+LAYER  Cu_PPIi   7410 // Cu_PPI interconnection between Polymide1 and Polymide2 for WLCSP
+LAYER MAP 74 DATATYPE 10 7410
+LAYER  CBDi	169 // passivation window for bump pad
+LAYER  CB2i	 86 // passivation2 window for bump pad
+LAYER  RVi	 85 // Passivation via hole 
+LAYER  PMi   	  5 // polyimide window
+LAYER  PM1i   	  5001 // polyimide 1 window for WLCSP
+LAYER MAP 5 DATATYPE 1 5001
+LAYER  PM2i   	  5002 // polyimide 2 window for WLCSP
+LAYER MAP 5 DATATYPE 2 5002
+LAYER  UBMi	170 // under bump metallurgy
+LAYER  FW_AP	 951 // AP fuse window
+LAYER MAP 95 DATATYPE 20 951 // Mapping (95;20) to 951 for FW_AP
+LAYER  FW_Cu	 952 //  Cu fuse window
+LAYER MAP 95 DATATYPE 0 952 // Mapping (95;0) to 952 for FW_CU
+FWi = FW_Cu OR FW_AP
+LAYER  PMDMY	106 // layer to cover L-target/fuse ring
+LAYER  LMARK	109 // layer to cover L-target
+LAYER  LOGO	158 // layer to cover logo 
+LAYER  ODi      6 7 8 //diffusion areas 
+
+VIAT   = COPY VIATi
+VIAD   = COPY VIADi
+MT     = MTi OR DUMT
+MD     = MDi OR DUMD
+CB     = COPY CBi
+CBD    = COPY CBDi
+CB2    = COPY CB2i
+AP     = COPY APi
+RV     = COPY RVi
+UBM    = COPY UBMi
+PM     = COPY PMi
+FW     = COPY FWi
+
+
+LAYOUT TOP LAYER MTi MDi CBDi RVi CBi APi CB2i PMi UBMi
+
+// GLOBAL DERIVED LAYERS FOR RULE CHECKS
+//--------------------------------------
+CHIP         = EXTENT 
+UBM_CENTER   = EXTENTS UBM CENTERS 0.01     // CENTERS is 0.01x0.01
+
+
+CB_ALL   = (CBDi OR CB2i) OR RVi
+
+
+CBHO       = HOLES CB_ALL
+CHIP_CORE  = SIZE CHIP BY -SRwidth
+SCORE      = CHIP_CORE INSIDE CBHO
+SR_EDGE    = (CHIP INTERACT SCORE) NOT SCORE  // sealring + assembly isolation
+
+
+SR_EXC   = EXT SR_EDGE < 73.87 ABUT == 90 REGION INTERSECTING ONLY
+SRCSR = SR_EDGE OR SR_EXC // sealring+corner+assembly isolation
+
+
+
+CHIP_NOSR  = CHIP NOT INTERACT SR_EDGE   // chip w/o sealring(tsmc added)
+CHIP_SR    = CHIP INTERACT SR_EDGE       // chip w/i sealring(customer added)
+CHIP_EDGE  = CHIP_NOSR OR SCORE  
+CB2_UBM  = CB2 INTERACT UBMi
+CBD_UBM  = CBD INTERACT UBMi
+PM_UBM   = PM INTERACT UBMi
+
+LMARK_MD = LMARK INTERACT MDi     // LMARK for Cu-RDL
+LMARK_MT = LMARK NOT INTERACT MDi // LMARK for non-RDL & Al-RDL
+LMARK_METAL = (MTi AND LMARK_MT) OR (MDi AND LMARK_MD) // might be slot or solid
+LSLOT = HOLES LMARK_METAL EMPTY  // L shaped oxide in L-mark metal in corner or pad
+LSOLID = LMARK_METAL NOT INTERACT LSLOT // L solid metal
+
+DummyRule.ODi { @ An empty check rule to force Calibre use assigned layer to form the correct boundary.
+   AREA (EXTENT ODi ) == 0
+}
+
+// Options setting ERRORS
+//========================
+
+
+
+
+
+#IFNDEF with_AP 
+with_AP.WARN {@ please turn on with_AP option if AP-RDL or AP fuse is used. 
+   COPY RV
+   COPY FW_AP    
+}
+#ENDIF
+
+
+with_MD.WARN {@ Cu-MD(M7) is prohibited in N65/N55 process. 
+@ This 6M drc command file does not support additional M7 for Cu-RDL. please directly use 7M drc command file. 
+   COPY MD
+}
+
+
+#IFNDEF with_PM 
+with_PM.WARN {@ please turn on with_PM option if polymide process is used. 
+   COPY PM
+}
+#ENDIF
+
+
+//BUMP pitch and UBM width combination ERRORS
+//================================================
+#IFDEF BUMP_PITCH_150um_175um 	//for bump pitch 150~175 um
+#IFNDEF  UBM_WIDTH_80um	
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.1 { @ FOR BUMP pitch 150~175 um the UBM width is 80 um  
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+
+#IFDEF BUMP_PITCH_175um_200um 	//for bump pitch 175~200 um
+#IFDEF  UBM_WIDTH_100um		
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.2 { @ FOR BUMP pitch 175~200 um the UBM width is 80, 85 or 90 um
+   COPY CHIP
+}
+#ENDIF
+#IFDEF  UBM_WIDTH_108um		
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.3 { @ FOR BUMP pitch 175~200 um the UBM width is 80, 85 or 90 um
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+
+#IFDEF BUMP_PITCH_200um_225um 	//for bump pitch 200~225 um
+#IFDEF  UBM_WIDTH_80um	
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.4 { @ FOR BUMP pitch 200~225 um the UBM width is 90, 100, or 108 um
+   COPY CHIP
+}
+#ENDIF
+#IFDEF  UBM_WIDTH_85um	
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.5 { @ FOR BUMP pitch 200~225 um the UBM width is 90, 100, or 108 um
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+
+#IFDEF BUMP_PITCH_225um 	//for bump pitch 225 um
+#IFDEF  UBM_WIDTH_80um		
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.6 { @ FOR BUMP pitch greater than 225 um the UBM width is 100 or 108 um
+   COPY CHIP
+}
+#ENDIF
+#IFDEF  UBM_WIDTH_85um		
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.7 { @ FOR BUMP pitch greater than 225 um the UBM width is 100 or 108 um
+   COPY CHIP
+}
+#ENDIF
+#IFDEF  UBM_WIDTH_90um		
+BUMP_PITCH_UBM_WIDTH_COMBO.ERROR.8 { @ FOR BUMP pitch greater than 225 um the UBM width is 100 or 108 um
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+
+//BUMP pitch setting ERRORs
+//========================
+#IFNDEF USR_PITCH_WIDTH
+#IFNDEF BUMP_PITCH_150um_175um
+#IFNDEF BUMP_PITCH_175um_200um
+#IFNDEF BUMP_PITCH_200um_225um
+#IFNDEF BUMP_PITCH_225um
+BUMP_PITCH.ERROR.1 { @ At least one of the pitch options must be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+
+#IFDEF BUMP_PITCH_150um_175um
+#IFDEF BUMP_PITCH_175um_200um
+BUMP_PITCH.ERROR.2 { @  Only one kind of pitch can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF BUMP_PITCH_200um_225um
+BUMP_PITCH.ERROR.3 { @  Only one kind of pitch can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF BUMP_PITCH_225um
+BUMP_PITCH.ERROR.4 { @  Only one kind of pitch can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#IFDEF BUMP_PITCH_175um_200um
+#IFDEF BUMP_PITCH_200um_225um
+BUMP_PITCH.ERROR.5 { @  Only one kind of pitch can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF BUMP_PITCH_225um
+BUMP_PITCH.ERROR.6 { @  Only one kind of pitch can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#IFDEF BUMP_PITCH_200um_225um
+#IFDEF BUMP_PITCH_225um
+BUMP_PITCH.ERROR.7 { @  Only one kind of pitch can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+
+//UBM width setting ERRORs
+//========================
+#IFNDEF USR_PITCH_WIDTH
+#IFNDEF UBM_WIDTH_80um
+#IFNDEF UBM_WIDTH_85um
+#IFNDEF UBM_WIDTH_90um
+#IFNDEF UBM_WIDTH_100um
+#IFNDEF UBM_WIDTH_108um
+UBM_WIDTH.ERROR.1 { @ At least one of the UBM width options must be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+#ENDIF
+
+#IFDEF UBM_WIDTH_80um
+#IFDEF UBM_WIDTH_85um
+UBM_WIDTH.ERROR.4 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF UBM_WIDTH_90um
+UBM_WIDTH.ERROR.5 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF UBM_WIDTH_100um
+UBM_WIDTH.ERROR.6 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF UBM_WIDTH_108um
+UBM_WIDTH.ERROR.7 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#IFDEF UBM_WIDTH_85um
+#IFDEF UBM_WIDTH_90um
+UBM_WIDTH.ERROR.8 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF UBM_WIDTH_100um
+UBM_WIDTH.ERROR.9 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF UBM_WIDTH_108um
+UBM_WIDTH.ERROR.10 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#IFDEF UBM_WIDTH_90um
+#IFDEF UBM_WIDTH_100um
+UBM_WIDTH.ERROR.11 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#IFDEF UBM_WIDTH_108um
+UBM_WIDTH.ERROR.12 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+#IFDEF UBM_WIDTH_100um
+#IFDEF UBM_WIDTH_108um
+UBM_WIDTH.ERROR.13 { @ Only one kind of UBM width can be selected.
+   COPY CHIP
+}
+#ENDIF
+#ENDIF
+
+UBM_CB.ERROR {@ Passivation-1 opening layer over bump is not CB, but CBD
+   UBM AND CB
+}
+
+
+// UBM Layout Rules          
+//=================
+
+UBM.P.1  { @ Pitch >= ^UBM_P_1 um 
+   EXT UBM_CENTER < UBM_P_1 - 0.01 ABUT < 90 REGION
+}
+
+UBM.S.1{ @ Space to metal fuse protection ring >= ^UBM_S_1 um
+   EXT UBM PMDMY < UBM_S_1 ABUT < 90 SINGULAR REGION
+   UBM AND PMDMY
+}
+
+UBM.S.3{ @ Space to L target >= ^UBM_S_3 um
+   EXT UBM LSLOT < UBM_S_3 ABUT < 90 SINGULAR REGION
+   EXT UBM LSOLID < UBM_S_3 ABUT < 90 SINGULAR REGION
+   UBM AND LMARK
+}
+
+#IFDEF DFM
+UBM.S.4R{ @ Recommended maximum space between two UBMs <= ^UBM_S_4R um
+   A = EXT UBM <= UBM_S_4R ABUT < 90 REGION SPACE
+   UBM NOT INTERACT A
+}
+#ENDIF
+
+UBM.EN.1 { @ Enclosure by chip edge (not including assembly isolation and sealring) >= ^UBM_EN_1 um 
+   ENC UBM CHIP_EDGE < UBM_EN_1 ABUT < 90 SINGULAR REGION
+}
+
+#IFDEF DFM 
+UBM.EN.1R { @ Recommended enclosure by chip edge (Maximum) <= ^UBM_EN_1R um
+   A = ENC UBM [CHIP_EDGE] <= UBM_EN_1R ABUT < 90 SINGULAR
+   CHIP_EDGE NOT TOUCH INSIDE EDGE A
+}
+#ENDIF
+
+UBM.EN.2.AP { @ Enclosure by AP >= ^UBM_EN_2 um
+   ENC UBM AP < UBM_EN_2 ABUT <90 SINGULAR REGION
+   UBM NOT AP
+}
+
+UBM.DN.1 { @ Density across full chip >= ^UBM_DN_1
+   DENSITY UBM < UBM_DN_1 INSIDE OF LAYER CHIP_EDGE PRINT UBM.DN.1.density
+}
+
+
+
+
+UBM.DN.3 { @ 1. density of (whole chip NOT (UBM sizing 200um)) <= ^UBM_DN_3
+           @ 2. Only one polygon is allowed after UBM sizing up. 
+   UBM_SIZING_200 = SIZE UBM BY 200
+   NON_UBM_AREA = CHIP_EDGE NOT UBM_SIZING_200
+   DENSITY NON_UBM_AREA > UBM_DN_3 INSIDE OF LAYER CHIP_EDGE PRINT UBM.DN.3.density
+   UBM_SIZING_200 INTERACT (CHIP_EDGE INTERACT UBM_SIZING_200 > 1) 
+}
+
+
+
+
+
+#IFDEF with_AP
+#IFDEF with_PM
+UBM.R.3a { @ Bump structure must contain necessary layers.(AP, CB2, PM, UBM)
+   UBM NOT INTERACT AP
+   UBM NOT INTERACT CB2
+   UBM NOT INTERACT PM 
+}
+#ELSE
+UBM.R.3a { @ Bump structure must contain necessary layers.(AP, CB2, UBM)
+   UBM NOT INTERACT AP
+   UBM NOT INTERACT CB2
+}
+#ENDIF
+#ELSE
+#IFDEF with_PM
+UBM.R.3a {@ Bump structure must contain necessary layers.(Mtop, CBD, AP, PM, UBM) 
+   UBM NOT INTERACT MT
+   UBM NOT INTERACT CBD
+   UBM NOT INTERACT AP
+   UBM NOT INTERACT PM 
+}
+#ELSE
+UBM.R.3a {@ Bump structure must contain necessary layers.(Mtop, CBD, AP, UBM) 
+   UBM NOT INTERACT MT
+   UBM NOT INTERACT CBD
+   UBM NOT INTERACT AP
+
+}
+#ENDIF
+#ENDIF
+
+
+UBM.R.3b {@ UBM pattern not for bump (for example, seal ring,  fuse window, L target window, Or logo) is forbidden.
+   UBM AND LMARK     
+   UBM AND FW
+   UBM AND SR_EDGE
+   UBM AND LOGO
+}
+
+RDL_DUMMY = (AP INTERACT UBM) NOT INTERACT (RV OR CBD)
+DUMMY_UBM1 = UBM INTERACT RDL_DUMMY
+DUMMY_UBM2 = ((UBM NOT INTERACT (AP INTERACT RV))INTERACT CBD) INTERACT (MT NOT INTERACT VIAT)
+DUMMY_UBM = DUMMY_UBM1 OR DUMMY_UBM2
+
+REAL_UBM  = UBM NOT DUMMY_UBM
+
+UBM_EXTENT = EXTENT UBMi
+
+UBM.R.5{@ corner dummy bump rules: 
+	@ Chip AREA <= ^UBM_R_5_A mm2, ^UBM_R_5_C1 dummy bump must interact with corner bump zone. The leg dimension of corner bump zone is 1.7* ^BP_W_6 ;
+	@ Chip AREA > ^UBM_R_5_A mm2, ^UBM_R_5_C2 dummy bump must interact with corner bump zone. The leg dimension of corner bump zone is 1.7* ^BP_W_6 + ^UBM_P_1 
+   A1 = INT UBM_EXTENT < 1.7*BP_W_6 ABUT==90 INTERSECTING ONLY REGION
+   A2 = INT UBM_EXTENT < 1.7*BP_W_6+UBM_P_1 ABUT==90 INTERSECTING ONLY REGION
+   CHIP_A1 = AREA CHIP_EDGE <= UBM_R_5_A
+   CHIP_A2 = AREA CHIP_EDGE > UBM_R_5_A
+   X1 = A1 INTERACT CHIP_A1
+   X2 = A2 INTERACT CHIP_A2
+   X1 NOT INTERACT DUMMY_UBM >= UBM_R_5_C1
+   X1 AND REAL_UBM
+   X2 NOT INTERACT DUMMY_UBM >= UBM_R_5_C2 
+   X2 AND REAL_UBM
+}
+
+
+// Bump Pad Structure Rules
+//=========================
+
+BP.W.4 { @ Width of CBD/CB2 under UBM area >= ^BP_W_4 um 
+   CBD_UBM_center = EXTENTS CBD_UBM CENTERS 0.005
+   CBD_UBM_center NOT INSIDE CBD_UBM
+   ENC CBD_UBM_center CBD_UBM < (BP_W_4-TOL)/2 ABUT<90 SINGULAR REGION  
+   CB2_UBM_center = EXTENTS CB2_UBM CENTERS 0.005
+   CB2_UBM_center NOT INSIDE CB2_UBM
+   ENC CB2_UBM_center CB2_UBM < (BP_W_4-TOL)/2 ABUT<90 SINGULAR REGION  
+}  
+
+#IFDEF  with_PM
+BP.W.5 { @ Width of PM under UBM >= ^BP_W_5 um
+   PM_UBM_center = EXTENTS PM_UBM CENTERS 0.005
+   PM_UBM_center NOT INSIDE PM_UBM
+   ENC PM_UBM_center PM_UBM < (BP_W_5-TOL)/2 ABUT<90 SINGULAR REGION  
+}
+#ENDIF
+
+BP.W.6 { @ Width of UBM == ^BP_W_6 um 
+   UBM_center = EXTENTS UBM CENTERS 0.005
+   UBM_center NOT INSIDE UBM
+   ENC UBM_center UBM < (BP_W_6-TOL)/2 ABUT<90 SINGULAR REGION  
+   ENCLOSE RECTANGLE UBM 0.005 BP_W_6+TOL 
+}
+
+BP.EN.5 { @ CBD/CB2 enclosure by UBM >= ^BP_EN_5 um
+   ENC CBD_UBM UBM < BP_EN_5 - TOL ABUT < 90 SINGULAR REGION
+   CBD_UBM NOT UBM
+   CBD_CHECK = CBD NOT INTERACT ((FW_AP OR SRCSR) OR LMARK) 
+   CBD_CHECK NOT INTERACT UBM
+   ENC CB2_UBM UBM < BP_EN_5 - TOL ABUT < 90 SINGULAR REGION
+   CB2_UBM NOT UBM
+   CB2_CHECK = CB2 NOT INTERACT ((FW_AP OR SRCSR) OR LMARK)
+   CB2_CHECK NOT INTERACT UBM
+} 
+
+#IFDEF  with_PM
+BP.EN.6 { @ PM enclosure by CBD/CB2 >= ^BP_EN_6 um 
+   ENC PM_UBM CBD_UBM < BP_EN_6 - TOL ABUT < 90 SINGULAR REGION
+   ENC PM_UBM CB2_UBM < BP_EN_6 - TOL ABUT < 90 SINGULAR REGION
+   PM_UBM NOT (CB2_UBM OR CBD_UBM)  
+}
+#ENDIF
+
+BP.EN.7 { @ CBD enclosure by MT >= ^BP_EN_7 um
+   ENC CBD_UBM MT < BP_EN_7 ABUT < 90 SINGULAR REGION 
+   CBD_UBM NOT MT
+}
+
+BP.R.1 { @ CB2 on AP-MD for interconnection is not allowed [except UBM and sealring]
+   CB2_CHECK = ((CB2 NOT INTERACT UBM) NOT INTERACT SR_EDGE) NOT INTERACT CB 
+   CB2_CHECK AND AP
+}
+
+#IFDEF DFM
+
+CHIP_A1 = AREA CHIP_EDGE <= 100000000
+CHIP_A2 = AREA CHIP_EDGE > 100000000 <= 225000000
+CHIP_A3 = AREA CHIP_EDGE > 225000000 <= 400000000
+CHIP_A4  = AREA CHIP_EDGE > 400000000
+UBM_A1 = UBM INTERACT CHIP_A1
+UBM_A2 = UBM INTERACT CHIP_A2
+UBM_A3 = UBM INTERACT CHIP_A3
+UBM_A4 = UBM INTERACT CHIP_A4
+
+
+BP.R.2R {@ Recommended bump pitch selection according to chip size
+@  Area <= 100 mm2 , Bump pitch >= 150 
+@  100 mm2 < Area <= 225 mm2, Bump pitch >= 160     
+@  225 mm2 < Area <= 400 mm2, Bump pitch >= 180 
+@  Area > 400 mm2, Bump pitch >= 200
+   EXT (UBM_CENTER AND UBM_A1) < 150 - 0.01 ABUT < 90 REGION
+   EXT (UBM_CENTER AND UBM_A2) < 160 - 0.01 ABUT < 90 REGION
+   EXT (UBM_CENTER AND UBM_A3) < 180 - 0.01 ABUT < 90 REGION
+   EXT (UBM_CENTER AND UBM_A4) < 200 - 0.01 ABUT < 90 REGION
+}
+
+UBM.R.7R{@ Recommended UBM width selection according to chip size
+@  Area <= 100 mm2 , UBM width >= 80 
+@  100 mm2 < Area <= 225 mm2, UBM width >= 85     
+@  225 mm2 < Area <= 400 mm2, UBM width >= 90 
+@  Area > 400 mm2, UBM width >= 100
+   UBM_A1_center = EXTENTS UBM_A1 CENTERS 0.005
+   UBM_A1_center NOT INSIDE UBM_A1
+   ENC UBM_A1_center UBM_A1 < (80-TOL)/2 ABUT<90 SINGULAR REGION  
+   UBM_A2_center = EXTENTS UBM_A2 CENTERS 0.005
+   UBM_A2_center NOT INSIDE UBM_A2
+   ENC UBM_A2_center UBM_A2 < (85-TOL)/2 ABUT<90 SINGULAR REGION  
+   UBM_A3_center = EXTENTS UBM_A3 CENTERS 0.005
+   UBM_A3_center NOT INSIDE UBM_A3
+   ENC UBM_A3_center UBM_A3 < (90-TOL)/2 ABUT<90 SINGULAR REGION  
+   UBM_A4_center = EXTENTS UBM_A4 CENTERS 0.005
+   UBM_A4_center NOT INSIDE UBM_A4
+   ENC UBM_A4_center UBM_A4 < (100-TOL)/2 ABUT<90 SINGULAR REGION  
+}
+
+#ENDIF
+
+
+
+// Polyimide window rules (PM)
+//============================
+#IFDEF  with_PM
+
+PM.W.2 { @ width (Not interact with CBD/CB2 region) >= ^PM_W_2 um
+   PM_width_check = (((PM NOT INTERACT UBM) NOT INTERACT CBD) NOT INTERACT CB2) NOT INTERACT SR_EDGE
+   INT PM_width_check < PM_W_2 ABUT < 90 SINGULAR REGION
+}
+
+PM.S.1 { @ Space or Space to chip edge >= ^PM_S_1 um
+   EXT PM < PM_S_1 ABUT < 90 SINGULAR REGION
+   ENC PM CHIP_EDGE < PM_S_1 ABUT >0 < 90 SINGULAR REGION
+}
+
+
+PM.R.3 { @ Polyimide is not allowed over sealring area. 
+@ PM is a drawn layer for flip chip desige. It cannot be generated by logic operation.
+@ Please draw PM over LMARK and FW    
+   SR_EDGE NOT PM
+   LMARK NOT PM
+   FW NOT PM
+}
+
+#ENDIF
+
+#IFDEF with_AP
+
+// RV Layout Rules  
+//==============================================
+
+RV_CHECK = RV NOT INSIDE SRCSR
+
+RV.W.1 {@ Width (maximum = minimum) (Not inside seal ring) = ^RV_W_1 um
+  NOT RECTANGLE RV_CHECK == RV_W_1 BY == RV_W_1 ORTHOGONAL ONLY
+}
+
+RV.S.1 {@ Space >= ^RV_S_1 um
+  EXT RV < RV_S_1 ABUT < 90 SINGULAR REGION
+}
+
+RV.S.2 {@ Space to UBM (overlap not allowed) >= 0 um 
+   RV AND UBM 
+}
+
+RV.EN.1 {@ Enclosure by Mtop (Not inside seal ring) >= ^RV_EN_1 um
+  ENC RV_CHECK MT < RV_EN_1 ABUT < 90 SINGULAR REGION
+  RV_CHECK NOT MT
+}
+
+
+RV.R.1 {@ A 45-degree rotated RV is prohibited.(Not inside seal ring)
+  ANGLE RV_CHECK >0 <90
+}
+
+
+RV.R.3 {@ {CBD inside CB2} enclosure by CB2 = 0 (CBD and CB2 must draw same size, and identical shape). 
+    A = CBD_UBM INTERACT CB2_UBM 
+    B = CB2_UBM INTERACT CBD_UBM
+    A XOR B
+}
+
+// AP Layout Rules
+//=================
+
+
+AP_CHECK = AP NOT INSIDE SRCSR
+
+AP.W.1 { @ Width [interconnect only] [ not inside FW_AP or sealring] >= ^AP_W_1 um
+   A = AP_CHECK NOT FW_AP 
+   INT A < AP_W_1 ABUT < 90 SINGULAR REGION
+}
+
+AP.W.2 { @ Maximum width [interconnect only] [ not inside UBM, CB or CB2] <= ^AP_W_2 um
+   A = ((AP NOT UBM) NOT CB) NOT CB2
+   WITH WIDTH A > AP_W_2
+}
+
+AP.S.1 { @ Space >= ^AP_S_1 um
+   EXT AP < AP_S_1 ABUT < 90 SINGULAR REGION
+}
+
+AP.S.2 { @ Space to FW_CU/FW_AP [(overlap FW_CU)/(Cut FW_AP) is prohibited] >= ^AP_S_2 um
+   EXT AP FW < AP_S_2 ABUT < 90 SINGULAR REGION
+   AP AND FW_Cu
+   AP CUT FW_AP
+}
+
+AP.S.3 { @ Space to LMARK [overlap is prohibited, except seal-ring] >= ^AP_S_3 um
+  EXT AP_CHECK LMARK < AP_S_3 ABUT < 90 SINGULAR REGION
+  AP_CHECK AND LMARK
+}
+
+AP.S.4 { @ Space to CB2/PM [overlap is prohibited except UBM and seal ring] >= ^AP_S_4 um  
+  CB2_CHECK = CB2 NOT CB2_UBM
+  EXT AP_CHECK CB2_CHECK < AP_S_4 ABUT < 90 SINGULAR REGION 
+  AP_CHECK AND (CB2_CHECK NOT CB)
+#IFDEF with_PM
+  PM_CHECK = PM NOT PM_UBM
+  EXT AP_CHECK PM_CHECK  < AP_S_4 ABUT < 90 SINGULAR REGION 
+  AP_CHECK AND (PM_CHECK NOT INTERACT CB)
+#ENDIF
+}
+
+AP.EN.1 { @ Enclosured of RV (Not inside seal ring) >= ^AP_EN_1 um
+  ENC RV_CHECK AP_CHECK < AP_EN_1 ABUT < 90 SINGULAR REGION
+  RV_CHECK NOT AP_CHECK 
+}
+
+AP.DN.1.L { @ AP density across full chip >= ^AP_DN_1_L
+  DENSITY AP < AP_DN_1_L INSIDE OF LAYER CHIP_EDGE PRINT AP.DN.1L.density
+}
+
+AP.DN.1.H { @ AP density across full chip <= ^AP_DN_1_H
+  DENSITY AP > AP_DN_1_H INSIDE OF LAYER CHIP_EDGE PRINT AP.DN.1H.density    
+}
+
+#ENDIF 
+

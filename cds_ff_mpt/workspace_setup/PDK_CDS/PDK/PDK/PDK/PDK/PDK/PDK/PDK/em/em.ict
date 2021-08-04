@@ -1,0 +1,308 @@
+### cds_ff_mpt GPDK process ictfile
+process "em" {
+   em_tref 110
+   em_output_wlt drawn
+   em_variables w l
+   em_conductor_unit mA/um
+   em_via_area_unit mA
+   em_via_unit mA
+   em_lifetime_units hours
+   em_segment_length total
+}
+
+conductor "LiPo" {
+   em_model {
+      em_jmax_dc_avg EQU 7 * (w - 0.002)         jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0
+   }
+}
+
+conductor "LiAct" {
+   em_model {
+      em_jmax_dc_avg EQU 11 * (w-0.002)          jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0
+   }
+}
+
+conductor "M1" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "M2" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "M3" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "M4" { 
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "M5" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "M6" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "M7" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+conductor "MT" {
+   em_model {
+      em_jmax_dc_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_dc_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_dc_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_ac_avg EQU 2.5 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5          L <= 5
+      em_jmax_ac_avg EQU 1.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5                      W <  0.064
+      em_jmax_ac_avg EQU 2.0 * 1.05 * (w-0.002)  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  L >  5          W >= 0.064
+
+      em_jmax_dc_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+      em_jmax_ac_avg EQU 0.23 * ( 4.1 * sqrt( w ) ) + ( 3.8 * w )
+   }
+}
+
+via "Poly_LiPo" {
+   top_layer "LiPo"
+   bottom_layer "Poly"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.1656 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0
+   }
+}
+
+via "Active_LiAct" {
+   top_layer "LiAct"
+   bottom_layer "Active"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5  Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0 
+   }
+}
+
+via "V0" {
+   top_layer "M1"
+   bottom_layer "LiAct"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5  Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0 
+   }
+}
+
+via "V0_LiPo" {
+   top_layer "M1"
+   bottom_layer "LiPo"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  2  Lu <= 5  Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >  5           Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 4.0 105 3.5 110 3.0 120 2.5 150 2.0 
+   }
+}
+
+via "V1" {
+   top_layer "M2"
+   bottom_layer "M1"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.1656 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5
+   }
+}
+
+via "V2" {
+   top_layer "M3"
+   bottom_layer "M2"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5
+   }
+}
+
+via "V3" {
+   top_layer "M4"
+   bottom_layer "M3"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5
+   }
+}
+
+via "V4" {
+   top_layer "M5"
+   bottom_layer "M4"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5
+   }
+}
+
+via "V5" {
+   top_layer "M6"
+   bottom_layer "M5"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5 
+   }
+}
+
+via "V6" {
+   top_layer "M7"
+   bottom_layer "M6"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064  single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5 
+   }
+}
+
+via "VT" {
+   top_layer "MT"
+   bottom_layer "M7"
+   em_model {
+      em_vcwidth 0.03200
+      em_jmax_dc_avg PWL 0.10 0.001024 0.2000 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5           Lu <= 2
+      em_jmax_dc_avg PWL 0.08 0.001024 0.1600 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  2  Lu <= 5  Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.06 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.10 0.001024                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >  5           Wu >= 0.064 single
+      em_jmax_dc_avg PWL 0.14 0.002560                 jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5  Lu >= 4           Wu >= 0.064
+      em_jmax_dc_avg PWL 0.02 0.001024 0.0552 0.00256  jmax_factor 100 2.0 105 1.5 110 1.0 120 0.5 150 0.1  jmax_life 50000 2.0 100000 1.0 200000 0.5 
+   }
+}

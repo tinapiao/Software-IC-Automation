@@ -1,0 +1,184 @@
+lib_name: bag_serdes_ec
+cell_name: qdr_sampler_column
+pins: [ "VDD", "VSS", "inp_data<3:0>", "inn_data<3:0>", "inp_dlev<3:0>", "inn_dlev<3:0>", "clkp", "clkn", "data<3:0>", "scan_div<3:2>", "en_div", "en<3:0>", "dlev<3:0>", "des_clk", "des_clkb", "sa_data<3:0>", "sa_dlev<3:0>" ]
+instances:
+  PIN1:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN0:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN9:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN8:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN7:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN6:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN5:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN4:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN3:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN2:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN12:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN13:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN14:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN11:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN15:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN16:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN10:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  XSA:
+    lib_name: bag_serdes_ec
+    cell_name: qdr_senseamp_column
+    instpins:
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      en<3:0>:
+        direction: input
+        net_name: "en<3:0>"
+        num_bits: 4
+      sa_dlev<3:0>:
+        direction: output
+        net_name: "sa_dlev<3:0>"
+        num_bits: 4
+      sa_data<3:0>:
+        direction: output
+        net_name: "sa_data<3:0>"
+        num_bits: 4
+      inn_data<3:0>:
+        direction: input
+        net_name: "inn_data<3:0>"
+        num_bits: 4
+      inn_dlev<3:0>:
+        direction: input
+        net_name: "inn_dlev<3:0>"
+        num_bits: 4
+      inp_data<3:0>:
+        direction: input
+        net_name: "inp_data<3:0>"
+        num_bits: 4
+      inp_dlev<3:0>:
+        direction: input
+        net_name: "inp_dlev<3:0>"
+        num_bits: 4
+  XDIV:
+    lib_name: bag_serdes_ec
+    cell_name: qdr_divider_column
+    instpins:
+      en_div:
+        direction: input
+        net_name: "en_div"
+        num_bits: 1
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      en<3:0>:
+        direction: output
+        net_name: "en<3:0>"
+        num_bits: 4
+      clkn:
+        direction: input
+        net_name: "clkn"
+        num_bits: 1
+      clkp:
+        direction: input
+        net_name: "clkp"
+        num_bits: 1
+      scan_div<3:2>:
+        direction: input
+        net_name: "scan_div<3:2>"
+        num_bits: 2
+  XRE:
+    lib_name: bag_serdes_ec
+    cell_name: qdr_retimer_column
+    instpins:
+      des_clkb:
+        direction: output
+        net_name: "des_clkb"
+        num_bits: 1
+      des_clk:
+        direction: output
+        net_name: "des_clk"
+        num_bits: 1
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      data<3:0>:
+        direction: output
+        net_name: "data<3:0>"
+        num_bits: 4
+      dlev<3:0>:
+        direction: output
+        net_name: "dlev<3:0>"
+        num_bits: 4
+      sa_dlev<3:0>:
+        direction: input
+        net_name: "sa_dlev<3:0>"
+        num_bits: 4
+      sa_data<3:0>:
+        direction: input
+        net_name: "sa_data<3:0>"
+        num_bits: 4
+      en<3:0>:
+        direction: input
+        net_name: "en<3:0>"
+        num_bits: 4

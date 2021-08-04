@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      xiangsh2
+HostName                       ug158.eecg.toronto.edu
+ProcessIdentifier              11525
+ProcessCreationTime_UTC        1613332031
+ProcessCreationTime_Readable   Sun Feb 14 14:47:11 2021 EST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/tsmc_N65_invertertemplates/guard_ring_nwell/layout/layout.oa.cdslck
+TimeEditLocked                 Mon Feb 15 15:19:14 2021 EST

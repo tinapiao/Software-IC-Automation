@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<setupdb version="6">ocean_default
+	<active>Active Setup
+		<tests>
+			<test enabled="1">AN_INVERTER_496:INVERTER_tb:1
+				<tool>ADE</tool>
+				<tooloptions>
+					<option>cell
+						<value>INVERTER_tb</value>
+					</option>
+					<option>lib
+						<value>AN_INVERTER_496</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>config</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/states/ocean_default/test_states</value>
+					</option>
+					<option>state
+						<value>AN_INVERTER_496:INVERTER_tb:1_active</value>
+					</option>
+				</tooloptions>
+				<origoptions>
+					<option>cell
+						<value>INVERTER_tb</value>
+					</option>
+					<option>lib
+						<value>AN_INVERTER_496</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>schematic</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/test_states</value>
+					</option>
+					<option>state
+						<value>state1</value>
+					</option>
+				</origoptions>
+				<outputs>
+					<output>Vout_Swing_PP
+						<evalType>point</evalType>
+					</output>
+					<output>RiseTime
+						<evalType>point</evalType>
+					</output>
+					<output>FallTime
+						<evalType>point</evalType>
+					</output>
+				</outputs>
+			</test>
+		</tests>
+		<vars>
+			<var>BW
+				<value>6.000000e+09</value>
+				<dependentTests>
+					<dependentTest enabled="1">AN_INVERTER_496:INVERTER_tb:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>CL
+				<value>5.000000e-13</value>
+				<dependentTests>
+					<dependentTest enabled="1">AN_INVERTER_496:INVERTER_tb:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>Vin
+				<value>1.000000e+00</value>
+				<dependentTests>
+					<dependentTest enabled="1">AN_INVERTER_496:INVERTER_tb:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>Rin
+				<value>8.000000e+02</value>
+				<dependentTests>
+					<dependentTest enabled="1">AN_INVERTER_496:INVERTER_tb:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>Cin
+				<value>1.000000e-15</value>
+				<dependentTests>
+					<dependentTest enabled="1">AN_INVERTER_496:INVERTER_tb:1</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vtest
+				<value>1</value>
+				<dependentTests></dependentTests>
+			</var>
+		</vars>
+		<currentmode>Single Run, Sweeps and Corners</currentmode>
+		<disabledtests></disabledtests>
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<corners>
+			<corner enabled="0">_default</corner>
+			<corner enabled="1">tt
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"tt_lvt"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">tt_lvt
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"tt_lvt"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+		</corners>
+	</active>
+	<history>History</history>
+</setupdb>

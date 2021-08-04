@@ -1,0 +1,13 @@
+#cadence base libraries
+DEFINE     analogLib    $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE     basic        $CDSHOME/tools/dfII/etc/cdslib/basic
+#DEFINE     avTech       /tools/cadence/ASSURA/ASSURA_615/tools/assura/etc/avtech/avTech
+DEFINE     avTech       /CMC/tools/cadence/ASSURA04.15.001-617_lnx86/tools.lnx86/assura/etc/avtech/avTech
+
+#technology base libraries
+#DEFINE     cds_ff_mpt   $BAG_TECH_CONFIG_DIR/workspace_setup/PDK/cds_ff_mpt
+#DEFINE      tsmcN65      $BAG_TECH_CONFIG_DIR/workspace_setup/PDK/tsmcN65
+DEFINE      tsmcN65      /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65
+
+# BAG Libraries
+INCLUDE cds.lib.bag

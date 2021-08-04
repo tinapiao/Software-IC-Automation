@@ -1,0 +1,18 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "cml"
+  repList "auCdl schematic"
+  stopList "auCdl"
+  hierDelim "."
+  netlistDir "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/"
+ )
+( model
+( "AAAFOO_DIFFAMP_PAPER/cml/schematic" "cml" )
+( "AAAFOO_DIFFAMP_PAPER/load_pmos/schematic" "load_pmos" )
+( "AAAFOO_DIFFAMP_PAPER/gm/schematic" "gm" )
+ )
+( "cml" "ihnl/cds2/map" )
+( "load_pmos" "ihnl/cds0/map" )
+( "gm" "ihnl/cds1/map" )
+ )

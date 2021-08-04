@@ -1,0 +1,12 @@
+# Automagically generated file: Please do not edit!
+lvs_ExtfVersion 3
+lvs_ExtRunTimes 1583293710 1583293713
+lvs_ExtOutFile RUNDIR /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir
+lvs_ExtOutFile RULES_FILE /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+lvs_ExtInfoExtSummary {3 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoErcSummary {6 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoDfmSummary {0}
+lvs_ExtOutFile LAYOUT_NETLIST /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/DIFFAMP_lch_60n.sp
+lvs_ExtOutFile EXTRACTION_REPORT DIFFAMP_lch_60n.lvs.report.ext
+lvs_ExtOutFile ERC_DATABASE DIFFAMP_lch_60n.erc.results
+lvs_ExtOutFile ERC_SUMMARY DIFFAMP_lch_60n.erc.summary

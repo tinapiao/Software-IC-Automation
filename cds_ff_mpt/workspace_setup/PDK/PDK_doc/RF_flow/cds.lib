@@ -1,0 +1,6 @@
+DEFINE cdsDefTechLib $CDSHOME/tools/dfII/etc/cdsDefTechLib 
+DEFINE basic $CDSHOME/tools/dfII/etc/cdslib/basic
+DEFINE analogLib $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE tsmcN65 ../../tsmcN65
+DEFINE layout_lib ./layout_lib
+DEFINE lna_lib_n65 ./lna_lib_n65

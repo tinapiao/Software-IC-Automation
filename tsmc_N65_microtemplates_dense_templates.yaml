@@ -1,0 +1,487 @@
+tsmc_N65_cmltemplates:
+  activeload_two_finger_p:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - -0.38
+        xy1:
+        - 0.35
+        - -0.2
+      G:
+        layer:
+        - M1
+        - pin
+        netname: G
+        xy0:
+        - 0.035
+        - -0.09
+        xy1:
+        - 0.485
+        - 0.09
+      S0:
+        layer:
+        - M1
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - 0.49
+        xy1:
+        - 0.09
+        - 0.67
+      S1:
+        layer:
+        - M1
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - 0.49
+        xy1:
+        - 0.61
+        - 0.67
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  currentmirror_ref_n:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - 1.07
+        xy1:
+        - 0.35
+        - 1.25
+      G:
+        layer:
+        - M2
+        - pin
+        netname: G
+        xy0:
+        - 0.17
+        - 0.78
+        xy1:
+        - 0.35
+        - 0.96
+      S0:
+        layer:
+        - M2
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+      S1:
+        layer:
+        - M2
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - -0.09
+        xy1:
+        - 0.61
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 1.16
+  currentmirror_ref_p:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - -1.25
+        xy1:
+        - 0.35
+        - -1.07
+      G:
+        layer:
+        - M2
+        - pin
+        netname: G
+        xy0:
+        - 0.17
+        - -0.96
+        xy1:
+        - 0.35
+        - -0.78
+      S0:
+        layer:
+        - M2
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+      S1:
+        layer:
+        - M2
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - -0.09
+        xy1:
+        - 0.61
+        - 0.09
+    xy0:
+    - 0.0
+    - -1.16
+    xy1:
+    - 0.52
+    - 0.0
+  currentmirror_single_n:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - 1.07
+        xy1:
+        - 0.35
+        - 1.25
+      G:
+        layer:
+        - M2
+        - pin
+        netname: G
+        xy0:
+        - 0.17
+        - 0.78
+        xy1:
+        - 0.35
+        - 0.96
+      S0:
+        layer:
+        - M2
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+      S1:
+        layer:
+        - M2
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - -0.09
+        xy1:
+        - 0.61
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 1.16
+  currentmirror_single_p:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - -1.25
+        xy1:
+        - 0.35
+        - -1.07
+      G:
+        layer:
+        - M2
+        - pin
+        netname: G
+        xy0:
+        - 0.17
+        - -0.96
+        xy1:
+        - 0.35
+        - -0.78
+      S0:
+        layer:
+        - M2
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+      S1:
+        layer:
+        - M2
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - -0.09
+        xy1:
+        - 0.61
+        - 0.09
+    xy0:
+    - 0.0
+    - -1.16
+    xy1:
+    - 0.52
+    - 0.0
+  diffpair_two_finger_n:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - 0.78
+        xy1:
+        - 0.35
+        - 0.96
+      G:
+        layer:
+        - M1
+        - pin
+        netname: G
+        xy0:
+        - 0.035
+        - 0.49
+        xy1:
+        - 0.485
+        - 0.67
+      S0:
+        layer:
+        - M1
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+      S1:
+        layer:
+        - M1
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - -0.09
+        xy1:
+        - 0.61
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  diffpair_two_finger_p:
+    pins:
+      D:
+        layer:
+        - M3
+        - pin
+        netname: D
+        xy0:
+        - 0.17
+        - -0.96
+        xy1:
+        - 0.35
+        - -0.78
+      G:
+        layer:
+        - M1
+        - pin
+        netname: G
+        xy0:
+        - 0.035
+        - -0.67
+        xy1:
+        - 0.485
+        - -0.49
+      S0:
+        layer:
+        - M1
+        - pin
+        netname: S0
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+      S1:
+        layer:
+        - M1
+        - pin
+        netname: S1
+        xy0:
+        - 0.43
+        - -0.09
+        xy1:
+        - 0.61
+        - 0.09
+    xy0:
+    - 0.0
+    - -0.58
+    xy1:
+    - 0.52
+    - 0.0
+  guard_ring_nwell:
+    pins:
+      nwell:
+        layer:
+        - M1
+        - pin
+        netname: nwell
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  guard_ring_psub:
+    pins:
+      psub:
+        layer:
+        - M1
+        - pin
+        netname: psub
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  res_1k_n:
+    pins:
+      N:
+        layer:
+        - M1
+        - pin
+        netname: N
+        xy0:
+        - 0.17
+        - -0.09
+        xy1:
+        - 0.35
+        - 0.09
+      P:
+        layer:
+        - M1
+        - pin
+        netname: P
+        xy0:
+        - 0.17
+        - 1.07
+        xy1:
+        - 0.35
+        - 1.25
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 1.45
+  res_1k_p:
+    pins:
+      N:
+        layer:
+        - M1
+        - pin
+        netname: N
+        xy0:
+        - 0.17
+        - -0.09
+        xy1:
+        - 0.35
+        - 0.09
+      P:
+        layer:
+        - M1
+        - pin
+        netname: P
+        xy0:
+        - 0.17
+        - -1.25
+        xy1:
+        - 0.35
+        - -1.07
+    xy0:
+    - 0.0
+    - -1.45
+    xy1:
+    - 0.52
+    - 0.0
+  via_M1_M2_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  via_M2_M3_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  via_M3_M4_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0

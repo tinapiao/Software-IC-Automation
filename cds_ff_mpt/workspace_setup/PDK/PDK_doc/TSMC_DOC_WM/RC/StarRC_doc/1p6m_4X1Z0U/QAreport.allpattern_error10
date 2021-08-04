@@ -1,0 +1,25 @@
+spice doc vs xCalibre correlation
+* Created: Sun Aug 16 13:48:06 2009
+* Program "Calibre xRC"
+* Version "v2008.3_16.12"
+
+STRUCTURE	Doc	  xCalibre	Doc	xCalibre
+        	cap	  cap		res	res
+
+
+xCalibre statistic for all structures
+error dist.
+	net#
+Cap	net#/totalnet	totalnet=0
+0	 0	
+
+
+
+error dist.
+	net#
+Res	net#/totalnet	totalnet=0
+0	 0	
+
+Where error = 100 * ( TOOL_value - DOC_value) / DOC_value
+
+

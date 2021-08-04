@@ -1,0 +1,256 @@
+
+			P	D	K
+
+    	        TSMC 65NM Mixed Signal RF SALICIDE Low-K IMD(1.0V/2.5V/2.5V_OD/1.8V_UD)  
+			
+
+
+Revision  		Date      	 Description
+-----------------	-------		--------------------------
+ 0.02a pre-release	02/16/07'	* Initial PDK pre-release
+					* Includes three types of model cards:
+					
+						1.crn65gplus_rf_v0d02.eldo  (eldo)
+						2.crn65gplus_rf_v0d02.l     (hspice)
+						3.crn65gplus_rf_v0d02.scs   (spectre) 
+					
+					* Includes technology file - Vir65nm_8M_5X2Z_v12c.pre020107.tf, Ver 1.2c.pre
+					  for TSMC 65nm 8M with 5X2Z metal scheme process
+
+					* Includes Calibre DRC command file - CMN65S 1P8M_5X2Z.02a pre020907
+  					  T-N65-CM-DR-001 VER. 0.2
+ 					  T-N65-CL-DR-001 VER. 1.3
+					
+					* Includes Calibre LVS/RC command file - V1.2b
+					  T-N65-CL-LS-001 V1.2
+				
+					* Support npn, pnp, npn_mis, pnp_mis for Bipolar devices
+
+					* Support mimcap, mimcap_3t, mimcap_um_rf and mimcap_woum_rf for MIMCAP devices
+					
+					* Support unit MIM capacitance of 1.0fF/1.5fF/2.0fF
+
+					* Support crtmom, crtmom_rf and crtmom_mx for MOM devices
+
+					* Support nch/pch std-vt, high-vt, low-vt, negative-vt, 2.5V and 3.3V for BB MOS devices
+
+					* Support nmos/pmos std-vt, high-vt, low-vt, 2.5V and 3.3V for RFMOS devices 
+
+					* Support nmoscap, moscap_rf and junction varactor devices
+						  nmoscap	  nmoscap_25
+						  moscap_rf	  moscap_rf_nw
+						  moscap_rf25	  moscap_rf25_nw
+						  xjvar		  xjvar_nw
+
+					* Support only 1p8m-5x2z metal scheme.
+
+ 0.02b pre-release      03/23/07'       * Includes three types of model cards:
+					
+						1.crn65gplus_rf_v0d02.eldo  (eldo)
+						2.crn65gplus_rf_v0d02.l     (hspice)
+						3.crn65gplus_rf_v0d02.scs   (spectre) 
+					
+					* Includes technology file -
+					  Vir65nm_6M_3X1Z1U_v13a.tf Ver 1.3a
+					  for TSMC 65nm 6M with 3X1Z1U metal scheme process
+
+					* Includes Calibre DRC command file - CMN65S_P6M_3X1Z1U.02a pre020907
+  					  T-N65-CM-DR-001 VER. 0.2
+ 					  T-N65-CL-DR-001 VER. 1.3
+					
+					* Includes Calibre LVS/RC command file - V1.2b2
+					  T-N65-CL-LS-001 V1.2
+				
+					* Support spiral_inductor
+					  spiral_std_MU_Z
+					  spiral_sym_MU_Z
+					  spiral_sym_ct_MU_Z
+
+					* Support only 1p6m-3x1z1u metal scheme.
+
+ 0.02c pre-release	 04/16/07'	* Includes technology file - Ver 1.3a
+ 					  T-N65-CL-LE-002 (Virtuoso)
+ 					  
+ 					* Includes Calibre DRC command file - CMN65S (Ver 1.0  03/29/2007)
+  					  T-N65-CM-DR-001 VER. 1.0
+ 					  T-N65-CL-DR-001 VER. 1.3
+ 					  
+ 					* Includes Calibre LVS/RC command file - V1.2c_pre032907 , 03/29/2007
+					  T-N65-CL-LS-001 V1.2
+				
+					* Support logic spiral_inductor
+					  spiral_std_MZA_A
+					  spiral_sym_MZA_A
+					  spiral_sym_ct_MZA_A
+
+					* Support following metal scheme 
+					
+						1p9m-6x2z0u metal scheme
+					 	1p9m-6x1z1u metal scheme
+					  	1p8m-6x1z0u metal scheme
+					  	1p8m-6x0z1u metal scheme
+					  	1p8m-5x2z0u metal scheme
+					  	1p8m-5x1z1u metal scheme
+					  	1p7m-5x1z0u metal scheme
+					  	1p7m-5x0z1u metal scheme
+					  	1p7m-4x2z0u metal scheme
+					  	1p7m-4x1z1u metal scheme
+					  	1p6m-4x1z0u metal scheme
+					  	1p6m-4x0z1u metal scheme
+					  	1p6m-3x2z0u metal scheme
+					  	1p6m-3x1z1u metal scheme
+
+ 0.03a pre-release	 05/18/07'	* This PDK for (FEOL) is Gplus process and (BEOL) is LP process.
+
+
+					* New model card CRN65GPLUS_RF_V0d03
+ 					           1.Hspice
+ 					           2.Spectre
+ 					   
+ 					* Two metal schemes
+ 						   1.1P9M_6X1Z1U
+ 						   2.1P8M_5X2Z0U
+ 						   
+ 					* Includes technology file - Ver 1.3a
+ 					  T-N65-CL-LE-002 (Virtuoso)
+ 					  
+ 					* Includes Calibre DRC command file - CMN65S (Ver 1.0  03/29/2007)
+  					  T-N65-CM-DR-001 VER. 1.0
+ 					  T-N65-CL-DR-001 VER. 1.3
+ 						              
+ 										
+
+ 0.03b pre-release	 06/30/07'	* Make it to general offer 14 metal schemes
+						 1 - 1p9m_6X2Z0U_ALRDL (Support MiM capacitors)
+					  	 2 - 1p9m_6X1Z1U_ALRDL (Support MiM capacitors and UTM inductors)
+					  	 3 - 1p8m_6X1Z0U_ALRDL (Support MiM capacitors and logic inductors)
+					  	 4 - 1p8m_6X0Z1U_ALRDL (Do not support MiM capacitors and inductors)
+					  	 5 - 1p8m_5X2Z0U_ALRDL (Support MiM capacitors)
+					  	 6 - 1p8m_5X1Z1U_ALRDL (Support MiM capacitors and UTM inductors)
+					 	 7 - 1p7m_5X1Z0U_ALRDL (Support MiM capacitors and logic inductors)
+					 	 8 - 1p7m_5X0Z1U_ALRDL (Do not support MiM capacitors and inductors)
+					 	 9 - 1p7m_4X2Z0U_ALRDL (Support MiM capacitors)
+					   	10 - 1p7m_4X1Z1U_ALRDL (Support MiM capacitors and UTM inductors)
+					   	11 - 1p6m_4X1Z0U_ALRDL (Support MiM capacitors and logic inductors)
+					   	12 - 1p6m_4X0Z1U_ALRDL (Do not support MiM capacitors and inductors)
+					   	13 - 1p6m_3X2Z0U_ALRDL (Support MiM capacitors)
+					   	14 - 1p6m_3X1Z1U_ALRDL (Support MiM capacitors and UTM inductors)
+ 					 
+					* Support both UTM inductors and logic inductors
+
+					  UTM inductor		   logic inductors
+					  spiral_std_mu_z	   spiral_std_mza_a	 
+					  spiral_sym_mu_z	   spiral_sym_mza_a  
+					  spiral_sym_ct_mu_z	   spiral_sym_ct_mza_a
+					
+					* Fix the HardCons limit (PO.L.1) of baseband mos/ macro device
+
+					* Fix the NW layer and LVSDMY layer problem of p-type macro device
+
+
+1.0p2a  		11/05/07'	* Change 2.5V model card to version 1.0p2
+					* Support TIF function (TSMC Inductor Finder).Please use linux 5141_USR4.(64bit machine)
+					* Support TCF function (TSMC Capacitor Finder).Please use linux 5141_USR4.(64bit machine)
+					* Support continues model for spiral inductors. Because want to fit
+					  continues characteristic, the spiral inductors layout are a little
+					  difference from CRN65GP PDK V0.03b. Please pay attention to the  modifications.
+					* Support 3T parasitic device
+					* Support UTM mimcap devices such as 
+						mimcap_udc		
+						mimcap_udc_3t
+						mimcap_um_udc_rf
+						mimcap_woum_udc_rf
+					* Support UTM spiral inductor devices such as
+						spiral_std_mu_a
+						spiral_sym_mu_a
+						spiral_sym_ct_mu_a
+					  in metal scheme 1p8m_6X0Z1U/1p7m_5X0Z1U/1p6m_4X0Z1U	
+					* Not support for nmos_rf_lvt/nmos_rf_hvt/nmos_rf_mlvt
+                                                          pmos_rf_lvt/pmos_rf_hvt/pmos_rf_mlvt
+                                          due to the V1.0p2 model card.
+					* Support space parameter in all spiral inductor devices and users can change inductors' spacing.	
+					* Add DMEXCL layer in mimcap devcie	
+					* Add LNA reference design flow guideline with silicon data
+					* Resistors' entry_mode CDF property was turned off, users can input length & width to change res
+					  value or input res value to modify length directory.
+					* Fix 3T device spectre netlist problem	
+						rppoly_m	rppoly_mx
+						rnpoly_m	rnpoly_mx
+						rppolywo_m	rppolywo_mx
+						rnpoly_mx	rnpolywo_mx	
+					* Fix BBMOS "SD" value,when turn on DFM option. The SD value will from 200n to 220n.
+					* Fix PASS logic gate pin property input(A)--->input/output(A) and 
+					  output(Y)--->input/output(Y).Because pin A/Y don't have directivity.				           
+
+1.0a official           03/15/08'	* Change 2.5V model card to version 1.0
+						DOC_No:T-N65-CM-SP-018
+					* Change DRC command file to version 1.4a
+						DOC_No:T-N65-CL-DR-001 REV 1.4
+					* Change virtuoso techfile to version 1.4a pre
+					* Change content of Bipolars category. Move the following devices to do_not_use category.
+                                                 BJT22   BJT22_MIS    BJT_NPN_22    BJT_NPN_22_MIS
+                                                 BJT55   BJT55_MIS    BJT_NPN_55    BJT_NPN_55_MIS
+                                                 BJT1010 BJT1010_MIS  BJT_NPN_1010  BJT_NPN_1010_MIS
+					* Change the name from "DFM_DRMv13" to "DFM" of baseband mos DFM_options.
+					* Change the following resistors' min. length from 800nm to 400nm for new DRC deck
+                                                 rnod           rnod_m          rnod_mx
+                                                 rnpoly         rnpoly_m        rnpoly_mx
+                                                 rpod           rpod_m          rpod_mx
+                                                 rppoly         rppoly_m        rppoly_mx
+					* Due to the marco model has the "scale" parameter of nmoscap,nmoscap_25,moscap_rf,moscap_rf_nw,moscap_rf25 and moscap_rf25_nw devices.
+					  The version 1.0a PDK take off the scale parameter in device CDF.
+					* Add new functions on baseband mos devices
+					         support "DFM+Analog" option (only support DFM "Action Required" and "Analog" rules) 
+						 support design variable when WPE set to "auto"
+					* Add "AMS" view in PDK devices
+					* Add new utilities in PDK
+						 add utility to help transfer WPE <-->AUTO
+						 add utility to help transfer minRule <-->DFM+Analog
+						 add "DFM option" in guard-ring utility 
+					* Fix N-type RF MOS layout layers including "RFDMY","DNW","DMEXCEL"
+					  "PDK drawing"and "OD drawing" ...etc shrink 200ns in left and right side
+					* Fix the pcell bug of I/O RF MOS in creating dummy poly aside. 
+					* Fix the DRC violation when turn-on "body-tie" option in baseband mos devices
+					* Fix Callback error of SA/SB value when consider Ldiff_ext/Rdiff_ext/LGA_CO_SP_INC/RGA_CO_SP_INC cases
+					* Fix resistors output netlist problem
+					* Fix turn-on/turn-off guard-ring problems in rppoly_rf and rppolywo_rf.
+					* Fix the pcell code of spiral_sym_ct to avoid DRC violation of the followings, this may change the layout of spiral_sym_ct device.
+             					 Mx.S.2	       Mx.S.2.1
+						 IND.S.2.Mx    IND.S.4.Mx
+
+
+1.0b official		09/19/08'	* Change RTMOM layout from rectangle dummy OD to strip dummy OD. 
+					* Enhance RTMOM layout connectivity from top metal layer to all 
+					  RTMOM stack layers and the connection pin from top/bottom to "L-shape" 
+					  increase route flexibility.
+					* Add 1p8m_5x2z0u RC Raphael Table in order to support parasitic devices.
+					* Fix mosfet layout pcell issue in "SDshrink" and "routePolydir" option.
+					* Solve Cadence tool issue of device hspiceD current probe problem
+					* Fix eldoD netlist out of two terminal resistors: 
+						rnod		rnodwo		rnpoly		rnpolywo
+						rpod		rpodwo		rppoly		rppolywo                
+					   (TSMC PDK fix the propMapping "nil l sumL w sumW" --> "nil"
+			                   this revise will avoid the sumL/sumW into  l/w ) 	
+			                * Change the default value typo of mimcap_udc*(2T/3T)and the default value typo of mimcap* (2T/3T) 
+					* Fix TSMC Utility -> "Add MOM key license" error when user installs "MM" (mixed-mode pdk).
+					* Fix AMS netlist out due to Cadence AMS netlist out tool issue.
+					   (Resistors AMS netlist problem in serial/parallel in resistor segment)
+
+
+
+1.0c official		04/12/10'	* Bug fix: remove UTM metal resistors( ex.rm6u/rm7u ...) due to there is no rmt model in model card. 
+					* Remove ads and hspiceS view for all devices
+					* Update techfile/DRC/LVS/RCX decks and add CCI flow verification
+					* Fix rppoly_rf resistor equation
+					* Modify libInit.il for adding hspiceD include section
+					* Integrate calview_cell.map.wi_mim and calview_cell.map.wo_mim in one naming calview_cell.map
+					* Update new estiRC_cdf.pl 
+                                        * Fix xjvar/xjvar_nw equations for accuracy and add crtmom_mx cap calculation equation.
+					* Modify metal resistors category.
+                                        * Modify mos.cb for base band mos as/ad/ps/pd calculation accuracy in abutment function.
+                                        * Fix WPE wquation for base band IO nmos
+                                        * Modify mimcap capacitance min value for equation callback and mismatchflag in different unit cap value. 
+                                        * Update tsmcN65_updateCDFs.il for callback name changement
+                                        * Modify parasitic_rc/parasitic_rc_3T CDF for ams simulation and add eldo view for eldo simulation
+                                        * Support base band mimcap/crtmom device spectre view back annotation
+1.0c official           10/10/10'       * Migration to OA by Cadence AFM

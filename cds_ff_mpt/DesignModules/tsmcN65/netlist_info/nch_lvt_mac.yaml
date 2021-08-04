@@ -1,0 +1,19 @@
+lib_name: tsmcN65
+cell_name: nch_lvt_ma
+instpins:
+      D:
+        direction: inputOutput
+        net_name: "net1"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "net2"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "net3"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "net4"
+        num_bits: 1

@@ -1,0 +1,24 @@
+
+
+====================================
+ TSMC RC extra QA patterns: contact
+====================================
+
+Test case: a NMOS
+channel length = 0.06um (poly width), channel width = 20um
+contact width = 0.09um, contact space = 0.11um, contact to poly distance = 0.055um
+G: gate, S: source, D: drain 
+
+[case1]: contact number = 100. 
+[case2]: contact number = 001. 
+
+Star-RCXT capacitance between G and S are: (unit: F)
+case1=1.91e-15; case2=5.77e-16
+
+ ------------
+| Conclusion |
+ ------------
+
+OK ! This tech file has the capability of contact/via cap.
+
+

@@ -1,0 +1,99 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.7-64b 11/09/2015 12:41 (sjfbm191) $
+          : sub-version  IC6.1.7-64b.78 
+Started at: 24-Aug-2019  20:01:30
+User Name : conggua1
+Host Name : ug60
+Directory : /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+WARNING (XSTRM-20): Output Stream file '/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/AMP_SF.calibre.db' already exists. It will be overwritten.
+INFO (XSTRM-217): Reading the layer map file, /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/tsmcN65.layermap
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 DEMO_AMP_SF
+strmFile                                /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/AMP_SF.calibre.db
+topCell                                 AMP_SF
+view                                    layout
+runDir                                  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/
+logFile                                 PIPO.LOG.AMP_SF
+layerMap                                /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/tsmcN65.layermap
+case                                    Preserve
+convertDot                              node
+
+INFO (XSTRM-223): 1. Translating cellView tsmcN65/M4_M3/layout as STRUCTURE M4_M3_CDNS_566691290680.
+INFO (XSTRM-223): 2. Translating cellView tsmcN65/M4_M3/layout as STRUCTURE M4_M3_CDNS_566691290681.
+INFO (XSTRM-223): 3. Translating cellView DEMO_AMP_SF/aedge_ptap_end_l65n_standard_lay4_fg26_end_gr0_end_outer/layout as STRUCTURE aedge_ptap_end_l65n_standard_lay4_fg26_end_gr0_end_outer.
+INFO (XSTRM-223): 4. Translating cellView DEMO_AMP_SF/aedge_ptap_end_l65n_standard_lay4_fg26_end_gr0_end/layout as STRUCTURE aedge_ptap_end_l65n_standard_lay4_fg26_end_gr0_end.
+INFO (XSTRM-223): 5. Translating cellView DEMO_AMP_SF/ptap_end_l65n_standard_lay4_fg26_end/layout as STRUCTURE ptap_end_l65n_standard_lay4_fg26_end.
+INFO (XSTRM-223): 6. Translating cellView DEMO_AMP_SF/aedge_ptap_l65n_w6_standard_lay0_fg26_gr0_end_outer/layout as STRUCTURE aedge_ptap_l65n_w6_standard_lay0_fg26_gr0_end_outer.
+INFO (XSTRM-223): 7. Translating cellView DEMO_AMP_SF/aedge_ptap_l65n_w6_standard_lay0_fg26_gr0_end/layout as STRUCTURE aedge_ptap_l65n_w6_standard_lay0_fg26_gr0_end.
+INFO (XSTRM-223): 8. Translating cellView DEMO_AMP_SF/ptap_l65n_w6_standard_lay0_fg26_core/layout as STRUCTURE ptap_l65n_w6_standard_lay0_fg26_core.
+INFO (XSTRM-223): 9. Translating cellView DEMO_AMP_SF/ptap_l65n_w6_standard_lay0_fg26/layout as STRUCTURE ptap_l65n_w6_standard_lay0_fg26.
+INFO (XSTRM-223): 10. Translating cellView tsmcN65/M2_M1/layout as STRUCTURE M2_M1_CDNS_566691290682.
+INFO (XSTRM-223): 11. Translating cellView tsmcN65/M3_M2/layout as STRUCTURE M3_M2_CDNS_566691290683.
+INFO (XSTRM-223): 12. Translating cellView DEMO_AMP_SF/ptap_l65n_w6_standard_lay0_fg26_subconn_1/layout as STRUCTURE ptap_l65n_w6_standard_lay0_fg26_subconn_1.
+INFO (XSTRM-223): 13. Translating cellView DEMO_AMP_SF/ext_l65n_w1_fg26/layout as STRUCTURE ext_l65n_w1_fg26.
+INFO (XSTRM-223): 14. Translating cellView DEMO_AMP_SF/aedge_ext_l65n_w1_fg26_gr0_end_outer/layout as STRUCTURE aedge_ext_l65n_w1_fg26_gr0_end_outer.
+INFO (XSTRM-223): 15. Translating cellView DEMO_AMP_SF/aedge_ext_l65n_w1_fg26_gr0_end/layout as STRUCTURE aedge_ext_l65n_w1_fg26_gr0_end.
+INFO (XSTRM-223): 16. Translating cellView DEMO_AMP_SF/aedge_nch_l65n_w4_standard_26_gr0_end_outer/layout as STRUCTURE aedge_nch_l65n_w4_standard_26_gr0_end_outer.
+INFO (XSTRM-223): 17. Translating cellView DEMO_AMP_SF/aedge_nch_l65n_w4_standard_26_gr0_end/layout as STRUCTURE aedge_nch_l65n_w4_standard_26_gr0_end.
+INFO (XSTRM-223): 18. Translating cellView DEMO_AMP_SF/nch_l65n_w4_standard_26/layout as STRUCTURE nch_l65n_w4_standard_26.
+INFO (XSTRM-223): 19. Translating cellView DEMO_AMP_SF/ext_l65n_w2_fg26/layout as STRUCTURE ext_l65n_w2_fg26.
+INFO (XSTRM-223): 20. Translating cellView DEMO_AMP_SF/aedge_ext_l65n_w2_fg26_gr0_end_outer/layout as STRUCTURE aedge_ext_l65n_w2_fg26_gr0_end_outer.
+INFO (XSTRM-223): 21. Translating cellView DEMO_AMP_SF/aedge_ext_l65n_w2_fg26_gr0_end/layout as STRUCTURE aedge_ext_l65n_w2_fg26_gr0_end.
+INFO (XSTRM-223): 22. Translating cellView DEMO_AMP_SF/aedge_nch_l65n_w4_lvt_26_gr0_end_outer/layout as STRUCTURE aedge_nch_l65n_w4_lvt_26_gr0_end_outer.
+INFO (XSTRM-223): 23. Translating cellView DEMO_AMP_SF/aedge_nch_l65n_w4_lvt_26_gr0_end/layout as STRUCTURE aedge_nch_l65n_w4_lvt_26_gr0_end.
+INFO (XSTRM-223): 24. Translating cellView DEMO_AMP_SF/nch_l65n_w4_lvt_26/layout as STRUCTURE nch_l65n_w4_lvt_26.
+INFO (XSTRM-223): 25. Translating cellView DEMO_AMP_SF/ext_l65n_w7_fg26/layout as STRUCTURE ext_l65n_w7_fg26.
+INFO (XSTRM-223): 26. Translating cellView DEMO_AMP_SF/aedge_ext_l65n_w7_fg26_gr0_end_outer/layout as STRUCTURE aedge_ext_l65n_w7_fg26_gr0_end_outer.
+INFO (XSTRM-223): 27. Translating cellView DEMO_AMP_SF/aedge_ext_l65n_w7_fg26_gr0_end/layout as STRUCTURE aedge_ext_l65n_w7_fg26_gr0_end.
+INFO (XSTRM-223): 28. Translating cellView DEMO_AMP_SF/aedge_ptap_l65n_w6_lvt_lay0_fg26_gr0_end_outer/layout as STRUCTURE aedge_ptap_l65n_w6_lvt_lay0_fg26_gr0_end_outer.
+INFO (XSTRM-223): 29. Translating cellView DEMO_AMP_SF/aedge_ptap_l65n_w6_lvt_lay0_fg26_gr0_end/layout as STRUCTURE aedge_ptap_l65n_w6_lvt_lay0_fg26_gr0_end.
+INFO (XSTRM-223): 30. Translating cellView DEMO_AMP_SF/ptap_l65n_w6_lvt_lay0_fg26_core/layout as STRUCTURE ptap_l65n_w6_lvt_lay0_fg26_core.
+INFO (XSTRM-223): 31. Translating cellView DEMO_AMP_SF/ptap_l65n_w6_lvt_lay0_fg26/layout as STRUCTURE ptap_l65n_w6_lvt_lay0_fg26.
+INFO (XSTRM-223): 32. Translating cellView DEMO_AMP_SF/ptap_l65n_w6_lvt_lay0_fg26_subconn_1/layout as STRUCTURE ptap_l65n_w6_lvt_lay0_fg26_subconn_1.
+INFO (XSTRM-223): 33. Translating cellView DEMO_AMP_SF/aedge_ptap_end_l65n_lvt_lay4_fg26_end_gr0_end_outer/layout as STRUCTURE aedge_ptap_end_l65n_lvt_lay4_fg26_end_gr0_end_outer.
+INFO (XSTRM-223): 34. Translating cellView DEMO_AMP_SF/aedge_ptap_end_l65n_lvt_lay4_fg26_end_gr0_end/layout as STRUCTURE aedge_ptap_end_l65n_lvt_lay4_fg26_end_gr0_end.
+INFO (XSTRM-223): 35. Translating cellView DEMO_AMP_SF/ptap_end_l65n_lvt_lay4_fg26_end/layout as STRUCTURE ptap_end_l65n_lvt_lay4_fg26_end.
+INFO (XSTRM-223): 36. Translating cellView tsmcN65/M2_M1/layout as STRUCTURE M2_M1_CDNS_566691290684.
+INFO (XSTRM-223): 37. Translating cellView tsmcN65/M3_M2/layout as STRUCTURE M3_M2_CDNS_566691290685.
+INFO (XSTRM-223): 38. Translating cellView DEMO_AMP_SF/mconn_l65n_w4_fg18_s2_d0_g/layout as STRUCTURE mconn_l65n_w4_fg18_s2_d0_g.
+INFO (XSTRM-223): 39. Translating cellView DEMO_AMP_SF/mconn_l65n_w4_fg12_s0_d2_g/layout as STRUCTURE mconn_l65n_w4_fg12_s0_d2_g.
+INFO (XSTRM-223): 40. Translating cellView DEMO_AMP_SF/mdum_l65n_w4_fg7_edge1/layout as STRUCTURE mdum_l65n_w4_fg7_edge1.
+INFO (XSTRM-223): 41. Translating cellView DEMO_AMP_SF/mdum_l65n_w4_fg7_edge2/layout as STRUCTURE mdum_l65n_w4_fg7_edge2.
+INFO (XSTRM-223): 42. Translating cellView DEMO_AMP_SF/mdum_l65n_w4_fg4_edge1/layout as STRUCTURE mdum_l65n_w4_fg4_edge1.
+INFO (XSTRM-223): 43. Translating cellView DEMO_AMP_SF/mdum_l65n_w4_fg4_edge2/layout as STRUCTURE mdum_l65n_w4_fg4_edge2.
+INFO (XSTRM-223): 44. Translating cellView DEMO_AMP_SF/AMP_SF/layout as STRUCTURE AMP_SF.
+
+Summary of Objects Translated:
+	Scalar Instances:                       46
+	Array Instances:                        0
+	Polygons:                               0
+	Paths:                                  0
+	Rectangles:                             1007
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           261
+	Custom Vias:                            0
+	CdsGen Vias:                            0
+	Pathsegs:                               0
+	Text:                                   6
+	TextDisplay:                            0
+	Cells:                                  44
+
+Elapsed Time: 0.8s   User Time: 0.1s   CPU Time: 0.1s   Peak VM: 97324KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '1' warning(s) found.

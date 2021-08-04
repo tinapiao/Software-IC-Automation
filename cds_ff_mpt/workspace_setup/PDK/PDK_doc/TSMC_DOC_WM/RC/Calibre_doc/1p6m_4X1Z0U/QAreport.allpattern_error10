@@ -1,0 +1,31 @@
+spice doc vs xCalibre correlation
+* Created: Tue Aug 19 07:52:35 2008
+* Program "Calibre xRC"
+* Version "v2008.2_11.12"
+
+STRUCTURE	Doc	  xCalibre	Doc	xCalibre
+        	cap	  cap		res	res
+
+M5ODM7_4.5_0.1	35.3	 39.2( 11.1%)   2.578	 2.59(  0.3%)
+M5PO1M7_4.5_0.1	35.6	 39.6( 11.3%)   2.578	 2.59(  0.3%)
+
+xCalibre statistic for all structures
+error dist.
+	net#
+Cap	net#/totalnet	totalnet=2
+0	 0	
+11	 2	********************************************************************************************************************************************************************************************************
+
+
+
+error dist.
+	net#
+Res	net#/totalnet	totalnet=2
+0	 2	********************************************************************************************************************************************************************************************************
+
+Where error = 100 * ( TOOL_value - DOC_value) / DOC_value
+
+
+Note:
+    The totalnet does not contain the test patterns that includes the poly layer.
+ For example,the PO1M2_0.160_0.250 was not contained in the totalnet.

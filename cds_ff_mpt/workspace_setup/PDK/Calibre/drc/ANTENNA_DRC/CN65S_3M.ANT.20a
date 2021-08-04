@@ -1,0 +1,305 @@
+//*********************************************************************************
+//* CALIBRE ANTENNA DRC COMMAND FILE  - CN65S_3M.ANT.20a 10/16/2009
+//* FOR TSMC 65NM/55NM CMOS LOGIC 1P3M+APRDL PROCESS
+//* DESIGN RULE DOCUMENT: 	T-N65-CL-DR-001    VER 2.0
+//* DRC COMMAND FILE DOCUMENT: 	T-N65-CL-DR-001-C1 VER 2.0a
+//*********************************************************************************
+
+//*************************************************************************************
+// TSMC has developed this deck using Mentor Graphics proprietary SVRF and TVF formats.
+// The deck is to be used only in Calibre tools.
+//*************************************************************************************
+
+
+//#DEFINE 28K_AP
+
+
+//
+// ENVIRONMENT SETUP
+//==================
+PRECISION    1000
+RESOLUTION      5
+
+LAYOUT SYSTEM GDSII
+LAYOUT PATH "GDSFILENAME"
+LAYOUT PRIMARY "TOPCELLNAME"
+
+DRC RESULTS DATABASE "DRC_RES.db"
+DRC SUMMARY REPORT "DRC.rep"
+DRC KEEP EMPTY NO
+DRC CHECK TEXT ALL
+DRC MAXIMUM RESULTS ALL
+
+FLAG OFFGRID YES
+FLAG ACUTE YES
+FLAG SKEW YES
+FLAG NONSIMPLE YES
+DRC INCREMENTAL CONNECT YES
+
+VARIABLE LargeNumber 1000000000
+
+// DRAWN LAYER DEFINITIONS
+//========================
+LAYER  OD_18     16  // define 1.8V thick gate oxides
+LAYER  OD_25     18  // define 2.5V thick gate oxides
+LAYER  OD_33     15  // define 3.3V thick gate oxides
+LAYER  CO        30
+LAYER  VIA1      51     // VIA1 Define connect for M2 to M1
+LAYER  VIA2      52     // VIA2 Define connect for M3 to M2
+
+LAYER  M1     331  // Metal1 layer
+LAYER MAP 31 DATATYPE 0  331  // Mapping (31;0)  to 331 
+LAYER MAP 31 DATATYPE 7  331  // Mapping (31;7)  to 331
+LAYER MAP 31 DATATYPE 20 331  // Mapping (31;20) to 331 
+LAYER MAP 31 DATATYPE 40 331  // Mapping (31;40) to 331
+LAYER MAP 31 DATATYPE 60 331  // Mapping (31;60) to 331
+LAYER MAP 31 DATATYPE 80 331  // Mapping (31;80) to 331
+LAYER  M2     332  // Metal2 layer
+LAYER MAP 32 DATATYPE 0  332  // Mapping (32;0)  to 332 
+LAYER MAP 32 DATATYPE 7  332  // Mapping (32;7)  to 332
+LAYER MAP 32 DATATYPE 20 332  // Mapping (32;20) to 332 
+LAYER MAP 32 DATATYPE 40 332  // Mapping (32;40) to 332
+LAYER MAP 32 DATATYPE 60 332  // Mapping (32;60) to 332
+LAYER MAP 32 DATATYPE 80 332  // Mapping (32;80) to 332
+LAYER  M3     333  // Metal3 layer
+LAYER MAP 33 DATATYPE 0  333  // Mapping (33;0)  to 333 
+LAYER MAP 33 DATATYPE 7  333  // Mapping (33;7)  to 333
+LAYER MAP 33 DATATYPE 20 333  // Mapping (33;20) to 333 
+LAYER MAP 33 DATATYPE 40 333  // Mapping (33;40) to 333
+LAYER MAP 33 DATATYPE 60 333  // Mapping (33;60) to 333
+LAYER MAP 33 DATATYPE 80 333  // Mapping (33;80) to 333
+
+LAYER AP         74   // AP RDL 
+LAYER Cu_PPI     7410 // Cu_PPI interconnection between Polymide1 and Polymide2 for WLCSP
+LAYER MAP 74 DATATYPE 10 7410
+
+LAYER RV         85  // RV Define connect for M3 to AP
+LAYER CB         76  // CB Define connect for M3 to AP
+LAYER CBD        169 // CBD Define connect for M3 to AP
+
+LAYER MAP 6 DATATYPE 0 350  // Mapping (6;0) to 350 for 
+LAYER MAP 7 DATATYPE 0 351  // Mapping (7;0) to 351 for PDIFF
+LAYER MAP 8 DATATYPE 0 352  // Mapping (8;0) to 352 for NDIFF
+LAYER DIFFi    350
+LAYER PDIFFi   351  	    // PDIFF active areas
+LAYER NDIFFi   352   	    // NDIFF active areas
+LAYER POLY  365
+LAYER MAP 17 DATATYPE 0 365  // Mapping (17;0) to 341 
+OD = (DIFFi OR PDIFFi) OR NDIFFi
+
+LAYOUT TOP LAYER M1 VIA1 
+LAYOUT TOP LAYER M2 VIA2 
+LAYOUT TOP LAYER M3 AP RV CB CBD 
+
+GATE     = OD   AND POLY
+SD       = OD   NOT POLY
+CO_PO    = CO AND POLY
+GATE_VIA = COPY GATE
+OD2      = (OD_18 OR OD_25) OR OD_33
+HV_GATE  = GATE AND OD2
+HV18_GATE = GATE AND OD_18 
+//POLY CHECKS
+//===========
+
+CONNECT GATE HV_GATE HV18_GATE GATE_VIA POLY
+
+A.R.1.POLY { @ (Poly top area / gate area) <= 250
+  NET AREA RATIO POLY GATE > 250
+      [
+         AREA(POLY)/AREA(GATE)
+      ] RDB A.R.1.POLY.rep POLY GATE BY LAYER
+}
+
+// POLY thickness is 1000A
+A.R.2.POLY { @ (Poly perim*thickness / gate area) <= 500
+  NET AREA RATIO POLY GATE > 500
+      [
+         PERIMETER(POLY)*0.1/AREA(GATE)
+      ] RDB A.R.2.POLY.rep POLY GATE BY LAYER
+}
+
+//CO CHECKS
+//=========
+
+CONNECT CO_PO POLY
+
+A.R.3.CO { @ (contact area / gate area) <= 10 
+  NET AREA RATIO POLY CO_PO GATE > 10  // error highlight on POLY
+      [
+	  AREA(CO_PO)/AREA(GATE)
+      ] RDB A.R.3.CO.rep CO_PO GATE BY LAYER 
+}
+
+//M1 CHECKS
+//=========
+
+CONNECT M1 POLY SD BY CO
+CONNECT VIA1 M1
+
+M1_DIO = NET AREA SD >= 0
+
+    
+A.R.6_A.R.8.M1 { @ (M1 area / gate area) <= (1000 in OD_18,5000 not in OD_18) (without protection OD) 
+		 @ (M1 area / gate area) <= OD area x 456 + 43000 (with protection OD) 
+  NET AREA RATIO M1 M1_DIO HV18_GATE GATE > 0
+       [
+       !!AREA(M1) * !!AREA(GATE) *
+	   (!AREA(M1_DIO) * (!!AREA(HV18_GATE)*(AREA(M1)/AREA(GATE)-1000) +
+	                     !AREA(HV18_GATE)*(AREA(M1)/AREA(GATE)-5000)) +
+	    !!AREA(M1_DIO) * ( AREA(M1)/AREA(GATE)-AREA(M1_DIO)*456-43000 ))
+       ] RDB A.R.6_A.R.8.M1.rep M1 M1_DIO HV18_GATE GATE BY LAYER
+}
+
+ACC_M1 = NET AREA RATIO M1 GATE >=0 ACCUMULATE
+
+//VIA1 CHECKS
+//===========
+
+A.R.4_A.R.7.VIA1 { @ (VIA1 area / gate area) <= 20 (without protection OD)
+                   @ (VIA1 area / gate area) <= OD area x 210 + 900 (with protection OD)
+  NET AREA RATIO M1 VIA1 M1_DIO GATE_VIA > 0
+       [
+       !!AREA(M1) * !!AREA(VIA1) * 
+           (!!AREA(M1_DIO) * ( AREA(VIA1)/AREA(GATE_VIA)-AREA(M1_DIO)*210-900 ) +
+	     !AREA(M1_DIO) * ( AREA(VIA1)/AREA(GATE_VIA)-20 ) )
+       ] RDB A.R.4_A.R.7.VIA1.rep VIA1 M1_DIO GATE_VIA BY LAYER
+}
+
+ACC_VIA1 = NET AREA RATIO VIA1 GATE_VIA >=0 ACCUMULATE
+
+
+
+
+
+//M2 CHECKS
+//=========
+
+CONNECT M2 M1 BY VIA1
+CONNECT VIA2 M2
+
+M2_DIO = NET AREA SD >= 0
+
+
+A.R.6_A.R.8.M2 { @ (cumulative M1~M2 area / gate area) <= (1000 in OD_18 ,5000 not in OD_18) (without protection OD) 
+		 @ (cumulative M1~M2 area / gate area) <= OD area x 456 + 43000 (with effective diode) 
+  NET AREA RATIO M2 M1 M2_DIO HV18_GATE GATE > 0 ACCUMULATE ACC_M1
+       [
+       !!AREA(M2) * !!AREA(GATE) *
+	   (!AREA(M2_DIO) * (!!AREA(HV18_GATE)*(AREA(M2)/AREA(GATE)-1000) +
+	                     !AREA(HV18_GATE)*(AREA(M2)/AREA(GATE)-5000)) +
+	    !!AREA(M2_DIO) * ( AREA(M2)/AREA(GATE)-AREA(M2_DIO)*456-43000 ))
+       - (!AREA(M2)+!AREA(GATE)) * LargeNumber	    
+       ] RDB A.R.6_A.R.8.M2.rep M2 M1 M2_DIO HV18_GATE GATE BY LAYER
+}
+
+ACC_M2 = NET AREA RATIO M2 GATE >= 0 ACCUMULATE ACC_M1
+
+//VIA2 CHECKS
+//===========
+
+A.R.4.VIA2 { @ (VIA2 area / gate area) <= 20 (without protection OD)
+  NET AREA RATIO VIA2 GATE_VIA M2_DIO > 20
+      [
+        !AREA(M2_DIO) * !!AREA(VIA2) * !!AREA(GATE_VIA) * ( AREA(VIA2)/AREA(GATE_VIA) )
+      ] RDB A.R.4.VIA2.rep VIA2 GATE_VIA M2_DIO BY LAYER
+}
+
+A.R.7.VIA2 { @ (cumulative VIA1~VIA2 area / gate area) <= OD area x 210 + 900 (with protection OD)
+  NET AREA RATIO VIA2 VIA1 M2_DIO GATE_VIA > 0 ACCUMULATE ACC_VIA1
+       [
+        !!AREA(VIA2) * !!AREA(M2_DIO) *
+	   ( AREA(VIA2)/AREA(GATE_VIA)-AREA(M2_DIO)*210-900 ) 
+       - (!AREA(VIA2)+!AREA(M2_DIO)) * LargeNumber	    
+       ] RDB A.R.7.VIA2.rep VIA2 VIA1 M2_DIO GATE_VIA BY LAYER
+}
+
+A.R.9.VIA2 { @ (cumulative VIA1~VIA2 area / gate area) <= 50 (in OD2/without protection OD)  
+  NET AREA RATIO VIA2 VIA1 HV_GATE M2_DIO GATE_VIA > 0 ACCUMULATE ACC_VIA1
+      [
+        !AREA(M2_DIO) * !!AREA(VIA2) * !!AREA(GATE_VIA) * !!AREA(HV_GATE) * ( AREA(VIA2)/AREA(GATE_VIA) - 50 )
+        - (!!AREA(M2_DIO)+!AREA(VIA2)+!AREA(GATE_VIA)+!AREA(HV_GATE)) * LargeNumber
+	
+      ] RDB A.R.9.VIA2.rep VIA2 VIA1 GATE_VIA BY LAYER 
+}
+
+
+ACC_VIA2 = NET AREA RATIO VIA2 GATE_VIA >=0 ACCUMULATE ACC_VIA1
+
+
+//M3 CHECKS
+//=========
+
+CONNECT M3 M2 BY VIA2
+CONNECT RV  M3 
+CONNECT CB  M3 
+CONNECT CBD M3 
+
+M3_DIO = NET AREA SD >= 0
+
+
+// M3 is the last metal
+A.R.6.M3 { @ (cumulative M1~M3 area / gate area) <= (1000 in OD18,5000 not in OD18) (without protection OD) 
+  NET AREA RATIO M3 M2 M1 M3_DIO HV18_GATE GATE > 0 ACCUMULATE ACC_M2
+    [
+    !!AREA(M3) * !!AREA(GATE) * !AREA(M3_DIO) * 
+	(!!AREA(HV18_GATE)*(AREA(M3)/AREA(GATE)-1000) + !AREA(HV18_GATE)*(AREA(M3)/AREA(GATE)-5000))
+    - (!AREA(M3)+!AREA(GATE)+!!AREA(M3_DIO)) * LargeNumber	    
+    ] RDB A.R.6.M3.rep M3 M2 M1 M3_DIO HV18_GATE GATE BY LAYER
+}
+A.R.8.M3 { @ (M3 area / gate area) <= OD area x 8000 + 50000 for last metal alone (with protection OD)
+  NET AREA RATIO M3 M3_DIO GATE > 0
+    [
+      !!AREA(M3_DIO) * ( AREA(M3)/AREA(GATE)-AREA(M3_DIO)*8000-50000 )
+    ] RDB A.R.8.M3.rep M3 M3_DIO GATE BY LAYER
+}
+
+ACC_M3 = NET AREA RATIO M3 GATE >= 0 ACCUMULATE ACC_M2
+
+
+//RV CHECK 
+//=========
+A.R.10_A.R.12.RV { @ (RV area / gate area) <= (20 in OD2, 200 not in OD2) (without protection OD)
+                   @ (RV area / gate area) <= OD area x 83 + 400 (with protection OD) 
+  NET AREA RATIO RV M3_DIO HV_GATE GATE_VIA > 0
+       [
+         !!AREA(RV) * !!AREA(GATE_VIA) *
+           (!AREA(M3_DIO) * (!!AREA(HV_GATE)*(AREA(RV)/AREA(GATE_VIA)-20) +
+			     !AREA(HV_GATE)*(AREA(RV)/AREA(GATE_VIA)-200)) +
+	    !!AREA(M3_DIO) * ( AREA(RV)/AREA(GATE_VIA)-AREA(M3_DIO)*83-400 ))
+       ] RDB A.R.10_A.R.12.RV.rep RV M3_DIO HV_GATE GATE_VIA BY LAYER
+}
+
+
+
+
+//AL-RDL CHECKS
+//=========
+
+CONNECT AP M3 BY RV
+CONNECT AP M3 BY CB
+CONNECT AP M3 BY CBD
+
+AP_DIO = NET AREA SD >= 0
+
+#IFDEF 28K_AP
+VARIABLE AP_thickness 2.8
+#ELSE
+VARIABLE AP_thickness 1.45
+#ENDIF
+
+A.R.11_A.R.13.AP {@ (AL-RDL sidewall area / gate area) <= (1000 in OD2, 2000 not in OD2) (without protection OD)
+                  @ (AL-RDL sidewall area / gate area) <= OD area x 8000 + 30000 (with protection OD)
+     NET AREA RATIO AP AP_DIO HV_GATE GATE > 0
+       [
+       !!AREA(AP) * !!AREA(GATE) *
+	   (!AREA(AP_DIO) * (!!AREA(HV_GATE)*(PERIMETER(AP)*AP_thickness/AREA(GATE)-1000) +
+			     !AREA(HV_GATE)*(PERIMETER(AP)*AP_thickness/AREA(GATE)-2000)) +
+	    !!AREA(AP_DIO) * (PERIMETER(AP)*AP_thickness/AREA(GATE) - AREA(AP_DIO)*8000 - 30000))
+       - (!AREA(AP)+!AREA(GATE)) * LargeNumber    
+       ] RDB A.R.11_A.R.13.AP.rep AP AP_DIO HV_GATE GATE BY LAYER
+
+}
+
+
+
+

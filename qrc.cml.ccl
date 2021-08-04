@@ -1,0 +1,44 @@
+#
+# OPTION COMMAND FILE created by Cadence Extraction QRC UI Version 13.2.0-p001
+#
+capacitance \
+	 -decoupling_factor 1.0 \
+	 -ground_net "vss"
+extract \
+	 -selection "all" \
+	 -type "rc_decoupled"
+extraction_setup \
+	 -array_vias_spacing auto \
+	 -max_fracture_length infinite \
+	 -max_fracture_length_unit "MICRONS" \
+	 -max_via_array_size \
+		"auto" \
+	 -net_name_space "LAYOUT"
+filter_res \
+	 -min_res 0.001
+input_db -type pvs \
+	 -directory_name "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65" \
+	 -hierarchy_delimiter "/" \
+	 -run_name "cml"
+output_db -type spice \
+	 -device_finger_delimiter "@" \
+	 -hierarchy_delimiter "/" \
+	 -include_cap_model "false" \
+	 -include_parasitic_cap_model "false" \
+	 -include_res_model "false" \
+	 -include_parasitic_res_model "comment" \
+	 -include_parasitic_res_width false \
+	 -include_parasitic_res_width_drawn false \
+	 -sub_node_char "#"
+output_setup \
+	 -directory_name "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65" \
+	 -file_name "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cml.sp" \
+	 -net_name_space "SCHEMATIC" \
+	 -temporary_directory_name "cml"
+process_technology \
+	 -technology_corner \
+		"default" \
+	 -technology_library_file "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/assura_tech.lib" \
+	 -technology_name "assura_tech" \
+	 -temperature \
+		25.0

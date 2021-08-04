@@ -1,0 +1,10 @@
+CADENCE IHNL11140
+$model
+AAAFOO_DIFFAMP_PAPER/gm/schematic gm
+AAAFOO_DIFFAMP_PAPER/load_pmos/schematic load_pmos
+AAAFOO_DIFFAMP_PAPER/cml/schematic cml
+$endmodel
+$net
+$endnet
+$param
+$endparam

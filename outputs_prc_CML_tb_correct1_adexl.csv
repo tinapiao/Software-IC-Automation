@@ -1,0 +1,13 @@
+Test,Name,Type,Output,Plot,Save,Spec
+prc:CML_tb:1,out,expr,(VT("/op") - VT("/om")),t,,
+prc:CML_tb:1,in,expr,(VT("/ip") - VT("/im")),t,,
+prc:CML_tb:1,eye_out,expr,eyeDiagram(out 2e-09 2e-08 8e-11 ?intensityPlot t ?triggerPeriod 4e-11 ?autoCenter t),t,,
+prc:CML_tb:1,eye_maxHeight,expr,eyeMeasurement(eye_out 2e-09 2e-08 8e-11 0.0 nil t 40.0 0.0 t 60 50 t 40 50 t 60 100 100 "maxHeight"),t,,
+prc:CML_tb:1,eye_maxWidth,expr,eyeMeasurement(eye_out 2e-09 2e-08 8e-11 0.0 nil t 40.0 0.0 t 60 50 t 40 50 t 60 100 100 "maxWidth"),t,,
+prc:CML_tb:1,gain_dB,expr,dB20(((VF("/op") - VF("/om")) / (VF("/ip") - VF("/im")))),t,,
+prc:CML_tb:1,gain,expr,((VF("/op") - VF("/om")) / (VF("/ip") - VF("/im"))),t,,
+prc:CML_tb:1,DC_Gain,expr,value(gain_dB 1e+07),t,,
+prc:CML_tb:1,GBW,expr,gainBwProd(gain),t,,
+prc:CML_tb:1,BW,expr,bandwidth(gain 3 "low"),t,,
+prc:CML_tb:1,om,expr,VT("/om"),t,,
+prc:CML_tb:1,,expr,,t,,

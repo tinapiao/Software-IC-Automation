@@ -1,0 +1,20 @@
+lib_name: tsmcN65
+cell_name: nch_lvt_mac
+pins: [ "D", "G", "S", "B" ]
+instances:
+  B:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  S:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  G:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  D:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}

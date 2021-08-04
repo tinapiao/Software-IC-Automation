@@ -1,0 +1,116 @@
+Virtuoso Framework License (111) was checked out successfully. Total checkout time was 0.21s.
+*WARNING* LIB avTech from File /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib Line 6 redefines
+LIB avTech from File /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib.core
+Insert UNDEFINE avTech
+before DEFINE avTech
+    in /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib
+Or remove or comment out DEFINE avTech
+    in /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib.core
+to suppress this warning message.
+*WARNING* LIB DEMO_AMP_CS from File /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib Line 10 redefines
+LIB DEMO_AMP_CS from the same file (defined earlier.)
+*WARNING* LIB DEMO_AMP_SF from File /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib Line 16 redefines
+LIB DEMO_AMP_SF from the same file (defined earlier.)
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.7-64b 12/16/2018 07:36 (sjfhw317) $
+          : sub-version  IC6.1.7-64b.500.23 
+Started at: 20-Jan-2020  22:40:41
+User Name : conggua1
+Host Name : ug151
+Directory : /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+*WARNING* LIB DEMO_AMP_SF from File /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds.lib Line 18 redefines
+LIB DEMO_AMP_SF from the same file (defined earlier.)
+Initializing from libInit.il for library tsmcN65...
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/pcode1.cxt
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/pcode2.cxt
+   --  tsmcN65_updateCDFs.il
+   --  tsmcPdkParamTable.il
+   --  tsmc_esti.ile
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65gp_v1d0c.cxt
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65_newAMS.cxt
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65_newRTMOM.cxt
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65GP_v1d0.cxt
+   --  tsmcN65.cxt
+   --  tsmcN65Tool.cxt
+   --  tif_tcf_crn65gp_v1.0a.cxt
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65GP_v1d0.cxt
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65_newRTMOM.cxt
+*WARNING* (loadContext): context //nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/64bit/tsmcN65GP_v1d0.cxt already loaded
+   --  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/tsmcN65_newAMS.cxt
+*WARNING* (loadContext): context //nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/64bit/tsmcN65_newRTMOM.cxt already loaded
+Loading Working place Display File '/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/display.drf'
+WARNING (XSTRM-20): Output Stream file '/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.gds' already exists. It will be overwritten.
+INFO (XSTRM-217): Reading the layer map file, /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/tsmcN65.layermap
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 AAAFOO_DIFFAMP_PAPER
+strmFile                                /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.gds
+topCell                                 cml
+view                                    layout
+runDir                                  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs
+logFile                                 /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/PIPO1.LOG
+techLib                                 tsmcN65
+hierDepth                               32
+maxVertices                             2048
+layerMap                                /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/tsmcN65.layermap
+userSkillFile                           /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/strmout.il
+labelDepth                              32
+case                                    Preserve
+convertDot                              node
+
+*WARNING* (loadContext): context //nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/../skill/64bit/tsmcN65_newAMS.cxt already loaded
+INFO (XSTRM-223): 1. Translating cellView tsmcN65/M2_M1/layout as STRUCTURE M2_M1$$1.
+INFO (XSTRM-223): 2. Translating cellView tsmcN65/M3_M2/layout as STRUCTURE M3_M2$$2.
+INFO (XSTRM-223): 3. Translating cellView tsmcN65/nch_lvt_mac/layout as STRUCTURE nch_lvt_mac$$3.
+WARNING (XSTRM-315): The cellview 'tsmcN65/nch_lvt_mac/layout' has a label with multiple lines. This label will be translated as is. If a multiple lines label is not required, correct the label in the source file.
+WARNING (XSTRM-35): The objects in the layer-purpose pair 'instance:drawing' are ignored. This is because the layer-purpose pair used in the design is not specified in the layer map file. Specify the layer-purpose pair in the layer map file and try again.
+INFO (XSTRM-223): 4. Translating cellView tsmcN65/nch_lvt_mac/layout as STRUCTURE nch_lvt_mac$$4.
+WARNING (XSTRM-315): The cellview 'tsmcN65/nch_lvt_mac/layout' has a label with multiple lines. This label will be translated as is. If a multiple lines label is not required, correct the label in the source file.
+INFO (XSTRM-223): 5. Translating cellView tsmc_N65_cmltemplates/currentmirror_ref_n/layout as STRUCTURE currentmirror_ref_n.
+WARNING (XSTRM-35): The objects in the layer-purpose pair 'prBoundary:boundary' are ignored. This is because the layer-purpose pair used in the design is not specified in the layer map file. Specify the layer-purpose pair in the layer map file and try again.
+INFO (XSTRM-223): 6. Translating cellView tsmc_N65_cmltemplates/currentmirror_single_n/layout as STRUCTURE currentmirror_single_n.
+INFO (XSTRM-223): 7. Translating cellView tsmc_N65_cmltemplates/diffpair_two_finger_n/layout as STRUCTURE diffpair_two_finger_n.
+INFO (XSTRM-223): 8. Translating cellView tsmcN65/pch_lvt_mac/layout as STRUCTURE pch_lvt_mac$$5.
+WARNING (XSTRM-315): The cellview 'tsmcN65/pch_lvt_mac/layout' has a label with multiple lines. This label will be translated as is. If a multiple lines label is not required, correct the label in the source file.
+INFO (XSTRM-223): 9. Translating cellView tsmcN65/pch_lvt_mac/layout as STRUCTURE pch_lvt_mac$$6.
+WARNING (XSTRM-315): The cellview 'tsmcN65/pch_lvt_mac/layout' has a label with multiple lines. This label will be translated as is. If a multiple lines label is not required, correct the label in the source file.
+INFO (XSTRM-223): 10. Translating cellView tsmc_N65_cmltemplates/activeload_two_finger_p/layout as STRUCTURE activeload_two_finger_p.
+INFO (XSTRM-223): 11. Translating cellView tsmc_N65_cmltemplates/guard_ring_nwell/layout as STRUCTURE guard_ring_nwell.
+INFO (XSTRM-223): 12. Translating cellView tsmc_N65_cmltemplates/guard_ring_psub/layout as STRUCTURE guard_ring_psub.
+INFO (XSTRM-223): 13. Translating cellView tsmc_N65_cmltemplates/via_M2_M3_0/layout as STRUCTURE via_M2_M3_0.
+INFO (XSTRM-223): 14. Translating cellView tsmc_N65_cmltemplates/via_M1_M2_0/layout as STRUCTURE via_M1_M2_0.
+INFO (XSTRM-223): 15. Translating cellView AAAFOO_DIFFAMP_PAPER/cml/layout as STRUCTURE cml.
+
+Summary of Objects Translated:
+	Scalar Instances:                       121
+	Array Instances:                        0
+	Polygons:                               0
+	Paths:                                  10
+	Rectangles:                             241
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           23
+	Custom Vias:                            0
+	CdsGen Vias:                            0
+	Pathsegs:                               0
+	Text:                                   66
+	TextDisplay:                            0
+	Cells:                                  15
+
+Elapsed Time: 0.6s   User Time: 0.2s   CPU Time: 0.1s   Peak VM: 97848KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '7' warning(s) found.

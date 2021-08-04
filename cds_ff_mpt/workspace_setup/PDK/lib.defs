@@ -1,0 +1,8 @@
+DEFINE tsmcN65 ./tsmcN65
+ASSIGN tsmcN65 libMode shared
+DEFINE analogLib $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+ASSIGN analogLib libMode shared
+DEFINE baisc $CDSHOME/tools/dfII/etc/cdslib/basic
+ASSIGN baisc libMode shared
+DEFINE cdsDefTechLib $CDSHOME/tools/dfII/etc/cdsDefTechLib
+ASSIGN cdsDefTechLib libMode shared

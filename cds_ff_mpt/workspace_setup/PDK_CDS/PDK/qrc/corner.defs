@@ -1,0 +1,4 @@
+DEFINE best best
+DEFINE corner.defs corner.defs
+DEFINE typical typical
+DEFINE worst worst

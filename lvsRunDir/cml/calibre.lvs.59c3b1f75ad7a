@@ -1,0 +1,156 @@
+//  Calibre v2014.3_35.26    Wed Oct 1 13:01:36 PDT 2014
+//  Calibre Utility Library   v0-7_7-2014-3    Wed Jul 9 16:43:36 PDT 2014
+//  Litho Libraries v2014.3_35.26  Wed Oct 1 13:01:36 PDT 2014
+//
+//        Copyright Mentor Graphics Corporation 1996-2014
+//                       All Rights Reserved.
+//   THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+//      WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION
+//        OR ITS LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+//
+//  Mentor Graphics software executing under x86-64 Linux
+//
+//  Running on Linux ug59 4.9.0-11-amd64 #1 SMP Debian 4.9.189-3+deb9u2 (2019-11-11) x86_64 glibc 2.24/NPTL 2.24
+//
+//  Entries in /proc/meminfo:
+//
+//  MemTotal:       16306124 kB
+//  MemFree:          406000 kB
+//  MemAvailable:   11806808 kB
+//  Buffers:          536280 kB
+//  Cached:         10253308 kB
+//  SwapCached:            0 kB
+//  Active:         12589320 kB
+//  Inactive:        1995124 kB
+//  Active(anon):    3550072 kB
+//  Inactive(anon):   358092 kB
+//  Active(file):    9039248 kB
+//  Inactive(file):  1637032 kB
+//  Unevictable:         204 kB
+//  Mlocked:             204 kB
+//  SwapTotal:      25391100 kB
+//  SwapFree:       25391100 kB
+//  Dirty:               208 kB
+//  Writeback:             4 kB
+//  AnonPages:       3795020 kB
+//  Mapped:           971128 kB
+//  Shmem:            113316 kB
+//  Slab:            1143116 kB
+//  SReclaimable:    1061800 kB
+//  SUnreclaim:        81316 kB
+//  KernelStack:       12020 kB
+//  PageTables:        57436 kB
+//  NFS_Unstable:        172 kB
+//  Bounce:                0 kB
+//  WritebackTmp:          0 kB
+//  CommitLimit:    33544160 kB
+//  Committed_AS:    8366068 kB
+//  VmallocTotal:   34359738367 kB
+//  VmallocUsed:           0 kB
+//  VmallocChunk:          0 kB
+//  HardwareCorrupted:     0 kB
+//  AnonHugePages:         0 kB
+//  ShmemHugePages:        0 kB
+//  ShmemPmdMapped:        0 kB
+//  HugePages_Total:       0
+//  HugePages_Free:        0
+//  HugePages_Rsvd:        0
+//  HugePages_Surp:        0
+//  Hugepagesize:       2048 kB
+//  DirectMap4k:      291668 kB
+//  DirectMap2M:    11112448 kB
+//  DirectMap1G:     5242880 kB
+//
+//  CPU Info: Cores = 4
+//  Max file descriptors: 32768
+//  64 bit virtual addressing enabled
+//  Running ixl_cal_2014.3_35.26/pkgs/icv/pvt/calibre -spice /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/DIFFAMP_lch_60n.sp -lvs -hier -nowait /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/_calibre.lvs_
+//  Process ID: 4327
+//
+//  Starting time: Thu Jan 16 00:30:28 2020
+//
+//  Running on 1 CPU (pending licensing) 
+//
+//
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-----          STANDARD VERIFICATION RULE FILE COMPILATION MODULE          -----
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+--- RULE FILE = /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/_calibre.lvs_
+
+#!tvf
+tvf::VERBATIM {
+//
+//  Rule file generated on Thu Jan 16 00:30:28 EST 2020
+//     by Calibre Interactive - LVS (v2014.3_35.26)
+//
+//      *** PLEASE DO NOT MODIFY THIS FILE ***
+//
+//
+
+LAYOUT PATH  "DIFFAMP_lch_60n.calibre.db"
+LAYOUT PRIMARY "DIFFAMP_lch_60n"
+LAYOUT SYSTEM GDSII
+
+SOURCE PATH "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/DIFFAMP_lch_60n.src.net"
+SOURCE PRIMARY "DIFFAMP_lch_60n"
+SOURCE SYSTEM SPICE
+
+MASK SVDB DIRECTORY "svdb" QUERY
+
+LVS REPORT "DIFFAMP_lch_60n.lvs.report"
+
+LVS REPORT OPTION NONE
+LVS FILTER UNUSED OPTION NONE SOURCE
+LVS FILTER UNUSED OPTION NONE LAYOUT
+LVS REPORT MAXIMUM 50
+
+LVS RECOGNIZE GATES ALL
+
+
+LVS ABORT ON SOFTCHK NO
+LVS ABORT ON SUPPLY ERROR YES
+LVS IGNORE PORTS NO
+LVS SHOW SEED PROMOTIONS NO
+LVS SHOW SEED PROMOTIONS MAXIMUM 50
+
+LVS ISOLATE SHORTS NO
+
+
+VIRTUAL CONNECT COLON NO
+VIRTUAL CONNECT REPORT NO
+
+LVS EXECUTE ERC YES
+ERC RESULTS DATABASE "DIFFAMP_lch_60n.erc.results"
+ERC SUMMARY REPORT "DIFFAMP_lch_60n.erc.summary" REPLACE HIER
+ERC CELL NAME YES CELL SPACE XFORM
+ERC MAXIMUM RESULTS 1000
+ERC MAXIMUM VERTEX 4096
+
+DRC ICSTATION YES
+
+}
+
+source "/CMC/kits/tsmc_65nm/CRN65GP-OA/TN65CMSP018K3_V1.0C/Calibre/lvs/calibre.lvs"
+
+
+
+--- STANDARD VERIFICATION RULE FILE COMPILATION MODULE COMPLETED.  CPU TIME = 0  REAL TIME = 0  LVHEAP = 3/4/8
+
+--- CALIBRE_* ENVIRONMENT VARIABLES:
+
+CALIBRE_CMD_LINE='/CMC/tools/mentor/ixl_cal_2014.3_35.26/pkgs/icv/pvt/calibre  -spice /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/DIFFAMP_lch_60n.sp -lvs -hier -nowait /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/_calibre.lvs_'
+CALIBRE_ECHO_RULE_FILE=
+CALIBRE_HOME=/CMC/tools/mentor/ixl_cal_2014.3_35.26
+CALIBRE_INITIAL_CMD_LINE='/CMC/tools/mentor/ixl_cal_2014.3_35.26/bin/calibre -spice /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/DIFFAMP_lch_60n.sp -lvs -hier -nowait /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/_calibre.lvs_'
+CALIBRE_READDB_LD_LIBRARY_PATH=/CMC/tools/mentor/ixl_cal_2014.3_35.26/pkgs/icv_lib/lib64:/CMC/tools/mentor/ixl_cal_2014.3_35.26/pkgs/icv_qt_comp/plugins:/CMC/tools/mentor/ixl_cal_2014.3_35.26/pkgs/umc_libs/lib/lnx32:/CMC/tools/mentor/ixl_cal_2014.3_35.26/shared/pkgs/icv_oa/22.41.004/lib/linux_rhel40_64/opt:/CMC/tools/cadence/IC06.17.823_lnx86/tools/lib:/CMC/tools/cadence/IC06.17.823_lnx86/tools/lib/64bit/Ubuntu:/CMC/tools/cadence/IC06.17.823_lnx86/share/oa/lib/linux_rhel50_gcc48x_64/opt:/CMC/tools/cadence/IC06.17.823_lnx86/tools/Qt/64bit/lib:/CMC/tools/cadence/IC06.17.823_lnx86/tools/dfII/lib/64bit:/CMC/tools/cadence/IC06.17.823_lnx86/tools/sev/lib/64bit:/CMC/tools/cadence/IC06.17.823_lnx86/tools/lib/64bit:/CMC/tools/cadence/IC06.17.823_lnx86/tools/hdf5/lib/64bit:/CMC/tools/cadence/IC06.17.823_lnx86/tools/lz4/lib/64bit:/CMC/tools/cadence/INCISIV14.10.015_lnx86/tools.lnx86/lib/64bit:/usr/lib64:/CMC/tools/cadence/ASSURA04.15.001-617_lnx86/tools/assura/lib/64bit:/CMC/tools/cadence/ASSURA04.15.001-617_lnx86/tools/lib/64bit:/CMC/lib/x86_limited/amd64:/usr/lib/x86_64-linux-gnu:/CMC/lib/x86_limited/amd64:/usr/lib/x86_64-linux-gnu:/CMC/tools/cadence/IC617_lnx86/tools/lib:/CMC/lib/x86_limited:/CMC/lib/usr_lib_i386:/CMC/lib/x86:/CMC/lib/x86_limited:/CMC/lib/usr_lib_i386:/CMC/lib/x86:/CMC/tools/cadence/INCISIV14.10.015_lnx86/tools/lib:/CMC/tools/cadence/INCISIV14.10.015_lnx86/tools/systemc/gcc/install/lib
+CALIBRE_SKIP_OS_CHECKS=
+CALIBRE_SSE3_SUPPORTED=1
+
+--- CALIBRE::HIERARCHICAL CIRCUIT EXTRACTOR - Thu Jan 16 00:30:29 2020
+
+//  Applying licensing policy...
+//  calibrehdrc license acquired.

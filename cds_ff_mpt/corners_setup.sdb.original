@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<setupdb version="5">corners_setup
+	<active>Active Setup
+		<tests>
+			<test enabled="1">dc
+				<tool>ADE</tool>
+			</test>
+		</tests>
+		<corners>
+			<corner enabled="0">_default</corner>
+			<corner enabled="1">tt
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"tt"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="1">tt_lvt
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"tt_lvt"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="1">ss
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+                                               <modelsection>"ss"</modelsection>

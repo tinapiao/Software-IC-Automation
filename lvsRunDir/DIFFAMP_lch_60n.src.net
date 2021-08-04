@@ -1,0 +1,34 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  AAAFOO_DIFFAMP_PAPER
+* Top Cell Name: DIFFAMP_lch_60n
+* View Name:     schematic
+* Netlisted on:  Mar  3 22:48:29 2020
+************************************************************************
+
+.INCLUDE  $BAG_TECH_CONFIG_DIR/calibre_rcx_setup/source.added
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+
+
+************************************************************************
+* Library Name: AAAFOO_DIFFAMP_PAPER
+* Cell Name:    DIFFAMP_lch_60n
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT DIFFAMP_lch_60n VDD VSS idc inm inp outm outp vbias
+*.PININFO idc:I inm:I inp:I vbias:I VDD:B VSS:B outm:B outp:B
+MXINP1 outm inp net1 VSS nch_lvt l=60n w=200n m=4
+MXINN1 outp inm net1 VSS nch_lvt l=60n w=200n m=4
+MXREF1 idc idc VSS VSS nch_lvt l=60n w=200n m=16
+MXTAILP1 net1 idc VSS VSS nch_lvt l=60n w=200n m=8
+MXTAILN1 net1 idc VSS VSS nch_lvt l=60n w=200n m=8
+MXLOADP1 outp vbias VDD VDD pch_lvt l=60n w=200n m=4
+MXLOADN1 outm vbias VDD VDD pch_lvt l=60n w=200n m=4
+.ENDS
+

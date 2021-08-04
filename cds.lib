@@ -1,0 +1,58 @@
+# File Created by Cong  Guanhua,ele2T0 at Mon Aug 26 21:45:27 2019
+# assisted by CdsLibEditor
+DEFINE BAG_WORK_DIR /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65
+#INCLUDE $BAG_WORK_DIR/cds.lib.core
+INCLUDE /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds.lib.core
+
+DEFINE demo_templates /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/BAG_XBase_demo/demo_templates
+DEFINE demo_testbenches /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/BAG_XBase_demo/demo_testbenches
+
+DEFINE bag_advanced_examples /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/bag_advanced_examples
+
+DEFINE bag_serdes_testbenches_ec /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/bag_serdes_ec-master/bag_serdes_testbenches_ec
+
+DEFINE bag_testbenches /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/bag_testbenches
+
+DEFINE DEMO_AMP_CS /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_CS
+#Removed by ddDeleteObj: DEFINE DEMO_AMP_SF /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF
+DEFINE avTech /CMC/tools/cadence/ASSURA04.15.001-617_lnx86/tools.lnx86/assura/etc/avtech/avTech
+DEFINE BAG_prim_org /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/BAG_prim_org
+DEFINE BAG_prim /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/BAG_prim
+#Removed by ddDeleteObj: DEFINE DEMO_ROUTING /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_ROUTING
+#DEFINE DEMO_AMP_CS /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_CS
+#Removed by ddDeleteObj: DEFINE DEMO_AMP_SF /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF
+UNDEFINE DEMO_AMP_CS
+UNDEFINE DEMO_AMP_SF
+
+# added for inverter test
+DEFINE tsmc_N65_invertertemplates /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/tsmc_N65_invertertemplates
+
+#DEFINE DEMO_AMP_SF /nfs/ug/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF
+#DEFINE DEMO_AMP_SF /nfs/ug/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF
+#UNDEFINE DEMO_AMP_SF
+#DEFINE DEMO_AMP_SF /nfs/ug/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF
+DEFINE DEMO_AMP_SF /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF
+DEFINE prc /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/prc
+#Removed by ddDeleteObj: DEFINE AAAFOO_DIFFAMP_PAPER /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/AAAFOO_DIFFAMP_PAPER
+DEFINE bag_serdes_ec /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/bag_serdes_ec
+DEFINE tsmc_N65_cmltemplates /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/tsmc_N65_cmltemplates
+DEFINE tsmc_N65_microtemplates_dense /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/tsmc_N65_microtemplates_dense
+#Removed by ddDeleteObj: DEFINE cml /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/cml
+DEFINE cml /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/cml
+DEFINE DEMO_AMP_CS /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_CS
+#Removed by ddDeleteObj: DEFINE CML_Generated /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/CML_Generated
+DEFINE A_CML_496 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/A_CML_496
+DEFINE DIFFAMP_PAPER /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DIFFAMP_PAPER
+
+DEFINE DIFFAMP_PAPER2 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/DIFFAMP_PAPER2
+#DEFINE tsmcN65 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/tsmcN65
+DEFINE tsmcN65 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65
+#Removed by ddDeleteObj: DEFINE tsmc_n65 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/tsmc_n65
+DEFINE analogLib $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE buffer_chain_test /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/buffer_chain_test
+DEFINE AN_INVERTER_496 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/AN_INVERTER_496
+DEFINE AN_INVERTER_496 /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/gen_libs/AN_INVERTER_496
+DEFINE test_sch_temp /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/test_sch_temp
+DEFINE test_sch_temp /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/test_sch_temp
+#Removed by ddDeleteObj: DEFINE InverterRout /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/InverterRout
+DEFINE inverter_rout /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/inverter_rout

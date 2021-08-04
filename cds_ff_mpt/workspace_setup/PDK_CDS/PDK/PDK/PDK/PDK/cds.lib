@@ -1,0 +1,4 @@
+DEFINE     analogLib       $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE     basic           $CDSHOME/tools/dfII/etc/cdslib/basic
+DEFINE     cds_ff_mpt      ./cds_ff_mpt
+DEFINE     wsp_cds_ff_mpt  ./wsp_cds_ff_mpt

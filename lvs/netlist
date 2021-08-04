@@ -1,0 +1,61 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  AAAFOO_DIFFAMP_PAPER
+* Top Cell Name: cml
+* View Name:     schematic
+* Netlisted on:  Jan 20 22:40:43 2020
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.RESVAL
+*.CAPVAL
+*.DIOPERI
+*.DIOAREA
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+
+
+************************************************************************
+* Library Name: AAAFOO_DIFFAMP_PAPER
+* Cell Name:    load_pmos
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT load_pmos VDD bias outn outp
+*.PININFO bias:I VDD:B outn:B outp:B
+MXLOADN outn bias VDD VDD pch_lvt l=60n w=200n m=4
+MXLOADP outp bias VDD VDD pch_lvt l=60n w=200n m=4
+.ENDS
+
+************************************************************************
+* Library Name: AAAFOO_DIFFAMP_PAPER
+* Cell Name:    gm
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT gm VSS bias_tail inn inp outn outp
+*.PININFO bias_tail:I inn:I inp:I VSS:B outn:B outp:B
+MXINN outp inn tail VSS nch_lvt l=60n w=200n m=4
+MXREF bias_tail bias_tail VSS VSS nch_lvt l=60n w=200n m=16
+MXINP outn inp tail VSS nch_lvt l=60n w=200n m=4
+MXTAILN tail bias_tail VSS VSS nch_lvt l=60n w=200n m=8
+MXTAILP tail bias_tail VSS VSS nch_lvt l=60n w=200n m=8
+.ENDS
+
+************************************************************************
+* Library Name: AAAFOO_DIFFAMP_PAPER
+* Cell Name:    cml
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT cml VDD VSS idc inm inp outm outp vbias
+*.PININFO idc:I inm:I inp:I vbias:I VDD:B VSS:B outm:B outp:B
+XXLOAD VDD vbias outm outp / load_pmos
+XXGM VSS idc inm inp outm outp / gm
+.ENDS
+

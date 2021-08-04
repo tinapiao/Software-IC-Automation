@@ -1,0 +1,46 @@
+
+
+       #############################################################
+       ##                                                         ##
+       ##               C A L I B R E    S Y S T E M              ##
+       ##                                                         ##
+       ##    C I R C U I T   E X T R A C T I O N   R E P O R T    ##
+       ##                                                         ##
+       #############################################################
+
+
+REPORT FILE NAME:         DIFFAMP_lch_60n.lvs.report.ext
+LAYOUT NAME:              DIFFAMP_lch_60n.calibre.db ('DIFFAMP_lch_60n')
+CREATION TIME:            Thu Jan 16 01:16:47 2020
+CURRENT DIRECTORY:        /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml
+USER NAME:                conggua1
+CALIBRE VERSION:          v2014.3_35.26    Wed Oct 1 13:01:36 PDT 2014
+
+
+
+Extraction Errors and Warnings for cell "currentmirror_single_n"
+----------------------------------------------------------------
+
+WARNING:  Short circuit - Different names on one net:
+          Net Id:  1
+          (1)  name  "S0"  at location  (0,0)  on layer  132
+          (2)  name  "S1"  at location  (0.52,0)  on layer  132
+          The name "S0" was assigned to the net.
+
+
+Extraction Errors and Warnings for cell "currentmirror_ref_n"
+-------------------------------------------------------------
+
+WARNING:  Short circuit - Different names on one net:
+          Net Id:  1
+          (1)  name  "S0"  at location  (0,0)  on layer  132
+          (2)  name  "S1"  at location  (0.52,0)  on layer  132
+          The name "S0" was assigned to the net.
+
+WARNING:  Short circuit - Different names on one net:
+          Net Id:  2
+          (1)  name  "D"  at location  (0.26,1.16)  on layer  133
+          (2)  name  "G"  at location  (0.26,0.87)  on layer  132
+          The name "D" was assigned to the net.
+
+

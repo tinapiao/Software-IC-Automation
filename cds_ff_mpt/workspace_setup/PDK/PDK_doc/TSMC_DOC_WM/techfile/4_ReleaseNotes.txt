@@ -1,0 +1,240 @@
+RELEASE NOTES
+===============
+
+REFERED DRM DOCUMENT:
+    Virtuoso Technology File for TSMC 65NM CMOS LOGIC GENERAL PURPOSE 1P9M SALICIDE GDS LAYER USAGE DESCRIPTION
+    Layer Usage Doc.: T-N65-CL-LE-001		Ver.: 2.0a
+    Technology File Doc.: T-N65-CL-LE-002	Ver.: 2.0a.pre010810
+
+CREATOR AND DATE:
+    Creator: T.Y. Wang
+    Release Date: 01/08/2010
+
+EDA TOOL VERSION:
+    Virtuoso 5.1.4.1 was used to develop and QA the Technology File
+    Please use Virtuoso 5.1.4.1 or newer TSMC qualified version
+
+REVISION HISTORY OF TECHNOLOGY FILE:
+
+  04/22/2005 Ver 0.1a by Chen-Chia Wang
+    1) Newly create from 90nm tech file.
+    2) Make layer definition consistent with gds layer usage description file.
+    3) Add DSDDMY(130;1,drawing1) ~ DSDDMY(130;9,drawing9) for internal use.
+    4) Modify layer CBD from CBD(169;2) to CBD(169;0) in technology file.
+    5) Add DSDDMY(130;10,test0) to DSDDMY(130;19,test9) for internal use.
+    6) Add PW(2).
+    7) Add SRM(50;1~20) for JSSHYU's team use.
+    8) Change version from 0.1a.3 to 0.02a, so as to match DRM version.
+    9) Add layers: LOGO(158), WBDMY(183).
+   10) Remove EXCL(121).
+   11) Change the layer number of WBDMY to 157.
+   12) Add SRAMDMY(186;4,periphery) for SRAM wordline decoder.
+   13) Define metal probe layers at gds number 75 and datatypes 1 to 14.
+   14) Remove RDL layers MD(168), VIAD(167), MD(168;1,dummy) and MD(159;0,pin).
+   15) Modify metal/via GDS layer numbers to comply with new Mx/My/Mz layer
+   structure.
+   16) The OD_33/VTUH_N/VTUH_P related rules are commented on
+   'physicalRules' section, since these layers are not used.
+   17) Expand this file to a file set with total metal layers from 3 to 9
+   and top thick metal layers from 1 to 2.
+   18) Add RV(85), Via hole for AlCu Redistributional layer (Al RDL).
+   Add AP & RV into layer connections for Al RDL.
+   19) Remove PW(2), NHV(14), VTDP(65), VTDN(66), LNR(71), LVID(73).
+   20) Add layers:
+   PO(17;51,rule1) for low Vt device (push CD)
+   POFUSE(156;0,drawing) for poly fuse implant
+   POFUSE(156;1,drawing1) for poly fuse thin part recognition
+   RAM1TDMY(160) for 1TRAM region, DRC checking purpose only
+   MOMDMY(155), DRC dummy layer to cover interdigitated capacitor (IDMOM)
+   21) Add OD/PO/CO reserved layers for SRAM (JJLIAW) internal use:
+   OD(6;11,test1), OD(6;12,test2), OD(6;13,test3)
+   PO(17;11,test1), PO(17;12,test2), PO(17;13,test3)
+   CO(30;11,test1), CO(30;12,test2), CO(30;13,test3)
+   22) Add NWDMY(114;1,lvs), RPDMY(115;1,lvs) for LVS recognition of
+   3 terminal NWELL and PO/OD resistors.
+   23) Add Al RDL layers AP(126;0,pin) and UBM(125;0,pin) for LVS text.
+   Add LVS dummy layer RMDMY(116;16,drawingh) for AP metal resistor.
+   Add dummy metal AP(74;1,dummy) for density check.
+   Add PDK probe AP(75;16,prob) for Al RDL. (JWCHENA)
+   24) Remove SLTEXCL(79;1~10,dummy1~a) for metal slot insertion blockage.
+   25) Add OD_DECAP(118) for 80HS thin gate oxide decoupling capacitor
+   (SZCHANG)
+   26) Disable 90nm SOI process layers:
+   OD(6;2,drawing2), PDIFF(7;2,drawing2), NDIFF(8;2,drawing2),
+   PO(17;2,drawing2), SOIDMY(28), SUBCO(89), EGP(184), EGN(185).
+   27) Modify cdsVia settings.
+   28) Merge Virtuoso-XL techfile inside PDK, based on standard version.
+   29) Remove/Correct errors in spacingRules & orderedSpacingRules.
+   30) NDIFF & PDIFF layers are removed from design rule check
+   'physicalRules' section.
+  06/07/2005 Ver 0.2a by Chen-Chia Wang
+    1) Add PW(2) for TSMC internal use.
+    2) Add 65nm SOI process layers:
+   OD(6;2,drawing2), PO(17;2,drawing2), SOI_MKR(28;0,soidi),
+   SOI_MKR(28;1,soibt), SOI_MKR(28;2,decap), SOI_MKR(28;11,vpfc),
+   Enable and rename SUBCO(89) to SOISUB.
+    3) Add 65nm embedded 1TMiM process layers:
+   OD1T(27), CLDD(92), SNCT(101), CROWN(102), P3(103)
+    4) Add 65nm SOI process layers:
+   SOI(187;1,ndop), SOI(187;2,pdop), FET(183;0,src),FET(183;1,n_a),
+   FET(183;2,n_b), FET(183;3,p_a), FET(183;4,p_b),VTNCEL(184), VTPCEL(185)
+   These layers can only be used for Virtuoso version 5033 usr2 or higher.
+    5) Add ultra low Vt implant layers VTUL_N(151), VTUL_P(152) for TSMC
+   internal use (CTLING).
+   These layers can only be used for Virtuoso version 5033 usr2 or higher.
+  09/23/2005 Ver 0.3a by C.T.Yao
+    0) Update rule value with DRM.
+    1) Add M1-M7(31-37;7,odummy) for OPC dummy inter metal layers.
+    2) Add Aluminum metal fuse window layer FW(95;20,al) (HYTSAIB/Alex_Fan, 2005/08/12)
+    3) Add SRAMDMY(186;5,periphery_g) for SRAM periphery DRC layer in G process.
+    4) Add COEXCL(153;0,dummy) for the blockage of CO enhancer.
+    5) Change HSL(90) to DCO(90) (CTLING).
+    6) Add NT_N(11;20,Ncap_NTN) for the coverage of NMOS capacitor.
+    7) Add FILLER(181) for covering the whole region of the filler cell.
+    8) Add R_rule(182;1/2/3,require/recommend/analog) for DFM recommendation rules.
+    9) Add HVD(91;0/1/2,drawing/n_a/p_a) for HVDMOS process.
+       (YCTSAIH/KHLEEF, 2005/09/21, reserve until 2006/09/21)
+   10) Add 65nm SOI process layers: FET(183;5,L01S),FET(183;6,NILD),FET(183;7,PILD)
+       (YHLIUK, 2005/09/07)
+  12/29/2005 Ver 1.0a by C.T.Yao
+    1) Add COW(69), SAN(81), RFPADDMY(129), INDDMY(144;0-14/30,drawing0~9/drawinga~e/rad).
+    2) Add Mu, My, VIAy.
+    3) Remove PLDMY(124).
+    4) Add DFM rules.
+  04/13/2006 Ver 1.1a by Allen Tsai
+    1) Add CO2(100).
+    2) Add (187;3/4/5/6) for NLDD/PLDD implant layer of vertical/horizontal poly for SOI process.
+    3) Add (21;0) for SSD, strained Source/Drain, to define SiGe OD in N65HS process.
+    4) Add (254;1/2/3,plus1~3) for POS GATE CD sizing-up.
+    5) Add DFMEXCL(153;20,drawing) for DFM layout enhancement.
+    6) Add REMOVAL(124;1~7/20/21,drawing1~7/drawingo/drawingp) for M1/Mx/OD/PO jog/zigzag removing layer.
+    7) Add CDUDMY(165) as DRC dummy layer to cover CDU pattern in 10um assembly isolation beside seal ring.
+    8) Add OD_25(18;3,ovrdrv) and  OD_25(18;4,udrdrv).
+    9) Add SRM(50;11,test1) for SRM_X.
+   10) Add LDDBLK(104,0) for 1T-MIM bit cell.
+  04/28/2006 Ver 1.2a by Allen Tsai
+    1) Follow DRM version.
+    2) Update MD layer datatype.
+  06/13/2006 Ver 1.2b by Allen Tsai
+    1) Add MOMDMY(155;1~7,drawing1~7) for LVS dummy layer to cover interdigitated capacitor.
+    2) Remove (21;0) for SSD, strained Source/Drain in N65HS process.
+    3) Add SRM_LOP(80;0,dpsrm),SRM_LOP(80;11,dummy1)
+    4) Add SRM(50;11~13,test1~3) for SRAM cell array identification.
+    5) Add INDDMY(144;31,dummy1) for inductor LVS.
+    6) Add CTMDMY(148;115,dummy1), CTMDMY(148;120,dummy2) and LVSDMY(208;1,dummy1) for LVS purpose.
+    7) Add (254;4/5,plus4~5) for POS GATE CD sizing-up.
+    8) Keep consistency with Vx.en.2, Mx.en.2 rules,CO.en.3.
+    9) Add HV(189;31,DMYLD65).
+   10) Fix xpitch,ypich of symContactDevice to follow via array space.
+   11) Add INDDMY(144;32,dummy2) for inductor LVS.
+   12) Add SRAMDMY(186;6,timer) to identify timer devices.
+   13) Add VTDN(66) ,PV_P(71) ,PV_N(72) .
+   14) Add HV(189;32,DMYCAS65).
+   15) Add Mr, VIAr.
+  10/24/2006 Ver 1.3a by Allen Tsai
+    1) Remove Modify 28;0 --SOI_MKR(soidi) -> SOI_MKR(gated).
+    2) Remove dleRules,dlrRules, and lasRules obsoleted sections.
+    3) Remove FILLER(181;0).
+    4) Add CTMDMY(148;110,dummy3)for LVS purpose.
+    5) Add CTMDMY(148;21,MIM3T)for LVS purpose.
+    6) Add OD(6;6,pin)for OD text layer.
+    7) Add OD,PO,VIA,CO,AP,RV(boundary,pin,net) for Abstract view generation.
+    8) Add DRC dummy layer MOMDMY M8(155;8,drawing8)/M9(155;9,drawing9)/M10(155;10,drawinga)/AP(155;20,dummy1) for MOM region.
+    9) Add DRC dummy layer MOMDMY(155;21,dummy2) to waive PO.R.4 violations in RTMOM region.
+   10) Add INDDMY(144;33,dummy3) for LVS purpose.
+   11) Add INDDMY(144;34,dummy4) for "CTAP" pin of central-tap inductor recognition for LVS purpose.
+   12) Add MOMDMY(155;22,dummy3) ,MOMDMY(155;23,dummy4),MOMDMY(155;24,dummy5) for crtmom_mx recognition.
+   13) Add MOMDMY(155;25,dummy6) for cross-couple crtmom pin recognition.
+   14) Remove SRM(50;1~10;15~20).
+   15) Add INDDMY(144;31,dummy1),INDDMY(144;32,dummy2) and (144;33,dummy3) for inductor LVS.
+   16) Add INDDMY(144;34,dummy4) for "CTAP" pin of central-tap inductor recognition for LVS purpose.
+  07/25/2007 Ver 1.3b by Allen Tsai
+      1) Add ESDIMP(189;0,drawing) for ESD implant.
+      2) Add UHVT_N(93),UHVT_P(94).
+      3) Add a new layer IO_buffer(128;0,dummy).
+      4) Add PM(5;1,drawing1), PM(5;2,drawing2),AP(74;10,drawing1) for WLCSP purpose.
+      5) Add CDUDMY(165;1,dummy1) for TCDDMY purpose.
+      6) Add SRM(50;15~17,test5~7) for SRAM cell.
+  09/24/2007 Ver 1.3c by Allen Tsai
+      1) Change the translate property of streamLayers of METAL(boundary),VIA(boundary) to "t".
+      2) Add METAL(boundary),VIA(boundary) layers to mapping file.
+      3) Add INDDMY(144;35, dummy5) for lvs purpose.
+      4) Add DMEXCL(150;22,dummyf).
+      5) Add MR(204;1~9,drawing1~3 dummy1~6).
+  10/22/2007 Ver 1.3d.pre by Allen Tsai
+      1) Added Layer RFPADDMY(129;1, drawing1) - The dummy layer for specifying RFPAD that density from 0 to 15% for LVS purpose
+      2) Added Layer RFPADDMY(129;2, drawing2) - The dummy layer for specifying RFPAD that density from 15 to 23% for LVS purpose
+      3) Added Layer RFPADDMY(129;3, drawing3) - The dummy layer for specifying RFPAD that density over 23%
+ 10/31/2007 Ver 1.3d.pre by Dinesh Baviskar
+      1) Added Layer CU_PPI (142;64, pin ) - CU_PPI (POST PASSIVATION INTERCONNECTION) for WLCSP interconnection.
+ 11/06/2007 Ver 1.3d.pre by Dinesh Baviskar
+      1) Added Layer HVD(91;3,n_b) - Used for HVDNMOS using NW approach (distinguished from DNW approach)
+ 12/03/2007 Ver 1.3d.pre by Dinesh Baviskar
+      1) Added Layer SRM(50;10,test0) - dummy layer for SRAM devices.
+ 01/02/2008 Ver 1.4a by Dinesh Baviskar
+      1) Added Layer LUPWDMY(255;1,drawing1) to waive latchup rule.
+ 04/21/2008 Ver 1.4b by Dinesh Baviskar
+      1) 3 letter abbreviation of techPurposes
+      2) Unique Packet assigned to every layer.
+      3) VAR(143;1~3) are obsolate and hided in this techfile.
+ 05/12/2008 Ver 1.4c.pre by Dinesh Baviskar
+      1) Added HIA_DUMMY (168;0,drawing)
+ 05/19/2008 Ver 1.4c.pre by Dinesh Baviskar
+      1) Added EDRAM(104;1,drawing)
+ 07/09/2008 Ver 1.4c.pre by Dinesh Baviskar
+      1) Added RFDMY(161;3,drawing3) and RFDMY(161;4,drawing4)
+ 07/10/2008 Ver 1.4c.pre by Dinesh Baviskar
+      1) Added techPurposes BSL(15), BSD(16) and BSP(17)
+      2) Added M1(31;100,BSL), M1(31;101,BSD), M1(131;100,BSP), AP(74;100,BSL), AP(74;102,BSP),
+        RV(85;100,BSL), CB2(86;100,BSL), CBD(169;100,BSL), UBM(170;100,BSL), TSV(251;0,drawing),
+        TSV(251;1,pin), TSV(251;2,dummy), FFCDMY(255;2,drawing2) for TSV process
+ 10/23/2008 Ver 1.4c.pre by Y.T. Huang
+      1) Added EDRAM_DECAP(92;1, drawing) to distinguish MIM_Decap from standard eDRAM cell array
+ 11/10/2008 Ver 1.4c.pre by Y.T. Huang
+      1) Added BJTDMY(110;1, drawing1) as LVS dummy layer to cover small BJT device
+ 11/14/2008 Ver 1.4c.pre by Y.T. Huang
+      1) Added RFDMY(161;2, drawing2) as LVS dummy layer to recognize RFDMT 4T device
+      2) Added LVBJTDMY(208;11, dummy2) as dummy to define LVBJT device
+      3) Added OD1T(27;1, dummy1) as DRC dummy layer for eDRAM cell oxide over-driven purpose
+      3) Added OD1T(27;2, dummy2) as DRC dummy layer for eDRAM cell oxide over-driven purpose
+      3) Added OD1T(27;3, dummy3) as DRC dummy layer to identify word line driven(WLD) in eDRAM chip
+      3) Added OD1T(27;4, dummy4) as DRC dummy layer to identify MOSCAP in eDRAM chip
+      3) Added OD1T(27;5, dummy5) as DRC dummy layer to identify charge pumping(CP) circuit in eDRAM chip
+      3) Added OD1T(27;6, dummy6) as DRC dummy layer to identify special OD1T device
+      3) Added OD1T(27;7, dummy7) as DRC dummy layer to identify special OD1T device
+      3) Added OD1T(27;8, dummy8) as DRC dummy layer to identify special OD1T device
+  03/06/2009 Ver 1.4c.pre by C. R. Hsu
+      1) Update BJTDMY(drawing1)
+      2) Update DCO.S.6
+      3) Update SEALRING(162;2 drawing2) as recognize whole sealring region for DRC purpose
+      4) Update unique display packet
+  05/20/2009 Ver 1.4c.pre by crhsu
+      1) Add DIODMY(dummya)->255;3
+      2) Add VDDDMY(drawing)->255;4
+      3) Add VSSDMY(drawing)->255;5
+  06/03/2009 Ver 1.4c.pre by crhsu
+      1) Add EMIDMY(dummy3)->208;12
+  06/15/2009Ver 1.4c.pre by tywangj
+      1) Add CTMDMY(drawing1)->148;10
+      2) Add RFDMY(drawing1)->161;10
+  08/27/2009 Ver 2.0a.pre by tywangj
+	1 ) Add NWHV ->HVNW(drawing1)->154;51 for N55 e-Flash high voltage nwell
+	2 ) Add PWHV ->HVPW(drawing1)->154;52 for N55 e-Flash high voltage pwell
+	3 ) Add PWMW ->MW(drawing1)->154;53 for N55 e-Flash matrix well (pwell implant for flash cell array)
+	4 ) Add OD_MV ->FLASH(drawing1)->154;54 for N55 e-Flash marking layer for medium voltage area
+	5 ) Add OD_HV ->FLASH(drawing2)->154;55 for N55 e-Flash marking layer for high voltage area
+	6 ) Add TO ->FLASH(drawing3)->154;56 for N55 e-Flash flash tunnel oxide
+	7 ) Add FG_Hole ->FLASH(drawing4)->154;57 for N55 e-Flash floting gate slots
+	8 ) Add PS ->FLASH(drawing5)->154;58 for N55 e-Flash poly spacer for hs3p flash cell
+	9 ) Add NMD ->FLASH(drawing6)->154;59 for N55 e-Flash LDD implant for hs3p flash cell
+	10) Add TO10 ->FLASH(drawing7)->154;60 for N55 e-Flash marking layer for 10.5 nm tunnel oxide
+	11) Add HS3P ->FLASH(drawing8)->154;61 for N55 e-Flash marking layer for hs3p cell
+	12) Add HS3PEE ->FLASH(drawing9)->154;62 for N55 e-Flash marking layer for hs3p eeprom cell
+	13) Add FGC ->FLASH(drawinga)->154;63 N55 e-Flash floating gate contact
+	14) Add FGPoly ->FLASH(drawingb)->154;64 for N55 e-Flash second poly for Poly/Poly capacitor
+	15) Add CAPPOP ->FLASH(drawingc)->154;65 for N55 e-Flash marking layer for Poly/Poly capacitor
+	16) Add CAPSW ->FLASH(drawingd)->154;66 for N55 e-Flash marking layer for Poly/Poly || Tox capacitor
+  09/03/2009 Ver 2.0a.pre by tywangj
+	1 ) Add MOSVAR ->VAR(drawingb)->143;11 dummy layer to recognize the N55 MOSVAR for N45-like DVAR
+  12/15/2009 Ver 2.0a.pre by tywangj
+	1 ) Add AREATRIM ->R_rule(dummy1)->182;41 TSMC reserved layer for Area Trim region

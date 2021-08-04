@@ -1,0 +1,20 @@
+Input_Resistance: 5.0e-3
+gain_min: 1.0
+bw_min: 2.0e+9
+cload: 100.0e-15
+vdd: 1
+vtail: 0.15
+sim_env: 'tt'
+N: 7
+
+nch:
+  intent: lvt
+pch:
+  intent: lvt
+
+
+nch_config: specs_mos_char/nch_w0d5.yaml
+  
+
+pch_config: specs_mos_char/pch_w0d5.yaml
+ 

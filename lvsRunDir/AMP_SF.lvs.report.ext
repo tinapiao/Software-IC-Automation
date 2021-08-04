@@ -1,0 +1,35 @@
+
+
+       #############################################################
+       ##                                                         ##
+       ##               C A L I B R E    S Y S T E M              ##
+       ##                                                         ##
+       ##    C I R C U I T   E X T R A C T I O N   R E P O R T    ##
+       ##                                                         ##
+       #############################################################
+
+
+REPORT FILE NAME:         AMP_SF.lvs.report.ext
+LAYOUT NAME:              AMP_SF.calibre.db ('AMP_SF')
+CREATION TIME:            Sat Aug 24 20:01:33 2019
+CURRENT DIRECTORY:        /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir
+USER NAME:                conggua1
+CALIBRE VERSION:          v2014.3_35.26    Wed Oct 1 13:01:36 PDT 2014
+
+
+
+Extraction Errors and Warnings for cell "AMP_SF"
+------------------------------------------------
+
+WARNING:  Short circuit - Different names on one net:
+          Net Id:  109
+          (1)  name  "VDD"  at location  (1.62,2.16)  on layer  134
+          (2)  name  "vout"  at location  (1.62,1.296)  on layer  134
+          (3)  name  "VSS"  at location  (1.62,0.576)  on layer  134
+          (4)  name  "VSS"  at location  (1.62,2.592)  on layer  134
+          The name "VDD" was assigned to the net.
+
+
+
+WARNING: Invalid PATHCHK request "! GROUND": no GROUND nets present, operation aborted.
+

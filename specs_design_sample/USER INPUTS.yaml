@@ -1,0 +1,6 @@
+Input_Resistance: 5.0e-3
+Gain_min: 1.0
+Bandwidth_min: 2.0e+9
+load_Capacitance: 100.0e-15
+VDD: 1
+

@@ -1,0 +1,8 @@
+CADENCE IHNL11140
+$model
+AAAFOO_DIFFAMP_PAPER/DIFFAMP_lch_60n/schematic DIFFAMP_lch_60n
+$endmodel
+$net
+$endnet
+$param
+$endparam

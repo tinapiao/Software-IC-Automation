@@ -1,0 +1,4 @@
+*lvsRulesFile: /CMC/kits/tsmc_65nm/CRN65GP-OA/TN65CMSP018K3_V1.0C/Calibre/lvs/calibre.lvs
+*lvsRunDir: ./lvsRunDir
+*lvsLayoutGetFromViewer: 1
+*lvsSourceGetFromViewer: 1

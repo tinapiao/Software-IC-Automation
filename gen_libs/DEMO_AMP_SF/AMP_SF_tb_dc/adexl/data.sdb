@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<setupdb version="5">data
+	<active>Active Setup
+		<tests>
+			<test>tb_dc
+				<tool>ADE</tool>
+				<tooloptions>
+					<option>cell
+						<value>AMP_SF_tb_dc</value>
+					</option>
+					<option>lib
+						<value>DEMO_AMP_SF</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>config</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/test_states</value>
+					</option>
+					<option>state
+						<value>tb_dc_import</value>
+					</option>
+				</tooloptions>
+				<origoptions>
+					<option>cell
+						<value>amp_tb_dc</value>
+					</option>
+					<option>lib
+						<value>bag_testbenches</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>schematic</value>
+					</option>
+				</origoptions>
+			</test>
+		</tests>
+		<vars>
+			<var>gain_fb
+				<value>-2.000000e+02</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>ibias
+				<value>100u</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vdd
+				<value>1.000000e+00</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vout_start
+				<value>1.500000e-01</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vout_stop
+				<value>5.000000e-01</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vout_num
+				<value>1.000000e+02</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>voutref
+				<value>5.000000e-01</value>
+				<dependentTests>
+					<dependentTest omitted="0">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vimax
+				<value>1.000000e+00</value>
+				<dependentTests>
+					<dependentTest omitted="0">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vimin
+				<value>0.000000e+00</value>
+				<dependentTests>
+					<dependentTest omitted="0">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vbias
+				<value>5.400000e-01</value>
+			</var>
+		</vars>
+		<corners>
+			<corner enabled="0">_default</corner>
+			<corner enabled="1">tt
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"tt"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ff
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ff"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">sf
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"sf"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">fs
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"fs"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ff_hot
+				<vars>
+					<var>temperature
+						<value>65</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ff"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss_hot
+				<vars>
+					<var>temperature
+						<value>65</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss_cold
+				<vars>
+					<var>temperature
+						<value>0</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+		</corners>
+		<currentmode>Single Run, Sweeps and Corners</currentmode>
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<overwritehistory>0</overwritehistory>
+	</active>
+	<history>History
+		<historyentry assemblerOrExplorer="adexl" roOrView="view">BagSim.0
+			<checkpoint>
+				<tests>
+					<test>tb_dc
+						<tool>ADE</tool>
+						<tooloptions>
+							<option>cell
+								<value>AMP_SF_tb_dc</value>
+							</option>
+							<option>lib
+								<value>DEMO_AMP_SF</value>
+							</option>
+							<option>sim
+								<value>spectre</value>
+							</option>
+							<option>view
+								<value>config</value>
+							</option>
+							<option>path
+								<value>$AXL_SETUPDB_DIR/test_states</value>
+							</option>
+							<option>state
+								<value>tb_dc_none_BagSim.0</value>
+							</option>
+						</tooloptions>
+						<origoptions>
+							<option>cell
+								<value>amp_tb_dc</value>
+							</option>
+							<option>lib
+								<value>bag_testbenches</value>
+							</option>
+							<option>sim
+								<value>spectre</value>
+							</option>
+							<option>view
+								<value>schematic</value>
+							</option>
+						</origoptions>
+					</test>
+				</tests>
+				<vars>
+					<var>gain_fb
+						<value>-2.000000e+02</value>
+						<dependentTests>
+							<dependentTest enabled="1">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>ibias
+						<value>100u</value>
+						<dependentTests>
+							<dependentTest enabled="1">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vdd
+						<value>1.000000e+00</value>
+						<dependentTests>
+							<dependentTest enabled="1">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vout_start
+						<value>1.500000e-01</value>
+						<dependentTests>
+							<dependentTest enabled="1">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vout_stop
+						<value>5.000000e-01</value>
+						<dependentTests>
+							<dependentTest enabled="1">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vout_num
+						<value>1.000000e+02</value>
+						<dependentTests>
+							<dependentTest enabled="1">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>voutref
+						<value>5.000000e-01</value>
+						<dependentTests>
+							<dependentTest omitted="0">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vimax
+						<value>1.000000e+00</value>
+						<dependentTests>
+							<dependentTest omitted="0">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vimin
+						<value>0.000000e+00</value>
+						<dependentTests>
+							<dependentTest omitted="0">tb_dc</dependentTest>
+						</dependentTests>
+					</var>
+					<var>vbias
+						<value>5.400000e-01</value>
+					</var>
+				</vars>
+				<corners>
+					<corner enabled="0">_default</corner>
+					<corner enabled="1">tt
+						<vars>
+							<var>temperature
+								<value>25</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"tt"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">ff
+						<vars>
+							<var>temperature
+								<value>25</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"ff"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">ss
+						<vars>
+							<var>temperature
+								<value>25</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"ss"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">sf
+						<vars>
+							<var>temperature
+								<value>25</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"sf"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">fs
+						<vars>
+							<var>temperature
+								<value>25</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"fs"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">ff_hot
+						<vars>
+							<var>temperature
+								<value>65</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"ff"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">ss_hot
+						<vars>
+							<var>temperature
+								<value>65</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"ss"</modelsection>
+							</model>
+						</models>
+					</corner>
+					<corner enabled="0">ss_cold
+						<vars>
+							<var>temperature
+								<value>0</value>
+							</var>
+						</vars>
+						<models>
+							<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+								<modeltest>All</modeltest>
+								<modelblock>Global</modelblock>
+								<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+								<modelsection>"ss"</modelsection>
+							</model>
+						</models>
+					</corner>
+				</corners>
+				<currentmode>Single Run, Sweeps and Corners</currentmode>
+				<extensions>
+					<extension>Parasitics
+						<callback>_parSetupDBExtensionCB</callback>
+						<iconvalue></iconvalue>
+						<icontype></icontype>
+					</extension>
+				</extensions>
+				<overwritehistory>0</overwritehistory>
+				<allcornersenabled>1</allcornersenabled>
+				<allsweepsenabled>1</allsweepsenabled>
+				<overwritehistoryname>BagSim.0</overwritehistoryname>
+				<plottingoptions>
+					<plottingoption>plottype
+						<value>None</value>
+					</plottingoption>
+					<plottingoption>usewaveformtemplate
+						<value>no</value>
+					</plottingoption>
+					<plottingoption>waveformtemplate
+						<value>                            </value>
+					</plottingoption>
+				</plottingoptions>
+				<sortVariableValues>0</sortVariableValues>
+			</checkpoint>
+			<timestamp>Thu Mar 19 19:50:37 2020
+</timestamp>
+			<resultsname>/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF/AMP_SF_tb_dc/adexl/results/data/BagSim.0.rdb</resultsname>
+			<simresults>$AXL_SETUPDB_DIR/results/data/BagSim.0.rdb</simresults>
+			<rawdatadelstrategy>SaveAll</rawdatadelstrategy>
+			<netlistdelstrategy>SaveAll</netlistdelstrategy>
+			<uselocalpsfdir>false</uselocalpsfdir>
+			<localpsfdir>/tmp/ug66_conggua1_195037569</localpsfdir>
+			<psfdir>/nfs/ug/homes-2/c/conggua1/simulation/DEMO_AMP_SF/AMP_SF_tb_dc/adexl/results/data/BagSim.0</psfdir>
+			<simdir>$AXL_PROJECT_DIR/DEMO_AMP_SF/AMP_SF_tb_dc/adexl/results/data/BagSim.0</simdir>
+			<gendatasheetplotsonsimulation>1</gendatasheetplotsonsimulation>
+			<runlog>/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/gen_libs/DEMO_AMP_SF/AMP_SF_tb_dc/adexl/results/data/BagSim.0.log</runlog>
+			<runlogfile>$AXL_SETUPDB_DIR/results/data/BagSim.0.log</runlogfile>
+			<schematicpoint></schematicpoint>
+			<test>all</test>
+		</historyentry>
+	</history>
+</setupdb>

@@ -1,0 +1,21 @@
+lib_name: tsmc_N65_invertertemplates
+cell_name: guard_ring_psub
+rects:
+  1:
+    layer: CO drawing
+    bBox: [[0.290000, -0.040000], [0.380000, 0.050000]]
+  2:
+    layer: prBoundary boundary
+    bBox: [[0.000000, 0.000000], [0.520000, 0.580000]]
+  3:
+    layer: M1 pin
+    bBox: [[-0.090000, -0.090000], [0.090000, 0.090000]]
+  4:
+    layer: CO drawing
+    bBox: [[0.050000, -0.040000], [0.140000, 0.050000]]
+labels:
+  1:
+    label: psub
+    layer: M1 pin
+    xy: [0.000000, 0.000000]
+instances: {}

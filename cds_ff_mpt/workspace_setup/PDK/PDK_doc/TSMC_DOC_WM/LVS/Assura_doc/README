@@ -1,0 +1,69 @@
+LVS File List :
+===============
+1.MAIN_DECK/
+  -- UTM		: for ultra thick metal process( 33K Mtop for RF inductor ).
+     -- 1pxm	        : LVS decks for Assura flow.		
+         -- extract.rul	: Assura LVS/RCX extraction rule. 
+         -- compare.rul	: Assura LVS compare rule.
+         -- hcell	: device list for cell blocking.
+         -- lvsfile	: device connective file for QRC. 	
+         -- rcxrsf	: RSF file for RC cell blocking.	
+         -- capgen.cmd	   : Techgen file for QRC. 
+         -- capgen.cmd.ctm : Techgen file for QRC that include ctm/cbm info. 
+         -- bind.rul	: Assura binding file.
+         -- bind.rul_cdl: Assura binding file for CDL.
+         -- DFM		: DFM directory.
+  -- nonUTM		: for normal thick metal process( 9K Mtop ).
+     -- 1pxm	        : LVS decks for Assura flow.		
+         -- extract.rul	: Assura LVS/RCX extraction rule. 
+         -- compare.rul	: Assura LVS compare rule.
+         -- hcell	: device list for cell blocking.
+         -- lvsfile	: device connective file for QRC. 	
+         -- rcxrsf	: RSF file for RC cell blocking.	
+         -- capgen.cmd	: Techgen file for QRC. 
+         -- capgen.cmd.ctm : Techgen file for QRC that include ctm/cbm info. 
+         -- bind.rul	: Assura binding file.
+         -- bind.rul_cdl: Assura binding file for CDL.
+         -- DFM		: DFM directory.
+	 
+
+2.source.added		: source file for subcircuits.  
+
+3.LVS.rsf		: RSF template file for LVS.
+
+4.rcx.rsf		: RSF template file for QRC.
+
+5.TSMC_DOC_WM/  
+**   -- N65_N55_Assura_LVS_Deck_Usage.pdf	: LVS deck usage; must read.
+**   -- ERC_usage.pdf				: ERC check usage; must read. 
+     -- DFM_LPE_Extraction.pdf			: introduction of four DFM effects in LPE.
+     -- BSIM4.5_WPE+LOD.pdf			: introduction of WPE & LOD effects in LPE.
+     -- N65_N55_stack_mimcaps_usage.pdf 	: introduction usage of put devices under mimcap devices.
+6.device_list				: list of device name vs. spice model name. 
+
+7.DFM_ReleaseNotes			: DFM LPE revision history.
+
+8.QAreport				: LVS QA Report.
+
+----------------------------------------------------------------------------
+Release Notes :
+===============
+1. The metal scheme is from 1P4M to 1P9M.
+2. Please turn off ?mFactorR option. 
+3. The MAC devices must be covered by MAC layer ( 208;1, layer in techfile.tf is "LVSDMY"("drawing1")) 
+   and please cover whole gate region.. 
+5. Please read USAGE documents firstly for new switches and flow usage.   
+6. For stack devices under mimcap devices, please reference by N65_N55_stack_mimcaps_usage.pdf in TSMC_DOC_WM.
+7. For thick ALRDL resistor usage (rmap_ut), please reference usage document in TSMC_DOC_WM.
+----------------------------------------------------------------------------
+Assura QRC Flow :                         
+=================
+a.  Download (and un-tar) the QRC tech files, read the usage file in the QRC package first; 
+b.  Download (and un-tar) the corresponding LVS files; 
+c.  Create lvsfile under QRC techdir; 
+        * For Assura LVS/QRC flow, Run Assura LVS and copy the runname.xcn file to the QRC techdir
+          and call it lvsfile; 
+d.  Run % capgen.cmd (if QRC has ctm/cbm for mimcap devices, please use capgem.cmd.ctm) 
+e.  Run % qrc -cmd rcx.rsf
+----------------------------------------------------------------------------
+If you have any questions, please contact TSMC LVS CAE. Thanks.

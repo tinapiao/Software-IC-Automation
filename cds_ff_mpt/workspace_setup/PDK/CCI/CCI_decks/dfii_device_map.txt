@@ -1,0 +1,221 @@
+nch_18 tsmcN65 nch_25ud18 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_na tsmcN65 nch_na symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_na_mac tsmcN65 nch_na_mac symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_hvt tsmcN65 nch_hvt symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_na25 tsmcN65 nch_na25 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_na25od33 tsmcN65 nch_na25od33 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_na25od33_mac tsmcN65 nch_na25od33_mac symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_na25_mac tsmcN65 nch_na25_mac symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_lvt tsmcN65 nch_lvt symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_mlvt tsmcN65 nch_mlvt symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch tsmcN65 nch symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_33 tsmcN65 nch_25od33 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_25 tsmcN65 nch_25 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_33 tsmcN65 pch_25od33 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_lvt tsmcN65 pch_lvt symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_mlvt tsmcN65 pch_mlvt symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_25 tsmcN65 pch_25 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_18 tsmcN65 pch_25ud18 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch tsmcN65 pch symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_hvt tsmcN65 pch_hvt symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+npn2 tsmcN65 npn symbol C B E PROPMAP m="1"
+npn5 tsmcN65 npn symbol C B E PROPMAP m="1"
+npn10 tsmcN65 npn symbol C B E PROPMAP m="1"
+pnp2 tsmcN65 pnp symbol C B E PROPMAP m="1"
+pnp5 tsmcN65 pnp symbol C B E PROPMAP m="1"
+pnp10 tsmcN65 pnp symbol C B E PROPMAP m="1"
+pdio_lvt tsmcN65 pdio_lvt symbol PLUS MINUS PROPMAP m="1"
+pdio_hia_rf tsmcN65 pdio_hia_rf symbol PLUS MINUS BULK  PROPMAP m="1" fn="1"
+ndio_hia_rf tsmcN65 ndio_hia_rf symbol PLUS MINUS  PROPMAP m="1" fn="1"
+pdio_mlvt tsmcN65 pdio_mlvt symbol PLUS MINUS PROPMAP m="1"
+nwdio tsmcN65 nwdio symbol PLUS MINUS PROPMAP m="1"
+ndio_esd tsmcN65 ndio_esd symbol PLUS MINUS PROPMAP m="1"
+ndio tsmcN65 ndio symbol PLUS MINUS PROPMAP m="1"
+pdio tsmcN65 pdio symbol PLUS MINUS PROPMAP m="1"
+pwdnw tsmcN65 pwdnw symbol PLUS MINUS PROPMAP m="1"
+dnwpsub tsmcN65 dnwpsub symbol PLUS MINUS PROPMAP m="1"
+ndio_33 tsmcN65 ndio_25od33 symbol PLUS MINUS PROPMAP m="1"
+ndio_25 tsmcN65 ndio_25 symbol PLUS MINUS PROPMAP m="1"
+pdio_33 tsmcN65 pdio_25od33 symbol PLUS MINUS PROPMAP m="1"
+ndio_18 tsmcN65 ndio_25ud18 symbol PLUS MINUS PROPMAP m="1"
+pdio_25 tsmcN65 pdio_25 symbol PLUS MINUS PROPMAP m="1"
+pdio_18 tsmcN65 pdio_25ud18 symbol PLUS MINUS PROPMAP m="1"
+ndio_na tsmcN65 ndio_na symbol PLUS MINUS PROPMAP m="1"
+ndio_hvt tsmcN65 ndio_hvt symbol PLUS MINUS PROPMAP m="1"
+pdio_hvt tsmcN65 pdio_hvt symbol PLUS MINUS PROPMAP m="1"
+ndio_na25 tsmcN65 ndio_na25 symbol PLUS MINUS PROPMAP m="1"
+ndio_na25od33 tsmcN65 ndio_na25od33 symbol PLUS MINUS PROPMAP m="1"
+ndio_lvt tsmcN65 ndio_lvt symbol PLUS MINUS PROPMAP m="1"
+ndio_mlvt tsmcN65 ndio_mlvt symbol PLUS MINUS PROPMAP m="1"
+rpodl tsmcN65 rpod symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnods tsmcN65 rnod symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnwsti tsmcN65 rnwsti symbol PLUS MINUS  PROPMAP mf="1"
+rpods tsmcN65 rpod symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnwod tsmcN65 rnwod symbol PLUS MINUS  PROPMAP mf="1"
+rnpolywo tsmcN65 rnpolywo symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnpolywo_m tsmcN65 rnpolywo_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rppolywo tsmcN65 rppolywo symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rppolywo_m tsmcN65 rppolywo_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rnpolyl tsmcN65 rnpoly symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnpolyl_m tsmcN65 rnpoly_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+nmoscap tsmcN65 nmoscap symbol PLUS MINUS  PROPMAP m="1"
+rppolyl tsmcN65 rppoly symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rppolyl_m tsmcN65 rppoly_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+nmoscap_25 tsmcN65 nmoscap_25 symbol PLUS MINUS  PROPMAP m="1"
+rnpolys tsmcN65 rnpoly symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnpolys_m tsmcN65 rnpoly_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rnodwo tsmcN65 rnodwo symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rppolys tsmcN65 rppoly symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rppolys_m tsmcN65 rppoly_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rpodwo tsmcN65 rpodwo symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnodl tsmcN65 rnod symbol PLUS MINUS  PROPMAP mf="1" segments="1"
+rnodwo_m tsmcN65 rnodwo_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rpodwo_m tsmcN65 rpodwo_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rnodl_m tsmcN65 rnod_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rpodl_m tsmcN65 rpod_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rnods_m tsmcN65 rnod_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rpods_m tsmcN65 rpod_m symbol PLUS MINUS BULK  PROPMAP mf="1" segments="1"
+rnwod_m tsmcN65 rnwod_m symbol PLUS MINUS BULK  PROPMAP mf="1"
+rnwsti_m tsmcN65 rnwsti_m symbol PLUS MINUS BULK  PROPMAP mf="1"
+pcap analogLib cap symbol PLUS MINUS 
+pres analogLib res symbol PLUS MINUS 
+pind analogLib ind symbol PLUS MINUS 
+nmos_rf tsmcN65 nmos_rf symbol D G S B  PROPMAP m="1"
+pmos_rf_25_5t tsmcN65 pmos_rf_25_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_25_nw_5t tsmcN65 pmos_rf_25_nw_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_33_5t tsmcN65 pmos_rf_25od33_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_33_nw_5t tsmcN65 pmos_rf_25od33_nw_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_18_5t tsmcN65 pmos_rf_25ud18_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_18_nw_5t tsmcN65 pmos_rf_25ud18_nw_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_5t tsmcN65 pmos_rf_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_hvt_5t tsmcN65 pmos_rf_hvt_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_hvt_nw_5t tsmcN65 pmos_rf_hvt_nw_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_lvt_5t tsmcN65 pmos_rf_lvt_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_lvt_nw_5t tsmcN65 pmos_rf_lvt_nw_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_mlvt_5t tsmcN65 pmos_rf_mlvt_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_mlvt_nw_5t tsmcN65 pmos_rf_mlvt_nw_5t symbol D G S B PG  PROPMAP m="1"
+pmos_rf_nw_5t tsmcN65 pmos_rf_nw_5t symbol D G S B PG  PROPMAP m="1"
+nmos_rf_hvt tsmcN65 nmos_rf_hvt symbol D G S B  PROPMAP m="1"
+nmos_rf_25_6t tsmcN65 nmos_rf_25_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_33_6t tsmcN65 nmos_rf_25od33_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_18_6t tsmcN65 nmos_rf_25ud18_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_6t tsmcN65 nmos_rf_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_hvt_6t tsmcN65 nmos_rf_hvt_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_lvt_6t tsmcN65 nmos_rf_lvt_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_mlvt_6t tsmcN65 nmos_rf_mlvt_6t symbol D G S B NG PG  PROPMAP m="1"
+nmos_rf_lvt tsmcN65 nmos_rf_lvt symbol D G S B  PROPMAP m="1"
+nmos_rf_mlvt tsmcN65 nmos_rf_mlvt symbol D G S B  PROPMAP m="1"
+nmos_rf_25 tsmcN65 nmos_rf_25 symbol D G S B  PROPMAP m="1"
+nmos_rf_18 tsmcN65 nmos_rf_25ud18 symbol D G S B  PROPMAP m="1"
+nmos_rf_33 tsmcN65 nmos_rf_25od33 symbol D G S B  PROPMAP m="1"
+pmos_rf_nw tsmcN65 pmos_rf_nw symbol D G S B  PROPMAP m="1"
+pmos_rf tsmcN65 pmos_rf symbol D G S B  PROPMAP m="1"
+pmos_rf_hvt_nw tsmcN65 pmos_rf_hvt_nw symbol D G S B  PROPMAP m="1"
+pmos_rf_lvt tsmcN65 pmos_rf_lvt symbol D G S B  PROPMAP m="1"
+pmos_rf_lvt_nw tsmcN65 pmos_rf_lvt_nw symbol D G S B  PROPMAP m="1"
+pmos_rf_hvt tsmcN65 pmos_rf_hvt symbol D G S B  PROPMAP m="1"
+pmos_rf_mlvt tsmcN65 pmos_rf_mlvt symbol D G S B  PROPMAP m="1"
+pmos_rf_mlvt_nw tsmcN65 pmos_rf_mlvt_nw symbol D G S B  PROPMAP m="1"
+pmos_rf_25_nw tsmcN65 pmos_rf_25_nw symbol D G S B  PROPMAP m="1"
+pmos_rf_18_nw tsmcN65 pmos_rf_25_nwud18 symbol D G S B  PROPMAP m="1"
+pmos_rf_33_nw tsmcN65 pmos_rf_25_nwod33 symbol D G S B  PROPMAP m="1"
+pmos_rf_18 tsmcN65 pmos_rf_25ud18 symbol D G S B  PROPMAP m="1"
+pmos_rf_25 tsmcN65 pmos_rf_25 symbol D G S B  PROPMAP m="1"
+pmos_rf_33 tsmcN65 pmos_rf_25od33 symbol D G S B  PROPMAP m="1"
+xjvar tsmcN65 xjvar symbol PLUS MINUS BULK  PROPMAP m="1" w=wr l=lr
+xjvar_nw tsmcN65 xjvar_nw symbol PLUS MINUS BULK  PROPMAP m="1" w=wr l=lr
+moscap_rf tsmcN65 moscap_rf symbol PLUS MINUS BULK  PROPMAP m="1"
+moscap_rf_nw tsmcN65 moscap_rf_nw symbol PLUS MINUS BULK  PROPMAP m="1"
+pmoscap_rf25 tsmcN65 pmoscap_rf25 symbol PLUS MINUS BULK  PROPMAP m="1"
+pmoscap_rf tsmcN65 pmoscap_rf symbol PLUS MINUS BULK  PROPMAP m="1"
+moscap_rf25 tsmcN65 moscap_rf25 symbol PLUS MINUS BULK  PROPMAP m="1"
+moscap_rf25_nw tsmcN65 moscap_rf25_nw symbol PLUS MINUS BULK  PROPMAP m="1"
+rppolyl_rf tsmcN65 rppoly_rf symbol PLUS MINUS BULK  PROPMAP mf="1"
+rppolywo_rf tsmcN65 rppolywo_rf symbol PLUS MINUS BULK  PROPMAP mf="1"
+crtmom tsmcN65 crtmom symbol PLUS MINUS BULK  PROPMAP m="1" s=sp spm=StopMn stm=StartMn
+crtmom_mx tsmcN65 crtmom_mx symbol PLUS1 MINUS1 PLUS2 MINUS2 BULK  PROPMAP m="1" s=sp spm=StopMn stm=StartMn
+crtmom_rf tsmcN65 crtmom_rf symbol PLUS MINUS BULK  PROPMAP m="1" s=sp spm=StopMn stm=StartMn
+rppolys_rf tsmcN65 rppoly_rf symbol PLUS MINUS BULK  PROPMAP mf="1"
+nch_mac tsmcN65 nch_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+nch_lvt_mac tsmcN65 nch_lvt_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+nch_mlvt_mac tsmcN65 nch_mlvt_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+nch_hvt_mac tsmcN65 nch_hvt_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_mac tsmcN65 pch_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_lvt_mac tsmcN65 pch_lvt_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_mlvt_mac tsmcN65 pch_mlvt_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_hvt_mac tsmcN65 pch_hvt_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+npn2_mis tsmcN65 npn_mis symbol C B E PROPMAP m="1"
+npn5_mis tsmcN65 npn_mis symbol C B E PROPMAP m="1"
+npn10_mis tsmcN65 npn_mis symbol C B E PROPMAP m="1"
+pnp2_mis tsmcN65 pnp_mis symbol C B E PROPMAP m="1"
+pnp5_mis tsmcN65 pnp_mis symbol C B E PROPMAP m="1"
+pnp10_mis tsmcN65 pnp_mis symbol C B E PROPMAP m="1"
+nch_18_mac tsmcN65 nch_25ud18_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+nch_25_mac tsmcN65 nch_25_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+nch_33_mac tsmcN65 nch_25od33_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_18_mac tsmcN65 pch_25ud18_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_25_mac tsmcN65 pch_25_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+pch_33_mac tsmcN65 pch_25od33_mac symbol D G S B PROPMAP fingers="1" simM="1" multi="1" w=wf
+rm1w tsmcN65 rm1 symbol PLUS MINUS  PROPMAP m="1"
+rmxw tsmcN65 rm2x symbol PLUS MINUS  PROPMAP m="1"
+rmzw tsmcN65 rm7z symbol PLUS MINUS  PROPMAP m="1"
+rmt tsmcN65 rm9u symbol PLUS MINUS PROPMAP m="1"
+rm10 tsmcN65 rm10a symbol PLUS MINUS  PROPMAP m="1" w=sumW l=sumL
+probe1 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M1
+probe2 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M2
+probe3 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M3
+probe4 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M4
+probe5 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M5
+probe6 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M6
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+probe7 tsmcN65 probe_2t symbol TOP BULK  PROPMAP m="1" lay=M7
+mimcap_sin tsmcN65 mimcap symbol PLUS MINUS  PROPMAP mf="1" total_m="1"
+mimcap_sin_3t tsmcN65 mimcap_3t symbol PLUS MINUS BULK  PROPMAP mf="1" total_m="1"
+mimcap_um_sin_rf tsmcN65 mimcap_um_rf symbol PLUS MINUS BULK  PROPMAP m="1"
+mimcap_woum_sin_rf tsmcN65 mimcap_woum_rf symbol PLUS MINUS BULK  PROPMAP m="1"
+lowcpad_d0 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+lowcpad_d15 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+lowcpad_d23 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+lowcpad_d23 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+lowcpad_d23 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+lowcpad_d23 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+lowcpad_d23 tsmcN65 lowcpad symbol APAD AVSS  PROPMAP m="1"
+sbd_rf tsmcN65 sbd_rf symbol PLUS MINUS BULK  
+sbd_rf_nw tsmcN65 sbd_rf_nw symbol PLUS MINUS BULK  
+nch_hv25_snw tsmcN65 nch_hv25 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_hv25_spw tsmcN65 pch_hv25 symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+nch_hv25_snw_mac tsmcN65 nch_hv25_mac symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+pch_hv25_spw_mac tsmcN65 pch_hv25_mac symbol D G S B PROPMAP fingers="1" simM="1" w=wf
+npn2_s tsmcN65 npn_s symbol C B E PROPMAP m="1"
+npn5_s tsmcN65 npn_s symbol C B E PROPMAP m="1"
+npn10_s tsmcN65 npn_s symbol C B E PROPMAP m="1"
+pnp2_s tsmcN65 pnp_s symbol C B E PROPMAP m="1"
+pnp5_s tsmcN65 pnp_s symbol C B E PROPMAP m="1"
+pnp10_s tsmcN65 pnp_s symbol C B E PROPMAP m="1"
+npn2_s_mis tsmcN65 npn_s_mis symbol C B E PROPMAP m="1"
+npn5_s_mis tsmcN65 npn_s_mis symbol C B E PROPMAP m="1"
+npn10_s_mis tsmcN65 npn_s_mis symbol C B E PROPMAP m="1"
+pnp2_s_mis tsmcN65 pnp_s_mis symbol C B E PROPMAP m="1"
+pnp5_s_mis tsmcN65 pnp_s_mis symbol C B E PROPMAP m="1"
+pnp10_s_mis tsmcN65 pnp_s_mis symbol C B E PROPMAP m="1"
+spiral_std_mza_a tsmcN65 spiral_std_mza_a symbol PLUS MINUS BULK  PROPMAP m="1"
+spiral_sym_mza_a tsmcN65 spiral_sym_mza_a symbol PLUS MINUS BULK  PROPMAP m="1"
+spiral_sym_ct_mza_a tsmcN65 spiral_sym_ct_mza_a symbol PLUS MINUS BULK CTAP  PROPMAP m="1"
+spiral_std_mu_z tsmcN65 spiral_std_mu_z symbol PLUS MINUS BULK  PROPMAP m="1"
+spiral_sym_mu_z tsmcN65 spiral_sym_mu_z symbol PLUS MINUS BULK  PROPMAP m="1"
+spiral_sym_ct_mu_z tsmcN65 spiral_sym_ct_mu_z symbol PLUS MINUS BULK CTAP  PROPMAP m="1"
+spiral_std_mu_a tsmcN65 spiral_std_mu_a symbol PLUS MINUS BULK  PROPMAP m="1"
+spiral_sym_mu_a tsmcN65 spiral_sym_mu_a symbol PLUS MINUS BULK  PROPMAP m="1"
+spiral_sym_ct_mu_a tsmcN65 spiral_sym_ct_mu_a symbol PLUS MINUS BULK CTAP  PROPMAP m="1"
+mimcap_sin_udc tsmcN65 mimcap_udc symbol PLUS MINUS  PROPMAP mf="1" total_m="1"
+mimcap_sin_udc_3t tsmcN65 mimcap_udc_3t symbol PLUS MINUS BULK  PROPMAP mf="1" total_m="1"
+mimcap_um_sin_udc_rf tsmcN65 mimcap_um_udc_rf symbol PLUS MINUS BULK  PROPMAP m="1"
+mimcap_woum_sin_udc_rf tsmcN65 mimcap_woum_udc_rf symbol PLUS MINUS BULK  PROPMAP m="1"

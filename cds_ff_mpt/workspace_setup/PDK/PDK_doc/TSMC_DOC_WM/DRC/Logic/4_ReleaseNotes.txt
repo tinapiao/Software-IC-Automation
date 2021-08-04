@@ -1,0 +1,241 @@
+RELEASE NOTES
+===============
+
+REFERED DRM DOCUMENT:
+    Calibre DRC Command File for TSMC N65 CMOS Logic/MS_RF Design Rule
+    Design Rule Doc.: T-N65-CL-DR-001		Ver.: 2.0
+    DRC Command File Doc.: T-N65-CL-DR-001-C1	Ver.: 2.0a
+
+CREATOR AND DATE:
+    Creator: T.Y. Wang
+    Release Date: 10/16/2009
+
+EDA TOOL VERSION:
+    Calibre v2009.1_26.20 (Mar, 2009) was used to develop and QA the DRC Command File
+    Please use Calibre v2009.1_26.20 (Mar, 2009) or newer TSMC qualified version
+
+    TSMC developed this deck using Mentor Graphics proprietary SVRF and TVF formats
+    The deck is to be used only in Calibre tools
+
+REVISION HISTORY OF MAIN DRC:
+
+  [DRC CODING REVISION]
+  10/16/09 - VER 2.0a T.Y. Wang
+	DNW.S.2		Add the rule missing description " with different potential ", DRC no change
+	DNW.S.3		Add the rule missing description " except dummy TCD region (TCDDMY) ", DRC no change
+	NW.S.3		Add the rule missing description " with different potential (*) ", DRC no change
+	NW.S.6		Add the rule missing ddescription " except dummy TCD region (TCDDMY) ", DRC no change
+	NWROD.R.4	New rule add
+	NWROD.R.5	New rule add
+	NWROD.R.6	New rule add
+	NWROD.R.7	New rule add
+	HVD_N.L.1 	New rule add
+	HVD_N.W.1 	New rule add
+	HVD_N.W.2 	New rule add
+	HVD_N.S.1 	New rule add
+	HVD_N.S.2 	New rule add
+	HVD_N.S.3 	New rule add
+	HVD_N.S.4 	New rule add
+	HVD_N.S.5 	New rule add
+	HVD_N.S.6 	New rule add
+	HVD_N.EX.1	New rule add
+	HVD_N.O.1 	New rule add
+	HVD_N.A.1 	New rule add
+	HVD_N.A.2 	New rule add
+	HVD_N.R.1 	New rule add
+	HVD_N.R.2 	New rule add
+	HVD_N.R.3 	New rule add
+	HVD_N.R.4 	New rule add
+	HVD_N.R.6 	New rule add
+	HVD_N.WARN	New rule adding for HVD_N DRC warning
+	HVD_P.L.1 	New rule add
+	HVD_P.W.1 	New rule add
+	HVD_P.W.2 	New rule add
+	HVD_P.S.1 	New rule add
+	HVD_P.S.2 	New rule add
+	HVD_P.S.4 	New rule add
+	HVD_P.S.5 	New rule add
+	HVD_P.EX.1	New rule add
+	HVD_P.EN.1	New rule add
+	HVD_P.O.1 	New rule add
+	HVD_P.A.1 	New rule add
+	HVD_P.A.2 	New rule add
+	HVD_P.R.1 	New rule add
+	HVD_P.R.2 	New rule add
+	HVD_P.R.3 	New rule add
+	HVD_P.R.4 	New rule add
+	HVD_P.R.6 	New rule add
+	HVD_P.WARN	New rule adding for HVD_P DRC warning
+	NT_N.W.2.3	New rule add
+	NT_N.R.3	Modify rule description
+	PO.S.2.R	Add the wording "GP/LPG/ULP", DRC add a switch for "GP/LPG/ULP"
+	PO.L.1		Add the description "except RTMOM region (RTMOMDMY, CAD layer: 155;21)"
+	PO.FU.R.8	Add description "Only for N65 GP/ N55 GP/ N55 LP", DRC add two switches
+	VTH_N.S.3	Remove unsilicided PO desciption, DRC except unsilicided PO
+	VTH_P.S.3	Remove unsilicided PO desciption, DRC except unsilicided PO
+	VTL_N.S.3	Remove unsilicided PO desciption, DRC except unsilicided PO
+	VTL_P.S.3	Remove unsilicided PO desciption, DRC except unsilicided PO
+	VAR.W.1		Modify rule value and wording
+	VAR.W.2		Remove
+	VAR.W.3		Remove
+	VAR.W.4		Modify rule wording
+	VAR.A.1.R	Remove
+	RES.8		New rule add
+	RES.10		Change the guidelines to rules, DRC rule name change only
+	RES.11		Change the guidelines to rules, DRC rule name change only
+	SRAM.R.15	Add the missing description "except SRAM 0.62 mm2 cell size of N55GP"
+	GR.R.1		New rule add
+	BV.W.1g 	New rule add
+	BV.W.2g 	New rule add
+	BV.R.1g 	New rule add
+	LUP.3.5.1g	New rule add
+	LUP.3.5.2g	New rule add
+	LUP.5.5.1g	New rule add
+	LUP.5.5.2g	New rule add
+	ESD.58g		New rule add
+	ESD.59g 	New rule add
+	ESD.60g 	New rule add
+	ESD.61g 	New rule add
+	ESD.62g 	New rule add
+	ESD.63g 	New rule add
+	ESD.64g 	New rule add
+	ESD.65g 	New rule add
+	ESD.66g 	New rule add
+	ESD.72g 	New rule add
+	MOM.S.2R	Rule remove
+	CSR.EN.5	Add the description "Except WLCSP sealring region", DRC add one switch only for L-mark sealring
+	CSR.EN.5.1	Add the rule for WLCSP sealring, DRC add one switch only for WLCSP sealring
+	CSR.EN.6	Add the description "Except WLCSP sealring region", DRC add one switch only for L-mark sealringn
+	CSR.EN.6.1	Add the rule for WLCSP sealring, Add the figure of chip corner stress relief pattern for WLCSP,
+	             	DRC add those, specerate to check all metal and only for WLCSP sealring
+	SR.S.1		Modify the description for non-WLCSP seal ring and for WLCSP seal ring
+	SR.R.1		Check by SR.R.0, both for WLCSP and non-WLCSP sealring
+	SR.EN.1		New rule add, both for WLCSP and non-WLCSP sealring
+	Mx.DN.2		Add the rule missing description Exclude following region, modify exclude region for wire bond,
+			flip chip bond pad, Mz in (INDDMY sizing 18) and Lmark, DRC no change
+	Mx.DN.6		New rule add
+	DMx_O.R.1	New rule add, DMx_O interact Mx is not allowed
+	CTM.R.3		New rule add
+	CBM.S.5		remove
+	IND.DN.1	Modify rule wording, rule no change
+
+
+REVISION HISTORY OF ANTENNA DRC:
+
+  	A.R.10		Support two different thickness for antanna DRC and add AP-MD switch
+	A.R.11		Support two different thickness for antanna DRC and add AP-MD switch
+	A.R.12		Support two different thickness for antanna DRC and add AP-MD switch
+	A.R.13		Support two different thickness for antanna DRC and add AP-MD switch
+	A.R.10_A.R.12_RV	Merage A.R.10 and A.R.12 DRC rules
+	A.R.11_A.R.13_AP	Merage A.R.11 and A.R.13 DRC rules
+
+MIM ANTENNA DRC REVISION:
+	A.R.MIM.2		Add wording fot AP-MD sidewall area
+	A.R.MIM.3		Add wording fot AP-MD sidewall area
+	A.R.MIM.4		Add wording for RV
+	A.R.MIM.5		Add wording for RV
+
+
+BUMP PAD DRC REVISION:
+	1. Remove MIX switch and automaticlly turn on/off in deck
+	2. Change CB2VIAx.R.4 flag the metal crossing region without any via
+	
+WIRE BOND:
+	1. add N65 PITCH_40_SINGLE, PITCH_45_SINGLE, PITCH_60_SINGLE; PITCH_45_STAGGER, PITCH_50_STAGGER;
+   	   add N55 PITCH_45_SINGLE, PITCH_60_SINGLE, PITCH_50_STAGGER
+	2. modify the value of CB.W.1, CB.W.2, CB.S.1
+	3. DRM define CB2VIAx.R.4 definitely.
+
+FLIP CHIP:
+	1. add 3 evaluation rules: UBM.DN.1, UBM.DN.3, UBM.R.5
+	2. BP.EN.5: add CB/CB2 should interact UBM
+	3. remove UBM.DN.1R, UBM.DN.3R
+
+
+
+RULES NOT IMPLEMENTED:
+
+  	1. N55/MIM/Inductor/AP-Fuse rules are included in main DRC command files.
+        2. Antenna rules for gates are in separated DRC command files in ANTENNA_DRC directory
+        3. Antenna rules for MIM   are in separated DRC command files in ANTENNA_MIM_DRC directory
+        4. Wire Bond rules are in separated DRC command files in WIRE_BOND_DRC directory
+        5. Flip Chip rules are in separated DRC command files in FLIP_CHIP_DRC directory
+        6. Most of RV/AP rules are included in main DRC command files.
+ 	   However, RV.S.2/RV.R.2/RV.R.3/AP.S.1.1/AP.S.4 rules are still checked in wire-bond/flip-chip DRC.
+        7. Wire Bond Rules: CB.W.4/CB.P.1/CB.P.2/CB.P.3/CB.P.4/PM.R.1/PM.R.2/AP.W.2R/AP.R.1
+           can not be implemented by DRC.
+        8. Flip Chip Rules: UBM.A.1/UBM.R.1/UBM.R.2/UBM.R.5/UBM.R.6R/UBM.R.4g/UBM.R.5g/AP.W.2R
+           can not be implemented by DRC.
+	9. General rules/guidelines : DNW.R.4, OD.L.2g, OD2.R.2, DCO.R.1, PO.R.2, PO.L.1g, HVD_N.R.5, HVD_P.R.5, GR.R.2,
+	   GR.R.3, GR.R.4, GR.R.5, CO.R.1g, M1.R.1, Mx.R.1, Mx.R.2g, My.R.1, My.R.2g, Mz.R.1, VIAr.0, Mr.0, Mr.R.1, Mu.R.2,
+	   LOGO.R.1, Mx.R.3g, VIAu.R.6g, IND.R.5, IND.R.7, IND.R.15, IND.R.16, AN.R.1mg, AN.R.2mg, AN.R.34mg,
+	   AN.R.35mg, AN.R.36mg, PO.EX.2mg, AN.R.45mg, AN.R.37mg, AN.R.38mg, AN.R.3m, AN.R.4mg, AN.R.5m, AN.R.39m, AN.R.6m,
+	   AN.R.7m, AN.R.8mg, AN.R.9mg, AN.R.10mg, AN.R.11mg, AN.R.12mg, AN.R.40mg, AN.R.13m, AN.R.14mg, AN.R.15mg, AN.R.16mg,
+	   AN.R.17mg, AN.R.18mg, AN.R.20mg, AN.R.21mg, AN.R.41mg, AN.R.22mg, AN.R.23mg, AN.R.24mg, AN.R.25mg, AN.R.26mg,
+	   AN.R.27mg, AN.R.28mg, AN.R.29mg, AN.R.30mg, AN.R.31mg, AN.R.32mg, AN.R.33mg, AN.R.42mg, AN.R.43mg, AN.R.44mg,
+	   DOD.S.2g, DOD.S.4g, DPO.S.3g, DPO.S.4g, DPO.R.4g, DMx.S.6g, DMx.W.1g, G6g, CBM.R.2g and VIAz.R.6g
+	   can not be implemented by DRC.
+        10.Resister guideline/Rule: Square number(L/W) in RES.2R(m), and RES.15g can not be
+           implemented by DRC.
+        11.Latch-up guideline: LUP.7g, LUP.8g and LUP.9g  can not be implemented by DRC.
+        12.ESD guideline: ESD.2g, ESD.8g, ESD.9g, ESD.10g, ESD.11g, ESD.13g, ESD.14g, ESD.15g, ESD.35g, ESD.43g, ESD.67g,
+	   ESD.68g, ESD.69g, ESD.69.1g, ESD.69.2g, ESD.70g, ESD.71g, HIA.1g, HIA.2g, HIA.3g, HIA.4g, HIA.5g, HIA.6g, HIA.7g,
+	   HIA.8g and HIA.9g can not be implemented by DRC.
+        13.SRAM rules/guidelines : SRAM.R.1, SRAM.R.2, SRAM.R.3, SRAM.R.4, SRAM.R.5, SRAM.R.6, SRAM.R.7, SRAM.R.8, SRAM.R.9, SRAM.R.10,
+	   SRAM.R.11 and SRAM.R.20 can not be implemented by DRC.
+        14.Analog Rules/Recommendarions/Guidelines: only PO.S.14m, PO.EN.1m, PO.EN.2m, PO.EN.3m, RES.2m, NWROD.R.1m, NWRSTI.R.1m,
+           PO.S.5mR, PO.S.6mR, RES.5mR, BJT.R.1, BJT.R.8, BJT.R.2R, BJT.R.3R, BJT.R.4R, BJT.R.5R, BJT.R.6R, BJT.R.7R, AN.R.17mg,
+	   AN.R.20mg are checked.
+        15.The following rules are checked by other rules.
+           NWRSTI.W.1 is checked by NWROD.W.1
+           NWRSTI.S.1 is checked by NWROD.S.1
+           NWRSTI.EN.3 is checked by NWRSTI.EN.2
+           DOD.R.2 is checked by CSR.R.1
+           DPO.R.2 is checked by CSR.R.1
+           PP.S.3 is checked by PP.S.2 and PP.R.2
+           PP.R.3 is checked by OD.R.1
+           PP.R.4 is checked by PP.EN.1
+           NP.S.3 is checked by NP.S.2 and PP.R.2
+           NP.EN.1 is checked by PP.EN.1
+           NP.R.2 is checked by PP.R.2
+           NP.R.3 is checked by OD.R.1
+           NP.R.4 is checked by PP.EN.1
+           DCO.R.4/DOC.R.5 are checked by DCO.W.1/DCO.S.1
+           LDN.EX.1 is checked by LDN.EX.1 and LDN.O.1
+           LDN.EX.2 is checked by LDN.EX.1
+           LDN.EX.3 is checked by LDN.EX.1 and LDN.O.1
+           LDN.EX.4 is checked by LDN.EX.1 and LDN.O.1
+           LDN.O.1  is checked by LDN.EX.1 and LDN.O.1
+           LDP.EX.2 is checked by LDP.EX.1 and LDP.O.2
+           LDP.EX.3 is checked by LDP.EX.1 and LDP.O.2
+           LDP.O.1  is checked by LDP.EX.1 and LDP.O.2
+           LDP.O.2  is checked by LDP.EX.1 and LDP.O.2
+           CO.R.2 is checked by RPO.S.3
+           CO.R.3 is checked by CO.W.1
+           CO.R.4 is checked by M1.EN.1, CO.EN.2
+           VIAx.R.1 is checked by VIAx.W.1
+           VIAx.R.7 is checked by VIAx.EN.1/Mx+1.EN.1
+           VIAy.R.1 is checked by VIAy.W.1
+           VIAy.R.7 is checked by VIAy.EN.1/My+1.EN.1
+           VIAz.R.1 is checked by VIAz.W.1
+           VIAz.R.4 is checked by VIAz.EN.1/Mz+1.EN.1
+           VIAr.R.1 is checked by VIAr.W.1
+           VIAr.R.4 is checked by VIAr.EN.1/Mr+1.EN.1
+           LOGO.R.2 is checked by related rules.
+           CSR.W.3/SR.R.1 is checked by CO.W.2/VIAx.W.2/Viay.W.2/Viaz.W.2/Viar.W.2
+           DMx.R.2 is checked by CSR.R.1
+           VIAu.EN.1/VIAu.EN.2 are checked by VIAu.EN.5
+           VIAu.R.2 is checked by VIAu.R.8
+           Mu.W.3 is checked by IND.W.6
+           IND.W.4 is checked by Mx.W.2
+           IND.W.5 is checked by Mz.W.2/Mu.W.2
+           ESD.24g/ESD.36g/ESD.44g/ESD.53g are also checked by ESD.16g
+           ESD.25g/ESD.45g are also checked by ESD.17g
+           ESD.26g/ESD.38g/ESD.46g/ESD.54g are also checked by ESD.18g
+           ESD.27g/ESD.39g are also checked by ESD.19g
+           ESD.29g/ESD.40g are also checked by ESD.20g
+           ESD.41g is also checked by ESD.21g
+           ESD.31g is also checked by ESD.22g
+           ESD.32g/ESD.42g are also checked by ESD.23g
+	   SR.R.1 is checked by SR.R.0
+

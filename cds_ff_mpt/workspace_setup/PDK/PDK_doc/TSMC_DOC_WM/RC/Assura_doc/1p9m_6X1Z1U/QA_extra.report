@@ -1,0 +1,29 @@
+
+
+====================================
+ TSMC RC extra QA patterns: contact
+====================================
+
+Test case: a NMOS
+channel length = 0.04um (poly width), channel width = 13.92um
+contact width = 0.06um, contact space = 0.08um, contact to poly distance = 0.04um
+G: gate, S: source, D: drain 
+
+[case1]: contact number = 100. 
+[case2]: contact number = 001. 
+
+Assura capacitance between G and S are: (unit: F)
+case1=1.617E-15; case2=3.179E-16
+
+**** NOTE ****
+1. Via C    : The tech file contains Via C (the default setting).
+2. Contact C: You must use [capgen -C -add_via_effect metal1,active]
+              to turn on the capacitance between contact and gate.
+
+ ------------
+| Conclusion |
+ ------------
+
+OK ! This tech file has the capability of contact/via cap.
+
+

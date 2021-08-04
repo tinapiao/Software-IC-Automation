@@ -1,0 +1,404 @@
+USER GUIDE
+
+USAGE OF DRC COMMAND FILE:
+
+1. To properly use this DRC command file, please read the following comments for the options and 
+   set the switches correctly in the header of command file for your design.
+   To turn on the option, please remove the comment (//) of the line head; 
+   To turn off the option, please add the comment (//) of the line head.
+   
+=================== MAIN DRC OPTIONS ============================================
+  
+  (1) GUIDELINE_RES : (default is on)
+      Please turn off this option to uncheck PO/OD resistor guidelines.
+      Resistor guidelines include RES.10g, RES.11g, RES.12g, RES.13g.
+
+  (2) CHECK_LATCHUP_BY_PAD_CONNECTION : (default is on)
+      DRC use following two methods to recognize the ACTIVE which needs to check latch-up rules. 
+      1. Active are covered by SDI dummy layer
+      2. Active connects to the IO pad directly.
+      If you don't want to use pad connection (method 2) to check latch-up rules, please turn off this option.
+      Then only ACTIVE covered by SDI layer will be checked.
+
+  (3) DISCONNECT_AFTER_RESISTOR : (default is on) 
+      By default, the connection is broken by resistors for Latch-Up rule checks. 
+      The switches of DISCONNECT_AFTER_RESISTOR can control the connectivity of resistor.
+      Turn on DISCONNECT_AFTER_RESISTOR option will disconnect all resistors between pad and device for Latch-Up rule check.
+  
+  (4) DEFINE_PAD_BY_TEXT : (default is off) 
+      By default, DRC uses CB/CBD/CB2/UBM layer to recognize PAD, and uses the connection
+      of well strap to distinguish IO PAD and VDD/VSS PAD. So latch-up rules can not be
+      checked in cell level if no CB/CBD/CB2/UBM layer exists. Also,if VDD/VSS pad is not
+      connected to strap, it will be falsely recognized as IO pad. 
+      You can turn on this option to solve these inconveniences. Assign the PAD/VDD/VSS pin name in
+      Variables (PAD_TEXT/VDD_TEXT/VSS_TEXT). Notice that only text by metal pin layer in top cell
+      is used for latch-up check.
+
+  (5) GUIDELINE_LUP : (default is on)
+      Please turn off this option to uncheck Latch-up prevention guidelines.
+
+  (6) GUIDELINE_ESD : (default is on)
+      Please turn off this option to uncheck the ESD protection guidelines.  
+
+  (7) NW_SUGGESTED : (default is off)
+      By default, DRC use following two logic operations to define NW1V and NW2V.
+      NW1V = NW NOT OD2
+      NW2V = NW AND OD2
+      If the NW will not be shared by core and IO, it is suggested to enable this option to check 
+      NW.S.3/NW.S.4 conservatively by the new logic operations as follows.
+      NW1V = NW OUTSIDE OD2
+      NW2V = NW NOT OUTSIDE OD2
+           
+  (8) DATATYPE_WARNING : (default is on)
+      This option is to flag warning datatypes of NW, OD, PO, and CO. It is strongly recommanded to use 
+      NW;drawing (3;0) to define NW region, OD;drawing (6;0) to define OD region, OD;dummy (6;1) layer 
+      to defind DOD region, PO;drawing (17;0) layer to define PO region, PO;dummy (17;1) to define DPO 
+      region, CO;drawing (30;0) layer to define CO region. Also, SRAM related layers(6;11-13, 17;11-13, 30;11-13) 
+      must be inside SRAM region, RF related layers (6;3) must be inside RFDMY region.  
+      If users want to use other datatypes to define NW/PO/OD/CO, please turn off this option to
+      uncheck warning datatypes and specify these datatypes in MT-form.   
+
+  (9) MIXED_SCHEME : (default is off)
+      By default, different metal schemes use differnt datatypes. (Please refer to section 3.2 in logic DRM)
+      (datatype 0 for Mx/VIAx, datatype 1 for DMx, datatype 20 for My/VIAy, datatype 21 for DMy,
+      datatype 40 for Mz/VIAz/VIAu, datatype 41 for DMz, datatype 80 for Mr/VIAr, datatype 81 for DMr 
+      datatype 60 for Mu, datatype 61 for DMu )  
+      If users want to use datatype 0 for all metal/via layers and datatype 1 for all dummy metal layers, 
+      please turn on this option to allow My/VIAy/Mz/VIAz/Mr/VIAr/Mu/VIAu layers with datatype 0 
+      and DMy/DMz/DMr/DMu layers with datatype 1.
+
+  (10) CHECK_LOW_DENSITY : (default is on)
+      Please turn off this option to uncheck the local low density rules (OD.DN.2L/PO.DN.2/Mx.DN.1L/
+      My.DN.1L/Mz.DN.1L/Mr.DN.1L/Mu.DN.2L) in cell level (IP/block/macro) if you only want to check 
+      local low density in whole chip level after dummy patterns was inserted.
+      You can not turn off this options in whole chip level. If you turn on FULL_CHIP option,
+      CHECK_LOW_DENSITY option will be turned on automatically even though you turn off this option.
+
+  (11) FRONT_END : (default is on)
+      This switch is enabled by default to check Front-End rules.
+      Front-End rules include NW, NWROD, NWRSTI, DNW, OD, DOD, OD2, DCO, OD25_33, OD25_18, PO, 
+      DPO, DTCD, NT_N, VTL_N, VTL_P, VTH_N, VTH_P, mVTL, PP, NP, LDD, RPO, RES, VAR, LUP, ESD, SRAM, 
+      WLD, Analog rules.
+      Please comment (//) the "#DEFINE FRONT_END" line to uncheck Front-End rules.
+
+  (12) BACK_END : (default is on)
+      This switch is enabled by default to check Back-End rules.
+      Back-End rules include M1, VIAx, Mx, VIAy, My, VIAz, Mz, VIAr, Mr, VIAu, Mu, CTM, CBM, MOM, DM, RV, AP, AP_FUSE, 
+      and LMARK rules.
+      Please comment (//) the "#DEFINE BACK_END" line to uncheck Back-End rules.
+
+  (10) FULL_CHIP : (default is on)
+      This switch is enabled by default and chip corner exclusion, sealring structure, chip boundary, 
+      exclusion for density checks and must-layers related rules will be affected. 
+      Please turn off this option if a cell or macro/IP is under verification.
+
+  (11) GP : (default is off)
+      This switch is enable for General-purpose Plus(GP) process
+
+  (12) LP : (default is off)
+      This switch is enable for Low-Power(LP) and Ultra Low-Power(ULP) process
+
+  (13) LPG : (default is off)
+      This switch is enable for Triple-gate-oxide (LPG) process
+  
+  (14) HALF_NODE : (default is off)
+      If you want to run your product on sub-node(N55) process, please enable this option.
+
+  (15) 28K_AP : (default is off)
+      The default is off for 14.5K angstrom of ultra thick AP.
+      This switch is enable for 28k angstrom of ultra thick AP.
+  
+  (16) WLCSP_SEALRING : (default is on)
+  
+  (17) ChipWindowUsed : (default is off).
+      By default, DRC use all tape out required layers to form the chip boundary.
+      In some specific cases, the DRC performance will suffered severely.    
+      If you want to specified the chip boundary directly, please turn on this option.
+      Then modifiy the Variables ( xLB, yLB) for the coordinate of left-bottom corner
+      and ( xRT, yRT) for the coordinate of right-top corner of the user-defined chip window.
+      It can reduce the DRC run-times.
+      Moreover, the line below is an un-used layer number for constructing the chip window
+      LAYER ChipWindow 500
+      If layer number 500 is used, please assign another layer number without conflict.
+
+
+USAGE OF CHECKING ANALOG CIRCUIT RULES:
+
+   Analog DRC deck is bundled in the TSMC logic DRC deck and not checked by default. 
+   The following two methods can specify the region/cell to run the analog part.
+  
+   1. Region selection based on the following dummy layers: 
+
+     (1) RRuleAnalog (CAD layer: 182;3): for the layout rules of WPE, analog designs and resistors.
+        Data inside (logic operation 'AND') this marker layers will be checked.
+     
+     (2) BJTDMY (CAD layer: 110;0): for the layout rules & recommendations of the BJT device.
+        The entire device which include collector/Base/Emitter need to covered by BJTDMY.     
+    
+   2. Cell selection based on the following variables: 
+  
+     - CellsForRRuleAnalog: check the cells in the variable.
+     - ExclCellsForRRuleRequired: exclude the cells in the variable.
+   
+     (1) default setting: VARIABLE CellsForRRuleAnalog " "
+         The default setting is empty, and match none of the cells.
+    
+     (2) specifying cell list: VARIABLE CellsForRRuleAnalog "STRNAME" "ABC*"
+         This setting will include cell STRNAME and all cells with prefix ABC as well as 
+         the sub-hierarchy.
+        
+     (3) exclude cell: VARIABLE ExclCellsForRRuleRequired "STRNAME" "ABC*"
+         This setting will exclude cell STRNAME and all cells with prefix ABC as well as 
+         the sub-hierarchy.    
+
+
+USAGE OF CHECKING DFM RULES:
+  
+   1. Rule selections
+
+         For DFM rules check, please enable the switch "#DEFINE DFM".
+         If you want to check DFM rules only, please also enable the switch "#DEFINE DFM_ONLY".
+         The following switches are for selecting a whole section of DFM rules category. 
+  
+     (1) Required :       (default is on)
+     (2) Recommended :    (default is on)
+     (3) Analog :         (default is on) 
+     (4) Guideline :      (default is on)
+     
+	 The following switches are for the DFM Grouping of action-required rules and Recommedations and Guidelines.
+         You can refer to the DFM Grouping table in logic DRM section.
+     
+     (5) First_priority :   (default is off)
+     (6) Systematic :       (default is off)
+     (7) Defect :           (default is off)
+     (8) SPICE :            (default is off)
+
+     
+
+         Turing on, for example, Required switch will enable all checkings of action-required
+         DFM rules. However, If you want to disable all checkings of action-required DFM rules, 
+         you must turn off not only Required switch but also related DFM grouping switches (Systematic and SPICE)
+         and related rules switches (_POS2_, _POEX2_, _POS5_, POS14_, _POEN1_, _POEN2_, _POEN3_). 
+      
+         Turing on, for example, Defect switch will enable all checkings of Defect related DFM rules.
+         However, If you want to disable all checkings of Defect DFM rules, you must turn off 
+         not only Defect switch but also related DFM category switches (Recommended and Guideline) and related 
+         rules switches (_ODS1_,_POS1_,_COS3_,_MxS1_,_COR5_,_VIAxR9_,_VIAyR9_,_VIAzR5_,_VIArR5_).
+     
+         In addition to rule categories, there are switches for each DFM rules respectively. (default is off)
+         Turing on, for example, _POS2_ switch will enable the checking of PO.S.2R rule. However, If you want to
+         disable the checking of PO.S.2R rule, you must turn off not only _POS2_ switch but also related 
+         DFM category switch (Required) and related DFM grouping switches (Systematic and SPICE).
+     
+     
+   2. Region/cell selections
+
+      Eight layers are defined for users to do region selections, intuitive from the layer names:
+
+         1) RRuleRequired       (182;1)
+         2) RRuleRecommended    (182;2)
+         3) RRuleAnalog         (182;3)
+         4) RRuleGuideline      (182;4)
+         
+         Date inside (logic operation 'AND') these marker layers above will be checked the related DFM Rules category.
+    
+         5) excludeRRuleRequired     (182;11)
+         6) excludeRRuleRecommended  (182;12)
+         7) excludeRRuleAnalog       (182;13)
+         8) excludeRRuleGuideline    (182;14)
+      
+         Date outside (logic operation 'NOT') these marker layers above will be checked the related DFM Rules category.
+       
+     
+      Another way for configuration is through cell selections. 
+         Eight variables are defined for this purpose.
+         Please specify the cell list after the VARIABLE declarations. 
+
+         1) CellsForRRuleRequired ( default setting "*" )
+         2) CellsForRRuleRecommended ( default setting "*" )
+         3) CellsForRRuleAnalog ( dafault setting " " )
+         4) CellsForRRuleGuideline ( dafault setting "*" )
+       
+         Date inside the cell list of these variables above will be checked the related DFM Rules category.
+         
+         5) ExclCellsForRRuleRequired ( default setting " " )
+         6) ExclCellsForRRuleRecommended ( default setting " " )
+         7) ExclCellsForRRuleAnalog ( dafault setting " " )
+         8) ExclCellsForRRuleGuideline ( dafault setting " " )
+        
+         Date outside the cell list of these variables above will be checked the related DFM Rules category.
+
+         Example 1:  select all cells 
+
+         VARIABLE CellsForRRuleRequired "*"
+
+         As star "*" is the wild card to match zero or more characters, the default setting
+         will match and include all of the cells.
+
+         Example 2:  disable cell selection
+
+         VARIABLE CellsForRRuleRequired " "
+         
+         Data from region (defined by RRule layers) and cell selections will be 'OR' together into checking. 
+         So if only region selection is desired, please specify empty string " " after VARIABLE declarations 
+         to disable cell selection 
+
+         Example 3:  specifying cell list
+
+         VARIABLE CellsForRRuleRequired "STRNAME" "ABC*"
+
+         This setting will include cell STRNAME and all cells with prefix ABC as well as the
+         sub-hierarchy.    
+            
+         Example 4:  exclude cell list
+       
+         VARIABLE ExclCellsForRRuleRequired "STRNAME" "ABC*"
+
+         This setting will exclude cell STRNAME and all cells with prefix ABC as well as the
+         sub-hierarchy.    
+ 
+
+         For futhur customization to specify cell list in each DFM rule, following is an example:
+
+         // change the following line
+
+         ODW2_ODCellIn = INSIDE CELL ODi CellsForRRuleRequired
+         ODW2_ODCellOut = NOT INSIDE CELL ODi ExclCellsForRRuleRequired
+         ODW2_ODCell = ODW2_ODCellIn AND ODW2_ODCellOut
+
+         // into
+
+         ODW2_ODCellIn = INSIDE CELL ODi "abc*"
+         ODW2_ODCellOut = NOT INSIDE CELL ODi ExclCellsForRRuleRequired 
+         ODW2_ODCell = ODW2_ODCellIn AND ODW2_ODCellOut
+
+         // Then all cells with prefix 'abc', including their sub-hierarchy, will be checked in OD.W.2. 
+
+
+=================== ANTENNA DRC OPTIONS ============================================
+
+  (1) 28K_AP : (default is off)
+      The default is off for 14.5K angstrom of ultra thick AP.
+      This switch is enable for 28k angstrom of ultra thick AP.
+
+       
+=================== MIM ANTENNA DRC OPTIONS ========================================
+
+  (1) 28K_AP : (default is off)
+      The default is off for 14.5K angstrom of ultra thick AP.
+      This switch is enable for 28k angstrom of ultra thick AP.
+
+
+=================== WIRE BOND DRC OPTIONS ==========================================
+
+  (1) PITCH_40_SINGLE : (default is off)	 
+      This switch is for turning on to use IO cell (>=40um pitch) of the single_in_line pad ONLY
+  
+  (2) PITCH_45_SINGLE : (default is off)
+      This switch is for turning on to use IO cell (>=45um pitch) of the single_in_line pad ONLY
+  
+  (3) PITCH_50_SINGLE : (default is off)
+      This switch is for turning on to use IO cell (>=50um pitch) of the single_in_line pad ONLY
+  
+  (4) PITCH_55_SINGLE : (default is off)
+      This switch is for turning on to use IO cell (>=55um pitch) of the single_in_line pad ONLY
+  
+  (5) PITCH_60_SINGLE : (default is off)        
+      This switch is for turning on to use IO cell (>=60um pitch) of the single_in_line pad ONLY
+
+  (6) PITCH_45_STAGGER : (default is off)
+      This switch is for turning on to use IO cell (>=45um pitch) of the staggered pad ONLY
+	    
+  (7) PITCH_50_STAGGER : (default is off)
+      This switch is for turning on to use IO cell (>=50um pitch) of the staggered pad ONLY
+	    
+  (8) PITCH_60_STAGGER : (default is on)
+      This switch is for turning on to use IO cell (>=60um pitch) of the staggered pad ONLY
+	    
+  (9) PITCH_70_STAGGER : (default is off)
+      This switch is for turning on to use IO cell (>=70um pitch) of the staggered pad ONLY
+	    
+  (10) PITCH_80_STAGGER : (default is off)
+      This switch is for turning on to use IO cell (>=80um pitch) of the staggered pad ONLY
+
+  (11) PITCH_80_TRITIER : (default is off)
+      This switch is for turning on to use IO cell (>=80um pitch) of the tri_tier pad ONLY
+ 
+    * Please notice that only one kind of pitch can exist for each pad structure (single_in_line, stagger, tri_tier).
+      Example: If turn on PITCH_60_STAGGER option, either PITCH_70_STAGGER or PITCH_80_STAGGER option should be turned off.
+    * For a layout of 70um pitch staggered pad , user can choose to turn on PITCH_60_STAGGER or turn on PITCH_70_STAGGER.
+    * If ONLY ONE kind of pad structure (Single, Stagger,Tri-tier) are used, please turn off MIX option.
+      If more than ONE kind of pad structure (Single, Stagger,Tri-tier) are used, please turn on MIX option. 
+      Example: If 55um pitch single in-line pad and 60um pitch stagger pad are both used,
+      please turn on PITCH_55_SINGLE, PITCH_60_STAGGER, and MIX option.
+       
+  (12) with_AP : (default is on)     
+      Thisswitch is for turning on to use AP as the redistribution metal or metal Fuse after passivation (AP_RDL/AP_fuse)
+       
+    * If AP-RDL or AP-fuse is used, please turn on this option. 
+    * If AP pad is derived by CB layer and the design is without AP-RDL or AP-fuse, you can turn off this option 
+      to avoid false alarm of AP.DN.1L density error.  
+
+       
+=================== FLIP CHIP DRC OPTIONS ==========================================   
+
+  (1) BUMP_PITCH_150um_175um : (default is off)
+      This switch is for bump pitch >=150 <175 um (N65 process only)
+
+  (2) BUMP_PITCH_165um_175um : (default is off)
+      This switch is for bump pitch >=165 <175 um (N55 process only)
+
+  (3) BUMP_PITCH_175um_200um : (default is off)
+      This switch is for bump pitch >=175 <200 um
+      
+  (4) BUMP_PITCH_200um_225um : (default is off)
+      This switch is for bump pitch >=200 <225 um
+      
+  (5) BUMP_PITCH_225um : (default is off)
+      This switch is for bump pitch >=225 um
+
+  (6) UBM_WIDTH_80um : (default is off)                
+      This switch is for UBM width  80um  (N65 process only)
+      
+  (7) UBM_WIDTH_85um : (default is off)
+      This switch is for UBM width  85um  (N65 process only)       
+      
+  (8) UBM_WIDTH_88um : (default is off)
+      This switch is for UBM width  88um  (N55 process only)
+      
+  (9) UBM_WIDTH_90um : (default is off)               
+      This switch is for UBM width  90um
+      
+  (10) UBM_WIDTH_100um : (default is off)
+      This switch is for UBM width 100um
+      
+  (11) UBM_WIDTH_108um : (default is off)
+      This switch is for UBM width 108um
+
+    * User must and only select 1 bump pitch and 1 UBM width for different pitch and width options.
+      Example: If 180um bump pitch and 90um UBM width are used,
+      please turn on BUMP_PITCH_175um_200um and UBM_WIDTH_90um option. 
+
+               
+  (12) USR_PITCH_WIDTH : (default is off)
+      This switch is for turning on to define your own BUMP pitch and UBM width by following two variables.
+      VARIABLE USR_BUMP_PITCH  200  // User-defined BUMP pitch. Please consult your bumping house before defining this value 
+      VARIABLE USR_UBM_WIDTH   100  // User-defined UBM width. Please consult your bumping house before defining this value
+   
+    * Turn on USR_PITCH_WIDTH option, and then you can directly input the bump pitch 
+      and UBM width by variables USR_BUMP_PITCH and USR_UBM_WIDTH.   
+    * Please consult your bumping house if you do not use TSMC's standard pitch and width.
+      
+   (13) with_AP : (default is on)
+       This switch id for turning on to use AP as the redistribution metal or metal Fuse after passivation 
+   
+     * If the design is ground-up for flip chip (UBM directly connects to Top metal),
+       please turn off with_AP options.
+   
+   (14) with_PM : (default is off)
+       This switch is for turning on for polymide process. (Turn off for without-polymide process) 
+     * polymide is an optional layer. 
+
+   (15) DFM : (default is off)
+       This switch is for turning on to check UBM.S.4R/UBM.EN.1R/UBM.DN.1R/UBM.DN.3R/BP.R.2R/UBM.R.7R
+     * If you want to check recommendation rules, please turn on DFM option.         

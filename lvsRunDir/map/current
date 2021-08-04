@@ -1,0 +1,14 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "DIFFAMP_lch_60n"
+  repList "auCdl schematic"
+  stopList "auCdl"
+  hierDelim "."
+  netlistDir "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir"
+ )
+( model
+( "AAAFOO_DIFFAMP_PAPER/DIFFAMP_lch_60n/schematic" "DIFFAMP_lch_60n" )
+ )
+( "DIFFAMP_lch_60n" "ihnl/cds0/map" )
+ )

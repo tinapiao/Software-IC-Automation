@@ -1,0 +1,1 @@
+technology "cds_ff_mpt_pvs" -ruleSet "default" -techLib "/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt/pvtech.lib";

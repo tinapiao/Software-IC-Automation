@@ -1,0 +1,40 @@
+tsmc_N65_microtemplates_dense:
+  placement_basic:
+    type: placement
+    xgrid:
+    - 0
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.172
+    - 0.096
+    ygrid:
+    - 0
+  route_fast_boundary:
+    type: route
+    viamap: {}
+    xgrid:
+    - 0.0
+    - 0.0655
+    xlayer:
+    - - M4
+      - drawing
+    - - POBLK
+      - drawing
+    xwidth:
+    - 0.064
+    - 0.049
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.136
+    - 0.117
+    ygrid:
+    - 0.0185
+    ylayer:
+    - - M3
+      - drawing
+    ywidth:
+    - 0.101

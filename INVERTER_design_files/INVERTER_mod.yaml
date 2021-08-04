@@ -1,0 +1,211 @@
+Testbench:
+  BW: 10000000000.0
+  CL: 2.0e-13
+  Cin: 5.000000000000001e-15
+  Rin: 800.0
+  Vin: 1.0
+dsn_basename: INVERTER
+dut_cell: inverter_ec
+dut_lib: bag_serdes_ec
+dut_wrappers:
+- cell: dut_wrapper_dm
+  lib: bag_testbenches
+  name: dm
+  params:
+    balun_list:
+    - !!python/tuple
+      - inac
+      - indc
+      - inp
+      - inn
+    - !!python/tuple
+      - outac
+      - outdc
+      - outp
+      - outn
+    cap_list:
+    - !!python/tuple
+      - outp
+      - VSS
+      - cload
+    - !!python/tuple
+      - outn
+      - VSS
+      - cload
+    dut_conns:
+      VDD: VDD
+      VSS: VSS
+      bias_load: bias_load
+      bias_tail: bias_tail
+      inn: inn
+      inp: inp
+      outn: outn
+      outp: outp
+    pin_list:
+    - !!python/tuple
+      - inac
+      - input
+    - !!python/tuple
+      - indc
+      - input
+    - !!python/tuple
+      - bias_outdc
+      - input
+    - !!python/tuple
+      - bias_tail
+      - input
+    - !!python/tuple
+      - outac
+      - output
+    - !!python/tuple
+      - outdc
+      - output
+    vcvs_list:
+    - !!python/tuple
+      - bias_load
+      - VSS
+      - outdc
+      - bias_outdc
+      - egain: 100
+        maxm: vdd
+        minm: 0
+env_list:
+- tt
+impl_lib: AN_INVERTER_496
+layout_class: DiffAmp
+layout_package: serdes_ec.layout.analog.amplifier
+layout_params:
+  N: 2
+  fan_out: 3.243243243243243
+  fg_dum: 0
+  flip_out_sd: false
+  guard_ring_nf: 0
+  lch: 6.0e-08
+  ntap_w: 6
+  ptap_w: 6
+  seg_dict1:
+    in: 4
+    load: 4
+    nmos1: 48
+    pmos1: 100
+    tail: 4
+  seg_dict2:
+    in: 4
+    load: 4
+    nmos2: 15
+    pmos2: 31
+    tail: 4
+  show_pins: true
+  th_dict:
+    nmos: standard
+    pmos: standard
+  top_layer: null
+  tr_spaces:
+    bias:
+      4: 0
+    in:
+      4: 1
+    out:
+      4: 1
+    tail:
+      4: 0
+  tr_widths:
+    bias:
+      4: 1
+    in:
+      4: 1
+    out:
+      4: 1
+    tail:
+      4: 1
+  w_dict1:
+    in: 4
+    load: 4
+    nmos1: 4
+    pmos1: 4
+    tail: 4
+  w_dict2:
+    in: 4
+    load: 4
+    nmos2: 4
+    pmos2: 4
+    tail: 4
+measurements:
+- meas_class: AmpCharAC
+  meas_package: verification.ac.amp
+  meas_type: ac
+  out_fname: ac.yaml
+  testbenches:
+    ac:
+      fndec: 50
+      fstart: 10000.0
+      fstop: 1000000000000.0
+      sch_params:
+        dut_conns:
+          bias_outdc: voutdc_ref
+          bias_tail: vtail
+          inac: vin
+          indc: vindc
+          outac: vout
+          outdc: voutdc
+        ibias_dict: {}
+        no_cload: true
+        vbias_dict:
+          INAC: !!python/tuple
+          - vin
+          - VSS
+          - '0'
+          - acm: '1'
+          INDC: !!python/tuple
+          - vindc
+          - VSS
+          - vindc
+          - acm: '0'
+          OUTDC: !!python/tuple
+          - voutdc_ref
+          - VSS
+          - voutdc
+          - acm: '0'
+          TAIL: !!python/tuple
+          - vtail
+          - VSS
+          - vtail
+          - acm: '0'
+      sim_outputs:
+        vout: getData("/vout" ?result "ac")
+      sim_vars:
+        cload: 1.0e-15
+        vdd: 1.0
+        vindc: 0.5
+        voutdc: 0.5
+        vtail: 0.5
+      sim_vars_env: {}
+      tb_cell: amp_tb_ac
+      tb_class: ACTB
+      tb_lib: bag_testbenches
+      tb_package: verification.ac.core
+      wrapper_type: dm
+rcx_params: {}
+root_dir: data/diffamp_paper
+routing_grid:
+  bot_dir: x
+  layers:
+  - 4
+  - 5
+  - 6
+  - 7
+  spaces:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  widths:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+summary_fname: summary.yaml
+sweep_params:
+  lch:
+  - 6.0e-08
+view_name: netlist

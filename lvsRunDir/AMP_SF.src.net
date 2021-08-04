@@ -1,0 +1,43 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  DEMO_AMP_SF
+* Top Cell Name: AMP_SF
+* View Name:     schematic
+* Netlisted on:  Aug 24 20:01:32 2019
+************************************************************************
+
+.INCLUDE  $BAG_TECH_CONFIG_DIR/calibre_rcx_setup/source.added
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+
+
+************************************************************************
+* Library Name: BAG_prim
+* Cell Name:    nmos4_standard
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT nmos4_standard B D G S
+*.PININFO B:B D:B G:B S:B
+MM1 net1 net3 net4 net2 nch l=60n w=200n m=1
+.ENDS
+
+************************************************************************
+* Library Name: DEMO_AMP_SF
+* Cell Name:    AMP_SF
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT AMP_SF VDD VSS vbias vin vout
+*.PININFO vbias:I vin:I vout:O VDD:B VSS:B
+XXDUMMY2 VSS VSS VSS VSS / nmos4_standard
+XXDUMMY0 VSS VSS VSS VSS / nmos4_standard
+XXDUMMY1 VSS vout VSS VSS / nmos4_standard
+XXBIAS VSS vout vbias VSS / nmos4_standard
+XXAMP VSS VDD vin vout / nmos4_standard
+.ENDS
+

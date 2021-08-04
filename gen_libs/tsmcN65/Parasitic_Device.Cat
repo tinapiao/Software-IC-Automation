@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+tsmcN65/ParCap type="cell"
+tsmcN65/parasitic_rc type="cell"
+tsmcN65/pcapacitor type="cell"
+tsmcN65/presistor type="cell"
+tsmcN65/parasitic_rc_3T type="cell"
+
+

@@ -1,0 +1,2 @@
+INCLUDE $CMC_TECH/cds.lib.orig
+DEFINE avTech /CMC/tools/cadence/ASSURA04.15.001-617_lnx86/tools.lnx86/assura/etc/avtech/avTech

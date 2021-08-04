@@ -1,0 +1,16 @@
+case	"preserve"
+convertDot	"node"
+convertPin	"geometry"
+hierDepth	32
+labelCase	"preserve"
+labelDepth	32
+library	"AAAFOO_DIFFAMP_PAPER"
+logFile	"/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/PIPO1.LOG"
+maxVertices	2048
+pinAttNum	0
+runDir	"/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs"
+strmFile	"/nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.gds"
+strmVersion	5
+techLib	"tsmcN65"
+topCell	"cml"
+view	"layout"

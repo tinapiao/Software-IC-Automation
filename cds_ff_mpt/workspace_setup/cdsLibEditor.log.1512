@@ -1,0 +1,17 @@
+\o Program:		@(#)$CDS: cdsLibEditor version 6.1.7 - CAT35 10/18/2015 00:07 (sjfnl678) $
+\o Sub version:		sub-version  p009 
+\o Arguments:		-cdslib /nfs/vrg/cmc/cmc/tools/cadence.2000a/IC617_lnx86/share/cdssetup/cds.lib -mpssession virtuoso709 -mpshost ug60 
+\o Working Directory:	ug60:/nfs/ug/groups/haczgrp/ece496/BAG2_cds_ff_mpt/cds_ff_mpt/workspace_setup
+\o 64-bit offsets
+\a nrSetWindowVisibility(cdsLibEditor "show")
+\o Qt version: 		4.8.5
+\o WARNING (CLE-120): The file "/nfs/vrg/cmc/cmc/tools/cadence.2000a/IC617_lnx86/share/cdssetup/cds.lib" is read only. 
+\a nrSetWindowVisibility(errorDialog "show")
+\a nrSetCurrentWindow(cdsLibEditor)
+\a nrListItemAction(cdsLibEditor->mainTable 0 0)
+\o Active cell: 0 0 "cdsDefTechLib"
+\a nrSetCurrentWindow(errorDialog)
+\a nrResizeWindow(cdsLibEditor list(704 324 500 400))
+\a nrResizeWindow(errorDialog list(886 444 572 121))
+\a errorDialog->errorOkButton->value = t
+\a nrSetCurrentWindow(cdsLibEditor)

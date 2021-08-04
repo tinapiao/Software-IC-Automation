@@ -1,0 +1,12 @@
+File List:
+
+FileList.txt: The file you are currently reading. 
+TSMC_DOC_WM folder:N65_RCtechfile_summary_Mar07_2007.pdf: N65 RCtechfile summary.
+                   Introduction_to_N65_RC_techfile_v1.0d_online.pdf: Introduction to N65 RC techfile.
+                   COPYRIGHT.pdf: Disclaimer and statement of use.
+ReleaseNotes.txt: Important release information and revision history.
+README: Important release information.
+T-N65-CL-SP-031_Unified_Techfile_usage.txt: usage guide
+
+RC_QRC_cln65g+_1p6m_3X2Z_alrdl_5corners_12a.tar.gz : 1P6M with AlRDL top2 thick RC tech file package with QA report.
+RC_QRC_cln65g+_1p7m_4X2Z_alrdl_5corners_12a.tar.gz : 1P7M with AlRDL top2 thick RC tech file package with QA report.

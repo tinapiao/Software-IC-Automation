@@ -1,0 +1,17 @@
+Input_Resistance_ohm: 800.0
+N: 5
+bw_min_GHz: 10.0
+cin_fF: 5.0
+cload_fF: 200.0
+nch:
+  intent: lvt
+nch_config: specs_mos_char/nch_w0d5.yaml
+pch:
+  intent: lvt
+pch_config: specs_mos_char/pch_w0d5.yaml
+sim_env:
+- tt
+- tt_lvt
+swing_min_mV: 1000.0
+vdd: 1.4
+vtail: 0.15

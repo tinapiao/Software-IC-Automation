@@ -1,0 +1,489 @@
+conducting_layers
+poly			poly
+poly2			poly
+poly_rf			poly
+metal1			metal1
+metal2			metal2
+metal3			metal3
+metal4			metal4
+metal5			metal5
+metal6			metal6
+metal7			metal7
+metal8			metal8
+
+ctm                     ctm		**** move to remove layer if no MIMCAP devices
+cbm                     cbm		**** move to remove layer if no MIMCAP devices
+shield			metal4
+shieldud		metal4
+
+mom3p1			metal3
+mom3p2			metal3
+mom4p1			metal4
+mom4p2			metal4
+mom5p1			metal5
+mom5p2			metal5
+mom6p1			metal6
+mom6p2			metal6
+mom3m1			metal3
+mom3m2			metal3
+mom4m1			metal4
+mom4m2			metal4
+mom5m1			metal5
+mom5m2			metal5
+mom6m1			metal6
+mom6m2			metal6
+
+
+PROBEM1_T	SUBSTRATE
+PROBEM1_B	SUBSTRATE
+PROBEM2_T	SUBSTRATE
+PROBEM2_B	SUBSTRATE
+PROBEM3_T	SUBSTRATE
+PROBEM3_B	SUBSTRATE
+PROBEM4_T	SUBSTRATE
+PROBEM4_B	SUBSTRATE
+PROBEM5_T	SUBSTRATE
+PROBEM5_B	SUBSTRATE
+PROBEM6_T	SUBSTRATE
+PROBEM6_B	SUBSTRATE
+
+rfpad_0			metal7
+rfpad_15		metal7
+rfpad_23		metal7
+
+
+**** NMOS mapping ******
+***** By default ZERO_NRS_NRS = 0 or //#define ZERO_NRS_NRD, user has to set RPSQ of tndiff/tpdiff to zero(RPSQ=0.0000001) to avoid double count.
+***** If set ZERO_NRS_NRD = 1 or #define ZERO_NRS_NRD, please remove RPSQ=0.0000001 on the following line.
+tndiff					OD	RPSQ=0.0000001		***** If turn off ZERO_NRS_NRD( default setting )
+ngate_spg           			poly	*
+nrgate              			poly	*
+ngate_mac           			poly	*
+nhvgate             			poly	*
+ngate_18_mac        			poly	*
+nlvgate             			poly	*
+nlgate              			poly	*
+nlgate_mac             			poly	*
+ngate_hvspd         			poly	*
+nrgate_mac          			poly	*
+nilvtgate_mac       			poly	*
+n1hvgate_mac        			poly	*
+ngate_dnw_w         			poly	*
+ngate_25_mac        			poly	*
+ngate_w1t           			poly	*
+ngate_25na          			poly	*
+ngate_25na_mac         			poly	*
+ngate_25naud          			poly	*
+ngate_25naud_mac         		poly	*
+ngate_25naod          			poly	*
+ngate_25naod_mac         		poly	*
+ngate_33na_mac				poly	*
+dngate_25_mac       			poly	*
+dngate_18_mac       			poly	*
+dngate_25ud         			poly	*
+dngate_25ud_mac        			poly	*
+n1ilvtgate_mac      			poly	*
+nhvgate_mac         			poly	*
+dngate_25           			poly	*
+n1lvgate            			poly	*
+ngate_25od          			poly	*
+ngate_25od_mac          		poly	*
+ngate_spd           			poly	*
+ngate_33na          			poly	*
+ngate               			poly	*
+dngate_18           			poly	*
+dngate_33_mac       			poly	*
+ngate_18na          			poly	*
+ngate_18na_mac         			poly	*
+nuvgate_mac         			poly	*
+n1uvgate_mac        			poly	*
+nilvtgate           			poly	*
+nuvgate             			poly	*
+nlvgate_mac         			poly	*
+ngate_18            			poly	*
+n1lvgate_mac        			poly	*
+ngate_1tr           			poly	*
+dngate_25od         			poly	*
+dngate_25od_mac        			poly	*
+ngate_33_mac        			poly	*
+dngate_33           			poly	*
+ngate_hvspg         			poly	*
+ngate_25ud          			poly	*
+ngate_25ud_mac         			poly	*
+ngate_33            			poly	*
+n1hvgate            			poly	*
+ngate_25            			poly	*
+n1uvgate            			poly	*
+n1ilvtgate          			poly	*
+ngate_esd18				poly	*
+ngate_esd18_mac				poly	*
+dngate_esd18				poly	*
+dngate_esd18_mac			poly	*
+ngate_25hvd				poly	*
+ngate_25hvdw				poly	*
+ngate_25hvd_mac				poly	*
+ngate_25hvdw_mac			poly	*
+nuhvgate				poly	*
+nuhvgate_mac				poly	*
+n1uhvgate				poly	*
+n1uhvgate_mac				poly	*
+**** PMOS mapping ******
+***** By default ZERO_NRS_NRS = 0 or //#define ZERO_NRS_NRD, user has to set RPSQ of tndiff/tpdiff to zero(RPSQ=0.0000001) to avoid double count.
+***** If set ZERO_NRS_NRD = 1 or #define ZERO_NRS_NRD, please remove RPSQ=0.0000001 on the following line.
+tpdiff					OD	RPSQ=0.0000001		***** If turn off ZERO_NRS_NRD( default setting )
+pgate_25hvd				poly	*
+pgate_25hvd_mac				poly	*
+pgate_25            			poly	*
+pgate_33            			poly	*
+pgate_18_mac        			poly	*
+pgate_25ud          			poly	*
+pgate_25ud_mac         			poly	*
+plvgate             			poly	*
+pgate_25od          			poly	*
+pgate_25od_mac         			poly	*
+pilvtgate_mac       			poly	*
+pgate_1tr           			poly	*
+phvgate             			poly	*
+phvgate_mac         			poly	*
+pgate_mac           			poly	*
+pgate_w1t           			poly	*
+pgate_hvs           			poly	*
+pilvtgate           			poly	*
+plvgate_mac         			poly	*
+pgate_33_mac        			poly	*
+pgate               			poly	*
+pgate_25_mac        			poly	*
+pgate_s             			poly	*
+ngate_st             			poly	*
+pgate_st             			poly	*
+pgate_18            			poly	*
+puhvgate				poly	*
+puhvgate_mac				poly	*
+
+***** LPG/SRAM mapping *****
+nlgatelpg				poly	*
+nhvgatelpg				poly	*	
+ngatelpg				poly	*
+ngate_spgdp				poly	*
+ngate_spddp				poly	*
+ngate_hvspgdp				poly	*
+ngate_hvspddp				poly	*
+ngate_spgdphc				poly	*
+ngate_spddphc				poly	*
+ngate_hvspgdphc				poly	*
+ngate_hvspddphc				poly	*
+ngate_spgwo				poly    *
+ngate_spdwo				poly    *
+ngate_spgwi				poly    *
+ngate_spdwi				poly    *
+ngate_spglpg				poly    *
+ngate_spdlpg				poly    *
+ngate_spgulp				poly	*
+ngate_spdulp				poly	*
+ngate_spgulpdp				poly	*
+ngate_spdulpdp				poly	*
+ngate_spdlpgdp				poly	*
+ngate_spglpgdp				poly	*
+ngate_spdlpgtp				poly	*
+ngate_spglpgtp				poly	*
+pgatelpg				poly	*
+pgate_sdp				poly	*
+pgate_hvsdp				poly	*
+pgate_sdphc				poly	*
+pgate_hvsdphc				poly	*
+phvgatelpg				poly	*
+ngate_dnw_w_lvt				poly    *
+ngate_w1t_lvt				poly    *
+puvgate					poly    *
+puvgate_mac				poly    *
+pgate_w1t_lvt				poly    *
+pgate_swo				poly	*
+pgate_swi				poly	*
+pgate_slpg				poly	*
+pgate_sulp				poly	*
+pgate_sdpulp				poly	*
+pgate_sdplpg				poly	*
+pgate_stplpg				poly	*
+***** diode mapping *****
+psub                			SUBSTRATE	precedence = 1
+nxwell              			SUBSTRATE	precedence = 2
+***** BJT PNP mapping *****
+coll1               			SUBSTRATE
+cnbase1             			SUBSTRATE
+cemit1              			OD
+ncoll1              			SUBSTRATE
+cpbase1             			SUBSTRATE
+cnemit1             			OD
+***** BJT NPN mapping *****
+***** RES mapping *****
+***** XDEV mapping *****
+** user defined mapping .....**
+tndiff_RC		OD
+tpdiff_RC		OD
+tndiff_ic		OD
+tpdiff_ic		OD
+nxwell_npn		SUBSTRATE
+inbase1		SUBSTRATE
+iemit1		OD
+ipbase1		SUBSTRATE
+inemit1		OD
+DNW		SUBSTRATE
+psub_term	SUBSTRATE     **** move  to remove layer if VARIABLE STRING extract_dnwdio = "no"  
+p3		p3	      **** move to remove layer if no eDRAM devices	
+crown		crown	      **** move to remove layer if no eDRAM devices		
+s_tpdiff	OD
+d_tndiff	OD
+s_tndiff	OD
+d_tpdiff	OD
+d_pd25hvd	OD
+d_nd25hvd	OD
+d_nd25hvdw	OD
+s_pd25hvd	OD
+s_nd25hvd	OD
+s_nd25hvdw	OD
+poly_term	SUBSTRATE
+MIM_TERM	SUBSTRATE
+RF_MIM_TERM	SUBSTRATE
+poly_psub_via   SUBSTRATE
+poly_nw_via	SUBSTRATE
+dnwc		SUBSTRATE
+mim_psub_via	SUBSTRATE
+mim_nw_via	SUBSTRATE
+rfmim_psub_via	SUBSTRATE
+rfmim_nw_via	SUBSTRATE
+ydio_ass	OD
+ydio_hole	OD
+rwel            SUBSTRATE
+RFDMY5T 	SUBSTRATE
+RFDMY6T 	SUBSTRATE
+rfdmy56		SUBSTRATE
+rfdmy56_via	SUBSTRATE
+RFDMY_hia_psub  SUBSTRATE
+RFDMY_hia	SUBSTRATE
+rf_hia_via	SUBSTRATE
+
+via_layers
+polyCont	polyCont
+odCont 	odCont	
+p3Cont	p3Cont			**** move to remove layer if no eDRAM devices
+blc     blc			**** move to remove layer if no eDRAM devices
+ctm_via ctm_via			**** move to remove layer if no MIMCAP devices
+cbm_via	cbm_via			**** move to remove layer if no MIMCAP devices
+VIA1	via1
+VIA2	via2
+VIA3	via3
+VIA4	via4
+VIA5	via5
+VIA6	via6
+VIA7	via7
+nplug		weltap
+pplug		weltap
+hiaplug	  	weltap
+rf_pplug  	weltap
+
+marker_layers
+
+metal1_pin
+metal2_pin
+metal3_pin
+metal4_pin
+metal5_pin
+metal6_pin
+metal7_pin
+metal8_pin
+poly_pin
+
+
+remove_layers
+**res
+nwod_mr
+nwsti_mr
+rnodl_mr
+rnods_mr
+rnodwo_mr
+rpodl_mr
+rpods_mr
+rpodwo_mr
+rppolyl_d
+rppolys_d
+rppolywo_d
+rnpolyl_d
+rnpolys_d
+rnpolywo_d
+nwsti_r
+nwod_r
+rnodl_r
+rnods_r
+rnodwo_r
+rpodl_r
+rpods_r
+rpodwo_r
+rnpolyl_r
+rnpolys_r
+rnpolywo_r
+rppolyl_r
+rppolys_r
+rppolywo_r
+mt1res
+mt2res
+mt3res
+mt4res
+mt5res
+mt6res
+mt7res
+mt8res
+mt9res
+mtAPres
+rppolyl_rf
+rppolys_rf
+rppolywo_rf
+**rfmos
+pgate_pthin_18
+pgate_pthin_18nw
+pgate_pthin_25
+pgate_pthin_25nw
+pgate_pthin_25od
+pgate_pthin_25nwod
+pgate_pthin_25ud
+pgate_pthin_25nwud
+pgate_pthin_33
+pgate_pthin_33nw
+pgate_pthin
+pgate_pthin_nw
+pgate_pthin_lv
+pgate_pthin_hv
+pgate_pthin_mlv
+pgate_pthin_lvnw
+pgate_pthin_hvnw
+pgate_pthin_mlvnw
+pgate_pthin_5t
+pgate_pthin_nw_5t
+pgate_pthin_hv_5t
+pgate_pthin_hvnw_5t
+pgate_pthin_lv_5t
+pgate_pthin_lvnw_5t
+pgate_pthin_mlv_5t
+pgate_pthin_mlvnw_5t
+pgate_pthin_25_5t
+pgate_pthin_25nw_5t
+pgate_pthin_25od_5t
+pgate_pthin_25nwod_5t
+pgate_pthin_25ud_5t
+pgate_pthin_25nwud_5t
+pgate_pthin_18_5t
+pgate_pthin_18nw_5t
+pgate_pthin_33_5t
+pgate_pthin_33nw_5t
+ngate_nthin_18
+ngate_nthin_18_nodnw
+ngate_nthin_18na
+ngate_nthin_25od
+ngate_nthin_25nodnwod
+ngate_nthin_25ud
+ngate_nthin_25nodnwud
+ngate_nthin_33
+ngate_nthin_33_nodnw
+ngate_nthin_25
+ngate_nthin_25_nodnw
+ngate_nthin_lv
+ngate_nthin_lv_nodnw
+ngate_nthin_hv
+ngate_nthin_hv_nodnw
+ngate_nthin_mlv
+ngate_nthin_mlv_nodnw
+ngate_nthin
+ngate_nthin_nodnw
+ngate_nthin_6t     
+ngate_nthin_hv_6t  
+ngate_nthin_lv_6t
+ngate_nthin_mlv_6t
+ngate_nthin_25_6t  
+ngate_nthin_25od_6t
+ngate_nthin_25ud_6t
+ngate_nthin_18_6t  
+ngate_nthin_33_6t  
+**varactor
+vargt
+vargt_18
+vargt_25
+vargt_33
+var_nw_rf18
+var_nw_rf18_nw
+var_nw3_rf_nw
+var_nw_rf25_nw
+var_nw_rf25
+var_nw3_rf
+var_nw_rf33
+var_nw_rf33_nw
+jvar_rf
+pvar_rf
+pvar_rf18
+pvar_rf25
+**others
+PROBEM1
+PROBEM2
+PROBEM3
+PROBEM4
+PROBEM5
+MOM_rec3_01
+MOM_rec3_012
+ct_ind
+ct_ind_mu_a
+ct_ind_mza_a
+sym_ind
+sym_ind_mu_a
+sym_ind_mza_a
+std_ind
+std_ind_mu_a
+std_ind_mza_a
+dnwdio
+ndio_hia
+pdio_hia
+sbd_rfdnw
+sbd_rfnw
+schottky_n
+schottky_p
+******
+****** following connect layer does not form device. 
+****** user need adjust wherever following mapping is right or not. 
+******
+MOM_field1
+MOM_field2
+MOM_field3
+MOM_field4
+MOM_field5
+MOM_field6
+c_nmcore
+diff_mom
+mim_block
+gate1
+gate1_not_IO2
+gate1_not_IO2_not_IO2
+nxwell_float
+ptap
+ntap
+ntap_not_var
+n_psub
+n_pplug
+tiod
+indm7c
+indm7p
+indm7m
+nw_pgdio_rf
+ndiff_gdio_rf
+pdiff_gdio
+ndiff_gdio
+metal1_mark
+metal2_mark
+metal3_mark
+metal4_mark
+metal5_mark
+metal6_mark
+metal7_mark
+metal8_mark
+poly_mark
+********
+
+ignore_cap_layers
+ctm      cbm		**** comment this line if no MIMCAP devices or ctm/cbm layers 
+

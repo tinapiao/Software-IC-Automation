@@ -1,0 +1,61 @@
+"Cadence Directory" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/.cadence/
+"Current Directory" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65
+"GUI Flow" internal none virtuoso6
+"GUI Preset" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/.preset.autosave
+"Job Signature" internal none IPVS_1579578039_31982
+"PVS Job Mode" internal none lvs
+"Run Directory" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs
+"Technology Mapping File" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt/pvtech.lib
+"Technology Name" internal none "cds_ff_mpt_pvs"
+"Technology Rule File" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/.technology.rul
+"Technology RuleSet" internal none "default"
+"PVS Version" internal none 15.24-s451
+"Binary Name" internal none ipvs
+"PVS Build Date" internal none "Thu Jun  8 20:13:49 PDT 2017"
+"PVS Job Time" internal none 1579578040
+"CDL Out Display Pin Information" internal none ENABLED
+"CDL Out Stop List" internal text auCdl
+"CDL Out View List" internal text auCdl schematic
+"Control File" input text /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/pvslvsctl
+"DFII version" internal none 6.1.7.0
+"Do not check rules files before run" internal none ENABLED
+"Extracted Spice File" output text /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.spi
+"Input Layout" input none OA: AAAFOO_DIFFAMP_PAPER cml layout
+"Input Schematic" input none OA: AAAFOO_DIFFAMP_PAPER cml schematic
+"Intermediate GDSII File" output none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.gds
+"Intermediate GDSII File creation Errors" output none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/PIPO1.LOG
+"Intermediate OASIS File creation Errors" output none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/PIPO1.LOG
+"Layout Cell Name" internal none cml
+"Layout ConvertPin" internal text geometry
+"Layout GDSII" input none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.gds
+"Layout HierDepth" internal none 32
+"Layout Library Name" internal none AAAFOO_DIFFAMP_PAPER
+"Layout MaxVertices" internal none 2048
+"Layout NoConvertHalfWidthPath" input none nil
+"Layout ReplaceBusBitChar" input none nil
+"Layout Scale" internal none 0.001
+"Layout TechLib" internal none tsmcN65
+"Layout Top Cell" internal none cml
+"Layout View Name" internal none layout
+"Output Layout Cellmap I" internal text /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/lay_cellMap.txt
+"PIPO Log I" log text  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/PIPO1.LOG
+"PIPO Output I" internal text  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/PIPO1.OUT
+"PIPO Setup File I" internal text  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/pipo1.setup
+"PVS Job Log" log text /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/pvsuilvs.log
+"PVS Job Mode" internal none lvs
+"Rule File" input text /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/.technology.rul
+"Run Directory" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs
+"SI Log" log text  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/SI.LOG
+"SI OSS Directory" internal none /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/
+"SI Output" log text  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/SI.OUT
+"SI Setup File" internal text  /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/si.env
+"Schematic Cell Name" internal none cml
+"Schematic Library Name" internal none AAAFOO_DIFFAMP_PAPER
+"Schematic Netlist" output text /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvs/cml.cdl
+"Schematic Top Cell" internal none cml
+"Schematic View Name" internal none schematic
+"Simulator Mode" internal none auCdl
+"PVS Version" internal none 15.24-s451
+"Binary Name" internal none pvsvirt
+"PVS Build Date" internal none "Thu Jun  8 20:13:49 PDT 2017"
+"PVS Job Time" internal none 1579578046

@@ -1,0 +1,12 @@
+,Parameter,,,,,,tt
+,crn65gplus_2d5_lk_v1d0.scs,,,,,,tt_lvt
+,temperature,,,,,,25
+
+Test,Output,Spec,Weight,Pass/Fail,Min,Max,tt
+AN_INVERTER_496:INVERTER_tb:1,vin,,,,,,
+AN_INVERTER_496:INVERTER_tb:1,vout_tran,,,,,,
+AN_INVERTER_496:INVERTER_tb:1,gain,,,,,,
+AN_INVERTER_496:INVERTER_tb:1,Vout_Swing_PP,,,,999.2e-3,999.2e-3,999.2e-3
+AN_INVERTER_496:INVERTER_tb:1,FallTime,,,,34.25e-12,34.25e-12,34.25e-12
+AN_INVERTER_496:INVERTER_tb:1,RiseTime,,,,54.43e-12,54.43e-12,54.43e-12
+

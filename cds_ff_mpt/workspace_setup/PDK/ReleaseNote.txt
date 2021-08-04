@@ -1,0 +1,1578 @@
+
+
+
+    	      TSMC 65NM COMS Mixed Signal RF SALICIDE Low-K IMD 1P6M-1P9M PDK (CRN65GP)
+
+			Version : CRN65GP v1.0c official
+			Doc. #  : T-N65-CM-SP-018-K3
+			Date    : 2010/10/10
+
+*Special Notes:
+
+        1. Please untar both PDK_CRN65GP_v1.0c_official_IC61_20101010.tar.gz and DOC_PDK_CRN65GP_v1.0c_official_IC61_20101010.tar.gz 
+	   before using this PDK.
+
+	2. This PDK support 2.5V IO devices in T-N65-CM-SP-018 model cards. For recognition purpose,
+	   this PDK change the 2.5V under-drive 1.8V cell names to *ud18* and 2.5V over-drive 3.3V cell names
+	   to *od33*. For example, the baseband 2.5V over-drive 3.3V IO NMOS device is named "nch_25od33" 
+	   Please refer to the device description section in this document for detail information.
+
+	3. All the cells included in this PDK are built based on current design 
+	   rule documents and spice model cards. Some of rules or parameters may 
+	   be changed after this release, please contact TSMC for the most up-to-date information.
+
+	4. Please do not use the devices in "do_not_use" category.
+
+	5. This PDK only provides Calibre DRC/LVS, Assura LVS deck and Calibre/Assura/StarRC RC technology files for 
+	   1p6m-4x1z, 1p7m-4x2z and 1p9m-6x1z1u metal options. Please contact TSMC if the other verification tools are preferred.
+
+        6. There is a "TSMC PDK Tools" in the menu bar of CIW. Users need to open any one of cell
+           to let Virtuoso load the related skill function in skill directory. Please see the 
+	   details in the document "CRN65_CDF_Usage.pdf" in the PDK_doc directory.
+	   TSMC provides some utilities in this menu bar:
+	   1) Utility to change "OD" layer to "PDIFF" and "NDIFF"
+	   2) Utility to change "DFM_options" in MOS CDFs to set "DFM" or "DFM_DRMv13" as default.
+	   3) Utility to update all CDFs in the previous design.
+	   4) Other tsmc tools. Please refer to the document in PDK_doc for details.
+
+	7. MOS with WPE,Rg effect:
+	   1) WPE effect: Netlist generated from PDK contains SCA,SCB,SCC parameters for 
+	      Bsim4.5 simulation. For pre-simulation, users can modify these parameters in 
+	      MOS CDF form if they are available. For post-simulation, LPE tools will extract
+	      SCA,SCB,SCC from layout.
+	      * Since there is no implant on native devices, there will be no WPE effect on those devices. 
+	        But there are still SCA,SCB,SCC parameters in the netlist of native device. 
+		These parameters do not affect simulation result.
+	   2) Rg effect: User needs to change the "rgflag" to 1 in model card to enable the
+	      Rg effect.   
+	   3) Cco effect: User needs to change the "ccoflag" to 1 in model card to enable the
+	      Cco effect.
+
+    *** 8  TSMC PDK only support DFM "Action Required rules" and "Analog rules" not include DFM Recommended and Guideline rules.
+
+	9. There is a new DFM option "DFM" in the MOS CDF. User can change the DFM_options
+           to "DFM" in the MOS CDF, then the layout of MOS can follow "Action Required rules"
+           and "Analog rules" in the design rule version 2.0. Please find the detail in the 
+           document "CRN65_CDF_Usage.pdf" in the PDK_doc directory. The DFM option for BB mos 
+	   will cover the new recommended rule CO.S.3(R) and CO.EN.1(R) and will not cover PO.S.11 
+	   and PO.S.13 in DRM v1.4. To support the new recommended rule(CO.S.3(R) and CO.EN.1(R)) 
+	   may cause the shift of all BB mos contact comparing with DFM_DRMv11. Users will need to 
+	   fix the possible inter-connect offset issues by themself.
+
+       10. There is a new DFM option "DFM+Analog" in the MOS CDF. User can change the DFM_options
+           to "DFM+Analog" in the MOS CDF, then the layout of MOS can follow "Action Required rules"
+           and "Analog rules" in the design rule version 1.4.The "DFM+Analog" option for BB mos 
+	   will cover the new recommended rule PO.EN.1m,PO.EN.2m and PO.EN.3m in DRM v2.0.
+
+       11. To use the layout of cross-coupled crtmom(crtmom_mx), please follow the instructions shown below to run the 
+	   MOM register key utility first.
+	   
+	       1>Open any cell in tsmcN65 library.
+       
+       	       2>Click on CIW menu "TSMC PDK Tools"->"tsmcPdkUtilityTool"->"Add MOM license key".
+	       
+	       3>Select library "tsmcN65" and enter the register key.
+	       
+	       4>Press "OK" to start the utility.
+	       
+       12. Two kinds of symbolic contact(s)/via(s) are supported in this release: 
+           1) normal symbolics (follow min. rule), ex. M2_M1
+           2) DFM symbolics (follow DFM rules) which are named with prefix "DFM", ex. DFM_M2_M1
+ 
+       13. All macro model devices have the (LVSDMY,dummy1) layer on layout for LVS recognition purpose.
+ 
+       14. Users who want to turn-off guarding ring of RF_PMOS. Should be notice that " this layout service is for the cases which 
+           there are multi-OD sharing the same BULK pick-up within the same WELL. Therefore, due to the different BULK pick-up and
+           WELL boundary, the RC-network and WPE effect will be different. So, designers should remember to handle the model impacts
+           from the above effects.
+
+       15. Users who use logic gate devices and run generate from source function to get layout views, it will fail due to no environment setup.
+           Please Add "layoutXL lxEvalCDFCallbacks boolean t" in your own .cdsenv     
+ 
+       16. Here is the information for installation:
+		*Available process type are: 
+		   1 - LO
+		   2 - MM
+		   3 - RF
+		Please enter your choice: (1,2...)
+		====> Please choose the process for your design,
+		*Available voltages are: 
+		   1 - 1.0V / 2.5V / 2.5V under-drive 1.8V / 2.5V over-drive 3.3V
+		Please enter your choice: (1)
+		*Available choices of mimcap are: 
+		   1 -  1.0fF_MIM
+		   2 -  1.5fF_MIM
+		   3 -  2.0fF_MIM
+		Please enter your choice: (1,2)
+		====> Please choose the mimcap used in your design, 
+
+		*Available metal options are: 
+		   1 - 1p9m_6X2Z0U_ALRDL (Support mimcap only for RF/MM )
+		   2 - 1p9m_6X1Z1U_ALRDL (Support mimcap/UTM inductors for RF and RC technology file)
+		   3 - 1p8m_6X1Z0U_ALRDL (Support mimcap and logic inductors for RF/MM)
+		   4 - 1p8m_6X0Z1U_ALRDL (Support UTM mimcap and mu_a inductor for RF) 
+		   5 - 1p8m_5X2Z0U_ALRDL (Support mimcap only for RF/MM )
+		   6 - 1p8m_5X1Z1U_ALRDL (Support mimcap and UTM inductors for RF)
+		   7 - 1p7m_5X1Z0U_ALRDL (Support mimcap and logic inductors for RF/MM)
+		   8 - 1p7m_5X0Z1U_ALRDL  (Support UTM mimcap and mu_a inductor for RF) 
+		   9 - 1p7m_4X2Z0U_ALRDL (Support mimcap and RC technology files for RF/MM)
+		   10 - 1p7m_4X1Z1U_ALRDL (Support mimcap and UTM inductors for RF)
+		   11 - 1p6m_4X1Z0U_ALRDL (Support mimcap,logic inductors and RC technology file for RF/MM)
+		   12 - 1p6m_4X0Z1U_ALRDL (Support UTM mimcap and mu_a inductor for RF) 
+		   13 - 1p6m_3X2Z0U_ALRDL (Support mimcap only for RF/MM )
+		   14 - 1p6m_3X1Z1U_ALRDL (Support mimcap and UTM inductors for RF)
+		
+	       *UTM inudctors include "spiral_std_mu_z", "spiral_sym_mu_z", "spiral_sym_ct_mu_z",
+
+                                      "spiral_std_mu_a", "spiral_sym_mu_a", and "spiral_sym_ct_mu_a".
+	       	
+	       *Logic inductors include "spiral_std_mza_a", "spiral_sym_mza_a", "spiral_sym_ct_mza_a".
+
+	       *For more information about inductor support, please refer to PDK_doc/ReleaseNote.txt
+		
+		Please enter your choice: (1,2...)
+    		=====> Please choose the metal options for your design.
+	 
+	17. Resistors' entry_mode CDF property was turned off, user can input length & width to change res value
+	     or input res value to modify length directly.
+	         
+    *** 18. The all spiral inductors due to support characteristics of continues models operation. The CRN65 PDK
+    	    V1.0b spiral inductors are a little difference from previous version V1.0p2. Uses who use V1.0c PDK to 
+    	    design are fine, but the users who have already designed by PDK V1.0p2 and want to transfer to V1.0c 
+    	    please pay attentdion to the layout difference of spiral inductors between these two versions. 
+    	    TSMC would not take the responsibility if users do not check for these difference or skip the difference. 	
+
+    *** 19. In order to pass the drc violation of "Mx.S.2","Mx.S.2.1","IND.S.2.Mx" and "IND.S.4.Mx" of spiral_sym_ct.
+	    The pcell code has been modified, so the layout of spiral_sym_ct may have some difference with CRN65GP
+	    PDK version 1.0p2a.
+
+        20. There is a DFM_rule option in the RTMOM CDF. User can set the DFM_rule in the RTMOM,then the layout of 
+	    RTMOM can follow "Action Required rules". But will violate DFM RR:RE:D:MxS1 and RR:GL:SP:NWR1.RD team has
+	    two comments."1.If customers want to create DFM free layout,please choose sp>=0.13um(Mx.S.1) to follow DFM rule"
+	    "2.When choose NW option for RTMOM,there might cause floating NW DFM violation,customers can add NW pick
+	    up to solve this violation."
+
+        21. TSMC SPICE team suggests that customers use "_mac" model for their noise figure simulation.
+
+	22. Turn on the poly-route function when finger number equal to 1, poly contact will add on automatically.
+	
+        23. Spiral inductors/crtmom_rf don't support back-annotation function. The TIF/TCF already calculate the L/C value.
+
+        24. In CRN65GP_V1.0C PDK, the scale parameter default supplied is set to 1 and user should not change it in PDK.
+       
+	25. There is a DFM_rule option in the RTMOM CDF. User can set the DFM_rule in the RTMOM,then the layout of 
+            RTMOM can follow "Action Required rules". But will violate DFM RR:RE:D:MxS1 and RR:GL:SP:NWR1.RD team has
+            two comments."1.If customers want to create DFM free layout,please choose sp>=0.13um(Mx.S.1) to follow DFM rule"
+            "2.When choose NW option for RTMOM,there might cause floating NW DFM violation,customers should add NW pick
+            up manully to solve this violation."
+
+        26. All devices may has different value between spice and spectre model card in simulation result.   
+ 
+        27. Take special care for DRC when switching off the impLayer option in all base band mos device layout.
+
+     ** 28. Users need to pay attentdion to switch off guard ring in RF device, because guard ring is for RF device LVS recognition purpose. 
+
+        29. Due to the complex of metal resistor models(model varies with width and spacing), the metal resistors 'rm*' are always modeled as 
+            'rm*w' in PDK which mayn't reflect the real situations.
+
+        30. There are DRC violations of rule NT_N.A.1 when using native nmos with minimum size and rule RPO.A.1 when using resistors with minimum size.
+            Users may need to take care this layout manually if the minimum size is used.
+
+        31. In Assura dfII flow, the npn/npn_mis and pnp/pnp_mis will have multi-to-multi binding issue. To avoid this issue
+            LVS deck do not support npn and pnp device for Assura dfII flow. Users need to switch them manually if necessary.
+
+        32. Please do not use "m" for mismatch BJT multi parameter due to model do not support mismatch equation for multi.
+            Users need to use them for one(m=1) device in netlist for mismatch simulation. 
+
+        33. Please do not use too large size (ex.850u*850u,width and length are over 150um) of base band mos, it will cause drc violation 
+	    for too high density.
+
+    *** 34. Currently, all Assura/Calibre/Star_rc RC decks do not support mimcap extraction.
+	    If customers need mimcap(cbm and ctm) extraction, please make request to TSMC.
+
+        35. A DRC violation of rule NT_N.A.1 is found when using native nmos with minimum size. Users may need to fix
+	    this layout manually if the minimum size is used.
+
+        36. Please be careful to use the base band mimcap (mimcap and mimcap_udc). It will cause drc violations (max. CBM width) 
+            if the CTM width and the number of CTM array are too large.
+
+        37. If users use resistor contact number with zero, please take care the metal connection in series or parallel.
+
+        38. The parameter of "area_Length/area_Width" in TIF are not exactly accurate. 
+
+        39. This version of PDK includes some new spectre primitive "bsource",only 5.10.41.169 or later can support AMS back-annotation option. 
+
+	40. For device nch_na, pdk cell follows the L/W min/max range defined in the model card, but some dimension may not supported in 
+            the nch_na bin models, such as L=2.0E-7/W=9.0E-4, please check the model carefully. PDK limits the mim. length to L=3.0E-7 to 
+            safely run the simulation of model card. If user really need to run min length L=2.0E-7, user can turn off the HardConstrain in 
+            CDF of nch_na device.
+
+
+
+
+*****************************************************************************************************************
+  DISCLAIMER
+  
+  This PDK is provided to you "AS IS" and you shall not distribute it to any
+  other third party. This PDK is created by "Cadence". TSMC only performs
+  Layout versus Layout (LVL) and Schematic versus Schematic (SVS) quality
+  check. TSMC also disclaims any representation that this PDK, other than TSMC
+  Confidential Information contained within, does not infringe any
+  intellectual property rights of any third parties. There are no warranties
+  given by TSMC, whether express, inplied or statutory, including, without
+  limitation, implied warranties of merchant ability and fitness for a
+  particular pruposes. 
+
+  STATEMENT OF USE
+
+  This information contains confidential and proprietary information of TSMC.
+  No part of this information may be reproduced, transmitted, transcribed,
+  stored in a retrieval system, or translated into any human or computer
+  language, in any form or by any means, electronic, mechanical, magnetic,
+  optical, chemical, manual, or otherwise, without the prior written permission
+  of TSMC.  This information was prepared for informational purpose and is for
+  use by TSMC's customers only.  TSMC reserves the right to make changes in the
+  information at any time and without notice.
+*******************************************************************************
+
+0. Overview
+
+  This PDK requires the following environmental variables:
+
+	"CDS_Netlisting_Mode" to be set to "Analog"
+	"CDSHOME" to be set to Cadence DFII installation path
+ 
+  Moreover, this PDK has been tested to work with the following software
+  versions:
+
+       *DFII        sub-version IC 6.1.4.500.6
+       *Spectre     sub-version  6.2.1.264 
+       *Hspice      2009.09
+       *ELDO        2009.2
+       *Calibre     v2010.2_25.18
+       *StarRC      Version: C-2009.06 
+       *Assura      sub-version 4.1
+       *QRC         EXT812_HF2
+       *Perl        v5.8.8
+       *NC-Verilog  611_USR5
+	
+
+1. Foundry Data
+
+   1.1 Spice model:
+       PROCESS  : 65nm Mixed Signal RF SALICIDE Low-K IMD (1.0/2.5/over-drive 3.3V) (CRN65GPLUS)
+       MODEL    : BSIM4 ( V4.5 )
+       DOC. NO. : T-N65-CM-SP-018
+       VERSION  : V1.0
+       DATE     : Nov. 22, 2007
+
+       SPECTRE VERSION : 6.0.2.247
+       HSPICE  VERSION : H2006.03 or 2007.03-SP1 later
+       ELDO    VERSION : v6.8_3.1
+
+   1.2 Design rule:
+       T-N65-CL-DR-001    VER 2.0
+ 
+   1.3 Virtuoso techfile:
+       T-N65-CL-LE-002 Ver 2.0a.pre010810 
+       (OA TechFile is based on this document. Cadence_Date:10/10/2010)
+
+   1.4 Calibre DRC:
+       CALIBRE DRC COMMAND FILE - CLN65S_9M_6X1Z1U.20a 10/16/2009
+       FOR TSMC 65NM/55NM CMOS LOGIC/RF G/GP/LP/LPG/ULP 1P9M PROCESS WITH 6X1Z1U METAL OPTION (WLCSP sealring support version)
+       DESIGN RULE DOCUMENT:	  T-N65-CL-DR-001    VER 2.0
+       DRC COMMAND FILE DOCUMENT: T-N65-CL-DR-001-C1 VER 2.0a
+     
+   1.5 Calibre LVS:
+       T-N65-CL-LS-001-C1 1.5b_pre030510  03/05/2010
+
+   1.6 Calibre RCX:
+       1p6m_4X1Z: 
+		 Ref. Old Doc no.: T-N65-CL-SP-031
+		 Ref. New Doc no.: T-N65-CL-SP-031
+		 Spice Doc Name :
+		 TSMC 65 NM CMOS LOGIC GENERAL PURPOSE PLUS 1P9M+AL_RDL SALICIDE CU_LOWK 1.0&1.8V SPICE MODEL
+		 Rev. 1.2  Date 2006-11-22
+		 Tool Version: v2008.3_16.12 
+		 Generated by Mentor 2010/4/7
+                                    
+       1p7m_4X2Z: 
+		 Ref. Old Doc no.: T-N65-CL-SP-031
+		 Ref. New Doc no.: T-N65-CL-SP-031
+		 Spice Doc Name :
+		 TSMC 65 NM CMOS LOGIC GENERAL PURPOSE PLUS 1P9M+AL_RDL SALICIDE CU_LOWK 1.0&1.8V SPICE MODEL
+		 Rev. 1.2  Date 2006-11-22
+		 Tool Version: v2008.3_16.12 
+		 Generated by Mentor 2010/4/7                
+
+       1p9m_6X1Z1U:      
+		 Ref. Old Doc no.: XXXXX
+		 Ref. New Doc no.: XXXXX
+		 Spice Doc Name :
+		 TSMC CRN65G+ 1P9M 6X1Z1U AlRDL SPICE MODEL
+		 Rev. 1.0  Date 2007-11-13
+		 Tool Version: v2008.3_16.12
+		 Generated by Mentor 2010/3/31    
+
+   1.7 Assura LVS:
+       T-N65-CL-LS-001-U1 1.5b_pre030510  03/05/2010
+
+   1.8 QRC:
+       1p6m_4X1Z  : T-N65-CL-SP-031-V4_12a
+
+       1p7m_4X2Z  : T-N65-CL-SP-031-V2_12a
+
+       1p9m_6X1Z1U: 
+		 Ref. Old Doc no.: XXXXX
+		 Ref. New Doc no.: XXXXX
+		 Spice Doc Name :
+		 TSMC 65NM CMOS RF MIXED SIGNAL GENERAL PURPOSE PLUS 1P9M+SALICIDE CU_LOWK 1.0& 2.5V SPICE MODEL
+		 Rev. v1.0  Date 2007-12-19  
+                 Generated on 2007/12-19  
+
+   1.9 Star_RC:
+       1p6m_4X1Z  : T-N65-CL-SP-031-B2_12a
+
+       1p7m_4X2Z  : T-N65-CL-SP-031-B1_12a
+
+       1p9m_6X1Z1U: 
+		 Ref. Old Doc no.: T-N65-CM-SP-018
+		 Ref. New Doc no.: T-N65-CM-SP-018
+		 Spice Doc Name :
+		 TSMC 65NM CMOS RF MIXED SIGNAL GENERAL PURPOSE PLUS 1P9M+SALICIDE CU_LOWK 1.0& 2.5V SPICE MODEL
+		 Rev. v1.0  Date 2007-12-19
+		 Generated on 2007/12-19
+
+
+2. Installation of the PDK
+
+  This section will guide you to install the PDK into the design environment
+  step by step and help users to set up their environment properly.
+
+  [PDK owner]
+
+    Step A: Download the PDK archive from TSMC website
+
+    Step B: Logon into the computer as the owner who will own and maintain the
+            PDK
+
+    Step C: Choose a directory that are exported to all client machines to
+            install the PDK
+
+    Step D: Install the PDK with the following unix commands:
+
+	    a. %mkdir <pdk_install_directory>
+	    b. %cd <pdk_install_directory>
+	    c. %gzip -d <pdk_tar_file.gz>
+	    d. %tar xvf <pdk_tar_file>
+
+    ***Only the owner who will maintain the PDK has the read,write and execute
+    permission. Other users will have only read and execute access***.
+
+
+  [PDK users]
+
+        In the client parts(the PDK users),there are also some procedures to be
+    followed to set up the environment properties.
+
+    Step 1: Logon into the computer as the user that will use the PDK to design
+            a Project (circuit).
+
+    Step 2: Setting the environment variable "CDS_Netlisting_Mode" to "Analog"
+            and "CDSHOME" to Cadence DFII installation path.
+
+		setenv CDS_Netlisting_Mode "Analog"
+		setenv CDSHOME <Cadence DFII installation path>
+
+    Step 3: Make a directory for your design project.
+		EX: %mkdir ~/my_circuit
+		    %cd ~/my_circuit
+
+    Step 4: Create a new library for your design and add the PDK library into
+            your reference path by adding the following line in your "cds.lib"
+	    file located in the working directory.
+
+	        INCLUDE <pdk_install_directory>/cds.lib
+
+
+3. PDK Install Directory Structure
+
+   Techfile/        : Includes all temporary files which are used for install program
+   Assura/          : Assura LVS/QRC command files
+   Calibre/         : Calibre DRC/LVS/XRC command files
+   CCI/             : Calibre Star-RCXT CCI flow technology files directory
+   PDK_doc/         : Includes all documents, please check ReleaseNote 
+                      before using this PDK.
+   REVISION         : Revision history
+   cds.lib          : cds library mapping file
+   display.drf      : Virtuoso display file
+   lib.defs         : OA format for IC61
+   readme           : readme file
+   ReleaseNote.txt  : PDK detail information
+   pdkInstall.pl    : PDK installation utility
+   pdkInstall.cfg   : PDK installation configuraion
+   skill/           : skill directory includes all call back and utility
+   models/          : hspice/spectre/eldo models
+   techfile         : Virtuoso tech file
+   tsmcN65/         : PDK library
+
+
+4. Supported Devices
+
+  - Mosfets
+
+nch                  : 1.0V standard VT NMOS transistor
+nch_25               : 2.5V nominal VT NMOS transistor
+nch_25_dnw           : 2.5V nominal VT NMOS in DNW transistor
+nch_25_dnwod33       : 2.5V over drive 3.3V nominal VT NMOS in DNW transistor
+nch_25_dnwod33x      : 2.5V over drive 3.3V nominal VT NMOS in DNW transistor
+nch_25_dnwud18       : 2.5V under drive 1.8V nominal VT NMOS in DNW transistor
+nch_25_dnwud18x      : 2.5V under drive 1.8V nominal VT NMOS in DNW transistor
+nch_25_dnwx          : 2.5V nominal VT NMOS in DNW transistor
+nch_25od33           : 2.5V over drive 3.3V nominal VT NMOS transistor
+nch_25od33x          : 2.5V over drive 3.3V nominal VT NMOS transistor
+nch_25ud18           : 2.5V under drive 1.8V nominal VT NMOS transistor
+nch_25ud18x          : 2.5V under drive 1.8V nominal VT NMOS transistor
+nch_25x              : 2.5V nominal VT NMOS transistor
+nch_dnw              : 1.0V standard VT NMOS in DNW transistor
+nch_dnwx             : 1.0V standard VT NMOS in DNW transistor
+nch_hvt              : 1.0V HIGH VT NMOS transistor
+nch_hvt_dnw          : 1.0V HIGH VT NMOS in DNW transistor
+nch_hvt_dnwx         : 1.0V HIGH VT NMOS in DNW transistor
+nch_hvtx             : 1.0V HIGH VT NMOS transistor
+nch_lvt              : 1.0V LOW VT NMOS transistor
+nch_lvt_dnw          : 1.0V LOW VT NMOS in DNW transistor
+nch_lvt_dnwx         : 1.0V LOW VT NMOS in DNW transistor
+nch_lvtx             : 1.0V LOW VT NMOS transistor
+nch_na               : 1.0V NATIVE NMOS transistor
+nch_na25             : 2.5V NATIVE NMOS transistor
+nch_na25od33         : 2.5V NATIVE over drive NMOS transistor
+nch_na25od33x        : 2.5V NATIVE over drive NMOS transistor
+nch_na25x            : 2.5V NATIVE NMOS transistor
+nch_nax              : 1.0V NATIVE NMOS transistor
+nchx                 : 1.0V standard VT NMOS transistor
+pch                  : 1.0V standard VT PMOS transistor
+pch_25               : 2.5V nominal VT PMOS transistor
+pch_25od33           : 2.5V over drive 3.3V nominal VT PMOS transistor
+pch_25od33x          : 2.5V over drive 3.3V nominal VT PMOS transistor
+pch_25ud18           : 2.5V under drive 1.8V nominal VT PMOS transistor
+pch_25ud18x          : 2.5V under drive 1.8V nominal VT PMOS transistor
+pch_25x              : 2.5V nominal VT PMOS transistor
+pch_hvt              : 1.0V HIGH VT PMOS transistor
+pch_hvtx             : 1.0V HIGH VT PMOS transistor
+pch_lvt              : 1.0V LOW VT PMOS transistor
+pch_lvtx             : 1.0V LOW VT PMOS transistor
+pchx                 : 1.0V standard VT PMOS transistor
+
+
+  - Mosfets macro device
+
+nch_25_dnw_mac           : 2.5V nominal VT NMOS in DNW transistor
+nch_25_dnw_macx          : 2.5V nominal VT NMOS in DNW transistor
+nch_25_dnwod33_mac       : 2.5V over drive 3.3V nominal VT NMOS in DNW transistor
+nch_25_dnwod33_macx      : 2.5V over drive 3.3V nominal VT NMOS in DNW transistor
+nch_25_dnwud18_mac       : 2.5V under drive 1.8V nominal VT NMOS in DNW transistor
+nch_25_dnwud18_macx      : 2.5V under drive 1.8V nominal VT NMOS in DNW transistor
+nch_25_mac               : 2.5V nominal VT NMOS transistor
+nch_25_macx              : 2.5V nominal VT NMOS transistor
+nch_25od33_mac           : 2.5V over drive 3.3V nominal VT NMOS transistor
+nch_25od33_macx          : 2.5V over drive 3.3V nominal VT NMOS transistor
+nch_25ud18_mac           : 2.5V under drive 1.8V nominal VT NMOS transistor
+nch_25ud18_macx          : 2.5V under drive 1.8V nominal VT NMOS transistor
+nch_dnw_mac              : 1.0V standard VT NMOS in DNW transistor
+nch_dnw_macx             : 1.0V standard VT NMOS in DNW transistor
+nch_hvt_dnw_mac          : 1.0V HIGH VT NMOS in DNW transistor
+nch_hvt_dnw_macx         : 1.0V HIGH VT NMOS in DNW transistor
+nch_hvt_mac              : 1.0V HIGH VT NMOS transistor
+nch_hvt_macx             : 1.0V HIGH VT NMOS transistor
+nch_lvt_dnw_mac          : 1.0V LOW VT NMOS in DNW transistor
+nch_lvt_dnw_macx         : 1.0V LOW VT NMOS in DNW transistor
+nch_lvt_mac              : 1.0V LOW VT NMOS transistor
+nch_lvt_macx             : 1.0V LOW VT NMOS transistor
+nch_mac                  : 1.0V standard VT NMOS transistor
+nch_macx                 : 1.0V standard VT NMOS transistor
+nch_na25_mac             : 2.5V NATIVE NMOS transistor
+nch_na25_macx            : 2.5V NATIVE NMOS transistor
+nch_na25od33_mac         : 2.5V NATIVE over drive NMOS transistor
+nch_na25od33_macx        : 2.5V NATIVE over drive NMOS transistor
+nch_na_mac               : 1.0V NATIVE NMOS transistor
+nch_na_macx              : 1.0V NATIVE NMOS transistor
+pch_25_mac               : 2.5V nominal VT PMOS transistor
+pch_25_macx              : 2.5V nominal VT PMOS transistor
+pch_25od33_mac           : 2.5V over drive 3.3V nominal VT PMOS transistor
+pch_25od33_macx          : 2.5V over drive 3.3V nominal VT PMOS transistor
+pch_25ud18_mac           : 2.5V under drive 1.8V nominal VT PMOS transistor
+pch_25ud18_macx          : 2.5V under drive 1.8V nominal VT PMOS transistor
+pch_hvt_mac              : 1.0V HIGH VT PMOS transistor
+pch_hvt_macx             : 1.0V HIGH VT PMOS transistor
+pch_lvt_mac              : 1.0V LOW VT PMOS transistor
+pch_lvt_macx             : 1.0V LOW VT PMOS transistor
+pch_mac                  : 1.0V standard VT PMOS transistor
+pch_macx                 : 1.0V standard VT PMOS transistor
+
+
+  - Resistor
+
+rnod             : N+ diffusion resistor with salicide
+rnod_m           : N+ diffusion resistor with salicide (3 terminal)
+rnod_mx          : N+ diffusion resistor with salicide (3 terminal)
+rnodwo           : N+ diffusion resistor without salicide
+rnodwo_m         : N+ diffusion resistor without salicide (3 terminal)
+rnodwo_mx        : N+ diffusion resistor without salicide (3 terminal)
+rnpoly           : N+ poly resistor with salicide
+rnpoly_m         : Three terminal N+ poly resistor with salicide
+rnpoly_mx        : Three terminal N+ poly resistor with salicide
+rnpolywo         : N+ poly resistor without salicide
+rnpolywo_m       : Three terminal N+ poly resistor without salicide
+rnpolywo_mx      : Three terminal N+ poly resistor without salicide
+rnwod            : NWell resistor under OD
+rnwod_m          : NWell resistor under OD (3 terminal)
+rnwod_mx         : NWell resistor under OD (3 terminal)
+rnwsti           : NWell resistor under STI
+rnwsti_m         : NWell resistor under STI (3 terminal)
+rnwsti_mx        : NWell resistor under STI (3 terminal)
+rpod             : P+ diffusion resistor with salicide
+rpod_m           : P+ diffusion resistor with salicide (3 terminal)
+rpod_mx          : P+ diffusion resistor with salicide (3 terminal)
+rpodwo           : P+ diffusion resistor without salicide
+rpodwo_m         : P+ diffusion resistor without salicide (3 terminal)
+rpodwo_mx        : P+ diffusion resistor without salicide (3 terminal)
+rppoly           : P+ poly resistor with salicide
+rppoly_m         : Three terminal P+ poly resistor with salicide
+rppoly_mx        : Three terminal P+ poly resistor with salicide
+rppoly_rf        : RF P+ poly resistor with salicide
+rppolywo         : P+ poly resistor without salicide
+rppolywo_m       : Three terminal P+ poly resistor without salicide
+rppolywo_mx      : Three terminal P+ poly resistor without salicide
+rppolywo_rf      : RF P+ poly resistor without salicide
+
+
+  - MetalRes
+
+rm1       : Metal 1 resistor
+rm10      : AL RDL resistor
+rm2       : Metal 2 resistor
+rm3       : Metal 3 resistor
+rm4       : Metal 4 resistor
+rm5       : Metal 5 resistor
+rm6       : Metal 6 resistor
+rm7       : Metal 7 resistor
+rm8       : Metal 8 resistor
+rm9       : Metal 9 resistor
+
+
+  - Varactor
+
+moscap_rf           : 1.0V MOS on DNW varactor (RF)
+moscap_rf25         : 2.5V MOS on DNW varactor (RF)
+moscap_rf25_nw      : 2.5V MOS in N-Well varactor (RF)
+moscap_rf_nw        : 1.0V MOS in N-Well varactor (RF)
+nmoscap             : 1.0V or 1.0V Standard-Vt NMOS in N-Well varactor
+nmoscap_25          : 2.5V Standard-Vt NMOS in N-Well varactor
+xjvar               : 1.0V junction varactor with DNW (RF)
+xjvar_nw            : 1.0V junction varactor without DNW (RF)
+
+
+  - Bipolars
+
+npn          : N+/PW/DNW VERTICAL NPN BIPOLAR
+npn_mis      : N+/PW/DNW VERTICAL NPN BIPOLAR
+pnp          : P+/NW/PSUB VERTICAL PNP BIPOLAR
+pnp_mis      : P+/NW/PSUB VERTICAL PNP BIPOLAR
+
+
+  - Diodes
+
+dnwpsub            : DNW/PSUB diode
+ndio               : N+/PW 1.0V or 1.0V diode
+ndio_25            : N+/PW 2.5V diode
+ndio_25od33        : N+/PW 2.5V over drive diode
+ndio_25ud18        : N+/PW 2.5V under drive diode
+ndio_esd           : ESD diode
+ndio_hvt           : High Vt N+/PW 1.0V or 1.0V diode
+ndio_lvt           : Low Vt N+/PW 1.0V or 1.0V diode
+ndio_na            : Native N+/PW 1.0V or 1.0V diode
+ndio_na25          : Native N+/PW 2.5V diode
+ndio_na25od33      : N+/PW 2.5V NATIVE over drive diode
+nwdio              : Nwell/PSUB diode
+pdio               : P+/NW 1.0V or 1.0V diode
+pdio_25            : P+/NW 2.5V diode
+pdio_25od33        : P+/NW 2.5V over drive diode
+pdio_25ud18        : P+/NW 2.5V under drive diode
+pdio_hvt           : High Vt P+/NW 1.0V or 1.0V diode
+pdio_lvt           : Low Vt P+/NW 1.0V or 1.0V diode
+pwdnw              : PW/DNW diode
+
+
+  - Capacitors
+
+crtmom                  : MoM capacitor (MM)
+crtmom_mx               : 5-terminal cross couple MoM capacitor (MM)
+crtmom_rf               : MoM capacitor (RF)
+mimcap                  : 2-terminal MiM capacitor (MM)
+mimcap_3t               : 3-terminal MiM capacitor (MM)
+mimcap_udc              : 2-terminal UDC MiM capacitor (RF)
+mimcap_udc_3t           : 3-terminal UDC MiM capacitor (RF)
+mimcap_um_rf            : RF MiM capacitor with under metal shielding (RF)
+mimcap_um_udc_rf        : RF UDC MiM capacitor with under metal shielding (RF)
+mimcap_woum_rf          : RF MiM capacitor without under metal shielding (RF)
+mimcap_woum_udc_rf      : RF UDC MiM capacitor without under metal shielding (RF)
+
+
+  - Inductors
+
+spiral_std_mu_z     : Standard type UTM inductor. (Loop on UTM layer, cross using metal Z)
+spiral_sym_mu_z     : Symmetry type UTM inductor. (Loop on UTM layer, cross using metal Z)
+spiral_sym_ct_mu_z  : Symmetry type with central tap UTM inductor. (Loop on UTM layer, cross using metal Z)
+spiral_std_mu_a     : Standard type UTM inductor. (Loop on UTM layer, cross using AL-RDL)
+spiral_sym_mu_a     : Symmetry type UTM inductor. (Loop on UTM layer, cross using AL-RDL)
+spiral_sym_ct_mu_a  : Symmetry type with central tap UTM inductor. (Loop on UTM layer, cross using AL-RDL)
+spiral_std_mza_a    : Standard type logic inductor. (Loop on metal Z and AL-RDL layer, cross using AL-RDL)
+spiral_sym_mza_a    : Symmetry type logic inductor. (Loop on metal Z and AL-RDL layer, cross using AL-RDL)
+spiral_sym_ct_mza_a : Symmetry type with central tap logic inductor. (Loop on metal Z and AL-RDL layer, cross using AL-RDL)
+
+    * The mu_z type inductors are only supported in top 2 thick with UTM metal options including 1P6M-3X1Z1U, 1P7M-4X1Z1U, 1P8M-5X1Z1U,and 1P9M-6X1Z1U.
+    * The mza_a type inductors are only supported in top 1 thick without UTM metal options including 1P6M-4X1Z0U, 1P7M-5X1Z0U, 1P8M-6X1Z0U.
+
+
+  - RF_Devices
+
+nmos_rf                   : CORE Standard VT RF NMOS in DNW
+nmos_rf_25                : IO 2.5V Standard VT RF NMOS in DNW
+nmos_rf_25_nodnw          : IO 2.5V Standard VT RF NMOS without DNW
+nmos_rf_25_nodnwod33      : IO 2.5V over-drive 3.3V Standard VT RF NMOS without DNW
+nmos_rf_25_nodnwud18      : IO 2.5V under-drive 1.8V Standard VT RF NMOS without DNW
+nmos_rf_25od33            : IO 2.5V over-drive 3.3V Standard VT RF NMOS in DNW
+nmos_rf_25ud18            : IO 2.5V under-drive 1.8V Standard VT RF NMOS in DNW
+nmos_rf_nodnw             : CORE Standard VT RF NMOS without DNW
+pmos_rf                   : CORE Standard VT RF PMOS in DNW
+pmos_rf_25                : IO 2.5V Standard VT RF PMOS in DNW
+pmos_rf_25_nw             : IO 2.5V Standard VT RF PMOS in N-well
+pmos_rf_25_nwod33         : IO 2.5V over-drive 3.3V Standard VT RF PMOS in N-well  
+pmos_rf_25_nwud18         : IO 2.5V under-drive 1.8V Standard VT RF PMOS in N-well 
+pmos_rf_25od33            : IO 2.5V over-drive 3.3V Standard VT RF PMOS in DNW
+pmos_rf_25ud18            : IO 2.5V under-drive 1.8V Standard VT RF PMOS in DNW
+pmos_rf_nw                : CORE Standard VT RF PMOS in N-well
+
+
+  - Logic Gates
+
+inv                       : Standard Vt Inverter
+inv_25                    : 2.5V Inverter
+inv_25_dnw                : 2.5V Inverter
+inv_25_dnw_mac            : 2.5V Inverter
+inv_25_dnwod33            : 2.5V over drive 3.3V Inverter
+inv_25_dnwod33_mac        : 2.5V over drive 3.3V Inverter
+inv_25_dnwud18            : 2.5V under drive 1.8V Inverter
+inv_25_dnwud18_mac        : 2.5V under drive 1.8V Inverter
+inv_25_mac                : 2.5V Inverter
+inv_25od33                : 2.5V over drive 3.3V Inverter
+inv_25od33_mac            : 2.5V over drive 3.3V Inverter
+inv_25ud18                : 2.5V under drive 1.8V Inverter
+inv_25ud18_mac            : 2.5V under drive 1.8V Inverter
+inv_dnw                   : Standard Vt Inverter
+inv_dnw_mac               : Standard Vt Inverter
+inv_hvt                   : High Vt Inverter
+inv_hvt_dnw               : High Vt Inverter
+inv_hvt_dnw_mac           : High Vt Inverter
+inv_hvt_mac               : High Vt Inverter
+inv_lvt                   : Low Vt Inverter
+inv_lvt_dnw               : Low Vt Inverter
+inv_lvt_dnw_mac           : Low Vt Inverter
+inv_lvt_mac               : Low Vt Inverter
+inv_mac                   : Standard Vt Inverter
+nand2                     : Standard Vt NAND
+nand2_25                  : 2.5V NAND
+nand2_25_dnw              : 2.5V NAND
+nand2_25_dnw_mac          : 2.5V NAND
+nand2_25_dnwod33          : 2.5V over drive 3.3V NAND
+nand2_25_dnwod33_mac      : 2.5V over drive 3.3V NAND
+nand2_25_dnwud18          : 2.5V under drive 1.8V NAND
+nand2_25_dnwud18_mac      : 2.5V under drive 1.8V NAND
+nand2_25_mac              : 2.5V NAND
+nand2_25od33              : 2.5V over drive 3.3V NAND
+nand2_25od33_mac          : 2.5V over drive 3.3V NAND
+nand2_25ud18              : 2.5V under drive 1.8V NAND
+nand2_25ud18_mac          : 2.5V under drive 1.8V NAND
+nand2_dnw                 : Standard Vt NAND
+nand2_dnw_mac             : Standard Vt NAND
+nand2_hvt                 : High Vt NAND
+nand2_hvt_dnw             : High Vt NAND
+nand2_hvt_dnw_mac         : High Vt NAND
+nand2_hvt_mac             : High Vt NAND
+nand2_lvt                 : Low Vt NAND
+nand2_lvt_dnw             : Low Vt NAND
+nand2_lvt_dnw_mac         : Low Vt NAND
+nand2_lvt_mac             : Low Vt NAND
+nand2_mac                 : Standard Vt NAND
+nand3                     : Standard Vt NAND
+nand3_25                  : 2.5V NAND
+nand3_25_dnw              : 2.5V NAND
+nand3_25_dnw_mac          : 2.5V NAND
+nand3_25_dnwod33          : 2.5V over drive 3.3V NAND
+nand3_25_dnwod33_mac      : 2.5V over drive 3.3V NAND
+nand3_25_dnwud18          : 2.5V under drive 1.8V NAND
+nand3_25_dnwud18_mac      : 2.5V under drive 1.8V NAND
+nand3_25_mac              : 2.5V NAND
+nand3_25od33              : 2.5V over drive 3.3V NAND
+nand3_25od33_mac          : 2.5V over drive 3.3V NAND
+nand3_25ud18              : 2.5V under drive 1.8V NAND
+nand3_25ud18_mac          : 2.5V under drive 1.8V NAND
+nand3_dnw                 : Standard Vt NAND
+nand3_dnw_mac             : Standard Vt NAND
+nand3_hvt                 : High Vt NAND
+nand3_hvt_dnw             : High Vt NAND
+nand3_hvt_dnw_mac         : High Vt NAND
+nand3_hvt_mac             : High Vt NAND
+nand3_lvt                 : Low Vt NAND
+nand3_lvt_dnw             : Low Vt NAND
+nand3_lvt_dnw_mac         : Low Vt NAND
+nand3_lvt_mac             : Low Vt NAND
+nand3_mac                 : Standard Vt NAND
+nand4                     : Standard Vt NAND
+nand4_25                  : 2.5V NAND
+nand4_25_dnw              : 2.5V NAND
+nand4_25_dnw_mac          : 2.5V NAND
+nand4_25_dnwod33          : 2.5V over drive 3.3V NAND
+nand4_25_dnwod33_mac      : 2.5V over drive 3.3V NAND
+nand4_25_dnwud18          : 2.5V under drive 1.8V NAND
+nand4_25_dnwud18_mac      : 2.5V under drive 1.8V NAND
+nand4_25_mac              : 2.5V NAND
+nand4_25od33              : 2.5V over drive 3.3V NAND
+nand4_25od33_mac          : 2.5V over drive 3.3V NAND
+nand4_25ud18              : 2.5V under drive 1.8V NAND
+nand4_25ud18_mac          : 2.5V under drive 1.8V NAND
+nand4_dnw                 : Standard Vt NAND
+nand4_dnw_mac             : Standard Vt NAND
+nand4_hvt                 : High Vt NAND
+nand4_hvt_dnw             : High Vt NAND
+nand4_hvt_dnw_mac         : High Vt NAND
+nand4_hvt_mac             : High Vt NAND
+nand4_lvt                 : Low Vt NAND
+nand4_lvt_dnw             : Low Vt NAND
+nand4_lvt_dnw_mac         : Low Vt NAND
+nand4_lvt_mac             : Low Vt NAND
+nand4_mac                 : Standard Vt NAND
+nor2                      : Standard Vt NOR
+nor2_25                   : 2.5V NOR
+nor2_25_dnw               : 2.5V NOR
+nor2_25_dnw_mac           : 2.5V NOR
+nor2_25_dnwod33           : 2.5V over drive 3.3V NOR
+nor2_25_dnwod33_mac       : 2.5V over drive 3.3V NOR
+nor2_25_dnwud18           : 2.5V under drive 1.8V NOR
+nor2_25_dnwud18_mac       : 2.5V under drive 1.8V NOR
+nor2_25_mac               : 2.5V NOR
+nor2_25od33               : 2.5V over drive 3.3V NOR
+nor2_25od33_mac           : 2.5V over drive 3.3V NOR
+nor2_25ud18               : 2.5V under drive 1.8V NOR
+nor2_25ud18_mac           : 2.5V under drive 1.8V NOR
+nor2_dnw                  : Standard Vt NOR
+nor2_dnw_mac              : Standard Vt NOR
+nor2_hvt                  : High Vt NOR
+nor2_hvt_dnw              : High Vt NOR
+nor2_hvt_dnw_mac          : High Vt NOR
+nor2_hvt_mac              : High Vt NOR
+nor2_lvt                  : Low Vt NOR
+nor2_lvt_dnw              : Low Vt NOR
+nor2_lvt_dnw_mac          : Low Vt NOR
+nor2_lvt_mac              : Low Vt NOR
+nor2_mac                  : Standard Vt NOR
+nor3                      : Standard Vt NOR
+nor3_25                   : 2.5V NOR
+nor3_25_dnw               : 2.5V NOR
+nor3_25_dnw_mac           : 2.5V NOR
+nor3_25_dnwod33           : 2.5V over drive 3.3V NOR
+nor3_25_dnwod33_mac       : 2.5V over drive 3.3V NOR
+nor3_25_dnwud18           : 2.5V under drive 1.8V NOR
+nor3_25_dnwud18_mac       : 2.5V under drive 1.8V NOR
+nor3_25_mac               : 2.5V NOR
+nor3_25od33               : 2.5V over drive 3.3V NOR
+nor3_25od33_mac           : 2.5V over drive 3.3V NOR
+nor3_25ud18               : 2.5V under drive 1.8V NOR
+nor3_25ud18_mac           : 2.5V under drive 1.8V NOR
+nor3_dnw                  : Standard Vt NOR
+nor3_dnw_mac              : Standard Vt NOR
+nor3_hvt                  : High Vt NOR
+nor3_hvt_dnw              : High Vt NOR
+nor3_hvt_dnw_mac          : High Vt NOR
+nor3_hvt_mac              : High Vt NOR
+nor3_lvt                  : Low Vt NOR
+nor3_lvt_dnw              : Low Vt NOR
+nor3_lvt_dnw_mac          : Low Vt NOR
+nor3_lvt_mac              : Low Vt NOR
+nor3_mac                  : Standard Vt NOR
+nor4                      : Standard Vt NOR
+nor4_25                   : 2.5V NOR
+nor4_25_dnw               : 2.5V NOR
+nor4_25_dnw_mac           : 2.5V NOR
+nor4_25_dnwod33           : 2.5V over drive 3.3V NOR
+nor4_25_dnwod33_mac       : 2.5V over drive 3.3V NOR
+nor4_25_dnwud18           : 2.5V under drive 1.8V NOR
+nor4_25_dnwud18_mac       : 2.5V under drive 1.8V NOR
+nor4_25_mac               : 2.5V NOR
+nor4_25od33               : 2.5V over drive 3.3V NOR
+nor4_25od33_mac           : 2.5V over drive 3.3V NOR
+nor4_25ud18               : 2.5V under drive 1.8V NOR
+nor4_25ud18_mac           : 2.5V under drive 1.8V NOR
+nor4_dnw                  : Standard Vt NOR
+nor4_dnw_mac              : Standard Vt NOR
+nor4_hvt                  : High Vt NOR
+nor4_hvt_dnw              : High Vt NOR
+nor4_hvt_dnw_mac          : High Vt NOR
+nor4_hvt_mac              : High Vt NOR
+nor4_lvt                  : Low Vt NOR
+nor4_lvt_dnw              : Low Vt NOR
+nor4_lvt_dnw_mac          : Low Vt NOR
+nor4_lvt_mac              : Low Vt NOR
+nor4_mac                  : Standard Vt NOR
+pass                      : Standard Vt Pass Gate
+pass_25                   : 2.5V Pass Gate
+pass_25_dnw               : 2.5V Pass Gate
+pass_25_dnw_mac           : 2.5V Pass Gate
+pass_25_dnwod33           : 2.5V over drive 3.3V Pass Gate
+pass_25_dnwod33_mac       : 2.5V over drive 3.3V Pass Gate
+pass_25_dnwud18           : 2.5V under drive 1.8V Pass Gate
+pass_25_dnwud18_mac       : 2.5V under drive 1.8V Pass Gate
+pass_25_mac               : 2.5V Pass Gate
+pass_25od33               : 2.5V over drive 3.3V Pass Gate
+pass_25od33_mac           : 2.5V over drive 3.3V Pass Gate
+pass_25ud18               : 2.5V under drive 1.8V Pass Gate
+pass_25ud18_mac           : 2.5V under drive 1.8V Pass Gate
+pass_dnw                  : Standard Vt Pass Gate
+pass_dnw_mac              : Standard Vt Pass Gate
+pass_hvt                  : High Vt Pass Gate
+pass_hvt_dnw              : High Vt Pass Gate
+pass_hvt_dnw_mac          : High Vt Pass Gate
+pass_hvt_mac              : High Vt Pass Gate
+pass_lvt                  : Low Vt Pass Gate
+pass_lvt_dnw              : Low Vt Pass Gate
+pass_lvt_dnw_mac          : Low Vt Pass Gate
+pass_lvt_mac              : Low Vt Pass Gate
+pass_mac                  : Standard Vt Pass Gate
+tri                       : Standard Vt Tri State Inverter
+tri_25                    : 2.5V Tri State Inverter
+tri_25_dnw                : 2.5V Tri State Inverter
+tri_25_dnw_mac            : 2.5V Tri State Inverter
+tri_25_dnwod33            : 2.5V over drive 3.3V Tri State Inverter
+tri_25_dnwod33_mac        : 2.5V over drive 3.3V Tri State Inverter
+tri_25_dnwud18            : 2.5V under drive 1.8V Tri State Inverter
+tri_25_dnwud18_mac        : 2.5V under drive 1.8V Tri State Inverter
+tri_25_mac                : 2.5V Tri State Inverter
+tri_25od33                : 2.5V over drive 3.3V Tri State Inverter
+tri_25od33_mac            : 2.5V over drive 3.3V Tri State Inverter
+tri_25ud18                : 2.5V under drive 1.8V Tri State Inverter
+tri_25ud18_mac            : 2.5V under drive 1.8V Tri State Inverter
+tri_dnw                   : Standard Vt Tri State Inverter
+tri_dnw_mac               : Standard Vt Tri State Inverter
+tri_hvt                   : High Vt Tri State Inverter
+tri_hvt_dnw               : High Vt Tri State Inverter
+tri_hvt_dnw_mac           : High Vt Tri State Inverter
+tri_hvt_mac               : High Vt Tri State Inverter
+tri_lvt                   : Low Vt Tri State Inverter
+tri_lvt_dnw               : Low Vt Tri State Inverter
+tri_lvt_dnw_mac           : Low Vt Tri State Inverter
+tri_lvt_mac               : Low Vt Tri State Inverter
+tri_mac                   : Standard Vt Tri State Inverter
+
+
+  - Parasitic Devices
+
+parasitic_rc         : parasitic rc device  
+parasitic_rc_3T      : 3 terminal parasitic rc device
+
+
+
+
+
+5. Device Specifications
+
+Device               Terminals      Spectre       Hspice        eldoD/ADVance_MS        auCdl             auLvs                                                                  View Info
+
+                                    Model         Model                                 Model             Model                     symbol    spectre    hspiceD    eldoD     ADVance_MS    ams    auLVS    auCDL    ivpcell    layout    
+  - Mosfets
+
+nch                  (D G S B)      nch           nch           nch                     nch               nch                       y         y          y          y         y             y      y        y        y          y         
+nch_25               (D G S B)      nch_25        nch_25        nch_25                  nch_25            nch_25                    y         y          y          y         y             y      y        y        y          y         
+nch_25_dnw           (D G S B)      nch_25        nch_25        nch_25                  nch_25_dnw        nch_25_dnw                y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwod33       (D G S B)      nch_33        nch_33        nch_33                  nch_25_dnwod      nch_25_dnwod33            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwod33x      (D G S B)      nch_33        nch_33        nch_33                  nch_25_dnwod      nch_25_dnwod33            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwud18       (D G S B)      nch_18        nch_18        nch_18                  nch_25_dnwud      nch_25_dnwud18            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwud18x      (D G S B)      nch_18        nch_18        nch_18                  nch_25_dnwud      nch_25_dnwud18            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwx          (D G S B)      nch_25        nch_25        nch_25                  nch_25_dnw        nch_25_dnw                y         y          y          y         y             y      y        y        y          y         
+nch_25od33           (D G S B)      nch_33        nch_33        nch_33                  nch_25od          nch_25od33                y         y          y          y         y             y      y        y        y          y         
+nch_25od33x          (D G S B)      nch_33        nch_33        nch_33                  nch_25od          nch_25od33                y         y          y          y         y             y      y        y        y          y         
+nch_25ud18           (D G S B)      nch_18        nch_18        nch_18                  nch_25ud          nch_25ud18                y         y          y          y         y             y      y        y        y          y         
+nch_25ud18x          (D G S B)      nch_18        nch_18        nch_18                  nch_25ud          nch_25ud18                y         y          y          y         y             y      y        y        y          y         
+nch_25x              (D G S B)      nch_25        nch_25        nch_25                  nch_25            nch_25                    y         y          y          y         y             y      y        y        y          y         
+nch_dnw              (D G S B)      nch           nch           nch                     nch_dnw           nch_dnw                   y         y          y          y         y             y      y        y        y          y         
+nch_dnwx             (D G S B)      nch           nch           nch                     nch_dnw           nch_dnw                   y         y          y          y         y             y      y        y        y          y         
+nch_hvt              (D G S B)      nch_hvt       nch_hvt       nch_hvt                 nch_hvt           nch_hvt                   y         y          y          y         y             y      y        y        y          y         
+nch_hvt_dnw          (D G S B)      nch_hvt       nch_hvt       nch_hvt                 nch_hvt_dnw       nch_hvt_dnw               y         y          y          y         y             y      y        y        y          y         
+nch_hvt_dnwx         (D G S B)      nch_hvt       nch_hvt       nch_hvt                 nch_hvt_dnw       nch_hvt_dnw               y         y          y          y         y             y      y        y        y          y         
+nch_hvtx             (D G S B)      nch_hvt       nch_hvt       nch_hvt                 nch_hvt           nch_hvt                   y         y          y          y         y             y      y        y        y          y         
+nch_lvt              (D G S B)      nch_lvt       nch_lvt       nch_lvt                 nch_lvt           nch_lvt                   y         y          y          y         y             y      y        y        y          y         
+nch_lvt_dnw          (D G S B)      nch_lvt       nch_lvt       nch_lvt                 nch_lvt_dnw       nch_lvt_dnw               y         y          y          y         y             y      y        y        y          y         
+nch_lvt_dnwx         (D G S B)      nch_lvt       nch_lvt       nch_lvt                 nch_lvt_dnw       nch_lvt_dnw               y         y          y          y         y             y      y        y        y          y         
+nch_lvtx             (D G S B)      nch_lvt       nch_lvt       nch_lvt                 nch_lvt           nch_lvt                   y         y          y          y         y             y      y        y        y          y         
+nch_na               (D G S B)      nch_na        nch_na        nch_na                  nch_na            nch_na                    y         y          y          y         y             y      y        y        y          y         
+nch_na25             (D G S B)      nch_na25      nch_na25      nch_na25                nch_na25          nch_na25                  y         y          y          y         y             y      y        y        y          y         
+nch_na25od33         (D G S B)      nch_na25od33  nch_na25od33  nch_na25od33		nch_na25od	  nch_na25od33  	    y	      y 	 y	    y	      y 	    y	   y	    y	     y  	y	  
+nch_na25od33x        (D G S B)      nch_na25od33  nch_na25od33  nch_na25od33		nch_na25od	  nch_na25od33  	    y	      y 	 y	    y	      y 	    y	   y	    y	     y  	y	  
+nch_na25x            (D G S B)      nch_na25      nch_na25      nch_na25                nch_na25          nch_na25                  y         y          y          y         y             y      y        y        y          y         
+nch_nax              (D G S B)      nch_na        nch_na        nch_na                  nch_na            nch_na                    y         y          y          y         y             y      y        y        y          y         
+nchx                 (D G S B)      nch           nch           nch                     nch               nch                       y         y          y          y         y             y      y        y        y          y         
+pch                  (D G S B)      pch           pch           pch                     pch               pch                       y         y          y          y         y             y      y        y        y          y         
+pch_25               (D G S B)      pch_25        pch_25        pch_25                  pch_25            pch_25                    y         y          y          y         y             y      y        y        y          y         
+pch_25od33           (D G S B)      pch_33        pch_33        pch_33                  pch_25od          pch_25od33                y         y          y          y         y             y      y        y        y          y         
+pch_25od33x          (D G S B)      pch_33        pch_33        pch_33                  pch_25od          pch_25od33                y         y          y          y         y             y      y        y        y          y         
+pch_25ud18           (D G S B)      pch_18        pch_18        pch_18                  pch_25ud          pch_25ud18                y         y          y          y         y             y      y        y        y          y         
+pch_25ud18x          (D G S B)      pch_18        pch_18        pch_18                  pch_25ud          pch_25ud18                y         y          y          y         y             y      y        y        y          y         
+pch_25x              (D G S B)      pch_25        pch_25        pch_25                  pch_25            pch_25                    y         y          y          y         y             y      y        y        y          y         
+pch_hvt              (D G S B)      pch_hvt       pch_hvt       pch_hvt                 pch_hvt           pch_hvt                   y         y          y          y         y             y      y        y        y          y         
+pch_hvtx             (D G S B)      pch_hvt       pch_hvt       pch_hvt                 pch_hvt           pch_hvt                   y         y          y          y         y             y      y        y        y          y         
+pch_lvt              (D G S B)      pch_lvt       pch_lvt       pch_lvt                 pch_lvt           pch_lvt                   y         y          y          y         y             y      y        y        y          y         
+pch_lvtx             (D G S B)      pch_lvt       pch_lvt       pch_lvt                 pch_lvt           pch_lvt                   y         y          y          y         y             y      y        y        y          y         
+pchx                 (D G S B)      pch           pch           pch                     pch               pch                       y         y          y          y         y             y      y        y        y          y         
+
+
+  - Mosfets macro device
+
+nch_25_dnw_mac           (D G S B)      nch_25_mac        nch_25_mac        nch_25_mac                  nch_25_dnw        nch_25_dnw_mac                y         y          y          y         y             y      y        y        y          y         
+nch_25_dnw_macx          (D G S B)      nch_25_mac        nch_25_mac        nch_25_mac                  nch_25_dnw        nch_25_dnw_mac                y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwod33_mac       (D G S B)      nch_33_mac        nch_33_mac        nch_33_mac                  nch_25_dnwod      nch_25_dnwod33_mac            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwod33_macx      (D G S B)      nch_33_mac        nch_33_mac        nch_33_mac                  nch_25_dnwod      nch_25_dnwod33_mac            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwud18_mac       (D G S B)      nch_18_mac        nch_18_mac        nch_18_mac                  nch_25_dnwud      nch_25_dnwud18_mac            y         y          y          y         y             y      y        y        y          y         
+nch_25_dnwud18_macx      (D G S B)      nch_18_mac        nch_18_mac        nch_18_mac                  nch_25_dnwud      nch_25_dnwud18_mac            y         y          y          y         y             y      y        y        y          y         
+nch_25_mac               (D G S B)      nch_25_mac        nch_25_mac        nch_25_mac                  nch_25            nch_25_mac                    y         y          y          y         y             y      y        y        y          y         
+nch_25_macx              (D G S B)      nch_25_mac        nch_25_mac        nch_25_mac                  nch_25            nch_25_mac                    y         y          y          y         y             y      y        y        y          y         
+nch_25od33_mac           (D G S B)      nch_33_mac        nch_33_mac        nch_33_mac                  nch_25od          nch_25od33_mac                y         y          y          y         y             y      y        y        y          y         
+nch_25od33_macx          (D G S B)      nch_33_mac        nch_33_mac        nch_33_mac                  nch_25od          nch_25od33_mac                y         y          y          y         y             y      y        y        y          y         
+nch_25ud18_mac           (D G S B)      nch_18_mac        nch_18_mac        nch_18_mac                  nch_25ud          nch_25ud18_mac                y         y          y          y         y             y      y        y        y          y         
+nch_25ud18_macx          (D G S B)      nch_18_mac        nch_18_mac        nch_18_mac                  nch_25ud          nch_25ud18_mac                y         y          y          y         y             y      y        y        y          y         
+nch_dnw_mac              (D G S B)      nch_mac           nch_mac           nch_mac                     nch_dnw           nch_dnw_mac                   y         y          y          y         y             y      y        y        y          y         
+nch_dnw_macx             (D G S B)      nch_mac           nch_mac           nch_mac                     nch_dnw           nch_dnw_mac                   y         y          y          y         y             y      y        y        y          y         
+nch_hvt_dnw_mac          (D G S B)      nch_hvt_mac       nch_hvt_mac       nch_hvt_mac                 nch_hvt_dnw       nch_hvt_dnw_mac               y         y          y          y         y             y      y        y        y          y         
+nch_hvt_dnw_macx         (D G S B)      nch_hvt_mac       nch_hvt_mac       nch_hvt_mac                 nch_hvt_dnw       nch_hvt_dnw_mac               y         y          y          y         y             y      y        y        y          y         
+nch_hvt_mac              (D G S B)      nch_hvt_mac       nch_hvt_mac       nch_hvt_mac                 nch_hvt           nch_hvt_mac                   y         y          y          y         y             y      y        y        y          y         
+nch_hvt_macx             (D G S B)      nch_hvt_mac       nch_hvt_mac       nch_hvt_mac                 nch_hvt           nch_hvt_mac                   y         y          y          y         y             y      y        y        y          y         
+nch_lvt_dnw_mac          (D G S B)      nch_lvt_mac       nch_lvt_mac       nch_lvt_mac                 nch_lvt_dnw       nch_lvt_dnw_mac               y         y          y          y         y             y      y        y        y          y         
+nch_lvt_dnw_macx         (D G S B)      nch_lvt_mac       nch_lvt_mac       nch_lvt_mac                 nch_lvt_dnw       nch_lvt_dnw_mac               y         y          y          y         y             y      y        y        y          y         
+nch_lvt_mac              (D G S B)      nch_lvt_mac       nch_lvt_mac       nch_lvt_mac                 nch_lvt           nch_lvt_mac                   y         y          y          y         y             y      y        y        y          y         
+nch_lvt_macx             (D G S B)      nch_lvt_mac       nch_lvt_mac       nch_lvt_mac                 nch_lvt           nch_lvt_mac                   y         y          y          y         y             y      y        y        y          y         
+nch_mac                  (D G S B)      nch_mac           nch_mac           nch_mac                     nch               nch_mac                       y         y          y          y         y             y      y        y        y          y         
+nch_macx                 (D G S B)      nch_mac           nch_mac           nch_mac                     nch               nch_mac                       y         y          y          y         y             y      y        y        y          y         
+nch_na25_mac             (D G S B)      nch_na25_mac      nch_na25_mac      nch_na25_mac                nch_na25          nch_na25_mac                  y         y          y          y         y             y      y        y        y          y         
+nch_na25_macx            (D G S B)      nch_na25_mac      nch_na25_mac      nch_na25_mac                nch_na25          nch_na25_mac                  y         y          y          y         y             y      y        y        y          y         
+nch_na25od33_mac         (D G S B)      nch_na25od33_mac  nch_na25od33_mac  nch_na25od33_mac		nch_na25od	  nch_na25od33_mac		y	  y	     y  	y	  y		y      y	y	 y	    y	      
+nch_na25od33_macx        (D G S B)      nch_na25od33_mac  nch_na25od33_mac  nch_na25od33_mac		nch_na25od	  nch_na25od33_mac		y	  y	     y  	y	  y		y      y	y	 y	    y	      
+nch_na_mac               (D G S B)      nch_na_mac        nch_na_mac        nch_na_mac                  nch_na            nch_na_mac                    y         y          y          y         y             y      y        y        y          y         
+nch_na_macx              (D G S B)      nch_na_mac        nch_na_mac        nch_na_mac                  nch_na            nch_na_mac                    y         y          y          y         y             y      y        y        y          y         
+pch_25_mac               (D G S B)      pch_25_mac        pch_25_mac        pch_25_mac                  pch_25            pch_25_mac                    y         y          y          y         y             y      y        y        y          y         
+pch_25_macx              (D G S B)      pch_25_mac        pch_25_mac        pch_25_mac                  pch_25            pch_25_mac                    y         y          y          y         y             y      y        y        y          y         
+pch_25od33_mac           (D G S B)      pch_33_mac        pch_33_mac        pch_33_mac                  pch_25od          pch_25od33_mac                y         y          y          y         y             y      y        y        y          y         
+pch_25od33_macx          (D G S B)      pch_33_mac        pch_33_mac        pch_33_mac                  pch_25od          pch_25od33_mac                y         y          y          y         y             y      y        y        y          y         
+pch_25ud18_mac           (D G S B)      pch_18_mac        pch_18_mac        pch_18_mac                  pch_25ud          pch_25ud18_mac                y         y          y          y         y             y      y        y        y          y         
+pch_25ud18_macx          (D G S B)      pch_18_mac        pch_18_mac        pch_18_mac                  pch_25ud          pch_25ud18_mac                y         y          y          y         y             y      y        y        y          y         
+pch_hvt_mac              (D G S B)      pch_hvt_mac       pch_hvt_mac       pch_hvt_mac                 pch_hvt           pch_hvt_mac                   y         y          y          y         y             y      y        y        y          y         
+pch_hvt_macx             (D G S B)      pch_hvt_mac       pch_hvt_mac       pch_hvt_mac                 pch_hvt           pch_hvt_mac                   y         y          y          y         y             y      y        y        y          y         
+pch_lvt_mac              (D G S B)      pch_lvt_mac       pch_lvt_mac       pch_lvt_mac                 pch_lvt           pch_lvt_mac                   y         y          y          y         y             y      y        y        y          y         
+pch_lvt_macx             (D G S B)      pch_lvt_mac       pch_lvt_mac       pch_lvt_mac                 pch_lvt           pch_lvt_mac                   y         y          y          y         y             y      y        y        y          y         
+pch_mac                  (D G S B)      pch_mac           pch_mac           pch_mac                     pch               pch_mac                       y         y          y          y         y             y      y        y        y          y         
+pch_macx                 (D G S B)      pch_mac           pch_mac           pch_mac                     pch               pch_mac                       y         y          y          y         y             y      y        y        y          y         
+
+
+  - Resistor
+
+rnod             (PLUS MINUS)           rnodl            rnodl            rnodl                      rnodl            rnod                   y         y          y          y         y             y      y        y        y          y         
+rnod_m           (PLUS MINUS BULK)      rnodl_m          rnodl_m          rnodl_m                    rnodl_m          rnod_m                 y         y          y          y         y             y      y        y        y          y         
+rnod_mx          (PLUS MINUS BULK)      rnodl_m          rnodl_m          rnodl_m                    rnodl_m          rnod_m                 y         y          y          y         y             y      y        y        y          y         
+rnodwo           (PLUS MINUS)           rnodwo           rnodwo           rnodwo                     rnodwo           rnodwo                 y         y          y          y         y             y      y        y        y          y         
+rnodwo_m         (PLUS MINUS BULK)      rnodwo_m         rnodwo_m         rnodwo_m                   rnodwo_m         rnodwo_m               y         y          y          y         y             y      y        y        y          y         
+rnodwo_mx        (PLUS MINUS BULK)      rnodwo_m         rnodwo_m         rnodwo_m                   rnodwo_m         rnodwo_m               y         y          y          y         y             y      y        y        y          y         
+rnpoly           (PLUS MINUS)           rnpolyl          rnpolyl          rnpolyl                    rnpolyl          rnpoly                 y         y          y          y         y             y      y        y        y          y         
+rnpoly_m         (PLUS MINUS BULK)      rnpolyl_m        rnpolyl_m        rnpolyl_m                  rnpolyl_m        rnpoly_m               y         y          y          y         y             y      y        y        y          y         
+rnpoly_mx        (PLUS MINUS BULK)      rnpolyl_m        rnpolyl_m        rnpolyl_m                  rnpolyl_m        rnpoly_m               y         y          y          y         y             y      y        y        y          y         
+rnpolywo         (PLUS MINUS)           rnpolywo         rnpolywo         rnpolywo                   rnpolywo         rnpolywo               y         y          y          y         y             y      y        y        y          y         
+rnpolywo_m       (PLUS MINUS BULK)      rnpolywo_m       rnpolywo_m       rnpolywo_m                 rnpolywo_m       rnpolywo_m             y         y          y          y         y             y      y        y        y          y         
+rnpolywo_mx      (PLUS MINUS BULK)      rnpolywo_m       rnpolywo_m       rnpolywo_m                 rnpolywo_m       rnpolywo_m             y         y          y          y         y             y      y        y        y          y         
+rnwod            (PLUS MINUS)           rnwod            rnwod            rnwod                      rnwod            rnwod                  y         y          y          y         y             y      y        y        y          y         
+rnwod_m          (PLUS MINUS BULK)      rnwod_m          rnwod_m          rnwod_m                    rnwod_m          rnwod_m                y         y          y          y         y             y      y        y        y          y         
+rnwod_mx         (PLUS MINUS BULK)      rnwod_m          rnwod_m          rnwod_m                    rnwod_m          rnwod_m                y         y          y          y         y             y      y        y        y          y         
+rnwsti           (PLUS MINUS)           rnwsti           rnwsti           rnwsti                     rnwsti           rnwsti                 y         y          y          y         y             y      y        y        y          y         
+rnwsti_m         (PLUS MINUS BULK)      rnwsti_m         rnwsti_m         rnwsti_m                   rnwsti_m         rnwsti_m               y         y          y          y         y             y      y        y        y          y         
+rnwsti_mx        (PLUS MINUS BULK)      rnwsti_m         rnwsti_m         rnwsti_m                   rnwsti_m         rnwsti_m               y         y          y          y         y             y      y        y        y          y         
+rpod             (PLUS MINUS)           rpodl            rpodl            rpodl                      rpodl            rpod                   y         y          y          y         y             y      y        y        y          y         
+rpod_m           (PLUS MINUS BULK)      rpodl_m          rpodl_m          rpodl_m                    rpodl_m          rpod_m                 y         y          y          y         y             y      y        y        y          y         
+rpod_mx          (PLUS MINUS BULK)      rpodl_m          rpodl_m          rpodl_m                    rpodl_m          rpod_m                 y         y          y          y         y             y      y        y        y          y         
+rpodwo           (PLUS MINUS)           rpodwo           rpodwo           rpodwo                     rpodwo           rpodwo                 y         y          y          y         y             y      y        y        y          y         
+rpodwo_m         (PLUS MINUS BULK)      rpodwo_m         rpodwo_m         rpodwo_m                   rpodwo_m         rpodwo_m               y         y          y          y         y             y      y        y        y          y         
+rpodwo_mx        (PLUS MINUS BULK)      rpodwo_m         rpodwo_m         rpodwo_m                   rpodwo_m         rpodwo_m               y         y          y          y         y             y      y        y        y          y         
+rppoly           (PLUS MINUS)           rppolyl          rppolyl          rppolyl                    rppolyl          rppoly                 y         y          y          y         y             y      y        y        y          y         
+rppoly_m         (PLUS MINUS BULK)      rppolyl_m        rppolyl_m        rppolyl_m                  rppolyl_m        rppoly_m               y         y          y          y         y             y      y        y        y          y         
+rppoly_mx        (PLUS MINUS BULK)      rppolyl_m        rppolyl_m        rppolyl_m                  rppolyl_m        rppoly_m               y         y          y          y         y             y      y        y        y          y         
+rppoly_rf        (PLUS MINUS BULK)      rppolyl_rf       rppolyl_rf       rppolyl_rf                 rppolyl_rf       rppoly_rf              y         y          y          y         y             y      y        y        y          y         
+rppolywo         (PLUS MINUS)           rppolywo         rppolywo         rppolywo                   rppolywo         rppolywo               y         y          y          y         y             y      y        y        y          y         
+rppolywo_m       (PLUS MINUS BULK)      rppolywo_m       rppolywo_m       rppolywo_m                 rppolywo_m       rppolywo_m             y         y          y          y         y             y      y        y        y          y         
+rppolywo_mx      (PLUS MINUS BULK)      rppolywo_m       rppolywo_m       rppolywo_m                 rppolywo_m       rppolywo_m             y         y          y          y         y             y      y        y        y          y         
+rppolywo_rf      (PLUS MINUS BULK)      rppolywo_rf      rppolywo_rf      rppolywo_rf                rppolywo_rf      rppolywo_rf            y         y          y          y         y             y      y        y        y          y         
+
+
+  - MetalRes
+
+rm1       (PLUS MINUS)      rm1w      rm1w      rm1w                rm1       rm1             y         y          y          y         y             y      y        y        y          y         
+rm10      (PLUS MINUS)      rm10      rm10      rm10                rm10      rm10            y         y          y          y         y             y      y        y        y          y         
+rm2       (PLUS MINUS)      rmxw      rmxw      rmxw                rm2       rm2             y         y          y          y         y             y      y        y        y          y         
+rm3       (PLUS MINUS)      rmxw      rmxw      rmxw                rm3       rm3             y         y          y          y         y             y      y        y        y          y         
+rm4       (PLUS MINUS)      rmxw      rmxw      rmxw                rm4       rm4             y         y          y          y         y             y      y        y        y          y         
+rm5       (PLUS MINUS)      rmxw      rmxw      rmxw                rm5       rm5             y         y          y          y         y             y      y        y        y          y         
+rm6       (PLUS MINUS)      rmxw      rmxw      rmxw                rm6       rm6             y         y          y          y         y             y      y        y        y          y         
+rm7       (PLUS MINUS)      rmxw      rmxw      rmxw                rm7       rm7             y         y          y          y         y             y      y        y        y          y         
+rm8       (PLUS MINUS)      rmzw      rmzw      rmzw                rm8       rm8             y         y          y          y         y             y      y        y        y          y         
+rm9       (PLUS MINUS)      rmzw      rmzw      rmzw                rm9       rm9             y         y          y          y         y             y      y        y        y          y         
+
+
+  - Varactor
+
+moscap_rf           (PLUS MINUS BULK)      moscap_rf           moscap_rf           moscap_rf                     moscap_rf           moscap_rf                 y         y          y          y         y             y      y        y        y          y         
+moscap_rf25         (PLUS MINUS BULK)      moscap_rf25         moscap_rf25         moscap_rf25                   moscap_rf25         moscap_rf25               y         y          y          y         y             y      y        y        y          y         
+moscap_rf25_nw      (PLUS MINUS BULK)      moscap_rf25_nw      moscap_rf25_nw      moscap_rf25_nw                moscap_rf25_nw      moscap_rf25_nw            y         y          y          y         y             y      y        y        y          y         
+moscap_rf_nw        (PLUS MINUS BULK)      moscap_rf_nw        moscap_rf_nw        moscap_rf_nw                  moscap_rf_nw        moscap_rf_nw              y         y          y          y         y             y      y        y        y          y         
+nmoscap             (PLUS MINUS)           nmoscap             nmoscap             nmoscap                       nmoscap             nmoscap                   y         y          y          y         y             y      y        y        y          y         
+nmoscap_25          (PLUS MINUS)           nmoscap_25          nmoscap_25          nmoscap_25                    nmoscap_25          nmoscap_25                y         y          y          y         y             y      y        y        y          y         
+xjvar               (PLUS MINUS BULK)      xjvar               xjvar               xjvar                         xjvar               xjvar                     y         y          y          y         y             y      y        y        y          y         
+xjvar_nw            (PLUS MINUS BULK)      xjvar_nw            xjvar_nw            xjvar_nw                      xjvar_nw            xjvar_nw                  y         y          y          y         y             y      y        y        y          y         
+
+
+  - Bipolars
+
+npn          (C B E)      npn5          npn5          npn5                    npn5      npn                y         y          y          y         y             y      y        y        y          y         
+npn_mis      (C B E)      npn5_mis      npn5_mis      npn5_mis                npn5      npn_mis            y         y          y          y         y             y      y        y        y          y         
+pnp          (C B E)      pnp5          pnp5          pnp5                    pnp5      pnp                y         y          y          y         y             y      y        y        y          y         
+pnp_mis      (C B E)      pnp5_mis      pnp5_mis      pnp5_mis                pnp5      pnp_mis            y         y          y          y         y             y      y        y        y          y         
+
+
+  - Diodes
+
+dnwpsub            (PLUS MINUS)      dnwpsub        dnwpsub        dnwpsub                  dnwpsub          dnwpsub                  y         y          y          y         y             y      y        y        y          NA        
+ndio               (PLUS MINUS)      ndio           ndio           ndio                     ndio             ndio                     y         y          y          y         y             y      y        y        y          y         
+ndio_25            (PLUS MINUS)      ndio_25        ndio_25        ndio_25                  ndio_25          ndio_25                  y         y          y          y         y             y      y        y        y          y         
+ndio_25od33        (PLUS MINUS)      ndio_33        ndio_33        ndio_33                  ndio_25od        ndio_25od33              y         y          y          y         y             y      y        y        y          y         
+ndio_25ud18        (PLUS MINUS)      ndio_18        ndio_18        ndio_18                  ndio_25ud        ndio_25ud18              y         y          y          y         y             y      y        y        y          y         
+ndio_esd           (PLUS MINUS)      ndio_esd       ndio_esd       ndio_esd                 ndio_esd         ndio_esd                 y         y          y          y         y             y      y        y        y          NA        
+ndio_hvt           (PLUS MINUS)      ndio_hvt       ndio_hvt       ndio_hvt                 ndio_hvt         ndio_hvt                 y         y          y          y         y             y      y        y        y          y         
+ndio_lvt           (PLUS MINUS)      ndio_lvt       ndio_lvt       ndio_lvt                 ndio_lvt         ndio_lvt                 y         y          y          y         y             y      y        y        y          y         
+ndio_na            (PLUS MINUS)      ndio_na        ndio_na        ndio_na                  ndio_na          ndio_na                  y         y          y          y         y             y      y        y        y          y         
+ndio_na25          (PLUS MINUS)      ndio_na25      ndio_na25      ndio_na25                ndio_na25        ndio_na25                y         y          y          y         y             y      y        y        y          y         
+ndio_na25od33      (PLUS MINUS)      ndio_na25od33  ndio_na25od33  ndio_na25od33            ndio_na25od      ndio_na25od33            y         y          y          y         y             y      y        y        y          y         
+nwdio              (PLUS MINUS)      nwdio          nwdio          nwdio                    nwdio            nwdio                    y         y          y          y         y             y      y        y        y          y         
+pdio               (PLUS MINUS)      pdio           pdio           pdio                     pdio             pdio                     y         y          y          y         y             y      y        y        y          y         
+pdio_25            (PLUS MINUS)      pdio_25        pdio_25        pdio_25                  pdio_25          pdio_25                  y         y          y          y         y             y      y        y        y          y         
+pdio_25od33        (PLUS MINUS)      pdio_33        pdio_33        pdio_33                  pdio_25od        pdio_25od33              y         y          y          y         y             y      y        y        y          y         
+pdio_25ud18        (PLUS MINUS)      pdio_18        pdio_18        pdio_18                  pdio_25ud        pdio_25ud18              y         y          y          y         y             y      y        y        y          y         
+pdio_hvt           (PLUS MINUS)      pdio_hvt       pdio_hvt       pdio_hvt                 pdio_hvt         pdio_hvt                 y         y          y          y         y             y      y        y        y          y         
+pdio_lvt           (PLUS MINUS)      pdio_lvt       pdio_lvt       pdio_lvt                 pdio_lvt         pdio_lvt                 y         y          y          y         y             y      y        y        y          y         
+pwdnw              (PLUS MINUS)      pwdnw          pwdnw          pwdnw                    pwdnw            pwdnw                    y         y          y          y         y             y      y        y        y          NA        
+
+
+  - Capacitors
+
+crtmom                  (PLUS MINUS BULK)                     crtmom                      crtmom                      crtmom                                crtmom                      crtmom                        y         y          y          y         y             y        y        y          y         
+crtmom_mx               (PLUS1 MINUS1 PLUS2 MINUS2 BULK)      crtmom_mx                   crtmom_mx                   crtmom_mx                             crtmom_mx                   crtmom_mx                     y         y          y          y         y             y        y        y          y         
+crtmom_rf               (PLUS MINUS BULK)                     crtmom_rf                   crtmom_rf                   crtmom_rf                             crtmom_rf                   crtmom_rf                     y         y          y          y         y             y        y        y          y         
+mimcap                  (PLUS MINUS)                          mimcap_sin                  mimcap_sin                  mimcap_sin                            mimcap_sin                  mimcap                        y         y          y          y         y             y        y        y          y         
+mimcap_3t               (PLUS MINUS BULK)                     mimcap_sin_3t               mimcap_sin_3t               mimcap_sin_3t                         mimcap_sin_3t               mimcap_3t                     y         y          y          y         y             y        y        y          y         
+mimcap_udc              (PLUS MINUS)                          mimcap_sin_udc              mimcap_sin_udc              mimcap_sin_udc                        mimcap_sin_udc              mimcap_udc                    y         y          y          y         y             y        y        y          y         
+mimcap_udc_3t           (PLUS MINUS BULK)                     mimcap_sin_udc_3t           mimcap_sin_udc_3t           mimcap_sin_udc_3t                     mimcap_sin_udc_3t           mimcap_udc_3t                 y         y          y          y         y             y        y        y          y         
+mimcap_um_rf            (PLUS MINUS BULK)                     mimcap_um_sin_rf            mimcap_um_sin_rf            mimcap_um_sin_rf                      mimcap_um_sin_rf            mimcap_um_rf                  y         y          y          y         y             y        y        y          y         
+mimcap_um_udc_rf        (PLUS MINUS BULK)                     mimcap_um_sin_udc_rf        mimcap_um_sin_udc_rf        mimcap_um_sin_udc_rf                  mimcap_um_sin_udc_rf        mimcap_um_udc_rf              y         y          y          y         y             y        y        y          y         
+mimcap_woum_rf          (PLUS MINUS BULK)                     mimcap_woum_sin_rf          mimcap_woum_sin_rf          mimcap_woum_sin_rf                    mimcap_woum_sin_rf          mimcap_woum_rf                y         y          y          y         y             y        y        y          y         
+mimcap_woum_udc_rf      (PLUS MINUS BULK)                     mimcap_woum_sin_udc_rf      mimcap_woum_sin_udc_rf      mimcap_woum_sin_udc_rf                mimcap_woum_sin_udc_rf      mimcap_woum_udc_rf            y         y          y          y         y             y        y        y          y         
+
+
+  - Inductors
+
+spiral_std_mu_a          (PLUS MINUS BULK)           spiral_std_mu_z          spiral_std_mu_z          spiral_std_mu_z                    spiral_std_mu_z          spiral_std_mu_z                y         y          y          y         y             y        y        y          y         
+spiral_std_mu_z          (PLUS MINUS BULK)           spiral_std_mu_z          spiral_std_mu_z          spiral_std_mu_z                    spiral_std_mu_z          spiral_std_mu_z                y         y          y          y         y             y        y        y          y         
+spiral_std_mza_a         (PLUS MINUS BULK)           spiral_std_mza_a         spiral_std_mza_a         spiral_std_mza_a                   spiral_std_mza_a         spiral_std_mza_a               y         y          y          y         y             y        y        y          y         
+spiral_sym_ct_mu_a       (PLUS MINUS BULK CTAP)      spiral_sym_ct_mu_z       spiral_sym_ct_mu_z       spiral_sym_ct_mu_z                 spiral_sym_ct_mu_z       spiral_sym_ct_mu_z             y         y          y          y         y             y        y        y          y         
+spiral_sym_ct_mu_z       (PLUS MINUS BULK CTAP)      spiral_sym_ct_mu_z       spiral_sym_ct_mu_z       spiral_sym_ct_mu_z                 spiral_sym_ct_mu_z       spiral_sym_ct_mu_z             y         y          y          y         y             y        y        y          y         
+spiral_sym_ct_mza_a      (PLUS MINUS BULK CTAP)      spiral_sym_ct_mza_a      spiral_sym_ct_mza_a      spiral_sym_ct_mza_a                spiral_sym_ct_mza_a      spiral_sym_ct_mza_a            y         y          y          y         y             y        y        y          y         
+spiral_sym_mu_a          (PLUS MINUS BULK)           spiral_sym_mu_z          spiral_sym_mu_z          spiral_sym_mu_z                    spiral_sym_mu_z          spiral_sym_mu_z                y         y          y          y         y             y        y        y          y         
+spiral_sym_mu_z          (PLUS MINUS BULK)           spiral_sym_mu_z          spiral_sym_mu_z          spiral_sym_mu_z                    spiral_sym_mu_z          spiral_sym_mu_z                y         y          y          y         y             y        y        y          y         
+spiral_sym_mza_a         (PLUS MINUS BULK)           spiral_sym_mza_a         spiral_sym_mza_a         spiral_sym_mza_a                   spiral_sym_mza_a         spiral_sym_mza_a               y         y          y          y         y             y        y        y          y         
+
+
+  - RF_Devices
+
+nmos_rf                   (D G S B)      nmos_rf            nmos_rf            nmos_rf                      nmos_rf                 nmos_rf                         y         y          y          y         y             y      y        y        y          y         
+nmos_rf_25                (D G S B)      nmos_rf_25         nmos_rf_25         nmos_rf_25                   nmos_rf_25              nmos_rf_25                      y         y          y          y         y             y      y        y        y          y         
+nmos_rf_25_nodnw          (D G S B)      nmos_rf_25         nmos_rf_25         nmos_rf_25                   nmos_rf_25_nodnw        nmos_rf_25_nodnw                y         y          y          y         y             y      y        y        y          y         
+nmos_rf_25_nodnwod33      (D G S B)      nmos_rf_33         nmos_rf_33         nmos_rf_33                   nmos_rf_25_nodnwod      nmos_rf_25_nodnwod33            y         y          y          y         y             y      y        y        y          y         
+nmos_rf_25_nodnwud18      (D G S B)      nmos_rf_18         nmos_rf_18         nmos_rf_18                   nmos_rf_25_nodnwud      nmos_rf_25_nodnwud18            y         y          y          y         y             y      y        y        y          y         
+nmos_rf_25od33            (D G S B)      nmos_rf_33         nmos_rf_33         nmos_rf_33                   nmos_rf_25od            nmos_rf_25od33                  y         y          y          y         y             y      y        y        y          y         
+nmos_rf_25ud18            (D G S B)      nmos_rf_18         nmos_rf_18         nmos_rf_18                   nmos_rf_25ud            nmos_rf_25ud18                  y         y          y          y         y             y      y        y        y          y         
+nmos_rf_nodnw             (D G S B)      nmos_rf            nmos_rf            nmos_rf                      nmos_rf_nodnw           nmos_rf_nodnw                   y         y          y          y         y             y      y        y        y          y         
+pmos_rf                   (D G S B)      pmos_rf            pmos_rf            pmos_rf                      pmos_rf                 pmos_rf                         y         y          y          y         y             y      y        y        y          y         
+pmos_rf_25                (D G S B)      pmos_rf_25         pmos_rf_25         pmos_rf_25                   pmos_rf_25              pmos_rf_25                      y         y          y          y         y             y      y        y        y          y         
+pmos_rf_25_nw             (D G S B)      pmos_rf_25_nw      pmos_rf_25_nw      pmos_rf_25_nw                pmos_rf_25_nw           pmos_rf_25_nw                   y         y          y          y         y             y      y        y        y          y         
+pmos_rf_25_nwod33         (D G S B)      pmos_rf_33_nw      pmos_rf_33_nw      pmos_rf_33_nw                pmos_rf_25_nwod         pmos_rf_25_nwod33               y         y          y          y         y             y      y        y        y          y         
+pmos_rf_25_nwud18         (D G S B)      pmos_rf_18_nw      pmos_rf_18_nw      pmos_rf_18_nw                pmos_rf_25_nwud         pmos_rf_25_nwud18               y         y          y          y         y             y      y        y        y          y         
+pmos_rf_25od33            (D G S B)      pmos_rf_33         pmos_rf_33         pmos_rf_33                   pmos_rf_25od            pmos_rf_25od33                  y         y          y          y         y             y      y        y        y          y         
+pmos_rf_25ud18            (D G S B)      pmos_rf_18         pmos_rf_18         pmos_rf_18                   pmos_rf_25ud            pmos_rf_25ud18                  y         y          y          y         y             y      y        y        y          y         
+pmos_rf_nw                (D G S B)      pmos_rf_nw         pmos_rf_nw         pmos_rf_nw                   pmos_rf_nw              pmos_rf_nw                      y         y          y          y         y             y      y        y        y          y         
+
+
+Device                   		View Info
+
+                             schematic    symbol    ivpcell    
+  - Logic Gates
+
+inv                          y  	  y	    y	       
+inv_25                       y  	  y	    y	       
+inv_25_dnw                   y  	  y	    y	       
+inv_25_dnw_mac               y  	  y	    y	       
+inv_25_dnwod33               y  	  y	    y	       
+inv_25_dnwod33_mac           y  	  y	    y	       
+inv_25_dnwud18               y  	  y	    y	       
+inv_25_dnwud18_mac           y  	  y	    y	       
+inv_25_mac                   y  	  y	    y	       
+inv_25od33                   y  	  y	    y	       
+inv_25od33_mac               y  	  y	    y	       
+inv_25ud18                   y  	  y	    y	       
+inv_25ud18_mac               y  	  y	    y	       
+inv_dnw                      y  	  y	    y	       
+inv_dnw_mac                  y  	  y	    y	       
+inv_hvt                      y  	  y	    y	       
+inv_hvt_dnw                  y  	  y	    y	       
+inv_hvt_dnw_mac              y  	  y	    y	       
+inv_hvt_mac                  y  	  y	    y	       
+inv_lvt                      y  	  y	    y	       
+inv_lvt_dnw                  y  	  y	    y	       
+inv_lvt_dnw_mac              y  	  y	    y	       
+inv_lvt_mac                  y  	  y	    y	       
+inv_mac                      y  	  y	    y	       
+nand2                        y  	  y	    y	       
+nand2_25                     y  	  y	    y	       
+nand2_25_dnw                 y  	  y	    y	       
+nand2_25_dnw_mac             y  	  y	    y	       
+nand2_25_dnwod33             y  	  y	    y	       
+nand2_25_dnwod33_mac         y  	  y	    y	       
+nand2_25_dnwud18             y  	  y	    y	       
+nand2_25_dnwud18_mac         y  	  y	    y	       
+nand2_25_mac                 y  	  y	    y	       
+nand2_25od33                 y  	  y	    y	       
+nand2_25od33_mac             y  	  y	    y	       
+nand2_25ud18                 y  	  y	    y	       
+nand2_25ud18_mac             y  	  y	    y	       
+nand2_dnw                    y  	  y	    y	       
+nand2_dnw_mac                y  	  y	    y	       
+nand2_hvt                    y  	  y	    y	       
+nand2_hvt_dnw                y  	  y	    y	       
+nand2_hvt_dnw_mac            y  	  y	    y	       
+nand2_hvt_mac                y  	  y	    y	       
+nand2_lvt                    y  	  y	    y	       
+nand2_lvt_dnw                y  	  y	    y	       
+nand2_lvt_dnw_mac            y  	  y	    y	       
+nand2_lvt_mac                y  	  y	    y	       
+nand2_mac                    y  	  y	    y	       
+nand3                        y  	  y	    y	       
+nand3_25                     y  	  y	    y	       
+nand3_25_dnw                 y  	  y	    y	       
+nand3_25_dnw_mac             y  	  y	    y	       
+nand3_25_dnwod33             y  	  y	    y	       
+nand3_25_dnwod33_mac         y  	  y	    y	       
+nand3_25_dnwud18             y  	  y	    y	       
+nand3_25_dnwud18_mac         y  	  y	    y	       
+nand3_25_mac                 y  	  y	    y	       
+nand3_25od33                 y  	  y	    y	       
+nand3_25od33_mac             y  	  y	    y	       
+nand3_25ud18                 y  	  y	    y	       
+nand3_25ud18_mac             y  	  y	    y	       
+nand3_dnw                    y  	  y	    y	       
+nand3_dnw_mac                y  	  y	    y	       
+nand3_hvt                    y  	  y	    y	       
+nand3_hvt_dnw                y  	  y	    y	       
+nand3_hvt_dnw_mac            y  	  y	    y	       
+nand3_hvt_mac                y  	  y	    y	       
+nand3_lvt                    y  	  y	    y	       
+nand3_lvt_dnw                y  	  y	    y	       
+nand3_lvt_dnw_mac            y  	  y	    y	       
+nand3_lvt_mac                y  	  y	    y	       
+nand3_mac                    y  	  y	    y	       
+nand4                        y  	  y	    y	       
+nand4_25                     y  	  y	    y	       
+nand4_25_dnw                 y  	  y	    y	       
+nand4_25_dnw_mac             y  	  y	    y	       
+nand4_25_dnwod33             y  	  y	    y	       
+nand4_25_dnwod33_mac         y  	  y	    y	       
+nand4_25_dnwud18             y  	  y	    y	       
+nand4_25_dnwud18_mac         y  	  y	    y	       
+nand4_25_mac                 y  	  y	    y	       
+nand4_25od33                 y  	  y	    y	       
+nand4_25od33_mac             y  	  y	    y	       
+nand4_25ud18                 y  	  y	    y	       
+nand4_25ud18_mac             y  	  y	    y	       
+nand4_dnw                    y  	  y	    y	       
+nand4_dnw_mac                y  	  y	    y	       
+nand4_hvt                    y  	  y	    y	       
+nand4_hvt_dnw                y  	  y	    y	       
+nand4_hvt_dnw_mac            y  	  y	    y	       
+nand4_hvt_mac                y  	  y	    y	       
+nand4_lvt                    y  	  y	    y	       
+nand4_lvt_dnw                y  	  y	    y	       
+nand4_lvt_dnw_mac            y  	  y	    y	       
+nand4_lvt_mac                y  	  y	    y	       
+nand4_mac                    y  	  y	    y	       
+nor2                         y  	  y	    y	       
+nor2_25                      y  	  y	    y	       
+nor2_25_dnw                  y  	  y	    y	       
+nor2_25_dnw_mac              y  	  y	    y	       
+nor2_25_dnwod33              y  	  y	    y	       
+nor2_25_dnwod33_mac          y  	  y	    y	       
+nor2_25_dnwud18              y  	  y	    y	       
+nor2_25_dnwud18_mac          y  	  y	    y	       
+nor2_25_mac                  y  	  y	    y	       
+nor2_25od33                  y  	  y	    y	       
+nor2_25od33_mac              y  	  y	    y	       
+nor2_25ud18                  y  	  y	    y	       
+nor2_25ud18_mac              y  	  y	    y	       
+nor2_dnw                     y  	  y	    y	       
+nor2_dnw_mac                 y  	  y	    y	       
+nor2_hvt                     y  	  y	    y	       
+nor2_hvt_dnw                 y  	  y	    y	       
+nor2_hvt_dnw_mac             y  	  y	    y	       
+nor2_hvt_mac                 y  	  y	    y	       
+nor2_lvt                     y  	  y	    y	       
+nor2_lvt_dnw                 y  	  y	    y	       
+nor2_lvt_dnw_mac             y  	  y	    y	       
+nor2_lvt_mac                 y  	  y	    y	       
+nor2_mac                     y  	  y	    y	       
+nor3                         y  	  y	    y	       
+nor3_25                      y  	  y	    y	       
+nor3_25_dnw                  y  	  y	    y	       
+nor3_25_dnw_mac              y  	  y	    y	       
+nor3_25_dnwod33              y  	  y	    y	       
+nor3_25_dnwod33_mac          y  	  y	    y	       
+nor3_25_dnwud18              y  	  y	    y	       
+nor3_25_dnwud18_mac          y  	  y	    y	       
+nor3_25_mac                  y  	  y	    y	       
+nor3_25od33                  y  	  y	    y	       
+nor3_25od33_mac              y  	  y	    y	       
+nor3_25ud18                  y  	  y	    y	       
+nor3_25ud18_mac              y  	  y	    y	       
+nor3_dnw                     y  	  y	    y	       
+nor3_dnw_mac                 y  	  y	    y	       
+nor3_hvt                     y  	  y	    y	       
+nor3_hvt_dnw                 y  	  y	    y	       
+nor3_hvt_dnw_mac             y  	  y	    y	       
+nor3_hvt_mac                 y  	  y	    y	       
+nor3_lvt                     y  	  y	    y	       
+nor3_lvt_dnw                 y  	  y	    y	       
+nor3_lvt_dnw_mac             y  	  y	    y	       
+nor3_lvt_mac                 y  	  y	    y	       
+nor3_mac                     y  	  y	    y	       
+nor4                         y  	  y	    y	       
+nor4_25                      y  	  y	    y	       
+nor4_25_dnw                  y  	  y	    y	       
+nor4_25_dnw_mac              y  	  y	    y	       
+nor4_25_dnwod33              y  	  y	    y	       
+nor4_25_dnwod33_mac          y  	  y	    y	       
+nor4_25_dnwud18              y  	  y	    y	       
+nor4_25_dnwud18_mac          y  	  y	    y	       
+nor4_25_mac                  y  	  y	    y	       
+nor4_25od33                  y  	  y	    y	       
+nor4_25od33_mac              y  	  y	    y	       
+nor4_25ud18                  y  	  y	    y	       
+nor4_25ud18_mac              y  	  y	    y	       
+nor4_dnw                     y  	  y	    y	       
+nor4_dnw_mac                 y  	  y	    y	       
+nor4_hvt                     y  	  y	    y	       
+nor4_hvt_dnw                 y  	  y	    y	       
+nor4_hvt_dnw_mac             y  	  y	    y	       
+nor4_hvt_mac                 y  	  y	    y	       
+nor4_lvt                     y  	  y	    y	       
+nor4_lvt_dnw                 y  	  y	    y	       
+nor4_lvt_dnw_mac             y  	  y	    y	       
+nor4_lvt_mac                 y  	  y	    y	       
+nor4_mac                     y  	  y	    y	       
+pass                         y  	  y	    y	       
+pass_25                      y  	  y	    y	       
+pass_25_dnw                  y  	  y	    y	       
+pass_25_dnw_mac              y  	  y	    y	       
+pass_25_dnwod33              y  	  y	    y	       
+pass_25_dnwod33_mac          y  	  y	    y	       
+pass_25_dnwud18              y  	  y	    y	       
+pass_25_dnwud18_mac          y  	  y	    y	       
+pass_25_mac                  y  	  y	    y	       
+pass_25od33                  y  	  y	    y	       
+pass_25od33_mac              y  	  y	    y	       
+pass_25ud18                  y  	  y	    y	       
+pass_25ud18_mac              y  	  y	    y	       
+pass_dnw                     y  	  y	    y	       
+pass_dnw_mac                 y  	  y	    y	       
+pass_hvt                     y  	  y	    y	       
+pass_hvt_dnw                 y  	  y	    y	       
+pass_hvt_dnw_mac             y  	  y	    y	       
+pass_hvt_mac                 y  	  y	    y	       
+pass_lvt                     y  	  y	    y	       
+pass_lvt_dnw                 y  	  y	    y	       
+pass_lvt_dnw_mac             y  	  y	    y	       
+pass_lvt_mac                 y  	  y	    y	       
+pass_mac                     y  	  y	    y	       
+tri                          y  	  y	    y	       
+tri_25                       y  	  y	    y	       
+tri_25_dnw                   y  	  y	    y	       
+tri_25_dnw_mac               y  	  y	    y	       
+tri_25_dnwod33               y  	  y	    y	       
+tri_25_dnwod33_mac           y  	  y	    y	       
+tri_25_dnwud18               y  	  y	    y	       
+tri_25_dnwud18_mac           y  	  y	    y	       
+tri_25_mac                   y  	  y	    y	       
+tri_25od33                   y  	  y	    y	       
+tri_25od33_mac               y  	  y	    y	       
+tri_25ud18                   y  	  y	    y	       
+tri_25ud18_mac               y  	  y	    y	       
+tri_dnw                      y  	  y	    y	       
+tri_dnw_mac                  y  	  y	    y	       
+tri_hvt                      y  	  y	    y	       
+tri_hvt_dnw                  y  	  y	    y	       
+tri_hvt_dnw_mac              y  	  y	    y	       
+tri_hvt_mac                  y  	  y	    y	       
+tri_lvt                      y  	  y	    y	       
+tri_lvt_dnw                  y  	  y	    y	       
+tri_lvt_dnw_mac              y  	  y	    y	       
+tri_lvt_mac                  y  	  y	    y	       
+tri_mac                      y  	  y	    y	       
+
+
+  - Parasitic Devices
+
+parasitic_rc                 y  	  y	    NA         
+parasitic_rc_3T              y  	  y	    NA   
+
+
+
+7. CDF parameters
+
+  Parameters in every device
+ 
+      "Model Name"		: model name for circuit simulation
+      "Hard_constrain"		: Off : Once the input value is over device limitation,
+				  callback function only give warning message
+				  instead of change values back. Default is On.
+      "Multiplier"		: Multiplier fact to simulate multiple devices.
+
+  - Diodes
+
+      "Length_(M)"
+      "Width_(M)"
+      "Multiplier"
+      "Hard_constrain"
+
+  - Mosfets
+
+      "SCA"			: Parameter for Bsim4.5 WPE effect. User needs to modify it manually.
+      "SCB"			: Parameter for Bsim4.5 WPE effect. User needs to modify it manually.
+      "SCC"			: Parameter for Bsim4.5 WPE effect. User needs to modify it manually.
+      "l (M)"			: Length of mos
+      "w (M)"			: Width of mos
+      "total_width(M)"		: Total width of mos, equal to width x Fingers
+      "Number of Fingers"	: Number of mos fingers (nf).
+      "S D swap"		: to swap source/drain pin
+      "ShareLeftShape"		:
+      "ShareRightShape"		: For abutment purpose, several options
+				  normal : normal mos without abutment
+				  same : abut with same width size, same mos without metal
+				  sameExt : abut with same width mos with metal in other mos
+				  small : abut with larger width same mos
+				  smallExt : abut with larger width same mos. Metal is included
+				  large : abut with smaller width same mos
+				  largeExt : abut with smaller width same mos. Metal in included
+				  diff : abut with different mos
+				  diffExt : abut with different mos. Metal is included.
+				  
+
+      "Calc Diff Params"	: User can input parasitic of mos if the
+				  option is inactive.
+      "leftCnt"			: Switch cont/metal of left side mos.
+      "rightCnt"		: Switch cont/metal of right side mos.
+      "interCnt"		: Switch cont/metal of inter side mos.
+      "routePolydir"		: (None,Top,Bottom,Both) It connect multi-finger
+				  gate from top, bottom or both by poly.
+      "routeUPoly_SP_INC(M)"	: Increment of upper poly connection spacing.
+      "routeDPoly_SP_INC(M)"    : Increment of lower poly connection spacing.
+      "route_Source_Drain"	: (None,Source,Drain,Both) It connects multi-finger
+				  source, drain or both by cont/metal1.
+      "routeS_SP_INC(M)"	: Increment of source router spacing. 
+      "routeD_SP_INC(M)"	: Increment of drain router spacing.
+      "bodytie_type"		: (None,Integred,Detached) It generates substrat
+				  pickup for mos at left side.
+
+      "DFM_options"		: (minRule,DFMv13,custom) In general, mos layouts are 
+				  developed by minimal rules. The DFM options are 
+				  provided for PDK users to change the following
+				  values. About the detail of DFM, please refer to
+				  Design For Manufacturing(DFM) of TSMC design rule
+				  document.
+      "Upper_PO_EX_INC(M)"	: Increment of upper poly gate extension. 
+      "Lower_PO_EX_INC(M)"	: Increment of lower poly gate extension.
+      "GA_GA_SP_INC(M)"		: Increment of gate to gate spacing, only happens at 
+				  abutment with the same width.
+      "GA_CO_SP_INC(M)"		: Increment of gate to contact spacing.
+      "OD_CO_EN_INC(M)"		: Increment of OD enclosure to contact.
+      "M1_CO_EN_INC(M)"		: Increment of Metal1 enclosure to contact.
+      "GA_OD_SP_INC(M)"		: Increment of Gate to OD spacing, only happens at
+				  abutment with different width.
+      "OD_GA_EN_INC(M)"		: Increment of OD enclosure to gate, only happens at
+				  abutment with different width.
+
+      "CO_CO_SP_INC(M)"		: Increment of CO to CO spacing. 
+
+      "fingers_SP_INC(M)"	: Increment of multi-finger spacing.
+      "SD(Fingers_Spacing)_(M)" : SD parameter. It will be "0.2u(default)+fingers_SP_INC".
+      "Ldiff_ext(M)"		: Increment of left side diffusion.
+      "Rdiff_ext(M)"		: Increment of right side diffusion.
+      "LGA_CO_SP_INC(M)"	: Increment of left size gate to contact spacing 
+      "RGA_CO_SP_INC(M)"	: Increment of right size gate to contact spacing
+      "SDshrink"		: S/D metals shrink, a list
+      "POshrink"		: Gates extend, a list
+      "Text size"		: Text size of layout
+      "Imp layer"		: Implement layer removing option
+
+      "Bulk node"		: For 3T mos inherited base pin only. 
+				  User can assign base pin connectivity 
+				  from the field or from hierarchical top
+				  module.
+				  
+  - Resistors
+
+      "Total resistance(ohms)"	: Total resistance
+      "Segment width(M)"	: Width of every segment	
+      "Segment length(M)"	: Length of every segment
+      "Resistor connection"	: Series/Parallel	
+      "Number of segments"	: Number of segments
+      "Cont columns"		: Cont columns for resistor ends
+      "Segment spacing(M)"	: Segment of spacing
+      "Res_est_method"		: Reserved for update purpose
+
+
+  - Varactor
+
+      "Width_per_Finger(M)"     : Width of every finger
+      "Length_per_Finger(M)"    : Length of every finger
+      "Fingers_per_Group(B)"    : Finger number per group 
+      "Number_of_Groups(G)"     : Group number
+      "multiplier"              : Number of multiple
+      "Adding_DMEXCL_Layer"     : DMEXCL layer
+      "With Mismatch Effect"    : Mismatch factor
+      "Fingers_Number"          : Finger number
+
+  - RF_Devices
+
+      "Width_per_Finger(M)"     : Width of every finger
+      "Length_per_Finger(M)"    : Length of every finger
+      "Number_of_Fingers"       : Number of fingers
+      "Create_Dummy_Poly"       : Dummy poly option
+      "Create_Guard_Ring"       : Guard Ring option
+      "Enable_outter_Ring"      : Outter Ring option
+      "multiplier"              : Number of multiple
+      "Adding_DMEXCL_Layer"     : DMEXCL layer
+      "With Mismatch Effect"    : Mismatch factor
+
+  - Capacitors
+
+      "Length_(M)"		: Length of Cap.
+      "Width_(M)"		: Width of Cap.
+      "ArrayX"			: Array number of X direct
+      "ArrayY"			: Array number of Y direct
+      "Multiplier" 		: Number of multiple
+      "External_metal_connect"  : External metal connection
+
+  - Inductors
+
+      "Inductor_Width_(M)"      : Inductor width
+      "Inner_Radius(M)"		: Inductor radius
+      "Number_Of_Turns"		: Number of turns
+      "Spacing_(M)"		: Space of inductor metal
+      "Guard_Ring_Distances_(M) : Guard Ring distance outside inductor
+      "multiplier"		: Number of multiple
+
+  8. Stretch handles :
+	This PDK provides stretch handles for all MOSs. PDK users can active the
+      stretch handles option by options->display->stretch handles. The following
+      values can be changed by stretch handles
+
+      a. width : upper center of gate
+      b. length : right center of gate
+      d. source/drain metal size : upper/lower/right center of metal
+      c. source/drain metal vertical position : mark both upper/lower handles, then moving
+						at y direction.
+      d. multi-fingers spacing : at center of second finger gate
+      e. multi-fingers source/drain/gate connection spacing and size : upper center handles 
+	 are for size and center handles are for y position.
+      f. source/drain contact spacing : left of metal, right direction is to increase
+	 contact spacing, left is to decrease contact spacing.
+      g. left/right gate to cont spacing increment : center of metal, then moving at x direction
+      h. source/drain sizing : edge of left/right OD.
+
+
+
+  9. known problems
+     
+      1. crtmom_mx, mimcap_woum_rf, pmoscap_rf25, pmoscap_rf, moscap_rf25, moscap_rf25_nw, moscap_rf
+         moscap_rf_nw, nmos_rf_25, nmos_rf_25_nodnw, nmos_rf_25_nodnwod33, nmos_rf_25_nodnwud18
+         nmos_rf_25od33, nmos_rf_25ud18, nmos_rf, nmos_rf_nodnw, pmos_rf_25, pmos_rf_25_nw
+         pmos_rf_25_nwod33, pmos_rf_25_nwud18, pmos_rf_25od33, pmos_rf_25ud18, pmos_rf, pmos_rf_nw, rppoly_rf
+         rppolywo_rf, xjvar, xjvar_nw
+         Above devices will violate PO.DN.3 , DRM will solve this issue in next version.
+
+      2. Baseband mos in specific parameter combination will result pcell failure as below.
+         (1)width 125n,135n or 145n with routePolydir Both option.
+         (2)two fingers and route_Source_Drain layout function without contacts.             
+         (3)dog-bone structure will make drc violation due to adjacent edges with length less than minimum width is not allowed
+         These issues will be fixed in next version.
+                   
+
+      3. Please do not use layout function "fingers_SP_INC"(finger space) equal to 5 nm with 5 nm unit width.
+         It will cause 5nm shift of layout in minRule and drc violation in DFM/DFM+Analog rule.
+
+      4. Please do not re-install PDK after use fold & chain utlity. The install program will fail due to redundant device generation after using 
+         fold & chain utlity. Cadence will fix the issue later. 
+      
+      5. Base band mos in specific CDF parameter value combination such as finger equal two, DFM layout mode, polyDir switch on
+         and body_tie detached will cause pcell failure. 
+
+      6. There are some known issues of drc deck(T-N65-CL-DR-001-C1 VER 2.0a ) as below.
+         1) Latch-up connect : connection issue(false alarm)
+         2) VTH_N.S.3, VTH_P.S.3, VTL_N.S.3, VTL_P.S.3 rules : checking issue(false alarm) 
+         3) VAR.W.1 and VAR.W.4 rules : partial missing checking issue(missing) 
+         DRC team will fix these issues later.
+
+      7. The parameter of "area_Length/area_Width" in TIF/TCF are not exactly accurate.
+
+      8. Back annotation function of DC operating point does not work for resistor with segments >1. The
+         function only exist on segment =1 condition of resistor.
+         And back annotation function of DC operating point does not work for resistor with series. 
+         The function only support for parallel condition of resistors.
+  
+      9. V1.0B PDK solve the Cadence tool's issue of hspiceD current probing
+	   problem. Users can get hot-fix tool version from Cadence site. But this
+	   hot-fix tool will have some issue in output Diode netlis such as :
+               dnwpsub	ndio	ndio_25	ndio_25od33	ndio_25ud18
+	       ndio_esd	 ndio_hvt	ndio_lvt	ndio_mlvt
+	       ndio_na	 ndio_na25	nwdio		pdio
+	       pdio_25	 pdio_25od33	pdio_25ud18	pdio_hvt
+ 	       pdio_lvt	 pdio_mlvt	pwdnw
+	       ndio_na25od33	
+	   Tsmc will request Cadence to solve this tool issue in their hot-fix version.
+     
+     10. Spiral_sym_ct type inductors TIF limits the max turn equal to five. This max turn will extend to six for user 
+         and model bigger range. We will extend this model range in later release version.
+
+     11. Please do not use the rfmos with finger=1 and dummy poly =nil because the drain drawing will shift.
+         TSMC will fix the pcell in next version.
+
+     12. The SA,SB,NRS,NRD parameters may be wrong when the MOS device becomes a dog-bone structure.
+	 The "nrd" and "nrs" values in pre-sim netlist (calculated by PDK) are calculated with the distance from S/D contact 
+	 to gate (more accuracy) while they are calculated from S/D edge to gate in RC decks(due to tool limitation). 
+	 Thus, the "nrs" and "nrd" values in pre-sim netlist are more accuracy than post-sim netlist. 

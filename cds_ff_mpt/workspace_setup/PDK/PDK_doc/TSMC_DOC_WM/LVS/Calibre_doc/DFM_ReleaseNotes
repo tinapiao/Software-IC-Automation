@@ -1,0 +1,69 @@
+-Referred document Name and revision
+
+   DEVICE FORMATION EXAMPLE AND LVS PROPERTIES DOCUMENT NUMBER: T-N65-CL-LS-001 V1.2
+   
+-DFM model version: 
+
+   For G process:
+
+   DFM N65G v0.2 
+
+   For LP process:
+
+   DFM N65LP v1.2
+
+   For G+ process :
+   
+   DFM N65G+ v1.0 
+   
+- Supported EDA tool version
+
+   This LPE deck was developed and qualified by the following version
+
+   Calibre v2007.1_24.22
+
+- Revision history
+        01/16/06   1.0c_pre011606 Y.T.Pu
+	           Added the new WPE for BSIM4.5
+        01/25/06   V1.0pc1_pre012506 Y.T.Pu
+                   Removing the extracted WPE of SRAM when turns on "RC_DECK" without 
+                   turning on "DFM_RULE".
+        02/15/06   N65G DFM updated to v0.2.
+	           1)The file variable_file under the DFM_G directory is v0.2,
+		     and the file variable_file_v0.1 under the DFM_G directory 
+		     is v0.1.
+		   2)Updated the logic_operation for suppressing the wrong extracted 
+		     NRD/NRS when the gate width directory is horizontal.
+        03/01/06   1)To re-product this deck by following the file "LPE_extraction_offering_table.ppt"
+	             to extract the relative parameters of all the MOS.
+		   2)Added the option "extracte_dnwdio" for extracting the DNW diode.  
+        
+	03/28/06   N65G DFM updated to v1.0.
+	           1) Stack gate parameters has been set to zero.		 
+        05/1706    1) Added two devices "nch_dnw_1tr" and "nch_ulvt" for 1TRam team requested. 
+                   2) Updated the DFM size gate then to "AND" with gate for suppressing 
+                      SA and SB issue.		   
+	06/30/2006 1) Added two devices "nch_dnw_1tr" and "nch_ulvt" for 1TRam team requested. 
+                   2) Updated the DFM size gate then to "AND" with diffusion layer for suppressing 
+                      SA and SB issue. 
+                   3) Mapping device name to the spice model name when the DFM_RULE switch turn on.
+		   4) Added CBD layer (169). The AP via layer is (RV OR CBD)	      
+		   5) Added G+ process version 0.01
+        10/16/2006 Yating Chuang
+	           1) Refine DFM S/D regions.
+		   2) Add BY SHAPE option when DFM is turn on.
+		   3) Ehance DFM LPE parameters. 
+        11/09/2006 Yating Chuang
+	           1) Calibrate OD/PO rounding length in U shape OD/PO. 
+        02/20/2008 Y.J.Wang 		   
+	           1) Hercules DFM macro update for tndiff_new/tpdiff_new calculation.
+        05/15/2008 Y.J.Wang 
+	           1) Assura DFM macro update of OD/PO edge for calculating rounding effect.		   
+        06/20/2008 Y.J.Wang
+	 	   1) Modify Calibre/Assura DFM macro for reduce running time.
+        09/30/2009 Y.J.Wang
+		   1) Modify Calibre DFM macro that use DFM PROPERTY function to implement rounding effects.
+		   2) Update Calibre decks for WPE/LOD effect to newest TVF function procedures.
+		   3) Remove BY SHAPE command in Calibre deck for DFM effect. 
+	11/20/2009 Y.J.Wang
+	           1) Modify Calibre TVF function for WPE effect in switch STD_LIB_9_TRACK / STD_LIB_11_TRACK on.

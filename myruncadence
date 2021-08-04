@@ -1,0 +1,3 @@
+source .cshrc
+source /CMC/tools/CSHRCs/Cadence.IC617
+startCds -t ic6-crn65gp

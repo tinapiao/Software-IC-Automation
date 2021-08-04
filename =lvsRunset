@@ -1,0 +1,26 @@
+*lvsRulesFile: /CMC/kits/tsmc_65nm/CRN65GP-OA/TN65CMSP018K3_V1.0C/Calibre/lvs/calibre.lvs
+*lvsRunDir: /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/Susie/lvstest
+*lvsLayoutPaths: INVERTER_lch_60n.calibre.db
+*lvsLayoutPrimary: INVERTER_lch_60n
+*lvsLayoutLibrary: AN_INVERTER_496
+*lvsLayoutView: layout
+*lvsLayoutGetFromViewer: 1
+*lvsSourcePath: INVERTER_lch_60n.src.net
+*lvsSourcePrimary: INVERTER_lch_60n
+*lvsSourceLibrary: AN_INVERTER_496
+*lvsSourceView: schematic
+*lvsSourceGetFromViewer: 1
+*lvsSpiceFile: INVERTER_lch_60n.sp
+*lvsERCDatabase: INVERTER_lch_60n.erc.results
+*lvsERCSummaryFile: INVERTER_lch_60n.erc.summary
+*lvsReportFile: INVERTER_lch_60n.lvs.report
+*lvsMaskDBFile: CML_lch_60n.maskdb
+*cmnWarnLayoutOverwrite: 0
+*cmnWarnSourceOverwrite: 0
+*cmnPromptSaveRunset: 0
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: AN_INVERTER_496
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: INVERTER_lch_60n.def

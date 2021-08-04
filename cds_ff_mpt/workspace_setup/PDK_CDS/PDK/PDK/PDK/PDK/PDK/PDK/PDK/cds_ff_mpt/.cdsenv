@@ -1,0 +1,12 @@
+layoutXL setPPConn boolean nil
+layout mppTemplate string "N-Tap"
+spectre.envOpts useAltergroup boolean nil
+layout  xSnapSpacing    float   0.001
+layout  ySnapSpacing    float   0.001
+layoutXL initIOPinLayer string "M1 drawing"
+;FGR settings
+layout keepGuardRingEndsConnected boolean t
+layout fgrEnableAdvanceWrap boolean t
+layout fgrPostEditPitchCorrection boolean t
+;layout vfoShowOnlyFluidShapeForDrag boolean t
+;setenv FGR_USE_MIN_SEG_LENGTH t

@@ -1,0 +1,1336 @@
+   @(#) TSMC 65nm ASSURA LVS/RC COMMAND FILE V1.5b_pre030510 , 03/05/2010 
+   @(#) TSMC 65 NM CMOS LOGIC GENERAL PURPOSE  DEVICE FORMATION EXAMPLES AND LVS PROPERTIES  
+   @(#) DEVICE FORMATION EXAMPLE AND LVS PROPERTIES DOCUMENT: T-N65-CL-LS-001 V1.5 
+   @(#) COMMAND FILE DOCUMENT : T-N65-CL-LS-001-U1 
+   @(#) COMMAND FILE VERSION : 1.5b_pre030510 
+   @(#) COMMAND FILE METAL SCHEME : 1P6M 
+   @(#) COMMAND FILE DATE : 03/05/2010 
+   @(#) EDA TOOL VERSION : ASSURA AV41 ; QRC EXT812 
+   @(#) SPICE MODEL TITLE        : 65nm GPLUS eDRAM (OD3:1.8V, eDRAM_Cell:1.0V) 
+   @(#) DOC. NO.	         : T-N65-CE-SP-003 
+   @(#) SPICE MODEL VERSION      : v1.1  
+   @(#) SPICE MODEL RELEASE DATE : Mar. 31, 2009  
+   @(#) SPICE MODEL TITLE        : 65nm Low-Power eDRAM (OD3:2.0V, eDRAM_Cell:1.2V) 
+   @(#) DOC. NO.	         : T-N65-CE-SP-002 (Not support sense amplifier devices) 
+   @(#) SPICE MODEL VERSION      : v1.1  
+   @(#) SPICE MODEL RELEASE DATE : Apr. 06, 2009    
+   @(#) SPICE MODEL TITLE        : 65nm CMOS Low Power Salicide Low-K Spice Model( CLN65LP ) 
+   @(#) DOC. NO.	         : T-N65-CL-SP-009 
+   @(#) SPICE MODEL VERSION      : v1.3  
+   @(#) SPICE MODEL RELEASE DATE : Jun. 05, 2009  
+   @(#) SPICE MIDEL TITLE        : 65nm CMOS G+ Salicide Low-L 1.0v&1.8v Spice Model( CLN65G+ ) 
+   @(#) DOC. NO.	         : T-N65-CL-SP-031 
+   @(#) SPICE MODEL VERSION      : v1.2  
+   @(#) SPICE MODEL RELEASE DATE : Mar. 23, 2007  
+   @(#) SPICE MODEL TITLE        : 65nm LOGIC SALICIDE Low-K IMD (1.2V/1.0V/2.5V) (CLN65LPG 1P9M)  
+   @(#) DOC. NO.	         : T-N65-CL-SP-034-P1  
+   @(#) SPICE MODEL VERSION      : v1.1p1  
+   @(#) SPICE MODEL RELEASE DATE : Dec. 28, 2007  
+   @(#) SPICE MIDEL TITLE        : 65nm CMOS G+ Salicide Low-K 1.0v&2.5v Spice Model( CLN65G+ ) 
+   @(#) DOC. NO.	         : T-N65-CL-SP-041-P1    
+   @(#) SPICE MODEL VERSION      : v1.3p1  
+   @(#) SPICE MODEL RELEASE DATE : Dec. 17, 2007  
+   @(#) SPICE MODEL TITLE        : 65nm HVMOS SALICIDE Low-K IMD (2.5V) (CLN65LPHV 1P9M) (DNW approach) 
+   @(#) DOC. NO.	         : CLN65LPHV_2d5_lk_v0d1p2.l 
+   @(#) SPICE MODEL VERSION      : v0.1p2  
+   @(#) SPICE MODEL RELEASE DATE : May. 11, 2007 
+   @(#) SPICE MODEL TITLE        : 65nm HVMOS SALICIDE Low-K IMD (2.5V) (CLN65LPHV 1P9M)  
+   @(#) DOC. NO.	         : T-N65-CL-SP-059-P1 
+   @(#) SPICE MODEL VERSION      : v1.0p1  
+   @(#) SPICE MODEL RELEASE DATE : Sep. 03, 2007  
+   @(#) SPICE MODEL TITLE        : 65nm HVMOS SALICIDE Low-K IMD (2.5V) (CLN65LPHV 1P9M) (NW approach) 
+   @(#) DOC. NO.                 : T-N65-CL-SP-070    
+   @(#) SPICE MODEL VERSION      : v1.0 
+   @(#) SPICE MODEL RELEASE DATE : Dec. 30, 2008    
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal SALICIDE Low-K IMD (1.2V/2.5V) (CMN65LP 1P9M+AL_RDL) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-002    
+   @(#) SPICE MODEL VERSION      : v1.3  
+   @(#) SPICE MODEL RELEASE DATE : Jun. 08, 2009  
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal SALICIDE Low-K IMD (1.0V/1.8V) (CMN65G+) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-005    
+   @(#) SPICE MODEL VERSION      : v1.1  
+   @(#) SPICE MODEL RELEASE DATE : Apr. 09, 2007 
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal SALICIDE Low-K IMD (1.0V/2.5V) (CMN65G+) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-006    
+   @(#) SPICE MODEL VERSION      : v1.2  
+   @(#) SPICE MODEL RELEASE DATE : Jul. 24, 2009  
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal RF SALICIDE Low-K IMD (1.2/2.5/over-drive 3.3V) (CRN65LP) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-007    
+   @(#) SPICE MODEL VERSION      : V1.5 
+   @(#) SPICE MODEL RELEASE DATE : Sep. 01, 2009 
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal RF SALICIDE Low-K IMD (1.2/3.3V) (CRN65LP) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-012    
+   @(#) SPICE MODEL VERSION      : V1.4 
+   @(#) SPICE MODEL RELEASE DATE : Sep. 18, 2009 
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal SALICIDE Low-K IMD (1.2V/3.3V) (CMN65LP 1P9M+AL_RDL) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-014    
+   @(#) SPICE MODEL VERSION      : v1.0  
+   @(#) SPICE MODEL RELEASE DATE : May. 14, 2007 
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal RF SALICIDE Low-K IMD (1.0V/2.5V) (CRN65G+) 
+   @(#) DOC. NO.	         : T-N65-CM-SP-018    
+   @(#) SPICE MODEL VERSION      : v1.0  
+   @(#) SPICE MODEL RELEASE DATE : Dec. 04, 2007  
+   @(#) SPICE MODEL TITLE        : 65nm Mixed-Signal RF SALICIDE Low-K IMD (1.0V/1.8V) (CRN65G+) for U320 Only 
+   @(#) DOC. NO.	         : T-N65-CM-SP-018-P1    
+   @(#) SPICE MODEL VERSION      : v0.01_p1 
+   @(#) SPICE MODEL RELEASE DATE : Feb. 04, 2010 
+   @(#) SPICE MODEL TITLE        : 65nm LOGIC G-process SRAM (CLN65G SRAM) 
+   @(#) DOC. NO.	         : CLN65G_sr_v1d1.l    
+   @(#) SPICE MODEL VERSION      : v1.1  
+   @(#) SPICE MODEL RELEASE DATE : Nov. 30, 2006    
+   @(#) SPICE MODEL TITLE        : 65nm LOGIC LPG SRAM (CLN65LPG SRAM) 
+   @(#) DOC. NO.	         : CLN65LPG_sr_v1d0.l    
+   @(#) SPICE MODEL VERSION      : v1.0  
+   @(#) SPICE MODEL RELEASE DATE : Mar. 26, 2006    
+   @(#) SPICE MODEL TITLE        : 65nm LOGIC ULP SRAM (CLN65ULP SRAM) 
+   @(#) DOC. NO.	         : CLN65ULP_sr_v1d0.l    
+   @(#) SPICE MODEL VERSION      : v1.0  
+   @(#) SPICE MODEL RELEASE DATE : Mar. 28, 2007    
+   @(#) SPICE MODEL TITLE        : 65nm LOGIC LPG SRAM (CLN65LPG SRAM) 
+   @(#) DOC. NO.	         : CLN65LPG_sr_v0d1_****.l    
+   @(#) SPICE MODEL VERSION      : v0.1  
+   @(#) SPICE MODEL RELEASE DATE : Jan. 31, 2008    
+   @(#) SPICE MODEL TITLE        : 65nm LOGIC LP SRAM (CLN65LP SRAM) 
+   @(#) DOC. NO.	         : CLN65LP_sr_v1d2.l    
+   @(#) SPICE MODEL VERSION      : v1.2  
+   @(#) SPICE MODEL RELEASE DATE : Oct. 13, 2006    
+
+
+*********************************************************************************************** 
+				ASSURA QA REPORT FILE 
+*********************************************************************************************** 
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(crtmom) Generic                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_25) MOS                                      4       4           2       2
+(ndio_esd) DIO                                    1       1           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(npn5) BJT                                        1       1           1       1
+(pnp5) BJT                                        1       1           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(ndio_hia_rf) Generic                             5       5           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pdio_hia_rf) Generic                             5       5           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(dev_dio_db) Cell                                 1       1           1       1
+(dev_npn_pnp) Cell                                1       1           1       1
+(dev_rf_ndio_hia_5) Cell                          1       1           1       1
+(dev_rf_pdio_hia_5) Cell                          1       1           1       1
+(nch) MOS                                         5       5           5       5
+(nch_18) MOS                                      2       2           2       2
+(nch_18_dnw) MOS                                  2       2           2       2
+(nch_25) MOS                                      2       2           2       2
+(nch_25_dnw) MOS                                  2       2           2       2
+(nch_25_dnwod) MOS                                2       2           2       2
+(nch_25_dnwud) MOS                                2       2           2       2
+(nch_25od) MOS                                    2       2           2       2
+(nch_25ud) MOS                                    2       2           2       2
+(nch_33) MOS                                      1       1           1       1
+(nch_33_dnw) MOS                                  1       1           1       1
+(nch_dnw) MOS                                     2       2           2       2
+(nch_dnw_1tr) MOS                                 1       1           1       1
+(nch_dnw_w) MOS                                   1       1           1       1
+(nch_dnw_w_lvt) MOS                               1       1           1       1
+(nch_esd18) MOS                                   2       2           2       2
+(nch_esd18_dnw) MOS                               2       2           2       2
+(nch_hvt) MOS                                     2       2           2       2
+(nch_hvt_dnw) MOS                                 2       2           2       2
+(nch_lpg) MOS                                     2       2           2       2
+(nch_lpghvt) MOS                                  2       2           2       2
+(nch_lpgna) MOS                                   1       1           1       1
+(nch_lvt) MOS                                     2       2           2       2
+(nch_lvt_dnw) MOS                                 2       2           2       2
+(nch_mlvt) MOS                                    2       2           2       2
+(nch_mlvt_dnw) MOS                                2       2           2       2
+(nch_na) MOS                                      2       2           2       2
+(nch_na18) MOS                                    2       2           2       2
+(nch_na25) MOS                                    2       2           2       2
+(nch_na25od) MOS                                  2       2           2       2
+(nch_na25ud) MOS                                  2       2           2       2
+(nch_na33) MOS                                    2       2           2       2
+(nch_timer) MOS                                   1       1           1       1
+(nch_uhvt) MOS                                    2       2           2       2
+(nch_uhvt_dnw) MOS                                2       2           2       2
+(nch_ulvt) MOS                                    2       2           2       2
+(nch_ulvt_dnw) MOS                                2       2           2       2
+(nch_w) MOS                                       1       1           1       1
+(nch_w_lvt) MOS                                   1       1           1       1
+(nchpd_dphcsr) MOS                                1       1           1       1
+(nchpd_dpsr) MOS                                  1       1           1       1
+(nchpd_hvtdphcsr) MOS                             1       1           1       1
+(nchpd_hvtdpsr) MOS                               1       1           1       1
+(nchpd_hvtsr) MOS                                 1       1           1       1
+(nchpd_lpgdpsr) MOS                               1       1           1       1
+(nchpd_lpgsr) MOS                                 1       1           1       1
+(nchpd_lpgtpsr) MOS                               1       1           1       1
+(nchpd_sr) MOS                                    1       1           1       1
+(nchpd_ulpdpsr) MOS                               1       1           1       1
+(nchpd_ulpsr) MOS                                 1       1           1       1
+(nchpd_wosr) MOS                                  1       1           1       1
+(nchpg_dphcsr) MOS                                1       1           1       1
+(nchpg_dpsr) MOS                                  1       1           1       1
+(nchpg_hvtdphcsr) MOS                             1       1           1       1
+(nchpg_hvtdpsr) MOS                               1       1           1       1
+(nchpg_hvtsr) MOS                                 1       1           1       1
+(nchpg_lpgdpsr) MOS                               1       1           1       1
+(nchpg_lpgsr) MOS                                 1       1           1       1
+(nchpg_lpgtpsr) MOS                               1       1           1       1
+(nchpg_sr) MOS                                    1       1           1       1
+(nchpg_ulpdpsr) MOS                               1       1           1       1
+(nchpg_ulpsr) MOS                                 1       1           1       1
+(nchpg_wosr) MOS                                  1       1           1       1
+(pch) MOS                                         5       5           5       5
+(pch_18) MOS                                      2       2           2       2
+(pch_25) MOS                                      2       2           2       2
+(pch_25od) MOS                                    2       2           2       2
+(pch_25ud) MOS                                    2       2           2       2
+(pch_33) MOS                                      2       2           2       2
+(pch_edc) MOS                                     1       1           1       1
+(pch_hvt) MOS                                     2       2           2       2
+(pch_lpg) MOS                                     1       1           1       1
+(pch_lpghvt) MOS                                  1       1           1       1
+(pch_lvt) MOS                                     2       2           2       2
+(pch_mlvt) MOS                                    2       2           2       2
+(pch_timer) MOS                                   1       1           1       1
+(pch_uhvt) MOS                                    2       2           2       2
+(pch_ulvt) MOS                                    2       2           2       2
+(pch_w) MOS                                       1       1           1       1
+(pch_w_lvt) MOS                                   1       1           1       1
+(pchpu_dphcsr) MOS                                1       1           1       1
+(pchpu_dpsr) MOS                                  1       1           1       1
+(pchpu_hvtdphcsr) MOS                             1       1           1       1
+(pchpu_hvtdpsr) MOS                               1       1           1       1
+(pchpu_hvtsr) MOS                                 1       1           1       1
+(pchpu_lpgdpsr) MOS                               1       1           1       1
+(pchpu_lpgsr) MOS                                 1       1           1       1
+(pchpu_lpgtpsr) MOS                               1       1           1       1
+(pchpu_sr) MOS                                    1       1           1       1
+(pchpu_ulpdpsr) MOS                               1       1           1       1
+(pchpu_ulpsr) MOS                                 1       1           1       1
+(ndio) DIO                                        1       1           1       1
+(ndio_18) DIO                                     1       1           1       1
+(ndio_25) DIO                                     1       1           1       1
+(ndio_25od) DIO                                   1       1           1       1
+(ndio_25ud) DIO                                   1       1           1       1
+(ndio_33) DIO                                     1       1           1       1
+(ndio_hvt) DIO                                    1       1           1       1
+(ndio_lpg) DIO                                    1       1           1       1
+(ndio_lpghvt) DIO                                 1       1           1       1
+(ndio_lpgna) DIO                                  1       1           1       1
+(ndio_lvt) DIO                                    1       1           1       1
+(ndio_mlvt) DIO                                   1       1           1       1
+(ndio_na) DIO                                     1       1           1       1
+(ndio_na18) DIO                                   1       1           1       1
+(ndio_na25) DIO                                   1       1           1       1
+(ndio_na25od) DIO                                 1       1           1       1
+(ndio_na25ud) DIO                                 1       1           1       1
+(ndio_na33) DIO                                   1       1           1       1
+(ndio_w) DIO                                      1       1           1       1
+(nwdio) DIO                                       1       1           1       1
+(nwdio_18) DIO                                    1       1           1       1
+(nwdio_25) DIO                                    1       1           1       1
+(nwdio_33) DIO                                    1       1           1       1
+(pdio) DIO                                        1       1           1       1
+(pdio_18) DIO                                     1       1           1       1
+(pdio_25) DIO                                     1       1           1       1
+(pdio_25od) DIO                                   1       1           1       1
+(pdio_25ud) DIO                                   1       1           1       1
+(pdio_33) DIO                                     1       1           1       1
+(pdio_hvt) DIO                                    1       1           1       1
+(pdio_lpg) DIO                                    1       1           1       1
+(pdio_lpghvt) DIO                                 1       1           1       1
+(pdio_lvt) DIO                                    1       1           1       1
+(pdio_mlvt) DIO                                   1       1           1       1
+(pdio_w) DIO                                      1       1           1       1
+(npn10) BJT                                       2       2           2       2
+(npn10_s) BJT                                     2       2           2       2
+(npn2) BJT                                        2       2           2       2
+(npn2_s) BJT                                      2       2           2       2
+(npn5) BJT                                        2       2           2       2
+(npn5_s) BJT                                      2       2           2       2
+(pnp10) BJT                                       2       2           2       2
+(pnp10_s) BJT                                     2       2           2       2
+(pnp2) BJT                                        2       2           2       2
+(pnp2_s) BJT                                      2       2           2       2
+(pnp5) BJT                                        2       2           2       2
+(pnp5_s) BJT                                      2       2           2       2
+(crtmom) Generic                                  5       5           5       5
+(crtmom_mx) Generic                               3       3           3       3
+(crtmom_rf) Generic                               3       3           3       3
+(lincap) Generic                                  1       1           1       1
+(lincap_25) Generic                               1       1           1       1
+(lincap_rf) Generic                               1       1           1       1
+(lincap_rf_25) Generic                            1       1           1       1
+(lowcpad_d0) Generic                              1       1           1       1
+(lowcpad_d15) Generic                             1       1           1       1
+(lowcpad_d23) Generic                             1       1           1       1
+(mimcap_sin) Generic                              6       6           6       6
+(mimcap_sin_3t) Generic                           3       3           3       3
+(mimcap_um_sin_rf) Generic                        6       6           6       6
+(mimcap_woum_sin_rf) Generic                     15      15          15      15
+(moscap_rf) Generic                               1       1           1       1
+(moscap_rf18) Generic                             1       1           1       1
+(moscap_rf18_nw) Generic                          1       1           1       1
+(moscap_rf25) Generic                             1       1           1       1
+(moscap_rf25_nw) Generic                          1       1           1       1
+(moscap_rf33) Generic                             1       1           1       1
+(moscap_rf33_nw) Generic                          1       1           1       1
+(moscap_rf_hvt) Generic                           1       1           1       1
+(moscap_rf_hvt_nw) Generic                        1       1           1       1
+(moscap_rf_nw) Generic                            1       1           1       1
+(ndio_hia_rf) Generic                             1       1           1       1
+(nmos_rf) Generic                                 1       1           1       1
+(nmos_rf_18) Generic                              1       1           1       1
+(nmos_rf_18_6t) Generic                           1       1           1       1
+(nmos_rf_18_nodnw) Generic                        1       1           1       1
+(nmos_rf_25) Generic                              1       1           1       1
+(nmos_rf_25_6t) Generic                           1       1           1       1
+(nmos_rf_25_nodnw) Generic                        1       1           1       1
+(nmos_rf_25_nodnwod) Generic                      1       1           1       1
+(nmos_rf_25_nodnwud) Generic                      1       1           1       1
+(nmos_rf_25od) Generic                            1       1           1       1
+(nmos_rf_25od33_6t) Generic                       1       1           1       1
+(nmos_rf_25ud) Generic                            1       1           1       1
+(nmos_rf_25ud18_6t) Generic                       1       1           1       1
+(nmos_rf_33) Generic                              1       1           1       1
+(nmos_rf_33_6t) Generic                           1       1           1       1
+(nmos_rf_33_nodnw) Generic                        1       1           1       1
+(nmos_rf_6t) Generic                              1       1           1       1
+(nmos_rf_hvt) Generic                             1       1           1       1
+(nmos_rf_hvt_6t) Generic                          1       1           1       1
+(nmos_rf_hvt_nodnw) Generic                       1       1           1       1
+(nmos_rf_lvt) Generic                             1       1           1       1
+(nmos_rf_lvt_6t) Generic                          1       1           1       1
+(nmos_rf_lvt_nodnw) Generic                       1       1           1       1
+(nmos_rf_mlvt) Generic                            1       1           1       1
+(nmos_rf_mlvt_6t) Generic                         1       1           1       1
+(nmos_rf_mlvt_nodnw) Generic                      1       1           1       1
+(nmos_rf_na18) Generic                            1       1           1       1
+(nmos_rf_nodnw) Generic                           1       1           1       1
+(nmoscap) Generic                                 1       1           1       1
+(nmoscap_18) Generic                              1       1           1       1
+(nmoscap_25) Generic                              1       1           1       1
+(nmoscap_33) Generic                              1       1           1       1
+(nmoscap_lpg) Generic                             1       1           1       1
+(pdio_hia_rf) Generic                             1       1           1       1
+(pmos_rf) Generic                                 1       1           1       1
+(pmos_rf_18) Generic                              1       1           1       1
+(pmos_rf_18_5t) Generic                           1       1           1       1
+(pmos_rf_18_nw) Generic                           1       1           1       1
+(pmos_rf_18_nw_5t) Generic                        1       1           1       1
+(pmos_rf_25) Generic                              1       1           1       1
+(pmos_rf_25_5t) Generic                           1       1           1       1
+(pmos_rf_25_nw) Generic                           1       1           1       1
+(pmos_rf_25_nw_5t) Generic                        1       1           1       1
+(pmos_rf_25_nwod) Generic                         1       1           1       1
+(pmos_rf_25_nwud) Generic                         1       1           1       1
+(pmos_rf_25od) Generic                            1       1           1       1
+(pmos_rf_25od33_5t) Generic                       1       1           1       1
+(pmos_rf_25od33_nw_5t) Generic                    1       1           1       1
+(pmos_rf_25ud) Generic                            1       1           1       1
+(pmos_rf_25ud18_5t) Generic                       1       1           1       1
+(pmos_rf_25ud18_nw_5t) Generic                    1       1           1       1
+(pmos_rf_33) Generic                              1       1           1       1
+(pmos_rf_33_5t) Generic                           1       1           1       1
+(pmos_rf_33_nw) Generic                           1       1           1       1
+(pmos_rf_33_nw_5t) Generic                        1       1           1       1
+(pmos_rf_5t) Generic                              1       1           1       1
+(pmos_rf_hvt) Generic                             1       1           1       1
+(pmos_rf_hvt_5t) Generic                          1       1           1       1
+(pmos_rf_hvt_nw) Generic                          1       1           1       1
+(pmos_rf_hvt_nw_5t) Generic                       1       1           1       1
+(pmos_rf_lvt) Generic                             1       1           1       1
+(pmos_rf_lvt_5t) Generic                          1       1           1       1
+(pmos_rf_lvt_nw) Generic                          1       1           1       1
+(pmos_rf_lvt_nw_5t) Generic                       1       1           1       1
+(pmos_rf_mlvt) Generic                            1       1           1       1
+(pmos_rf_mlvt_5t) Generic                         1       1           1       1
+(pmos_rf_mlvt_nw) Generic                         1       1           1       1
+(pmos_rf_mlvt_nw_5t) Generic                      1       1           1       1
+(pmos_rf_nw) Generic                              1       1           1       1
+(pmos_rf_nw_5t) Generic                           1       1           1       1
+(pmoscap_rf) Generic                              1       1           1       1
+(pmoscap_rf18) Generic                            1       1           1       1
+(pmoscap_rf25) Generic                            1       1           1       1
+(probe1) Generic                                  1       1           1       1
+(probe2) Generic                                  1       1           1       1
+(probe3) Generic                                  1       1           1       1
+(probe4) Generic                                  1       1           1       1
+(rm1) Generic                                     1       1           1       1
+(rm10) Generic                                    2       2           2       2
+(rm2) Generic                                     1       1           1       1
+(rm3) Generic                                     1       1           1       1
+(rm5) Generic                                     1       1           1       1
+(rm6) Generic                                     1       1           1       1
+(rnodl) Generic                                   1       1           1       1
+(rnodl_m) Generic                                 1       1           1       1
+(rnods) Generic                                   1       1           1       1
+(rnods_m) Generic                                 1       1           1       1
+(rnodwo) Generic                                  1       1           1       1
+(rnodwo_m) Generic                                1       1           1       1
+(rnpolyl) Generic                                 1       1           1       1
+(rnpolyl_m) Generic                               1       1           1       1
+(rnpolys) Generic                                 1       1           1       1
+(rnpolys_m) Generic                               1       1           1       1
+(rnpolywo) Generic                                1       1           1       1
+(rnpolywo_m) Generic                              1       1           1       1
+(rnwod) Generic                                   1       1           1       1
+(rnwod_m) Generic                                 1       1           1       1
+(rnwsti) Generic                                  1       1           1       1
+(rnwsti_m) Generic                                1       1           1       1
+(rpodl) Generic                                   1       1           1       1
+(rpodl_m) Generic                                 1       1           1       1
+(rpods) Generic                                   1       1           1       1
+(rpods_m) Generic                                 1       1           1       1
+(rpodwo) Generic                                  1       1           1       1
+(rpodwo_m) Generic                                1       1           1       1
+(rppolyl) Generic                                 1       1           1       1
+(rppolyl_m) Generic                               1       1           1       1
+(rppolyl_rf) Generic                              1       1           1       1
+(rppolys) Generic                                 1       1           1       1
+(rppolys_m) Generic                               1       1           1       1
+(rppolys_rf) Generic                              1       1           1       1
+(rppolywo) Generic                                1       1           1       1
+(rppolywo_m) Generic                              1       1           1       1
+(rppolywo_rf) Generic                             1       1           1       1
+(sbd_rf) Generic                                  1       1           1       1
+(sbd_rf_nw) Generic                               1       1           1       1
+(spiral_std_mu_z) Generic                         5       5           5       5
+(spiral_sym_ct_mu_z) Generic                      5       5           5       5
+(spiral_sym_mu_z) Generic                         5       5           5       5
+(xjvar) Generic                                   1       1           1       1
+(xjvar_nw) Generic                                1       1           1       1
+(nch_hv25_sdnw) LDD                               2       2           2       2
+(nch_hv25_snw) LDD                                2       2           2       2
+(pch_hv25_spw) LDD                                2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_lpg) MOS                                     2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_lpghvt) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                         2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                         2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_uhvt_dnw) MOS                                2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_uhvt_dnw) MOS                                2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_uhvt) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch_uhvt) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_dpsr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_hvtdphcsr) MOS                             2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_hvtdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_lpgdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_lpgsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_lpgtpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_sr) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_ulpdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_ulpsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_wosr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_dpsr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_hvtdphcsr) MOS                             2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_hvtdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_lpgdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_lpgsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_lpgtpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_sr) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_ulpdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_ulpsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_wosr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pch) MOS                                         2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pch) MOS                                         2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pch_uhvt) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pch_uhvt) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_dpsr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_hvtdphcsr) MOS                             2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_hvtdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_lpgdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_lpgsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_lpgtpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_sr) MOS                                    2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_ulpdpsr) MOS                               2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_ulpsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                        28      28          28      28
+(nch_18) MOS                                     14      14          14      14
+(nch_18_dnw) MOS                                 14      14          14      14
+(nch_25) MOS                                     14      14          14      14
+(nch_25_dnw) MOS                                 14      14          14      14
+(nch_25_dnwod) MOS                               14      14          14      14
+(nch_25_dnwud) MOS                               14      14          14      14
+(nch_25od) MOS                                   14      14          14      14
+(nch_25ud) MOS                                   14      14          14      14
+(nch_33) MOS                                     14      14          14      14
+(nch_33_dnw) MOS                                 14      14          14      14
+(nch_dnw) MOS                                    14      14          14      14
+(nch_dnw_w) MOS                                   5       5           5       5
+(nch_dnw_w_lvt) MOS                               7       7           7       7
+(nch_esd18) MOS                                  10      10          10      10
+(nch_esd18_dnw) MOS                              18      18          18      18
+(nch_hvt) MOS                                    14      14          14      14
+(nch_hvt_dnw) MOS                                15      15          15      15
+(nch_lpg) MOS                                    14      14          14      14
+(nch_lpghvt) MOS                                 14      14          14      14
+(nch_lpgna) MOS                                   7       7           7       7
+(nch_lvt) MOS                                    14      14          14      14
+(nch_lvt_dnw) MOS                                13      13          13      13
+(nch_mlvt) MOS                                   14      14          14      14
+(nch_mlvt_dnw) MOS                               14      14          14      14
+(nch_na) MOS                                     14      14          14      14
+(nch_na18) MOS                                   14      14          14      14
+(nch_na25) MOS                                   14      14          14      14
+(nch_na25od) MOS                                 14      14          14      14
+(nch_na25ud) MOS                                 14      14          14      14
+(nch_na33) MOS                                   14      14          14      14
+(nch_uhvt) MOS                                   14      14          14      14
+(nch_uhvt_dnw) MOS                               14      14          14      14
+(nch_ulvt) MOS                                   14      14          14      14
+(nch_ulvt_dnw) MOS                               14      14          14      14
+(nch_w) MOS                                       5       5           5       5
+(nch_w_lvt) MOS                                   7       7           7       7
+(nchpd_dpsr) MOS                                  7       7           7       7
+(nchpd_hvtdphcsr) MOS                             7       7           7       7
+(nchpd_hvtdpsr) MOS                               7       7           7       7
+(nchpd_hvtsr) MOS                                 7       7           7       7
+(nchpd_lpgdpsr) MOS                               7       7           7       7
+(nchpd_lpgsr) MOS                                 7       7           7       7
+(nchpd_lpgtpsr) MOS                               8       8           8       8
+(nchpd_sr) MOS                                    7       7           7       7
+(nchpd_ulpdpsr) MOS                               7       7           7       7
+(nchpd_ulpsr) MOS                                 7       7           7       7
+(nchpd_wosr) MOS                                  7       7           7       7
+(nchpg_dpsr) MOS                                  7       7           7       7
+(nchpg_hvtdphcsr) MOS                             7       7           7       7
+(nchpg_hvtdpsr) MOS                               7       7           7       7
+(nchpg_hvtsr) MOS                                 7       7           7       7
+(nchpg_lpgdpsr) MOS                               7       7           7       7
+(nchpg_lpgsr) MOS                                 7       7           7       7
+(nchpg_lpgtpsr) MOS                               8       8           8       8
+(nchpg_sr) MOS                                    7       7           7       7
+(nchpg_ulpdpsr) MOS                               7       7           7       7
+(nchpg_ulpsr) MOS                                 7       7           7       7
+(nchpg_wosr) MOS                                  7       7           7       7
+(pch) MOS                                        30      30          30      30
+(pch_18) MOS                                     14      14          14      14
+(pch_25) MOS                                     14      14          14      14
+(pch_25od) MOS                                   14      14          14      14
+(pch_25ud) MOS                                   14      14          14      14
+(pch_33) MOS                                     14      14          14      14
+(pch_hvt) MOS                                    14      14          14      14
+(pch_lpg) MOS                                     7       7           7       7
+(pch_lpghvt) MOS                                  7       7           7       7
+(pch_lvt) MOS                                    14      14          14      14
+(pch_mlvt) MOS                                   14      14          14      14
+(pch_uhvt) MOS                                   14      14          14      14
+(pch_ulvt) MOS                                   12      12          12      12
+(pch_w) MOS                                       5       5           5       5
+(pch_w_lvt) MOS                                   7       7           7       7
+(pchpu_dpsr) MOS                                  7       7           7       7
+(pchpu_hvtdphcsr) MOS                             7       7           7       7
+(pchpu_hvtdpsr) MOS                               7       7           7       7
+(pchpu_hvtsr) MOS                                 7       7           7       7
+(pchpu_lpgdpsr) MOS                               7       7           7       7
+(pchpu_lpgsr) MOS                                 7       7           7       7
+(pchpu_lpgtpsr) MOS                               8       8           8       8
+(pchpu_sr) MOS                                    7       7           7       7
+(pchpu_ulpdpsr) MOS                               7       7           7       7
+(pchpu_ulpsr) MOS                                 7       7           7       7
+(CM) CAP                                          2       2           2       2
+(mimcap_sin) Generic                              3       3           3       3
+(mimcap_sin_3t) Generic                           3       3           3       3
+(mimcap_um_sin_rf) Generic                        3       3           3       3
+(mimcap_woum_sin_rf) Generic                     15      15          15      15
+(probe1) Generic                                  1       1           1       1
+(probe2) Generic                                  1       1           1       1
+(probe3) Generic                                  1       1           1       1
+(probe4) Generic                                  1       1           1       1
+(probe5) Generic                                  1       1           1       1
+(rm1) Generic                                     1       1           1       1
+(rm10) Generic                                    2       2           2       2
+(rm2) Generic                                     1       1           1       1
+(rm3) Generic                                     1       1           1       1
+(rm4) Generic                                     1       1           1       1
+(rm5) Generic                                     2       2           2       2
+(rm6) Generic                                     1       1           1       1
+(spiral_std_mz_x) Generic                         5       5           5       5
+(spiral_std_mza_a) Generic                        3       3           3       3
+(spiral_sym_ct_mz_x) Generic                      5       5           5       5
+(spiral_sym_ct_mza_a) Generic                     3       3           3       3
+(spiral_sym_mz_x) Generic                         5       5           5       5
+(spiral_sym_mza_a) Generic                        3       3           3       3
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(dnwpsub) DIO                                     1       1           1       1
+(pwdnw) DIO                                       1       1           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(dev_dnwdio) Cell                                 1       1           1       1
+(dnwpsub) DIO                                     2       2           2       2
+(npn10) BJT                                       1       1           1       1
+(npn2) BJT                                        1       1           1       1
+(pnp5) BJT                                        1       1           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                         1       4*          1       1
+(nmos_rf) Generic                                 1       1           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                      5267    9904*       5265    5265
+(pch) MOS                                      4755    6095*       4755    4755
+(rnpolys) Generic                               256     256         256     256
+(rppolywo) Generic                              512     512         512     512
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_wisr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpd_wosr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_wisr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nchpg_wosr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_hvtsr) MOS                                 2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_wisr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(pchpu_wosr) MOS                                  2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                        12      12          12      12
+(nch_18) MOS                                      6       6           6       6
+(nch_18_dnw) MOS                                  6       6           6       6
+(nch_25) MOS                                      6       6           6       6
+(nch_25_dnw) MOS                                  6       6           6       6
+(nch_25_dnwod) MOS                                6       6           6       6
+(nch_25_dnwud) MOS                                6       6           6       6
+(nch_25od) MOS                                    6       6           6       6
+(nch_25ud) MOS                                    6       6           6       6
+(nch_33) MOS                                      6       6           6       6
+(nch_33_dnw) MOS                                  6       6           6       6
+(nch_dnw) MOS                                     6       6           6       6
+(nch_dnw_w) MOS                                   2       2           2       2
+(nch_dnw_w_lvt) MOS                               3       3           3       3
+(nch_esd18) MOS                                   6       6           6       6
+(nch_esd18_dnw) MOS                               6       6           6       6
+(nch_hvt) MOS                                     6       6           6       6
+(nch_hvt_dnw) MOS                                 7       7           7       7
+(nch_lpg) MOS                                     6       6           6       6
+(nch_lpghvt) MOS                                  6       6           6       6
+(nch_lpgna) MOS                                   3       3           3       3
+(nch_lvt) MOS                                     6       6           6       6
+(nch_lvt_dnw) MOS                                 5       5           5       5
+(nch_mlvt) MOS                                    6       6           6       6
+(nch_mlvt_dnw) MOS                                6       6           6       6
+(nch_na) MOS                                      6       6           6       6
+(nch_na18) MOS                                    6       6           6       6
+(nch_na25) MOS                                    6       6           6       6
+(nch_na25od) MOS                                  6       6           6       6
+(nch_na25ud) MOS                                  6       6           6       6
+(nch_na33) MOS                                    6       6           6       6
+(nch_uhvt) MOS                                    6       6           6       6
+(nch_uhvt_dnw) MOS                                6       6           6       6
+(nch_ulvt) MOS                                    6       6           6       6
+(nch_ulvt_dnw) MOS                                6       6           6       6
+(nch_w) MOS                                       2       2           2       2
+(nch_w_lvt) MOS                                   3       3           3       3
+(nchpd_dpsr) MOS                                  3       3           3       3
+(nchpd_hvtdphcsr) MOS                             3       3           3       3
+(nchpd_hvtdpsr) MOS                               3       3           3       3
+(nchpd_hvtsr) MOS                                19      19          19      19
+(nchpd_lpgdpsr) MOS                               3       3           3       3
+(nchpd_lpgsr) MOS                                 3       3           3       3
+(nchpd_lpgtpsr) MOS                               3       3           3       3
+(nchpd_sr) MOS                                    3       3           3       3
+(nchpd_ulpdpsr) MOS                               3       3           3       3
+(nchpd_ulpsr) MOS                                 3       3           3       3
+(nchpd_wisr) MOS                                  8       8           8       8
+(nchpd_wosr) MOS                                  8       8           8       8
+(nchpg_dpsr) MOS                                  3       3           3       3
+(nchpg_hvtdphcsr) MOS                             3       3           3       3
+(nchpg_hvtdpsr) MOS                               3       3           3       3
+(nchpg_hvtsr) MOS                                19      19          19      19
+(nchpg_lpgdpsr) MOS                               3       3           3       3
+(nchpg_lpgsr) MOS                                 3       3           3       3
+(nchpg_lpgtpsr) MOS                               3       3           3       3
+(nchpg_sr) MOS                                    3       3           3       3
+(nchpg_ulpdpsr) MOS                               3       3           3       3
+(nchpg_ulpsr) MOS                                 3       3           3       3
+(nchpg_wisr) MOS                                  8       8           8       8
+(nchpg_wosr) MOS                                  8       8           8       8
+(pch) MOS                                        12      12          12      12
+(pch_18) MOS                                      6       6           6       6
+(pch_25) MOS                                      6       6           6       6
+(pch_25od) MOS                                    6       6           6       6
+(pch_25ud) MOS                                    6       6           6       6
+(pch_33) MOS                                      6       6           6       6
+(pch_hvt) MOS                                     6       6           6       6
+(pch_lpg) MOS                                     3       3           3       3
+(pch_lpghvt) MOS                                  3       3           3       3
+(pch_lvt) MOS                                     6       6           6       6
+(pch_mlvt) MOS                                    6       6           6       6
+(pch_uhvt) MOS                                    6       6           6       6
+(pch_ulvt) MOS                                    6       6           6       6
+(pch_w) MOS                                       2       2           2       2
+(pch_w_lvt) MOS                                   3       3           3       3
+(pchpu_dpsr) MOS                                  3       3           3       3
+(pchpu_hvtdphcsr) MOS                             3       3           3       3
+(pchpu_hvtdpsr) MOS                               3       3           3       3
+(pchpu_hvtsr) MOS                                19      19          19      19
+(pchpu_lpgdpsr) MOS                               3       3           3       3
+(pchpu_lpgsr) MOS                                 3       3           3       3
+(pchpu_lpgtpsr) MOS                               3       3           3       3
+(pchpu_sr) MOS                                    3       3           3       3
+(pchpu_ulpdpsr) MOS                               3       3           3       3
+(pchpu_ulpsr) MOS                                 3       3           3       3
+(pchpu_wisr) MOS                                  8       8           8       8
+(pchpu_wosr) MOS                                  8       8           8       8
+(mimcap_sin_udc) Generic                          3       3           3       3
+(mimcap_sin_udc_3t) Generic                       3       3           3       3
+(mimcap_um_sin_udc_rf) Generic                    3       3           3       3
+(mimcap_woum_sin_udc_rf) Generic                  3       3           3       3
+(probe1) Generic                                  1       1           1       1
+(probe2) Generic                                  1       1           1       1
+(probe3) Generic                                  1       1           1       1
+(probe4) Generic                                  1       1           1       1
+(probe5) Generic                                  1       1           1       1
+(probe6) Generic                                  1       1           1       1
+(probe7) Generic                                  1       1           1       1
+(rm1) Generic                                     2       4*          2       2
+(rm10) Generic                                    4       8*          4       4
+(rm2) Generic                                     2       4*          2       2
+(rm3) Generic                                     2       4*          2       2
+(rm4) Generic                                     2       4*          2       2
+(rm5) Generic                                     2       4*          2       2
+(rm6) Generic                                     2       4*          2       2
+(rm7) Generic                                     2       4*          2       2
+(rm8) Generic                                     2       4*          2       2
+(rnodl) Generic                                   1       3*          1       1
+(rnodl_m) Generic                                 1       3*          1       1
+(rnods) Generic                                   1       3*          1       1
+(rnods_m) Generic                                 1       3*          1       1
+(rnodwo) Generic                                  1       3*          1       1
+(rnodwo_m) Generic                                1       3*          1       1
+(rnpolyl) Generic                                 1       3*          1       1
+(rnpolyl_m) Generic                               1       3*          1       1
+(rnpolys) Generic                                 1       3*          1       1
+(rnpolys_m) Generic                               1       3*          1       1
+(rnpolywo) Generic                                1       3*          1       1
+(rnpolywo_m) Generic                              1       3*          1       1
+(rnwod) Generic                                   1       3*          1       1
+(rnwod_m) Generic                                 1       3*          1       1
+(rnwsti) Generic                                  1       3*          1       1
+(rnwsti_m) Generic                                1       3*          1       1
+(rpodl) Generic                                   1       3*          1       1
+(rpodl_m) Generic                                 1       3*          1       1
+(rpods) Generic                                   1       3*          1       1
+(rpods_m) Generic                                 1       3*          1       1
+(rpodwo) Generic                                  1       3*          1       1
+(rpodwo_m) Generic                                1       3*          1       1
+(rppolyl) Generic                                 1       3*          1       1
+(rppolyl_m) Generic                               1       3*          1       1
+(rppolys) Generic                                 1       3*          1       1
+(rppolys_m) Generic                               1       3*          1       1
+(rppolywo) Generic                                1       3*          1       1
+(rppolywo_m) Generic                              1       3*          1       1
+(spiral_std_mu_a) Generic                         3       3           3       3
+(spiral_sym_ct_mu_a) Generic                      3       3           3       3
+(spiral_sym_mu_a) Generic                         3       3           3       3
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(nch) MOS                                         1       1           1       1
+(pch) MOS                                         1       1           1       1
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(inv) Cell                                        2       2           2       2
+(ndio) DIO                                        2       2           2       2
+(pdio) DIO                                        2       2           2       2
+(npn5) BJT                                        2       2           2       2
+(pnp2) BJT                                        2       2           2       2
+(crtmom) Generic                                  2       2           2       2
+(crtmom_rf) Generic                               2       2           2       2
+(mimcap_sin) Generic                              2      15*          2       2
+(mimcap_um_sin_rfud) Generic                      2      15*          2       2
+(moscap_rf) Generic                               2       2           2       2
+(nmos_rf) Generic                                 2       2           2       2
+(nmoscap) Generic                                 2       2           2       2
+(pmos_rf) Generic                                 2       2           2       2
+(pmoscap_rf) Generic                              2       2           2       2
+(rnods_m) Generic                                 2       2           2       2
+(rnpolys_m) Generic                               2       2           2       2
+(rpods_m) Generic                                 2       2           2       2
+(rppolys_m) Generic                               2       2           2       2
+(rppolys_rf) Generic                              2       2           2       2
+(xjvar) Generic                                   2       2           2       2
+                                             ------  ------      ------  ------
+Reduce Statistics
+=================                               Filtered             Reduced
+Cell/Device                               schematic  layout   schematic  layout
+(CM) CAP                                          1   15000*          1       1
+                                             ------  ------      ------  ------
+
+
+************************************************************** 
+DECK_DEVICE_LIST                  REP_DEVICE_LIST                  
+************************************************************** 
+(npn10) BJT                       (npn10) BJT                      	OK
+(npn10_s) BJT                     (npn10_s) BJT                    	OK
+(npn2) BJT                        (npn2) BJT                       	OK
+(npn2_s) BJT                      (npn2_s) BJT                     	OK
+(npn5) BJT                        (npn5) BJT                       	OK
+(npn5_s) BJT                      (npn5_s) BJT                     	OK
+(pnp10) BJT                       (pnp10) BJT                      	OK
+(pnp10_s) BJT                     (pnp10_s) BJT                    	OK
+(pnp2) BJT                        (pnp2) BJT                       	OK
+(pnp2_s) BJT                      (pnp2_s) BJT                     	OK
+(pnp5) BJT                        (pnp5) BJT                       	OK
+(pnp5_s) BJT                      (pnp5_s) BJT                     	OK
+(CM) CAP                          (CM) CAP                         	OK
+(dnwpsub) DIO                     (dnwpsub) DIO                    	OK
+(ndio) DIO                        (ndio) DIO                       	OK
+(ndio_18) DIO                     (ndio_18) DIO                    	OK
+(ndio_25) DIO                     (ndio_25) DIO                    	OK
+(ndio_25od) DIO                   (ndio_25od) DIO                  	OK
+(ndio_25ud) DIO                   (ndio_25ud) DIO                  	OK
+(ndio_33) DIO                     (ndio_33) DIO                    	OK
+(ndio_esd) DIO                    (ndio_esd) DIO                   	OK
+(ndio_hvt) DIO                    (ndio_hvt) DIO                   	OK
+(ndio_lpg) DIO                    (ndio_lpg) DIO                   	OK
+(ndio_lpghvt) DIO                 (ndio_lpghvt) DIO                	OK
+(ndio_lpgna) DIO                  (ndio_lpgna) DIO                 	OK
+(ndio_lvt) DIO                    (ndio_lvt) DIO                   	OK
+(ndio_mlvt) DIO                   (ndio_mlvt) DIO                  	OK
+(ndio_na) DIO                     (ndio_na) DIO                    	OK
+(ndio_na18) DIO                   (ndio_na18) DIO                  	OK
+(ndio_na25) DIO                   (ndio_na25) DIO                  	OK
+(ndio_na25od) DIO                 (ndio_na25od) DIO                	OK
+(ndio_na25ud) DIO                 (ndio_na25ud) DIO                	OK
+(ndio_na33) DIO                   (ndio_na33) DIO                  	OK
+(ndio_w) DIO                      (ndio_w) DIO                     	OK
+(nwdio) DIO                       (nwdio) DIO                      	OK
+(nwdio_18) DIO                    (nwdio_18) DIO                   	OK
+(nwdio_25) DIO                    (nwdio_25) DIO                   	OK
+(nwdio_33) DIO                    (nwdio_33) DIO                   	OK
+(pdio) DIO                        (pdio) DIO                       	OK
+(pdio_18) DIO                     (pdio_18) DIO                    	OK
+(pdio_25) DIO                     (pdio_25) DIO                    	OK
+(pdio_25od) DIO                   (pdio_25od) DIO                  	OK
+(pdio_25ud) DIO                   (pdio_25ud) DIO                  	OK
+(pdio_33) DIO                     (pdio_33) DIO                    	OK
+(pdio_hvt) DIO                    (pdio_hvt) DIO                   	OK
+(pdio_lpg) DIO                    (pdio_lpg) DIO                   	OK
+(pdio_lpghvt) DIO                 (pdio_lpghvt) DIO                	OK
+(pdio_lvt) DIO                    (pdio_lvt) DIO                   	OK
+(pdio_mlvt) DIO                   (pdio_mlvt) DIO                  	OK
+(pdio_w) DIO                      (pdio_w) DIO                     	OK
+(pwdnw) DIO                       (pwdnw) DIO                      	OK
+(crtmom) Generic                  (crtmom) Generic                 	OK
+(crtmom_mx) Generic               (crtmom_mx) Generic              	OK
+(crtmom_rf) Generic               (crtmom_rf) Generic              	OK
+(lincap) Generic                  (lincap) Generic                 	OK
+(lincap_25) Generic               (lincap_25) Generic              	OK
+(lincap_rf) Generic               (lincap_rf) Generic              	OK
+(lincap_rf_25) Generic            (lincap_rf_25) Generic           	OK
+(lowcpad_d0) Generic              (lowcpad_d0) Generic             	OK
+(lowcpad_d15) Generic             (lowcpad_d15) Generic            	OK
+(lowcpad_d23) Generic             (lowcpad_d23) Generic            	OK
+(mimcap_sin) Generic              (mimcap_sin) Generic             	OK
+(mimcap_sin_3t) Generic           (mimcap_sin_3t) Generic          	OK
+(mimcap_sin_udc) Generic          (mimcap_sin_udc) Generic         	OK
+(mimcap_sin_udc_3t) Generic       (mimcap_sin_udc_3t) Generic      	OK
+(mimcap_um_sin_rf) Generic        (mimcap_um_sin_rf) Generic       	OK
+(mimcap_um_sin_udc_rf) Generic    (mimcap_um_sin_udc_rf) Generic   	OK
+(mimcap_woum_sin_rf) Generic      (mimcap_woum_sin_rf) Generic     	OK
+(mimcap_woum_sin_udc_rf) Generic  (mimcap_woum_sin_udc_rf) Generic 	OK
+(moscap_rf) Generic               (moscap_rf) Generic              	OK
+(moscap_rf18) Generic             (moscap_rf18) Generic            	OK
+(moscap_rf18_nw) Generic          (moscap_rf18_nw) Generic         	OK
+(moscap_rf25) Generic             (moscap_rf25) Generic            	OK
+(moscap_rf25_nw) Generic          (moscap_rf25_nw) Generic         	OK
+(moscap_rf33) Generic             (moscap_rf33) Generic            	OK
+(moscap_rf33_nw) Generic          (moscap_rf33_nw) Generic         	OK
+(moscap_rf_hvt) Generic           (moscap_rf_hvt) Generic          	OK
+(moscap_rf_hvt_nw) Generic        (moscap_rf_hvt_nw) Generic       	OK
+(moscap_rf_nw) Generic            (moscap_rf_nw) Generic           	OK
+(ndio_hia_rf) Generic             (ndio_hia_rf) Generic            	OK
+(nmos_rf) Generic                 (nmos_rf) Generic                	OK
+(nmos_rf_18) Generic              (nmos_rf_18) Generic             	OK
+(nmos_rf_18_6t) Generic           (nmos_rf_18_6t) Generic          	OK
+(nmos_rf_18_nodnw) Generic        (nmos_rf_18_nodnw) Generic       	OK
+(nmos_rf_25) Generic              (nmos_rf_25) Generic             	OK
+(nmos_rf_25_6t) Generic           (nmos_rf_25_6t) Generic          	OK
+(nmos_rf_25_nodnw) Generic        (nmos_rf_25_nodnw) Generic       	OK
+(nmos_rf_25_nodnwod) Generic      (nmos_rf_25_nodnwod) Generic     	OK
+(nmos_rf_25_nodnwud) Generic      (nmos_rf_25_nodnwud) Generic     	OK
+(nmos_rf_25od) Generic            (nmos_rf_25od) Generic           	OK
+(nmos_rf_25od33_6t) Generic       (nmos_rf_25od33_6t) Generic      	OK
+(nmos_rf_25ud) Generic            (nmos_rf_25ud) Generic           	OK
+(nmos_rf_25ud18_6t) Generic       (nmos_rf_25ud18_6t) Generic      	OK
+(nmos_rf_33) Generic              (nmos_rf_33) Generic             	OK
+(nmos_rf_33_6t) Generic           (nmos_rf_33_6t) Generic          	OK
+(nmos_rf_33_nodnw) Generic        (nmos_rf_33_nodnw) Generic       	OK
+(nmos_rf_6t) Generic              (nmos_rf_6t) Generic             	OK
+(nmos_rf_hvt) Generic             (nmos_rf_hvt) Generic            	OK
+(nmos_rf_hvt_6t) Generic          (nmos_rf_hvt_6t) Generic         	OK
+(nmos_rf_hvt_nodnw) Generic       (nmos_rf_hvt_nodnw) Generic      	OK
+(nmos_rf_lvt) Generic             (nmos_rf_lvt) Generic            	OK
+(nmos_rf_lvt_6t) Generic          (nmos_rf_lvt_6t) Generic         	OK
+(nmos_rf_lvt_nodnw) Generic       (nmos_rf_lvt_nodnw) Generic      	OK
+(nmos_rf_mlvt) Generic            (nmos_rf_mlvt) Generic           	OK
+(nmos_rf_mlvt_6t) Generic         (nmos_rf_mlvt_6t) Generic        	OK
+(nmos_rf_mlvt_nodnw) Generic      (nmos_rf_mlvt_nodnw) Generic     	OK
+(nmos_rf_na18) Generic            (nmos_rf_na18) Generic           	OK
+(nmos_rf_nodnw) Generic           (nmos_rf_nodnw) Generic          	OK
+(nmoscap) Generic                 (nmoscap) Generic                	OK
+(nmoscap_18) Generic              (nmoscap_18) Generic             	OK
+(nmoscap_25) Generic              (nmoscap_25) Generic             	OK
+(nmoscap_33) Generic              (nmoscap_33) Generic             	OK
+(nmoscap_lpg) Generic             (nmoscap_lpg) Generic            	OK
+(pdio_hia_rf) Generic             (pdio_hia_rf) Generic            	OK
+(pmos_rf) Generic                 (pmos_rf) Generic                	OK
+(pmos_rf_18) Generic              (pmos_rf_18) Generic             	OK
+(pmos_rf_18_5t) Generic           (pmos_rf_18_5t) Generic          	OK
+(pmos_rf_18_nw) Generic           (pmos_rf_18_nw) Generic          	OK
+(pmos_rf_18_nw_5t) Generic        (pmos_rf_18_nw_5t) Generic       	OK
+(pmos_rf_25) Generic              (pmos_rf_25) Generic             	OK
+(pmos_rf_25_5t) Generic           (pmos_rf_25_5t) Generic          	OK
+(pmos_rf_25_nw) Generic           (pmos_rf_25_nw) Generic          	OK
+(pmos_rf_25_nw_5t) Generic        (pmos_rf_25_nw_5t) Generic       	OK
+(pmos_rf_25_nwod) Generic         (pmos_rf_25_nwod) Generic        	OK
+(pmos_rf_25_nwud) Generic         (pmos_rf_25_nwud) Generic        	OK
+(pmos_rf_25od) Generic            (pmos_rf_25od) Generic           	OK
+(pmos_rf_25od33_5t) Generic       (pmos_rf_25od33_5t) Generic      	OK
+(pmos_rf_25od33_nw_5t) Generic    (pmos_rf_25od33_nw_5t) Generic   	OK
+(pmos_rf_25ud) Generic            (pmos_rf_25ud) Generic           	OK
+(pmos_rf_25ud18_5t) Generic       (pmos_rf_25ud18_5t) Generic      	OK
+(pmos_rf_25ud18_nw_5t) Generic    (pmos_rf_25ud18_nw_5t) Generic   	OK
+(pmos_rf_33) Generic              (pmos_rf_33) Generic             	OK
+(pmos_rf_33_5t) Generic           (pmos_rf_33_5t) Generic          	OK
+(pmos_rf_33_nw) Generic           (pmos_rf_33_nw) Generic          	OK
+(pmos_rf_33_nw_5t) Generic        (pmos_rf_33_nw_5t) Generic       	OK
+(pmos_rf_5t) Generic              (pmos_rf_5t) Generic             	OK
+(pmos_rf_hvt) Generic             (pmos_rf_hvt) Generic            	OK
+(pmos_rf_hvt_5t) Generic          (pmos_rf_hvt_5t) Generic         	OK
+(pmos_rf_hvt_nw) Generic          (pmos_rf_hvt_nw) Generic         	OK
+(pmos_rf_hvt_nw_5t) Generic       (pmos_rf_hvt_nw_5t) Generic      	OK
+(pmos_rf_lvt) Generic             (pmos_rf_lvt) Generic            	OK
+(pmos_rf_lvt_5t) Generic          (pmos_rf_lvt_5t) Generic         	OK
+(pmos_rf_lvt_nw) Generic          (pmos_rf_lvt_nw) Generic         	OK
+(pmos_rf_lvt_nw_5t) Generic       (pmos_rf_lvt_nw_5t) Generic      	OK
+(pmos_rf_mlvt) Generic            (pmos_rf_mlvt) Generic           	OK
+(pmos_rf_mlvt_5t) Generic         (pmos_rf_mlvt_5t) Generic        	OK
+(pmos_rf_mlvt_nw) Generic         (pmos_rf_mlvt_nw) Generic        	OK
+(pmos_rf_mlvt_nw_5t) Generic      (pmos_rf_mlvt_nw_5t) Generic     	OK
+(pmos_rf_nw) Generic              (pmos_rf_nw) Generic             	OK
+(pmos_rf_nw_5t) Generic           (pmos_rf_nw_5t) Generic          	OK
+(pmoscap_rf) Generic              (pmoscap_rf) Generic             	OK
+(pmoscap_rf18) Generic            (pmoscap_rf18) Generic           	OK
+(pmoscap_rf25) Generic            (pmoscap_rf25) Generic           	OK
+(probe1) Generic                  (probe1) Generic                 	OK
+(probe2) Generic                  (probe2) Generic                 	OK
+(probe3) Generic                  (probe3) Generic                 	OK
+(probe4) Generic                  (probe4) Generic                 	OK
+(probe5) Generic                  (probe5) Generic                 	OK
+(probe6) Generic                  (probe6) Generic                 	OK
+(probe7) Generic                  (probe7) Generic                 	OK
+(rm1) Generic                     (rm1) Generic                    	OK
+(rm10) Generic                    (rm10) Generic                   	OK
+(rm2) Generic                     (rm2) Generic                    	OK
+(rm3) Generic                     (rm3) Generic                    	OK
+(rm4) Generic                     (rm4) Generic                    	OK
+(rm5) Generic                     (rm5) Generic                    	OK
+(rm6) Generic                     (rm6) Generic                    	OK
+(rm7) Generic                     (rm7) Generic                    	OK
+(rm8) Generic                     (rm8) Generic                    	OK
+(rnodl) Generic                   (rnodl) Generic                  	OK
+(rnodl_m) Generic                 (rnodl_m) Generic                	OK
+(rnods) Generic                   (rnods) Generic                  	OK
+(rnods_m) Generic                 (rnods_m) Generic                	OK
+(rnodwo) Generic                  (rnodwo) Generic                 	OK
+(rnodwo_m) Generic                (rnodwo_m) Generic               	OK
+(rnpolyl) Generic                 (rnpolyl) Generic                	OK
+(rnpolyl_m) Generic               (rnpolyl_m) Generic              	OK
+(rnpolys) Generic                 (rnpolys) Generic                	OK
+(rnpolys_m) Generic               (rnpolys_m) Generic              	OK
+(rnpolywo) Generic                (rnpolywo) Generic               	OK
+(rnpolywo_m) Generic              (rnpolywo_m) Generic             	OK
+(rnwod) Generic                   (rnwod) Generic                  	OK
+(rnwod_m) Generic                 (rnwod_m) Generic                	OK
+(rnwsti) Generic                  (rnwsti) Generic                 	OK
+(rnwsti_m) Generic                (rnwsti_m) Generic               	OK
+(rpodl) Generic                   (rpodl) Generic                  	OK
+(rpodl_m) Generic                 (rpodl_m) Generic                	OK
+(rpods) Generic                   (rpods) Generic                  	OK
+(rpods_m) Generic                 (rpods_m) Generic                	OK
+(rpodwo) Generic                  (rpodwo) Generic                 	OK
+(rpodwo_m) Generic                (rpodwo_m) Generic               	OK
+(rppolyl) Generic                 (rppolyl) Generic                	OK
+(rppolyl_m) Generic               (rppolyl_m) Generic              	OK
+(rppolyl_rf) Generic              (rppolyl_rf) Generic             	OK
+(rppolys) Generic                 (rppolys) Generic                	OK
+(rppolys_m) Generic               (rppolys_m) Generic              	OK
+(rppolys_rf) Generic              (rppolys_rf) Generic             	OK
+(rppolywo) Generic                (rppolywo) Generic               	OK
+(rppolywo_m) Generic              (rppolywo_m) Generic             	OK
+(rppolywo_rf) Generic             (rppolywo_rf) Generic            	OK
+(sbd_rf) Generic                  (sbd_rf) Generic                 	OK
+(sbd_rf_nw) Generic               (sbd_rf_nw) Generic              	OK
+(spiral_std_mu_a) Generic         (spiral_std_mu_a) Generic        	OK
+(spiral_std_mu_z) Generic         (spiral_std_mu_z) Generic        	OK
+(spiral_sym_ct_mu_a) Generic      (spiral_sym_ct_mu_a) Generic     	OK
+(spiral_sym_ct_mu_z) Generic      (spiral_sym_ct_mu_z) Generic     	OK
+(spiral_sym_mu_a) Generic         (spiral_sym_mu_a) Generic        	OK
+(spiral_sym_mu_z) Generic         (spiral_sym_mu_z) Generic        	OK
+(xjvar) Generic                   (xjvar) Generic                  	OK
+(xjvar_nw) Generic                (xjvar_nw) Generic               	OK
+(nch_hv25_sdnw) LDD               (nch_hv25_sdnw) LDD              	OK
+(nch_hv25_snw) LDD                (nch_hv25_snw) LDD               	OK
+(pch_hv25_spw) LDD                (pch_hv25_spw) LDD               	OK
+(nch) MOS                         (nch) MOS                        	OK
+(nch_18) MOS                      (nch_18) MOS                     	OK
+(nch_18_dnw) MOS                  (nch_18_dnw) MOS                 	OK
+(nch_25) MOS                      (nch_25) MOS                     	OK
+(nch_25_dnw) MOS                  (nch_25_dnw) MOS                 	OK
+(nch_25_dnwod) MOS                (nch_25_dnwod) MOS               	OK
+(nch_25_dnwud) MOS                (nch_25_dnwud) MOS               	OK
+(nch_25od) MOS                    (nch_25od) MOS                   	OK
+(nch_25ud) MOS                    (nch_25ud) MOS                   	OK
+(nch_33) MOS                      (nch_33) MOS                     	OK
+(nch_33_dnw) MOS                  (nch_33_dnw) MOS                 	OK
+(nch_dnw) MOS                     (nch_dnw) MOS                    	OK
+(nch_dnw_1tr) MOS                 (nch_dnw_1tr) MOS                	OK
+(nch_dnw_w) MOS                   (nch_dnw_w) MOS                  	OK
+(nch_dnw_w_lvt) MOS               (nch_dnw_w_lvt) MOS              	OK
+(nch_esd18) MOS                   (nch_esd18) MOS                  	OK
+(nch_esd18_dnw) MOS               (nch_esd18_dnw) MOS              	OK
+(nch_hvt) MOS                     (nch_hvt) MOS                    	OK
+(nch_hvt_dnw) MOS                 (nch_hvt_dnw) MOS                	OK
+(nch_lpg) MOS                     (nch_lpg) MOS                    	OK
+(nch_lpghvt) MOS                  (nch_lpghvt) MOS                 	OK
+(nch_lpgna) MOS                   (nch_lpgna) MOS                  	OK
+(nch_lvt) MOS                     (nch_lvt) MOS                    	OK
+(nch_lvt_dnw) MOS                 (nch_lvt_dnw) MOS                	OK
+(nch_mlvt) MOS                    (nch_mlvt) MOS                   	OK
+(nch_mlvt_dnw) MOS                (nch_mlvt_dnw) MOS               	OK
+(nch_na) MOS                      (nch_na) MOS                     	OK
+(nch_na18) MOS                    (nch_na18) MOS                   	OK
+(nch_na25) MOS                    (nch_na25) MOS                   	OK
+(nch_na25od) MOS                  (nch_na25od) MOS                 	OK
+(nch_na25ud) MOS                  (nch_na25ud) MOS                 	OK
+(nch_na33) MOS                    (nch_na33) MOS                   	OK
+(nch_timer) MOS                   (nch_timer) MOS                  	OK
+(nch_uhvt) MOS                    (nch_uhvt) MOS                   	OK
+(nch_uhvt_dnw) MOS                (nch_uhvt_dnw) MOS               	OK
+(nch_ulvt) MOS                    (nch_ulvt) MOS                   	OK
+(nch_ulvt_dnw) MOS                (nch_ulvt_dnw) MOS               	OK
+(nch_w) MOS                       (nch_w) MOS                      	OK
+(nch_w_lvt) MOS                   (nch_w_lvt) MOS                  	OK
+(nchpd_dphcsr) MOS                (nchpd_dphcsr) MOS               	OK
+(nchpd_dpsr) MOS                  (nchpd_dpsr) MOS                 	OK
+(nchpd_hvtdphcsr) MOS             (nchpd_hvtdphcsr) MOS            	OK
+(nchpd_hvtdpsr) MOS               (nchpd_hvtdpsr) MOS              	OK
+(nchpd_hvtsr) MOS                 (nchpd_hvtsr) MOS                	OK
+(nchpd_lpgdpsr) MOS               (nchpd_lpgdpsr) MOS              	OK
+(nchpd_lpgsr) MOS                 (nchpd_lpgsr) MOS                	OK
+(nchpd_lpgtpsr) MOS               (nchpd_lpgtpsr) MOS              	OK
+(nchpd_sr) MOS                    (nchpd_sr) MOS                   	OK
+(nchpd_ulpdpsr) MOS               (nchpd_ulpdpsr) MOS              	OK
+(nchpd_ulpsr) MOS                 (nchpd_ulpsr) MOS                	OK
+(nchpd_wisr) MOS                  (nchpd_wisr) MOS                 	OK
+(nchpd_wosr) MOS                  (nchpd_wosr) MOS                 	OK
+(nchpg_dphcsr) MOS                (nchpg_dphcsr) MOS               	OK
+(nchpg_dpsr) MOS                  (nchpg_dpsr) MOS                 	OK
+(nchpg_hvtdphcsr) MOS             (nchpg_hvtdphcsr) MOS            	OK
+(nchpg_hvtdpsr) MOS               (nchpg_hvtdpsr) MOS              	OK
+(nchpg_hvtsr) MOS                 (nchpg_hvtsr) MOS                	OK
+(nchpg_lpgdpsr) MOS               (nchpg_lpgdpsr) MOS              	OK
+(nchpg_lpgsr) MOS                 (nchpg_lpgsr) MOS                	OK
+(nchpg_lpgtpsr) MOS               (nchpg_lpgtpsr) MOS              	OK
+(nchpg_sr) MOS                    (nchpg_sr) MOS                   	OK
+(nchpg_ulpdpsr) MOS               (nchpg_ulpdpsr) MOS              	OK
+(nchpg_ulpsr) MOS                 (nchpg_ulpsr) MOS                	OK
+(nchpg_wisr) MOS                  (nchpg_wisr) MOS                 	OK
+(nchpg_wosr) MOS                  (nchpg_wosr) MOS                 	OK
+(pch) MOS                         (pch) MOS                        	OK
+(pch_18) MOS                      (pch_18) MOS                     	OK
+(pch_25) MOS                      (pch_25) MOS                     	OK
+(pch_25od) MOS                    (pch_25od) MOS                   	OK
+(pch_25ud) MOS                    (pch_25ud) MOS                   	OK
+(pch_33) MOS                      (pch_33) MOS                     	OK
+(pch_edc) MOS                     (pch_edc) MOS                    	OK
+(pch_hvt) MOS                     (pch_hvt) MOS                    	OK
+(pch_lpg) MOS                     (pch_lpg) MOS                    	OK
+(pch_lpghvt) MOS                  (pch_lpghvt) MOS                 	OK
+(pch_lvt) MOS                     (pch_lvt) MOS                    	OK
+(pch_mlvt) MOS                    (pch_mlvt) MOS                   	OK
+(pch_timer) MOS                   (pch_timer) MOS                  	OK
+(pch_uhvt) MOS                    (pch_uhvt) MOS                   	OK
+(pch_ulvt) MOS                    (pch_ulvt) MOS                   	OK
+(pch_w) MOS                       (pch_w) MOS                      	OK
+(pch_w_lvt) MOS                   (pch_w_lvt) MOS                  	OK
+(pchpu_dphcsr) MOS                (pchpu_dphcsr) MOS               	OK
+(pchpu_dpsr) MOS                  (pchpu_dpsr) MOS                 	OK
+(pchpu_hvtdphcsr) MOS             (pchpu_hvtdphcsr) MOS            	OK
+(pchpu_hvtdpsr) MOS               (pchpu_hvtdpsr) MOS              	OK
+(pchpu_hvtsr) MOS                 (pchpu_hvtsr) MOS                	OK
+(pchpu_lpgdpsr) MOS               (pchpu_lpgdpsr) MOS              	OK
+(pchpu_lpgsr) MOS                 (pchpu_lpgsr) MOS                	OK
+(pchpu_lpgtpsr) MOS               (pchpu_lpgtpsr) MOS              	OK
+(pchpu_sr) MOS                    (pchpu_sr) MOS                   	OK
+(pchpu_ulpdpsr) MOS               (pchpu_ulpdpsr) MOS              	OK
+(pchpu_ulpsr) MOS                 (pchpu_ulpsr) MOS                	OK
+(pchpu_wisr) MOS                  (pchpu_wisr) MOS                 	OK
+(pchpu_wosr) MOS                  (pchpu_wosr) MOS                 	OK
+--------------------------------------------------------------
+All devices are checked!

@@ -1,0 +1,288 @@
+***************************************************************************
+TSMC 65NM COMS Mixed Signal RF SALICIDE Low-K IMD 1P6M-1P9M PDK (CRN65GP)
+***************************************************************************
+                        Date    : 2010/10/10
+------------------------- Important Information -----------------------
+** Please see PDK_doc/ReleaseNote.txt for the detail.
+
+-----------------------------------------------------------------------
+   Techfile/        : Includes all temporary files which are used for install program
+   Assura/          : Assura LVS/QRC command files
+   Calibre/         : Calibre DRC/LVS/XRC command files
+   CCI/             : Calibre Star-RCXT CCI flow technology files directory
+   PDK_doc/         : Includes all documents, please check ReleaseNote 
+                      before using this PDK.
+   REVISION         : Revision history
+   cds.lib          : cds library mapping file
+   display.drf      : Virtuoso display file
+   lib.defs         : oa format file
+   readme           : readme file
+   ReleaseNote.txt  : PDK detail information
+   pdkInstall.pl    : PDK installation utility
+   pdkInstall.cfg   : PDK installation configuraion
+   skill/           : skill directory includes all call back and utility
+   models/          : hspice/spectre/eldo models
+   techfile         : Virtuoso tech file
+   tsmcN65/         : PDK library
+
+
+*Special Notes:
+
+        1. Please untar both PDK_CRN65GP_v1.0c_official_IC61_20101010.tar.gz and DOC_PDK_CRN65GP_v1.0c_official_IC61_20101010.tar.gz 
+	   before using this PDK.
+
+	2. This PDK support 2.5V IO devices in T-N65-CM-SP-018 model cards. For recognition purpose,
+	   this PDK change the 2.5V under-drive 1.8V cell names to *ud18* and 2.5V over-drive 3.3V cell names
+	   to *od33*. For example, the baseband 2.5V over-drive 3.3V IO NMOS device is named "nch_25od33" 
+	   Please refer to the device description section in this document for detail information.
+
+	3. All the cells included in this PDK are built based on current design 
+	   rule documents and spice model cards. Some of rules or parameters may 
+	   be changed after this release, please contact TSMC for the most up-to-date information.
+
+	4. Please do not use the devices in "do_not_use" category.
+
+	5. This PDK only provides Calibre DRC/LVS, Assura LVS deck and Calibre/Assura/StarRC RC technology files for 
+	   1p6m-4x1z, 1p7m-4x2z and 1p9m-6x1z1u metal options. Please contact TSMC if the other verification tools are preferred.
+
+        6. There is a "TSMC PDK Tools" in the menu bar of CIW. Users need to open any one of cell
+           to let Virtuoso load the related skill function in skill directory. Please see the 
+	   details in the document "CRN65_CDF_Usage.pdf" in the PDK_doc directory.
+	   TSMC provides some utilities in this menu bar:
+	   1) Utility to change "OD" layer to "PDIFF" and "NDIFF"
+	   2) Utility to change "DFM_options" in MOS CDFs to set "DFM" or "DFM_DRMv13" as default.
+	   3) Utility to update all CDFs in the previous design.
+	   4) Other tsmc tools. Please refer to the document in PDK_doc for details.
+
+	7. MOS with WPE,Rg effect:
+	   1) WPE effect: Netlist generated from PDK contains SCA,SCB,SCC parameters for 
+	      Bsim4.5 simulation. For pre-simulation, users can modify these parameters in 
+	      MOS CDF form if they are available. For post-simulation, LPE tools will extract
+	      SCA,SCB,SCC from layout.
+	      * Since there is no implant on native devices, there will be no WPE effect on those devices. 
+	        But there are still SCA,SCB,SCC parameters in the netlist of native device. 
+		These parameters do not affect simulation result.
+	   2) Rg effect: User needs to change the "rgflag" to 1 in model card to enable the
+	      Rg effect.   
+	   3) Cco effect: User needs to change the "ccoflag" to 1 in model card to enable the
+	      Cco effect.
+
+    *** 8  TSMC PDK only support DFM "Action Required rules" and "Analog rules" not include DFM Recommended and Guideline rules.
+
+	9. There is a new DFM option "DFM" in the MOS CDF. User can change the DFM_options
+           to "DFM" in the MOS CDF, then the layout of MOS can follow "Action Required rules"
+           and "Analog rules" in the design rule version 2.0. Please find the detail in the 
+           document "CRN65_CDF_Usage.pdf" in the PDK_doc directory. The DFM option for BB mos 
+	   will cover the new recommended rule CO.S.3(R) and CO.EN.1(R) and will not cover PO.S.11 
+	   and PO.S.13 in DRM v1.4. To support the new recommended rule(CO.S.3(R) and CO.EN.1(R)) 
+	   may cause the shift of all BB mos contact comparing with DFM_DRMv11. Users will need to 
+	   fix the possible inter-connect offset issues by themself.
+
+       10. There is a new DFM option "DFM+Analog" in the MOS CDF. User can change the DFM_options
+           to "DFM+Analog" in the MOS CDF, then the layout of MOS can follow "Action Required rules"
+           and "Analog rules" in the design rule version 1.4.The "DFM+Analog" option for BB mos 
+	   will cover the new recommended rule PO.EN.1m,PO.EN.2m and PO.EN.3m in DRM v2.0.
+
+       11. To use the layout of cross-coupled crtmom(crtmom_mx), please follow the instructions shown below to run the 
+	   MOM register key utility first.
+	   
+	       1>Open any cell in tsmcN65 library.
+       
+       	       2>Click on CIW menu "TSMC PDK Tools"->"tsmcPdkUtilityTool"->"Add MOM license key".
+	       
+	       3>Select library "tsmcN65" and enter the register key.
+	       
+	       4>Press "OK" to start the utility.
+	       
+       12. Two kinds of symbolic contact(s)/via(s) are supported in this release: 
+           1) normal symbolics (follow min. rule), ex. M2_M1
+           2) DFM symbolics (follow DFM rules) which are named with prefix "DFM", ex. DFM_M2_M1
+ 
+       13. All macro model devices have the (LVSDMY,dummy1) layer on layout for LVS recognition purpose.
+ 
+       14. Users who want to turn-off guarding ring of RF_PMOS. Should be notice that " this layout service is for the cases which 
+           there are multi-OD sharing the same BULK pick-up within the same WELL. Therefore, due to the different BULK pick-up and
+           WELL boundary, the RC-network and WPE effect will be different. So, designers should remember to handle the model impacts
+           from the above effects.
+
+       15. Users who use logic gate devices and run generate from source function to get layout views, it will fail due to no environment setup.
+           Please Add "layoutXL lxEvalCDFCallbacks boolean t" in your own .cdsenv     
+ 
+       16. Here is the information for installation:
+		*Available process type are: 
+		   1 - LO
+		   2 - MM
+		   3 - RF
+		Please enter your choice: (1,2...)
+		====> Please choose the process for your design,
+		*Available voltages are: 
+		   1 - 1.0V / 2.5V / 2.5V under-drive 1.8V / 2.5V over-drive 3.3V
+		Please enter your choice: (1)
+		*Available choices of mimcap are: 
+		   1 -  1.0fF_MIM
+		   2 -  1.5fF_MIM
+		   3 -  2.0fF_MIM
+		Please enter your choice: (1,2)
+		====> Please choose the mimcap used in your design, 
+
+		*Available metal options are: 
+		   1 - 1p9m_6X2Z0U_ALRDL (Support mimcap only for RF/MM )
+		   2 - 1p9m_6X1Z1U_ALRDL (Support mimcap/UTM inductors for RF and RC technology file)
+		   3 - 1p8m_6X1Z0U_ALRDL (Support mimcap and logic inductors for RF/MM)
+		   4 - 1p8m_6X0Z1U_ALRDL (Support UTM mimcap and mu_a inductor for RF) 
+		   5 - 1p8m_5X2Z0U_ALRDL (Support mimcap only for RF/MM )
+		   6 - 1p8m_5X1Z1U_ALRDL (Support mimcap and UTM inductors for RF)
+		   7 - 1p7m_5X1Z0U_ALRDL (Support mimcap and logic inductors for RF/MM)
+		   8 - 1p7m_5X0Z1U_ALRDL  (Support UTM mimcap and mu_a inductor for RF) 
+		   9 - 1p7m_4X2Z0U_ALRDL (Support mimcap and RC technology files for RF/MM)
+		   10 - 1p7m_4X1Z1U_ALRDL (Support mimcap and UTM inductors for RF)
+		   11 - 1p6m_4X1Z0U_ALRDL (Support mimcap,logic inductors and RC technology file for RF/MM)
+		   12 - 1p6m_4X0Z1U_ALRDL (Support UTM mimcap and mu_a inductor for RF) 
+		   13 - 1p6m_3X2Z0U_ALRDL (Support mimcap only for RF/MM )
+		   14 - 1p6m_3X1Z1U_ALRDL (Support mimcap and UTM inductors for RF)
+		
+	       *UTM inudctors include "spiral_std_mu_z", "spiral_sym_mu_z", "spiral_sym_ct_mu_z",
+
+                                      "spiral_std_mu_a", "spiral_sym_mu_a", and "spiral_sym_ct_mu_a".
+	       	
+	       *Logic inductors include "spiral_std_mza_a", "spiral_sym_mza_a", "spiral_sym_ct_mza_a".
+
+	       *For more information about inductor support, please refer to PDK_doc/ReleaseNote.txt
+		
+		Please enter your choice: (1,2...)
+    		=====> Please choose the metal options for your design.
+	 
+	17. Resistors' entry_mode CDF property was turned off, user can input length & width to change res value
+	     or input res value to modify length directly.
+	         
+    *** 18. The all spiral inductors due to support characteristics of continues models operation. The CRN65 PDK
+    	    V1.0b spiral inductors are a little difference from previous version V1.0p2. Uses who use V1.0c PDK to 
+    	    design are fine, but the users who have already designed by PDK V1.0p2 and want to transfer to V1.0c 
+    	    please pay attentdion to the layout difference of spiral inductors between these two versions. 
+    	    TSMC would not take the responsibility if users do not check for these difference or skip the difference. 	
+
+    *** 19. In order to pass the drc violation of "Mx.S.2","Mx.S.2.1","IND.S.2.Mx" and "IND.S.4.Mx" of spiral_sym_ct.
+	    The pcell code has been modified, so the layout of spiral_sym_ct may have some difference with CRN65GP
+	    PDK version 1.0p2a.
+
+        20. There is a DFM_rule option in the RTMOM CDF. User can set the DFM_rule in the RTMOM,then the layout of 
+	    RTMOM can follow "Action Required rules". But will violate DFM RR:RE:D:MxS1 and RR:GL:SP:NWR1.RD team has
+	    two comments."1.If customers want to create DFM free layout,please choose sp>=0.13um(Mx.S.1) to follow DFM rule"
+	    "2.When choose NW option for RTMOM,there might cause floating NW DFM violation,customers can add NW pick
+	    up to solve this violation."
+
+        21. TSMC SPICE team suggests that customers use "_mac" model for their noise figure simulation.
+
+	22. Turn on the poly-route function when finger number equal to 1, poly contact will add on automatically.
+	
+        23. Spiral inductors/crtmom_rf don't support back-annotation function. The TIF/TCF already calculate the L/C value.
+
+        24. In CRN65GP_V1.0C PDK, the scale parameter default supplied is set to 1 and user should not change it in PDK.
+       
+	25. There is a DFM_rule option in the RTMOM CDF. User can set the DFM_rule in the RTMOM,then the layout of 
+            RTMOM can follow "Action Required rules". But will violate DFM RR:RE:D:MxS1 and RR:GL:SP:NWR1.RD team has
+            two comments."1.If customers want to create DFM free layout,please choose sp>=0.13um(Mx.S.1) to follow DFM rule"
+            "2.When choose NW option for RTMOM,there might cause floating NW DFM violation,customers should add NW pick
+            up manully to solve this violation."
+
+        26. All devices may has different value between spice and spectre model card in simulation result.   
+ 
+        27. Take special care for DRC when switching off the impLayer option in all base band mos device layout.
+
+     ** 28. Users need to pay attentdion to switch off guard ring in RF device, because guard ring is for RF device LVS recognition purpose. 
+
+        29. Due to the complex of metal resistor models(model varies with width and spacing), the metal resistors 'rm*' are always modeled as 
+            'rm*w' in PDK which mayn't reflect the real situations.
+
+        30. There are DRC violations of rule NT_N.A.1 when using native nmos with minimum size and rule RPO.A.1 when using resistors with minimum size.
+            Users may need to take care this layout manually if the minimum size is used.
+
+        31. In Assura dfII flow, the npn/npn_mis and pnp/pnp_mis will have multi-to-multi binding issue. To avoid this issue
+            LVS deck do not support npn and pnp device for Assura dfII flow. Users need to switch them manually if necessary.
+
+        32. Please do not use "m" for mismatch BJT multi parameter due to model do not support mismatch equation for multi.
+            Users need to use them for one(m=1) device in netlist for mismatch simulation. 
+
+        33. Please do not use too large size (ex.850u*850u,width and length are over 150um) of base band mos, it will cause drc violation 
+	    for too high density.
+
+    *** 34. Currently, all Assura/Calibre/Star_rc RC decks do not support mimcap extraction.
+	    If customers need mimcap(cbm and ctm) extraction, please make request to TSMC.
+
+        35. A DRC violation of rule NT_N.A.1 is found when using native nmos with minimum size. Users may need to fix
+	    this layout manually if the minimum size is used.
+
+        36. Please be careful to use the base band mimcap (mimcap and mimcap_udc). It will cause drc violations (max. CBM width) 
+            if the CTM width and the number of CTM array are too large.
+
+        37. If users use resistor contact number with zero, please take care the metal connection in series or parallel.
+
+        38. The parameter of "area_Length/area_Width" in TIF are not exactly accurate. 
+
+        39. This version of PDK includes some new spectre primitive "bsource",only 5.10.41.169 or later can support AMS back-annotation option. 
+
+	40. For device nch_na, pdk cell follows the L/W min/max range defined in the model card, but some dimension may not supported in 
+            the nch_na bin models, such as L=2.0E-7/W=9.0E-4, please check the model carefully. PDK limits the mim. length to L=3.0E-7 to 
+            safely run the simulation of model card. If user really need to run min length L=2.0E-7, user can turn off the HardConstrain in 
+            CDF of nch_na device.
+
+
+** Known Problem: 
+     
+      1. crtmom_mx, mimcap_woum_rf, pmoscap_rf25, pmoscap_rf, moscap_rf25, moscap_rf25_nw, moscap_rf
+         moscap_rf_nw, nmos_rf_25, nmos_rf_25_nodnw, nmos_rf_25_nodnwod33, nmos_rf_25_nodnwud18
+         nmos_rf_25od33, nmos_rf_25ud18, nmos_rf, nmos_rf_nodnw, pmos_rf_25, pmos_rf_25_nw
+         pmos_rf_25_nwod33, pmos_rf_25_nwud18, pmos_rf_25od33, pmos_rf_25ud18, pmos_rf, pmos_rf_nw, rppoly_rf
+         rppolywo_rf, xjvar, xjvar_nw
+         Above devices will violate PO.DN.3 , DRM will solve this issue in next version.
+
+      2. Baseband mos in specific parameter combination will result pcell failure as below.
+         (1)width 125n,135n or 145n with routePolydir Both option.
+         (2)two fingers and route_Source_Drain layout function without contacts.             
+         (3)dog-bone structure will make drc violation due to adjacent edges with length less than minimum width is not allowed
+         These issues will be fixed in next version.
+                   
+
+      3. Please do not use layout function "fingers_SP_INC"(finger space) equal to 5 nm with 5 nm unit width.
+         It will cause 5nm shift of layout in minRule and drc violation in DFM/DFM+Analog rule.
+
+      4. Please do not re-install PDK after use fold & chain utlity. The install program will fail due to redundant device generation after using 
+         fold & chain utlity. Cadence will fix the issue later. 
+      
+      5. Base band mos in specific CDF parameter value combination such as finger equal two, DFM layout mode, polyDir switch on
+         and body_tie detached will cause pcell failure. 
+
+      6. There are some known issues of drc deck(T-N65-CL-DR-001-C1 VER 2.0a ) as below.
+         1) Latch-up connect : connection issue(false alarm)
+         2) VTH_N.S.3, VTH_P.S.3, VTL_N.S.3, VTL_P.S.3 rules : checking issue(false alarm) 
+         3) VAR.W.1 and VAR.W.4 rules : partial missing checking issue(missing) 
+         DRC team will fix these issues later.
+
+      7. The parameter of "area_Length/area_Width" in TIF/TCF are not exactly accurate.
+
+      8. Back annotation function of DC operating point does not work for resistor with segments >1. The
+         function only exist on segment =1 condition of resistor.
+         And back annotation function of DC operating point does not work for resistor with series. 
+         The function only support for parallel condition of resistors.
+  
+      9. V1.0B PDK solve the Cadence tool's issue of hspiceD current probing
+	   problem. Users can get hot-fix tool version from Cadence site. But this
+	   hot-fix tool will have some issue in output Diode netlis such as :
+               dnwpsub	ndio	ndio_25	ndio_25od33	ndio_25ud18
+	       ndio_esd	 ndio_hvt	ndio_lvt	ndio_mlvt
+	       ndio_na	 ndio_na25	nwdio		pdio
+	       pdio_25	 pdio_25od33	pdio_25ud18	pdio_hvt
+ 	       pdio_lvt	 pdio_mlvt	pwdnw
+	       ndio_na25od33	
+	   Tsmc will request Cadence to solve this tool issue in their hot-fix version.
+     
+     10. Spiral_sym_ct type inductors TIF limits the max turn equal to five. This max turn will extend to six for user 
+         and model bigger range. We will extend this model range in later release version.
+
+     11. Please do not use the rfmos with finger=1 and dummy poly =nil because the drain drawing will shift.
+         TSMC will fix the pcell in next version.
+
+     12. The SA,SB,NRS,NRD parameters may be wrong when the MOS device becomes a dog-bone structure.
+	 The "nrd" and "nrs" values in pre-sim netlist (calculated by PDK) are calculated with the distance from S/D contact 
+	 to gate (more accuracy) while they are calculated from S/D edge to gate in RC decks(due to tool limitation). 
+	 Thus, the "nrs" and "nrd" values in pre-sim netlist are more accuracy than post-sim netlist. 

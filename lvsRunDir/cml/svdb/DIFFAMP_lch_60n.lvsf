@@ -1,0 +1,9 @@
+# Automagically generated file: Please do not edit!
+lvs_LvsOutFile RUNDIR /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml
+lvs_LvsfVersion 2
+lvs_LvsInputSummary {0 0 0}
+lvs_LvsComparisonSummary {3 1 0 0}
+lvs_LvsOutFile LVS_REPORT DIFFAMP_lch_60n.lvs.report
+lvs_LvsOutFile SOURCE_NETLIST /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/DIFFAMP_lch_60n.src.net
+lvs_LvsOutFile RULES_FILE /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/lvsRunDir/cml/_calibre.lvs_
+lvs_LvsRunTimes 1579155410 1579155410

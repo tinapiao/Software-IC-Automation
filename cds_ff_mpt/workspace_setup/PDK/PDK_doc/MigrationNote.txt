@@ -1,0 +1,38 @@
+              Release Note of Migration Utility 
+
+    ( For migration of CRN65GP PDK from v1.0b to v1.0c)
+    
+        Release date :  2010/04/12
+
+    Usage : Please follow the steps listed below to run the migration utility
+    
+       1>Open any cell in tsmcN65 library.
+       
+       2>Click on CIW menu "TSMC PDK Tools"->"tsmcPdkUtilityTool"->"Update design(instance) CDF".
+       
+       3>Select a design library to run the migration.
+       
+       4>Specify a cell name or a cell list as the migration target cell.
+       
+       5>Press "OK" to start the migration procedure.
+
+        
+    Migration Behavior : 
+
+  Process   : CRN65GP PDK
+  Version   : 1.0b --> 1.0c
+
+    Migration Behavior : 
+
+       1>For all mimcap device
+       	 mismatchflag will change from 1 to 1(1p0)/2(1p5)/3(2p0) in netlist if the mismatchflag is true in boolean function.
+                       
+       2>For model name changement as below:
+       	 nch_na33 -> nch_na25od33
+       	 nch_na33x -> nch_na25od33x
+       	 nch_na33_mac -> nch_na25od33_mac
+       	 nch_na33_macx -> nch_na25od33_macx
+       	 ndio_na33 -> ndio_na25od33
+
+       3>For all base band mos device
+       	 WPE equation will re-calculate

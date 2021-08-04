@@ -1,0 +1,19 @@
+*drcRulesFile: /CMC/kits/tsmc_65nm/CRN65GP-OA/TN65CMSP018K3_V1.0C/Calibre/drc/calibre.drc
+*drcRunDir: /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/Susie/drctest
+*drcLayoutPaths: INVERTER_lch_60n.calibre.db
+*drcLayoutPrimary: INVERTER_lch_60n
+*drcLayoutLibrary: AN_INVERTER_496
+*drcLayoutView: layout
+*drcLayoutGetFromViewer: 1
+*drcResultsFile: INVERTER_lch_60n.drc.results
+*drcSummaryFile: INVERTER_lch_60n.drc.summary
+*drcIncrDRCSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*drcIncrDRCLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*drcIncrDRCGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnWarnLayoutOverwrite: 0
+*cmnSlaveHosts: {use {}} {hostName {}} {cpuCount {}} {a32a64 {}} {rsh {}} {maxMem {}} {workingDir {}} {layerDir {}} {mgcLibPath {}} {launchName {}}
+*cmnLSFSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnGridSlaveTbl: {use 1} {totalCpus 1} {minCpus 1} {architecture {{}}} {minMemory {{}}} {resourceOptions {{}}} {submitOptions {{}}}
+*cmnFDILayoutLibrary: AN_INVERTER_496
+*cmnFDILayoutView: layout
+*cmnFDIDEFLayoutPath: INVERTER_lch_60n.def

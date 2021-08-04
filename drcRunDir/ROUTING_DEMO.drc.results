@@ -1,0 +1,1095 @@
+ROUTING_DEMO 1000
+G.1.M5i
+11 11 3 Aug 15 19:41:49 2019                   
+G.1.M5i { @ grid must be an integer multiple of 0.005 um
+  OFFGRID M5i 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+500 42 500 750
+500 42 760 42
+e 2 2
+760 42 500 42
+760 42 760 43
+e 3 2
+760 43 760 42
+760 43 763 43
+e 4 2
+763 43 760 43
+763 43 763 103
+e 5 2
+763 103 763 43
+763 103 760 103
+e 6 2
+760 103 763 103
+760 103 760 549
+e 7 2
+760 549 760 103
+760 549 763 549
+e 8 2
+763 549 760 549
+763 549 763 753
+e 9 2
+763 753 763 549
+763 753 503 753
+e 10 2
+503 753 763 753
+503 753 503 750
+e 11 2
+503 750 503 753
+503 750 500 750
+G.1.M5_real
+11 11 3 Aug 15 19:41:49 2019                   
+G.1.M5_real { @ grid must be an integer multiple of 0.005 um
+  OFFGRID M5_real 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+500 42 500 750
+500 42 760 42
+e 2 2
+760 42 500 42
+760 42 760 43
+e 3 2
+760 43 760 42
+760 43 763 43
+e 4 2
+763 43 760 43
+763 43 763 103
+e 5 2
+763 103 763 43
+763 103 760 103
+e 6 2
+760 103 763 103
+760 103 760 549
+e 7 2
+760 549 760 103
+760 549 763 549
+e 8 2
+763 549 760 549
+763 549 763 753
+e 9 2
+763 753 763 549
+763 753 503 753
+e 10 2
+503 753 763 753
+503 753 503 750
+e 11 2
+503 750 503 753
+503 750 500 750
+G.1.M6i
+23 23 3 Aug 15 19:41:49 2019                   
+G.1.M6i { @ grid must be an integer multiple of 0.005 um
+  OFFGRID M6i 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+100 186 100 246
+100 186 450 186
+e 2 2
+450 186 100 186
+450 186 450 246
+e 3 2
+450 246 450 186
+450 246 100 246
+e 4 2
+100 246 450 246
+100 246 100 186
+e 5 2
+200 402 200 462
+200 402 400 402
+e 6 2
+400 402 200 402
+400 402 400 462
+e 7 2
+400 462 400 402
+400 462 200 462
+e 8 2
+200 462 400 462
+200 462 200 402
+e 9 2
+100 42 100 102
+100 42 760 42
+e 10 2
+760 42 100 42
+760 42 760 43
+e 11 2
+760 43 760 42
+760 43 763 43
+e 12 2
+763 43 760 43
+763 43 763 103
+e 13 2
+763 103 763 43
+763 103 503 103
+e 14 2
+503 103 763 103
+503 103 503 102
+e 15 2
+503 102 503 103
+503 102 100 102
+e 16 2
+100 102 503 102
+100 102 100 42
+e 17 2
+200 546 200 750
+200 546 760 546
+e 18 2
+760 546 200 546
+760 546 760 549
+e 19 2
+760 549 760 546
+760 549 763 549
+e 20 2
+763 549 760 549
+763 549 763 753
+e 21 2
+763 753 763 549
+763 753 503 753
+e 22 2
+503 753 763 753
+503 753 503 750
+e 23 2
+503 750 503 753
+503 750 200 750
+G.1.M6_real
+23 23 3 Aug 15 19:41:49 2019                   
+G.1.M6_real { @ grid must be an integer multiple of 0.005 um
+  OFFGRID M6_real 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+100 186 100 246
+100 186 450 186
+e 2 2
+450 186 100 186
+450 186 450 246
+e 3 2
+450 246 450 186
+450 246 100 246
+e 4 2
+100 246 450 246
+100 246 100 186
+e 5 2
+200 402 200 462
+200 402 400 402
+e 6 2
+400 402 200 402
+400 402 400 462
+e 7 2
+400 462 400 402
+400 462 200 462
+e 8 2
+200 462 400 462
+200 462 200 402
+e 9 2
+100 42 100 102
+100 42 760 42
+e 10 2
+760 42 100 42
+760 42 760 43
+e 11 2
+760 43 760 42
+760 43 763 43
+e 12 2
+763 43 760 43
+763 43 763 103
+e 13 2
+763 103 763 43
+763 103 503 103
+e 14 2
+503 103 763 103
+503 103 503 102
+e 15 2
+503 102 503 103
+503 102 100 102
+e 16 2
+100 102 503 102
+100 102 100 42
+e 17 2
+200 546 200 750
+200 546 760 546
+e 18 2
+760 546 200 546
+760 546 760 549
+e 19 2
+760 549 760 546
+760 549 763 549
+e 20 2
+763 549 760 549
+763 549 763 753
+e 21 2
+763 753 763 549
+763 753 503 753
+e 22 2
+503 753 763 753
+503 753 503 750
+e 23 2
+503 750 503 753
+503 750 200 750
+G.1.M7i
+2 2 3 Aug 15 19:41:49 2019                     
+G.1.M7i { @ grid must be an integer multiple of 0.005 um
+  OFFGRID M7i 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+1980 864 1980 0
+1980 864 980 864
+e 2 2
+0 864 1000 864
+0 864 0 0
+G.1.M7_real
+2 2 3 Aug 15 19:41:49 2019                     
+G.1.M7_real { @ grid must be an integer multiple of 0.005 um
+  OFFGRID M7_real 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+1980 864 1980 0
+1980 864 980 864
+e 2 2
+0 864 1000 864
+0 864 0 0
+G.1.VIA5i
+23 23 3 Aug 15 19:41:49 2019                   
+G.1.VIA5i { @ grid must be an integer multiple of 0.005 um
+  OFFGRID VIA5i 5
+}
+e 1 2
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+560 52 560 94
+560 52 602 52
+e 2 2
+602 52 560 52
+602 52 602 94
+e 3 2
+602 94 602 52
+602 94 560 94
+e 4 2
+560 94 602 94
+560 94 560 52
+e 5 2
+560 578 560 620
+560 578 602 578
+e 6 2
+602 578 560 578
+602 578 602 620
+e 7 2
+602 620 602 578
+602 620 560 620
+e 8 2
+560 682 560 724
+560 682 602 682
+e 9 2
+602 682 560 682
+602 682 602 724
+e 10 2
+602 724 602 682
+602 724 560 724
+e 11 2
+560 724 602 724
+560 724 560 682
+e 12 2
+664 52 664 94
+664 52 706 52
+e 13 2
+706 52 664 52
+706 52 706 94
+e 14 2
+706 94 706 52
+706 94 664 94
+e 15 2
+664 94 706 94
+664 94 664 52
+e 16 2
+664 578 664 620
+664 578 706 578
+e 17 2
+706 578 664 578
+706 578 706 620
+e 18 2
+706 620 706 578
+706 620 664 620
+e 19 2
+664 620 706 620
+664 620 664 578
+e 20 2
+664 682 664 724
+664 682 706 682
+e 21 2
+706 682 664 682
+706 682 706 724
+e 22 2
+706 724 706 682
+706 724 664 724
+e 23 2
+664 724 706 724
+664 724 664 682
+G.4.M5i
+6 6 6 Aug 15 19:41:49 2019                     
+G.4.M5i { @ Adjacent edges with length less than min. width is not allowed.
+  X = LENGTH M5i < M5_W_1
+  M5i_ShortExp = EXPAND EDGE X BY 0.01
+  M5i_SmallJog = VERTEX M5i_ShortExp > 4
+  M5i INSIDE EDGE M5i_SmallJog
+}
+e 1 1
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+500 750 503 750
+e 2 1
+503 750 503 753
+e 3 1
+760 42 760 43
+e 4 1
+760 43 763 43
+e 5 1
+760 103 763 103
+e 6 1
+763 43 763 103
+G.4.M6i
+5 5 6 Aug 15 19:41:49 2019                     
+G.4.M6i { @ Adjacent edges with length less than min. width is not allowed.
+  X = LENGTH M6i < M6_W_1
+  M6i_ShortExp = EXPAND EDGE X BY 0.01
+  M6i_SmallJog = VERTEX M6i_ShortExp > 4
+  M6i INSIDE EDGE M6i_SmallJog
+}
+e 1 1
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+760 42 760 43
+e 2 1
+760 43 763 43
+e 3 1
+760 546 760 549
+e 4 1
+760 549 763 549
+e 5 1
+763 43 763 103
+OD.DN.1L
+1 1 4 Aug 15 19:41:49 2019                     
+OD.DN.1L { @ {OD OR DOD} density across full chip >= 25%
+  DENSITY ALL_OD CHIP < OD_DN_1L INSIDE OF LAYER CHIPx PRINT OD.DN.1L.density
+  [ AREA(ALL_OD)/AREA(CHIP) ]
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DOD.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DOD.R.1 { @ DOD is must. DOD must be an individual CAD layer (datatype 1 as default, like 6;1)
+  CHIPx  NOT INTERACT DOD
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+PO.DN.1L
+1 1 4 Aug 15 19:41:49 2019                     
+PO.DN.1L { @ Min. POLY density across full chip >= 14%
+  DENSITY ALL_POLY CHIP < PO_DN_1_L INSIDE OF LAYER CHIPx PRINT PO.DN.1L.density
+  [ AREA(ALL_POLY)/AREA(CHIP) ]
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DPO.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DPO.R.1 { @ DPO is must. DPO must be an individual CAD layer (datatype 1 as default, like 17;1)
+  CHIPx NOT INTERACT DPO
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+M5.W.1
+4 4 3 Aug 15 19:41:49 2019                     
+M5.W.1 { @ Width >= 0.10 
+  INT M5 < M5_W_1 ABUT < 90 SINGULAR REGION
+}
+p 1 6
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+681 42
+760 42
+760 43
+763 43
+763 103
+760 103
+p 2 4
+1130 100
+1210 100
+1210 400
+1130 400
+p 3 4
+1490 100
+1570 100
+1570 400
+1490 400
+p 4 4
+1850 100
+1930 100
+1930 400
+1850 400
+M5.A.1
+3 3 3 Aug 15 19:41:49 2019                     
+M5.A.1 { @ Area >= 0.052 
+  AREA M5 < M5_A_1
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+1130 100
+1210 100
+1210 400
+1130 400
+p 2 4
+1490 100
+1570 100
+1570 400
+1490 400
+p 3 4
+1850 100
+1930 100
+1930 400
+1850 400
+VIA5.W.1
+6 6 5 Aug 15 19:41:49 2019                     
+VIA5.W.1 { @ Width (maximum = minimum except for seal-ring and fuse protection ring) = 0.1
+@ VIA5.R.1 45-degree rotated VIA is not allowed     
+  A = NOT RECTANGLE VIA5 == VIA5_W_1 BY == VIA5_W_1 ORTHOGONAL ONLY
+  A NOT VIA_EXD
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+560 52
+602 52
+602 94
+560 94
+p 2 4
+560 578
+602 578
+602 620
+560 620
+p 3 4
+560 682
+602 682
+602 724
+560 724
+p 4 4
+664 52
+706 52
+706 94
+664 94
+p 5 4
+664 578
+706 578
+706 620
+664 620
+p 6 4
+664 682
+706 682
+706 724
+664 724
+VIA5.S.1
+2 2 3 Aug 15 19:41:49 2019                     
+VIA5.S.1 { @ Space >= 0.10 
+  EXT VIA5 < VIA5_S_1 ABUT < 90 SINGULAR REGION
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+602 52
+664 52
+664 94
+602 94
+p 2 29
+560 620
+602 620
+602 578
+664 578
+664 620
+706 620
+706 682
+664 682
+664 633
+641 651
+664 669
+664 724
+651 724
+651 682
+633 659
+633 643
+651 620
+615 620
+633 643
+633 659
+615 682
+651 682
+651 724
+602 724
+602 669
+625 651
+602 633
+602 682
+560 682
+VIA5.S.2
+1 1 4 Aug 15 19:41:49 2019                     
+VIA5.S.2 { @ Space to 3-neighboring VIAx (< 0.14 um distance) >= 0.13 
+  X = WITH NEIGHBOR VIA5 > 2 SPACE < VIA5_S_2_S
+  EXT X VIA5 < VIA5_S_2 ABUT < 90 SINGULAR REGION
+}
+p 1 29
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+560 620
+602 620
+602 578
+664 578
+664 620
+706 620
+706 682
+664 682
+664 645
+654 651
+664 657
+664 724
+639 724
+639 682
+633 672
+633 630
+639 620
+627 620
+633 630
+633 672
+627 682
+639 682
+639 724
+602 724
+602 657
+612 651
+602 645
+602 682
+560 682
+M6.W.1
+3 3 3 Aug 15 19:41:49 2019                     
+M6.W.1 { @ Width >= 0.10 
+  INT M6 < M6_W_1 ABUT < 90 SINGULAR REGION
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+100 186
+450 186
+450 246
+100 246
+p 2 4
+200 402
+400 402
+400 462
+200 462
+p 3 8
+100 42
+760 42
+760 43
+763 43
+763 103
+503 103
+502 102
+100 102
+M6.S.1
+2 2 3 Aug 15 19:41:49 2019                     
+M6.S.1 { @ Space >= 0.10 
+  EXT M6 < M6_S_1 ABUT < 90 SINGULAR REGION
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+200 462
+400 462
+454 546
+200 546
+p 2 8
+100 102
+503 102
+503 103
+506 103
+466 162
+450 188
+450 186
+100 186
+M6.A.1
+3 3 3 Aug 15 19:41:49 2019                     
+M6.A.1 { @ Area >= 0.052 
+  AREA M6 < M6_A_1
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+100 186
+450 186
+450 246
+100 246
+p 2 4
+200 402
+400 402
+400 462
+200 462
+p 3 8
+100 42
+760 42
+760 43
+763 43
+763 103
+503 103
+503 102
+100 102
+M9.DN.1L
+1 1 4 Aug 15 19:41:49 2019                     
+M9.DN.1L { @ M9 metal density over the whole chip >= 0.2 
+  DENSITY M9x CHIP < M9_DN_1L INSIDE OF LAYER CHIPx PRINT M9.DN.1L.density
+  [ AREA(M9x)/AREA(CHIP) ]
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+CSR.R.1.M5i
+4 4 3 Aug 15 19:41:49 2019                     
+CSR.R.1.M5i { @ M5i is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND M5i     
+}
+p 1 12
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+500 42
+760 42
+760 43
+763 43
+763 103
+760 103
+760 549
+763 549
+763 753
+503 753
+503 750
+500 750
+p 2 4
+1130 100
+1210 100
+1210 400
+1130 400
+p 3 4
+1490 100
+1570 100
+1570 400
+1490 400
+p 4 4
+1850 100
+1930 100
+1930 400
+1850 400
+CSR.R.1.M5_real
+4 4 3 Aug 15 19:41:49 2019                     
+CSR.R.1.M5_real { @ M5_real is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND M5_real     
+}
+p 1 12
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+500 42
+760 42
+760 43
+763 43
+763 103
+760 103
+760 549
+763 549
+763 753
+503 753
+503 750
+500 750
+p 2 4
+1130 100
+1210 100
+1210 400
+1130 400
+p 3 4
+1490 100
+1570 100
+1570 400
+1490 400
+p 4 4
+1850 100
+1930 100
+1930 400
+1850 400
+CSR.R.1.M6i
+4 4 3 Aug 15 19:41:49 2019                     
+CSR.R.1.M6i { @ M6i is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND M6i     
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+100 186
+450 186
+450 246
+100 246
+p 2 4
+200 402
+400 402
+400 462
+200 462
+p 3 8
+100 42
+760 42
+760 43
+763 43
+763 103
+503 103
+503 102
+100 102
+p 4 8
+200 546
+760 546
+760 549
+763 549
+763 753
+503 753
+503 750
+200 750
+CSR.R.1.M6_real
+4 4 3 Aug 15 19:41:49 2019                     
+CSR.R.1.M6_real { @ M6_real is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND M6_real     
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+100 186
+450 186
+450 246
+100 246
+p 2 4
+200 402
+400 402
+400 462
+200 462
+p 3 8
+100 42
+760 42
+760 43
+763 43
+763 103
+503 103
+503 102
+100 102
+p 4 8
+200 546
+760 546
+760 549
+763 549
+763 753
+503 753
+503 750
+200 750
+CSR.R.1.M7i
+1 1 3 Aug 15 19:41:49 2019                     
+CSR.R.1.M7i { @ M7i is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND M7i     
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+CSR.R.1.M7_real
+1 1 3 Aug 15 19:41:49 2019                     
+CSR.R.1.M7_real { @ M7_real is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND M7_real     
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+CSR.R.1.VIA5i
+6 6 3 Aug 15 19:41:49 2019                     
+CSR.R.1.VIA5i { @ VIA5i is not allowed inside the empty area of chip corner.
+  EMPTY_AREA AND VIA5i     
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+560 52
+602 52
+602 94
+560 94
+p 2 4
+560 578
+602 578
+602 620
+560 620
+p 3 4
+560 682
+602 682
+602 724
+560 724
+p 4 4
+664 52
+706 52
+706 94
+664 94
+p 5 4
+664 578
+706 578
+706 620
+664 620
+p 6 4
+664 682
+706 682
+706 724
+664 724
+DM1.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM1.R.1 { @ DM1 is a must. The DM1 CAD layer (TSMC default, 31;1 for DM1) must be different from the M1 CAD layer.
+  CHIPx NOT INTERACT DUM1
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM2.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM2.R.1 { @ DM2 is a must. The DM2 CAD layer (TSMC default, 32;1 for DM2) must be different from the M2 CAD layer.
+  CHIPx NOT INTERACT DUM2
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM3.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM3.R.1 { @ DM3 is a must. The DM3 CAD layer (TSMC default, 33;1 for DM3) must be different from the M3 CAD layer.
+  CHIPx NOT INTERACT DUM3
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM4.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM4.R.1 { @ DM4 is a must. The DM4 CAD layer (TSMC default, 34;1 for DM4) must be different from the M4 CAD layer.
+  CHIPx NOT INTERACT DUM4
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM5.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM5.R.1 { @ DM5 is a must. The DM5 CAD layer (TSMC default, 35;1 for DM5) must be different from the M5 CAD layer.
+  CHIPx NOT INTERACT DUM5
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM6.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM6.R.1 { @ DM6 is a must. The DM6 CAD layer (TSMC default, 36;1 for DM6) must be different from the M6 CAD layer.
+  CHIPx NOT INTERACT DUM6
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM7.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM7.R.1 { @ DM7 is a must. The DM7 CAD layer (TSMC default, 37;1 for DM7) must be different from the M7 CAD layer.
+  CHIPx NOT INTERACT DUM7
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM8.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM8.R.1 { @ DM8 is a must. The DM8 CAD layer (TSMC default, 38;41 for DM8) must be different from the M8 CAD layer.
+  CHIPx NOT INTERACT DUM8
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DM9.R.1
+1 1 3 Aug 15 19:41:49 2019                     
+DM9.R.1 { @ DM9 is a must. The DM9 CAD layer (TSMC default, 39;61 for DM9) must be different from the M9 CAD layer.
+  CHIPx NOT INTERACT DUM9
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+ESD.WARN.1
+1 1 3 Aug 15 19:41:49 2019                     
+ESD.WARN.1 {@ SDI is  not in whole chip 
+   CHIPx NOT INTERACT SDI
+}
+p 1 4
+CN ROUTING_DEMO c 1 0 0 1 0 0 0
+0 0
+1980 0
+1980 864
+0 864
+DENSITY_RDBS
+0 0 5 Aug 15 19:41:49 2019
+M1.DN.5.density 0
+M2.DN.5.density 0
+M3.DN.5.density 0
+M4.DN.5.density 0
+M5.DN.5.density 0
+NET_AREA_RATIO_RDBS
+0 0 42 Aug 15 19:41:49 2019
+M1.DN.6.M1.density 0
+M1.DN.6.M2.density 0
+M2.DN.6.M2.density 0
+M1.DN.6.M3.density 0
+M2.DN.6.M3.density 0
+M3.DN.6.M3.density 0
+M2.DN.6.M4.density 0
+M3.DN.6.M4.density 0
+M4.DN.6.M4.density 0
+M3.DN.6.M5.density 0
+M4.DN.6.M5.density 0
+M5.DN.6.M5.density 0
+M4.DN.6.M6.density 0
+M5.DN.6.M6.density 0
+M5.DN.6.M7.density 0
+MOM.A.1.rep 0
+MOM.A.2.rep 0
+IND.DN.1L.M1.density 0
+IND.DN.1H.M1.density 0
+IND.DN.1L.M2.density 0
+IND.DN.1H.M2.density 0
+IND.DN.1L.M3.density 0
+IND.DN.1H.M3.density 0
+IND.DN.1L.M4.density 0
+IND.DN.1H.M4.density 0
+IND.DN.1L.M5.density 0
+IND.DN.1H.M5.density 0
+IND.DN.1L.M6.density 0
+IND.DN.1H.M6.density 0
+IND.DN.1L.M7.density 0
+IND.DN.1H.M7.density 0
+IND.DN.1L.M8.density 0
+IND.DN.1H.M8.density 0
+IND.DN.1L.M9.density 0
+IND.DN.1H.M9.density 0
+ESD.1g.hv_n.rep 0
+ESD.1g.lv_n.rep 0
+ESD.1g.hv_p.rep 0
+ESD.1g.lv_p.rep 0
+ESD.16g.NMOS.rep 0
+ESD.17g.PMOS.rep 0
+ESD.37g.rep 0
+DENSITY_PRINT_FILES
+0 0 77 Aug 15 19:41:49 2019
+OD.DN.1L.density
+OD.DN.1H.density
+OD.DN.2L.density
+OD.DN.2H_IO.density
+OD.DN.2H_CORE.density
+OD.DN.3L.density
+OD.DN.3H_IO.density
+OD.DN.3H_CORE.density
+PO.DN.1L.density
+PO.DN.1H.density
+PO.DN.2.density
+PO.DN.3.density
+M1.DN.1L.density
+M1.DN.1H.density
+M1.DN.2.density
+M1.DN.4.density
+M2.DN.1L.density
+M2.DN.1H.density
+M2.DN.2.density
+M2.DN.4.density
+M3.DN.1L.density
+M3.DN.1H.density
+M3.DN.2.density
+M3.DN.4.density
+M4.DN.1L.density
+M4.DN.1H.density
+M4.DN.2.density
+M4.DN.4.density
+M5.DN.1L.density
+M5.DN.1H.density
+M5.DN.2.density
+M5.DN.4.density
+M6.DN.1L.density
+M6.DN.1H.density
+M6.DN.2.density
+M6.DN.4.density
+M7.DN.1L.density
+M7.DN.1H.density
+M7.DN.2.density
+M7.DN.4.density
+M8.DN.1L.density
+M8.DN.1H.density
+M8.DN.2.density
+M8.DN.4.density
+M8.DN.5L.density
+M8.DN.5H.density
+M9.DN.1L.density
+M9.DN.1H.density
+M9.DN.2L.density
+M9.DN.2H.density
+IND.DN.6.density
+IND.DN.9.M1.density
+IND.DN.9.M2.density
+IND.DN.9.M3.density
+IND.DN.9.M4.density
+IND.DN.9.M5.density
+IND.DN.9.M6.density
+IND.DN.9.M7.density
+IND.DN.9.M8.density
+IND.DN.7.M1.density
+IND.DN.7.M2.density
+IND.DN.7.M3.density
+IND.DN.7.M4.density
+IND.DN.7.M5.density
+IND.DN.7.M6.density
+IND.DN.7.M7.density
+IND.DN.7.M8.density
+IND.DN.8.M1.density
+IND.DN.8.M2.density
+IND.DN.8.M3.density
+IND.DN.8.M4.density
+IND.DN.8.M5.density
+IND.DN.8.M6.density
+IND.DN.8.M7.density
+IND.DN.8.M8.density
+AP.DN.1L.density
+AP.DN.1H.density

@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CMOS SERDES generator &mdash; laygo_documentation 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Time-interleaved SAR ADC generator" href="tisar.html" />
+    <link rel="prev" title="CMOS SER/DES generator" href="ser_des.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> laygo_documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/tutorial.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab/lab.html">Practice Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="example.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="logic.html">CMOS logic family</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ser_des.html">CMOS SERDES</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CMOS 2:1-mux-based serializer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-and-launch">Install and launch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameterizations">Parameterizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tisar.html">TISAR ADC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tech/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">API documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">laygo_documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="example.html">Examples</a> &raquo;</li>
+        
+      <li>CMOS SERDES generator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/example/serdes.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cmos-serdes-generator">
+<h1>CMOS SERDES generator<a class="headerlink" href="#cmos-serdes-generator" title="Permalink to this headline">¶</a></h1>
+<p><img alt="../_images/serdes.png" src="../_images/serdes.png" />serdes</p>
+<p>(This generator example is not maintained anymore. Please refer to Woorham`s example for the latest codes)</p>
+<p>This section describes how to generate CMOS serdes building block layout
+templates.</p>
+<div class="section" id="install-and-launch">
+<h2>Install and launch<a class="headerlink" href="#install-and-launch" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p class="first">Set up BAG environment for the technology in use. This is usually
+done by cloning technology repo provided by BAG developers. For example,
+cds_ff_mpt environment can be set up by running following commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:ucb-art/BAG2_cds_ff_mpt.git
+$ cd BAG2_cds_ff_mpt
+$ git submodule init
+$ git submodule update
+$ git submodule foreach git pull origin master
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set setting up files, run virtuoso and BAG.</p>
+</li>
+<li><p class="first">Create an empty library called (tech)_logic_templates. For
+example, for <strong>cds_ff_mpt</strong> technology, the library name will be
+<strong>cds_ff_mpt_logic_template</strong>.</p>
+</li>
+<li><p class="first">Run this command to generate logic layouts.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">laygo</span><span class="o">/</span><span class="n">generators</span><span class="o">/</span><span class="n">logic</span><span class="o">/</span><span class="n">logic_templates_layout_generator</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Open (tech)_logic_templates library and check if cells are
+generated.</p>
+<p><img alt="../_images/logic_lib.png" src="../_images/logic_lib.png" />logic_lib</p>
+</li>
+<li><p class="first">Run this command to generate a serializer layout.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">laygo</span><span class="o">/</span><span class="n">generators</span><span class="o">/</span><span class="n">serdes</span><span class="o">/</span><span class="n">serdes_layout_generator</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="parameterizations">
+<h2>Parameterizations<a class="headerlink" href="#parameterizations" title="Permalink to this headline">¶</a></h2>
+<p>In <strong>laygo/generators/serdes/serdes_layout_generator.py</strong>, there are 2
+parameters for serializer, <strong>ser_m</strong>(serializer gate sizing) and
+<strong>ser_num_bits</strong>. Users can try different numbers and regenerate the
+layout.</p>
+<p>The figure shown below is for ser_m=4, ser_num_bits=8.</p>
+<p><img alt="../_images/serdes_8.png" src="../_images/serdes_8.png" />serdes</p>
+<p>The figure shown below is for ser_m=2, ser_num_bits=16.
+You can see the number of rows is increased due to the
+the increased serialization ratio.</p>
+<p><img alt="../_images/serdes_16.png" src="../_images/serdes_16.png" />serdes16</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tisar.html" class="btn btn-neutral float-right" title="Time-interleaved SAR ADC generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ser_des.html" class="btn btn-neutral float-left" title="CMOS SER/DES generator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Jaeduk Han
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

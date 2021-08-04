@@ -1,0 +1,314 @@
+tsmc_N65_invertertemplates:
+  guard_ring_nwell:
+    pins:
+      nwell:
+        layer:
+        - M1
+        - pin
+        netname: nwell
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  guard_ring_psub:
+    pins:
+      psub:
+        layer:
+        - M1
+        - pin
+        netname: psub
+        xy0:
+        - -0.09
+        - -0.09
+        xy1:
+        - 0.09
+        - 0.09
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  inverter_single_p:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  inverter_three_finger_n:
+    pins:
+      VSS:
+        layer:
+        - M2
+        - pin
+        netname: VSS
+        xy0:
+        - -0.128
+        - -0.025
+        xy1:
+        - -0.078
+        - 0.025
+      in:
+        layer:
+        - M2
+        - pin
+        netname: in
+        xy0:
+        - -0.093
+        - 0.555
+        xy1:
+        - -0.043
+        - 0.605
+      out:
+        layer:
+        - M2
+        - pin
+        netname: out
+        xy0:
+        - -0.119
+        - 0.265
+        xy1:
+        - -0.069
+        - 0.315
+    xy0:
+    - 0.0
+    - -0.034
+    xy1:
+    - 0.78
+    - 0.58
+  inverter_three_finger_p:
+    pins:
+      VDD:
+        layer:
+        - M2
+        - pin
+        netname: VDD
+        xy0:
+        - -0.121
+        - 0.845
+        xy1:
+        - -0.071
+        - 0.895
+      in:
+        layer:
+        - M2
+        - pin
+        netname: in
+        xy0:
+        - -0.131
+        - 0.555
+        xy1:
+        - -0.081
+        - 0.605
+      out:
+        layer:
+        - M2
+        - pin
+        netname: out
+        xy0:
+        - -0.16
+        - -0.029
+        xy1:
+        - -0.11
+        - 0.021
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.78
+    - 0.58
+  inverter_two_finger:
+    pins:
+      in:
+        layer:
+        - M2
+        - pin
+        netname: in
+        xy0:
+        - -3.55
+        - -0.9
+        xy1:
+        - -3.45
+        - -0.8
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  inverter_two_finger_1:
+    pins:
+      VDD:
+        layer:
+        - M3
+        - pin
+        netname: VDD
+        xy0:
+        - 0.44
+        - 1.837
+        xy1:
+        - 0.49
+        - 1.887
+      VSS:
+        layer:
+        - M2
+        - pin
+        netname: VSS
+        xy0:
+        - 0.072
+        - -0.025
+        xy1:
+        - 0.122
+        - 0.025
+      in:
+        layer:
+        - M1
+        - pin
+        netname: in
+        xy0:
+        - 0.546
+        - 1.59
+        xy1:
+        - 0.596
+        - 1.64
+      out:
+        layer:
+        - M2
+        - pin
+        netname: out
+        xy0:
+        - 0.086
+        - 0.735
+        xy1:
+        - 0.136
+        - 0.785
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  inverter_two_finger_n:
+    pins:
+      VSS:
+        layer:
+        - M2
+        - pin
+        netname: VSS
+        xy0:
+        - -0.133
+        - -0.025
+        xy1:
+        - -0.083
+        - 0.025
+      in:
+        layer:
+        - M2
+        - pin
+        netname: in
+        xy0:
+        - -0.069
+        - 0.555
+        xy1:
+        - -0.019
+        - 0.605
+      out:
+        layer:
+        - M2
+        - pin
+        netname: out
+        xy0:
+        - -0.119
+        - 0.265
+        xy1:
+        - -0.069
+        - 0.315
+    xy0:
+    - 0.0
+    - -0.034
+    xy1:
+    - 0.52
+    - 0.58
+  inverter_two_finger_p:
+    pins:
+      VDD:
+        layer:
+        - M2
+        - pin
+        netname: VDD
+        xy0:
+        - -0.16
+        - 0.845
+        xy1:
+        - -0.11
+        - 0.895
+      in:
+        layer:
+        - M2
+        - pin
+        netname: in
+        xy0:
+        - -0.082
+        - 0.555
+        xy1:
+        - -0.032
+        - 0.605
+      out:
+        layer:
+        - M2
+        - pin
+        netname: out
+        xy0:
+        - -0.115
+        - -0.029
+        xy1:
+        - -0.065
+        - 0.021
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.52
+    - 0.58
+  via_M1_M2_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  via_M2_M3_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  via_M3_M4_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0
+  via_M4_M5_0:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.0
+    - 0.0

@@ -1,0 +1,240 @@
+ReleaseNote.txt
+    - Include all important information in this file
+
+
+readme
+    - This file
+
+
+REVISION
+    - PDK revision history
+
+
+RF_flow -
+
+        N65_PDK_rf_flow_guide_v1d0.pdf 
+
+        cds.lib
+
+        layout_lib
+
+        lna_lib_n65
+
+
+TSMC_DOC_WM
+
+
+    model -
+	   README.txt
+	   TN65CMSP007_1.5.pdf	       
+
+    PDK -
+	2D4GHz_VCO_Process_Vehicle_Design_Report_2007.pdf
+            - Document for VCO desidn. 
+
+	Application_note_for_customized_cells.pdf
+	    - This document provides the step by step guidelines to instruct
+	      the TSMC PDK users to add their customized devices or 3rd party
+	      IPs into this PDK.
+
+	APPNOTE_PCDEF_2005_1.pdf
+	    - The pre-characterized device(PCD) flow is an extraction methodology that supports
+	      parameterized simulation models that have parasitic information included within the
+	      device model.
+
+	CRN65_CDF_Usage.pdf
+	    - Document for CDF usage of this PDK
+
+	parasitic_3T_use_guide.pdf
+	    - This document introduces the usage guide of 3T parasitic device to users.
+
+	RF_LNA_TV_Report_v1d0.pdf
+	    - This document provides Reference Design flow of LNA test vehicle case in 5.5GHz.
+
+	Statistical_Sim_AppNote_N65_final_20070926.pdf
+	    - This document provides the step by step guideline to instruct
+	      users to run statistical device simulation. 
+
+	TIF_tutorial.pdf
+	    - This document provides step by step flow to run TSMC Inductor Finder.
+
+	TIF_User_Guide.pdf
+	    - This document introduces the guideline of TSMC Inductor Finder to users. 
+
+	TCF_tutorial.pdf
+	    - This document provides step by step flow to run TSMC Capacitor Finder.
+
+	TCF_User_Cuide.pdf        
+	    - This document introduce the guideline of TSMC Capacitor Finder to users.
+
+	tsmc_PDK_usage_guide.pdf
+	    - A simple circuit goes through TSMC PDK. It includes schematic entry, simulation,
+	      layout driven and DRC/LVS/RC flow.
+
+	CRN65GP_v1d0c_pdkFSAChecklist.pdf
+            - Check list for CRN65GP v1.0c PDK.  
+
+
+    techfile -
+
+         1_FileList.txt
+
+         2_Copyright.txt
+
+         3_UserGuide.txt
+
+         4_ReleaseNotes.txt
+
+
+    LVS -
+
+        Assura_DOC -
+	    BSIM4.5_WPE+LOD.pdf
+
+	    DFM_LPE_Exraction.pdf
+
+	    DFM_ReleaseNotes
+
+	    ERC_Usage.pdf
+
+	    N65_N55_Assura_LVS_Deck_Usage.pdf
+
+	    N65_N55_stack_mimcaps_usage.pdf
+
+	    QAreport
+
+	    README
+
+
+       Calibre_DOC -
+	   BSIM4.5_WPE+LOD.pdf
+
+	   DFM_LPE_Exraction.pdf
+
+	   DFM_ReleaseNotes
+
+	   ERC_Usage.pdf
+
+	   N65_N55_Calibre_LVS_Deck_Usage.pdf
+
+	   N65_N55_stack_mimcaps_usage.pdf
+
+	   QAreport
+
+	   README
+
+
+
+    DRC -
+
+        Logic-
+            1_FileList.txt
+
+            2_Copyright.txt
+
+            3_UserGuide.txt
+
+            4_ReleaseNotes.txt
+
+
+    RC -
+
+       Assura_DOC -
+          1p6m_4X1Z0U:
+              COPYRIGHT
+              COPYRIGHT.pdf
+              File_List.txt
+              Introduction_to_N65_RC_techfile_v1.0d_online.pdf
+              N65_RCtechfile_summary_Mar07.pdf
+              QA_extra.report
+              QAreport.1x_10x
+              QAreport.allpattern_error10
+              README
+	      ReleaseNotes
+	      T-N65-CL-SP-031_Unified_Techfile_usage.txt
+
+          1p7m_4X2Z0U:
+              COPYRIGHT
+              COPYRIGHT.pdf
+              File_List.txt
+              Introduction_to_N65_RC_techfile_v1.0d_online.pdf
+              N65_RCtechfile_summary_May_2007.pdf
+              QA_extra.report
+              QAreport.1x_10x
+              QAreport.allpattern_error10
+              README
+              ReleaseNotes
+	      T-N65-CL-SP-031_Unified_Techfile_usage.txt
+
+          1p9m_6X1Z1U:
+              QA_extra.report
+              QAreport.1x_10x
+              QAreport.allpattern_error10
+              QAreport.cc
+              README
+
+       Calibre_DOC -
+	   1p6m_4X1Z0U:
+	      COPYRIGHT
+	      COPYRIGHT.pdf
+	      File_List
+	      Introduction_to_N65_RC_techfile_v1.0d_online.pdf
+	      N65_RCtechfile_summary_May_2007.pdf
+	      QA_extra.report
+	      QAreport.1x_10x
+	      QAreport.allpattern_error10
+	      QAreport.analog
+	      QAreport.cc
+	      README
+	      ReleaseNotes
+
+	   1p7m_4X2Z0U:
+	      COPYRIGHT
+	      COPYRIGHT.pdf
+	      File_List
+	      Introduction_to_N65_RC_techfile_v1.0d_online.pdf
+	      N65_RCtechfile_summary_May_2007.pdf
+	      QA_extra.report
+	      QAreport.1x_10x
+	      QAreport.allpattern_error10
+	      QAreport.analog
+	      QAreport.cc
+	      README
+	      ReleaseNotes
+
+          1p9m_6X1Z1U:
+              COPYRIGHT
+              QA_extra.report
+              QAreport.1x_10x
+              QAreport.allpattern_error10
+              QAreport.analog
+              QAreport.cc
+              README
+ 
+       StarRC_DOC -
+	   1p6m_4X1Z0U:
+	      COPYRIGHT
+	      QA_extra.report
+	      QAreport.1x_10x
+	      QAreport.allpattern_error10
+	      QAreport.analog
+	      QAreport.cc
+	      README
+
+	   1p7m_4X2Z0U:
+	      COPYRIGHT
+	      QA_extra.report
+	      QAreport.1x_10x
+	      QAreport.allpattern_error10
+	      QAreport.analog
+	      QAreport.cc
+	      README
+
+	   1p9m_6X1Z1U:
+	      COPYRIGHT
+	      QA_extra.report
+	      QAreport.1x_10x
+	      QAreport.allpattern_error10
+	      QAreport.cc
+	      README
+	      

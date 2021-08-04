@@ -1,0 +1,380 @@
+lib_name: demo_templates
+cell_name: inverter
+pins: [ "VDD", "VSS", "in", "out" ]
+instances:
+  XLOADN9:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in8"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in9"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN1:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "out"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in1"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN2:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in1"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in2"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN3:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in2"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in3"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN4:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in3"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in4"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN5:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in4"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in5"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN6:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in5"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in6"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN7:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in6"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in7"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XLOADN8:
+    lib_name: tsmcN65
+    cell_name: pch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in7"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in8"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+  XINP1:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "out"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in1"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP2:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in1"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in2"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP3:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in2"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in3"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP4:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in3"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in4"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP5:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in4"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in5"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP6:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in5"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in6"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP7:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in6"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in7"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP8:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in7"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in8"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  XINP9:
+    lib_name: tsmcN65
+    cell_name: nch_lvt_mac
+    instpins:
+      D:
+        direction: inputOutput
+        net_name: "in8"
+        num_bits: 1
+      B:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      G:
+        direction: inputOutput
+        net_name: "in9"
+        num_bits: 1
+      S:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+  PIN14:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN6:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN2:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN5:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}

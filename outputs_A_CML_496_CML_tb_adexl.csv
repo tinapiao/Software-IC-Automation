@@ -1,0 +1,8 @@
+Test,Name,Type,Output,Plot,Save,Spec
+A_CML_496:CML_tb:1,vin,expr,(VT("/ip") - VT("/im")),t,,
+A_CML_496:CML_tb:1,vout_tran,expr,(VT("/op") - VT("/om")),t,,
+A_CML_496:CML_tb:1,gain,expr,((VF("/op") - VF("/om")) / (VF("/ip") - VF("/im"))),t,,
+A_CML_496:CML_tb:1,Vout_Swing_PP,expr,(ymax(clip((VT("/op") - VT("/om")) 1e-10 8e-10)) * 2),t,,
+A_CML_496:CML_tb:1,FallTime,expr,fallTime(clip((VT("/op") - VT("/om")) 1e-10 8e-10) ymax(clip((VT("/op") - VT("/om")) 1e-10 8e-10)) nil (- ymax(clip((VT("/op") - VT("/om")) 1e-10 8e-10))) nil 10 90 nil "time"),t,,
+A_CML_496:CML_tb:1,RiseTime,expr,riseTime(clip((VT("/op") - VT("/om")) 1e-10 8e-10) (- ymax(clip((VT("/op") - VT("/om")) 1e-10 8e-10))) nil ymax(clip((VT("/op") - VT("/om")) 1e-10 8e-10)) nil 10 90 nil "time"),t,,
+A_CML_496:CML_tb:1,BW,expr,bandwidth(gain 3 "low"),t,,

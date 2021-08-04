@@ -1,0 +1,62 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.7-64b 12/16/2018 07:36 (sjfhw317) $
+          : sub-version  IC6.1.7-64b.500.23 
+Started at: 02-Feb-2021  22:06:52
+User Name : liudanlu
+Host Name : ug133
+Directory : /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+INFO (XSTRM-217): Reading the layer map file, /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/tsmcN65.layermap
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 tsmc_N65_invertertemplates
+strmFile                                /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/inverter_single_p.calibre.db
+topCell                                 inverter_single_p
+view                                    layout
+runDir                                  /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/
+logFile                                 PIPO.LOG.inverter_single_p
+summaryFile                             PIPO.SUM.inverter_single_p
+layerMap                                /nfs/ug/groups/lipixgrp/BAG2_cds_ff_mpt_N65/cds_ff_mpt/workspace_setup/PDK/tsmcN65/tsmcN65.layermap
+case                                    Preserve
+convertDot                              node
+
+INFO (XSTRM-223): 1. Translating cellView tsmcN65/M1_PO/layout as STRUCTURE M1_PO_CDNS_612321612260.
+INFO (XSTRM-223): 2. Translating cellView tsmcN65/M2_M1/layout as STRUCTURE M2_M1_CDNS_612321612261.
+INFO (XSTRM-223): 3. Translating cellView tsmcN65/pch_lvt_mac/layout as STRUCTURE pch_lvt_mac_CDNS_612321612260.
+WARNING (XSTRM-315): The cellview 'tsmcN65/pch_lvt_mac/layout' has a label with multiple lines. This label will be translated as is. If a multiple lines label is not required, correct the label in the source file.
+WARNING (XSTRM-35): The objects in the layer-purpose pair 'instance:drawing' are ignored. This is because the layer-purpose pair used in the design is not specified in the layer map file. Specify the layer-purpose pair in the layer map file and try again.
+INFO (XSTRM-223): 4. Translating cellView tsmc_N65_invertertemplates/inverter_single_p/layout as STRUCTURE inverter_single_p.
+INFO (XSTRM-180): You have not used the objectMap option. The design has instance(s) of at least one of following OpenAccess objects: oaBlockage, oaBoundary, oaRow, and oaMarker. Any information about these objects will not be translated into the generated stream file. Use the objectMap option to translate/preserve these objects using XStream. For details on the objectMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Objects Translated:
+	Scalar Instances:                       1
+	Array Instances:                        0
+	Polygons:                               0
+	Paths:                                  0
+	Rectangles:                             26
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           5
+	Custom Vias:                            0
+	CdsGen Vias:                            0
+	Pathsegs:                               3
+	Text:                                   11
+	TextDisplay:                            0
+	Cells:                                  4
+
+Elapsed Time: 1.0s   User Time: 0.2s   CPU Time: 0.1s   Peak VM: 101284KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '2' warning(s) found.

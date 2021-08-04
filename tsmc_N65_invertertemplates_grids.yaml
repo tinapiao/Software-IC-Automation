@@ -1,0 +1,114 @@
+tsmc_N65_invertertemplates:
+  placement_basic:
+    type: placement
+    xgrid:
+    - 0
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.26
+    - 2.03
+    ygrid:
+    - 0
+  route_M1_M2_cmos:
+    type: route
+    viamap:
+      via_M1_M2_0:
+      - 0
+      - 0
+    xgrid:
+    - 0.0
+    xlayer:
+    - - M1
+      - drawing
+    xwidth:
+    - 0.18
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.26
+    - 0.29
+    ygrid:
+    - 0.0
+    ylayer:
+    - - M2
+      - drawing
+    ywidth:
+    - 0.18
+  route_M2_M3_cmos:
+    type: route
+    viamap:
+      via_M2_M3_0:
+      - 0
+      - 0
+    xgrid:
+    - 0.0
+    xlayer:
+    - - M3
+      - drawing
+    xwidth:
+    - 0.18
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.26
+    - 0.29
+    ygrid:
+    - 0.0
+    ylayer:
+    - - M2
+      - drawing
+    ywidth:
+    - 0.18
+  route_M3_M4_cmos:
+    type: route
+    viamap:
+      via_M3_M4_0:
+      - 0
+      - 0
+    xgrid:
+    - 0.0
+    xlayer:
+    - - M3
+      - drawing
+    xwidth:
+    - 0.18
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.26
+    - 0.29
+    ygrid:
+    - 0.0
+    ylayer:
+    - - M4
+      - drawing
+    ywidth:
+    - 0.18
+  route_nwell:
+    type: route
+    viamap: {}
+    xgrid:
+    - 0.0
+    xlayer:
+    - - NW
+      - drawing
+    xwidth:
+    - 0.18
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.26
+    - 0.29
+    ygrid:
+    - 0.0
+    ylayer:
+    - - NW
+      - drawing
+    ywidth:
+    - 0.18

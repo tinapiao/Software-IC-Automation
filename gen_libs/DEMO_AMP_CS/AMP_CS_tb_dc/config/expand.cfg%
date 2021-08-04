@@ -1,0 +1,10 @@
+//Revision 1
+config AMP_CS_tb_dc;
+design DEMO_AMP_CS.AMP_CS_tb_dc:schematic;
+liblist tsmcN65, analogLib, basic;
+
+viewlist spectre, schematic, av_extracted, veriloga;
+stoplist spectre, veriloga;
+
+
+endconfig

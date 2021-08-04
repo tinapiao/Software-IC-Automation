@@ -1,0 +1,9 @@
+User Guide :
+
+  Usage introduction and important application notes.
+
+  Though PDIFF(7;0) & NDIFF(8;0) are tape out layers, it's strongly suggested
+  to use OD(6;0) instead, which is the standard "Gate Oxide and Diffusion"
+  (OD) layer. Since PDIFF & NDIFF layers are not standard layers, the related
+  design rule checks are not provided in this tech file. Be sure to check
+  carefully the related mask logic operation if PDIFF/NDIFF layers are used.

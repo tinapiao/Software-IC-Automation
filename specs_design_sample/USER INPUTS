@@ -1,0 +1,6 @@
+vgs_res: 5.0e-3
+gain_min: 1.0
+bw_min: 2.0e+9
+cload: 100.0e-15
+vdd: 1
+

@@ -1,0 +1,42 @@
+LVS File List :
+===============
+1.MAIN_DECK/
+  -- CALIBRE_FLOW/	: LVS decks for Calibre xRC flow.		
+     -- UTM/		: for ultra thick metal process( 33K Mtop for RF inductor ).
+     -- nonUTM/		: for non-ultra thick metal process( 9K Mtop ).
+  -- CCI_FLOW/	  	: LVS decks for StarRCXT CCI flow.	
+     -- UTM/		: for ultra thick metal process( 33K Mtop for RF inductor ).
+     -- nonUTM/		: for non-ultra thick metal process( 9K Mtop ).
+     -- STAR_MAP/	: StarRCXT mapping files for CCI flow.
+     -- star_cmd	: star_cmd option template for customers' reference.
+     -- query_cmd	: query_cmd option template for customers'reference.
+
+
+2.source.added		: source file for subcircuits.  
+
+3.xcell			: hcell for CALIBRE RC blocking flow in RF devices.
+  
+4.TSMC_DOC_WM/  
+**   -- N65_N55_Calibre_LVS_Deck_Usage.pdf	: LVS deck usage; must read.
+**   -- ERC_usage.pdf				: ERC check usage; must read. 
+     -- DFM_LPE_Extraction.pdf			: introduction of four DFM effects in LPE.
+     -- BSIM4.5_WPE+LOD.pdf			: introduction of WPE & LOD effects in LPE.
+     -- N65_N55_stack_mimcaps_usage.pdf 	: introduction usage of put devices under mimcap devices.
+
+5.device_list				: list of device name vs. spice model name. 
+
+6.DFM_ReleaseNotes			: DFM LPE revision history.
+
+7.QAreport				: LVS QA Report.
+
+----------------------------------------------------------------------------
+Release Notes :
+===============
+1. The metal scheme is from 1P4M to 1P9M.
+2. The MAC devices must be covered by MAC layer ( 208;1, layer in techfile.tf is "LVSDMY"("drawing1")). 
+   and please cover whole gate region.
+3. Please read USAGE documents firstly for new switches and flow usage.   
+4. For stack devices under mimcap devices, please reference by N65_N55_stack_mimcaps_usage.pdf in TSMC_DOC_WM.
+5. For thick ALRDL resistor usage (rmap_ut), please reference usage document in TSMC_DOC_WM.
+----------------------------------------------------------------------------
+If you have any questions, please contact TSMC LVS CAE. Thanks.

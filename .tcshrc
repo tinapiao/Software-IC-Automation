@@ -1,0 +1,8 @@
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if ( -f "/nfs/ug/groups/lipixgrp/anaconda3/etc/profile.d/conda.csh" ) then
+    source "/nfs/ug/groups/lipixgrp/anaconda3/etc/profile.d/conda.csh"
+else
+    setenv PATH "/nfs/ug/groups/lipixgrp/anaconda3/bin:$PATH"
+endif
+# <<< conda initialize <<<

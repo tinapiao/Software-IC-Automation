@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<setupdb version="5">ocean_default
+	<active>Active Setup
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<currentmode>Single Run, Sweeps and Corners</currentmode>
+		<tests>
+			<test>tb_dc
+				<tool>ADE</tool>
+				<tooloptions>
+					<option>cell
+						<value>AMP_SF_tb_dc</value>
+					</option>
+					<option>lib
+						<value>DEMO_AMP_SF</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>config</value>
+					</option>
+					<option>path
+						<value>$AXL_SETUPDB_DIR/states/ocean_default/test_states</value>
+					</option>
+					<option>state
+						<value>tb_dc_active</value>
+					</option>
+				</tooloptions>
+				<origoptions>
+					<option>cell
+						<value>amp_tb_dc</value>
+					</option>
+					<option>lib
+						<value>bag_testbenches</value>
+					</option>
+					<option>sim
+						<value>spectre</value>
+					</option>
+					<option>view
+						<value>schematic</value>
+					</option>
+				</origoptions>
+			</test>
+		</tests>
+		<vars>
+			<var>gain_fb
+				<value>-2.000000e+02</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>ibias
+				<value>100u</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vdd
+				<value>1.000000e+00</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vout_start
+				<value>1.500000e-01</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vout_stop
+				<value>5.000000e-01</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vout_num
+				<value>1.000000e+02</value>
+				<dependentTests>
+					<dependentTest enabled="1">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>voutref
+				<value>5.000000e-01</value>
+				<dependentTests>
+					<dependentTest omitted="0">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vimax
+				<value>1.000000e+00</value>
+				<dependentTests>
+					<dependentTest omitted="0">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vimin
+				<value>0.000000e+00</value>
+				<dependentTests>
+					<dependentTest omitted="0">tb_dc</dependentTest>
+				</dependentTests>
+			</var>
+			<var>vbias
+				<value>5.400000e-01</value>
+			</var>
+		</vars>
+		<corners>
+			<corner enabled="0">_default</corner>
+			<corner enabled="1">tt
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"tt"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ff
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ff"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">sf
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"sf"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">fs
+				<vars>
+					<var>temperature
+						<value>25</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"fs"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ff_hot
+				<vars>
+					<var>temperature
+						<value>65</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ff"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss_hot
+				<vars>
+					<var>temperature
+						<value>65</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+			<corner enabled="0">ss_cold
+				<vars>
+					<var>temperature
+						<value>0</value>
+					</var>
+				</vars>
+				<models>
+					<model enabled="1">crn65gplus_2d5_lk_v1d0.scs
+						<modeltest>All</modeltest>
+						<modelblock>Global</modelblock>
+						<modelfile>/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/crn65gplus_2d5_lk_v1d0.scs</modelfile>
+						<modelsection>"ss"</modelsection>
+					</model>
+				</models>
+			</corner>
+		</corners>
+	</active>
+	<history>History</history>
+</setupdb>

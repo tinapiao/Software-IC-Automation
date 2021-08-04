@@ -1,0 +1,50 @@
+fprintf(poport "=== Loading  ./.cdsinit ...\n")
+ 
+    fprintf( poport "===== Loading simulation corners...\n")
+    loadPcf( "/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/models/spectre/tsmcN65.pcf" )
+ 
+    fprintf( poport "===== Loading Calibre set-up...\n")
+    scriptPath = strcat( getShellEnvVar("MGC_HOME") "/shared/pkgs/icv/tools/queryskl")
+    setSkillPath( cons( scriptPath getSkillPath() ) )
+    load("calibre.skl")
+ 
+;;; setup start for calview, for converting Calibre/PEX to calibre view
+mgc_eview_globals->cellMapFile=
+  "/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/Calibre/rcx/calview.cellmap"
+;;; setup end for calview
+
+;;; setup start to modify the "incFILE" parameter for LVS 
+cdlOutKeys = list( nil
+	'simStopList '("auCdl")
+	'simViewList '("auCdl" "schematic")
+	'checkCAPPERI nil 
+	'checkDIOPERI nil 
+	'checkDIOAREA nil 
+	'checkCAPAREA nil 
+	'checkCAPVAL nil 
+	'checkRESSIZE nil 
+	'checkRESVAL nil 
+	'preserveDIO nil 
+	'preserveCAP nil 
+	'preserveRES nil 
+	'shortRES 0.0 
+	'simNetlistHier t 
+	'pinMAP nil 
+	'displayPININFO t 
+	'checkLDD nil 
+	'incFILE "/CMC/kits/tsmc_65nm/CRN65GP-OA/PDK_OA/Calibre/lvs/source.added" 
+	'connects "" 
+	'setEQUIV "" 
+	'simRunDir "." 
+	'hnlNetlistFileName "" 
+	'simSimulator "auCdl" 
+	'simViewName "schematic" 
+	'simCellName "" 
+	'simLibName ""
+)
+
+;;; setup end to modify the "incFILE" parameter for LVS 
+
+fprintf(poport "=== Finished  ./.cdsinit ...\n")
+loadi("/CMC/kits/local/skill/VRGskill.il")
+VRGnews()

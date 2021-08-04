@@ -1,0 +1,19 @@
+pch_config:
+  mos_type: 'nch'
+  lch: 20.0e-9
+  w: 4
+  fg: 20
+  intent: 'svt'
+  fg_dum: 4
+  stack: 1
+  ptap_w: 6
+  ntap_w: 6
+  tr_w_dict:
+    g: 1
+    d: 2
+    s: 2
+  tr_sp_dict:
+    gs: 1
+    gd: 1
+    sb: 1
+    db: 1

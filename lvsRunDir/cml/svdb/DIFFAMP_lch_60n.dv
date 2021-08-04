@@ -1,0 +1,6 @@
+# CALIBRE-LVS DISCREPANCY VIEWER TCL FILE 
+# FILE: svdb/DIFFAMP_lch_60n.dv
+dv_start matched                                  
+dv_cell {DIFFAMP_lch_60n} {DIFFAMP_lch_60n} matched
+dv_obj_count -transformed_nets {9 9} -transformed_inst {6 6} -transformed_port {8 8}
+dv_end

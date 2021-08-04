@@ -1,0 +1,520 @@
+lib_name: bag_serdes_ec
+cell_name: qdr_top
+pins: [ "VDD", "VSS", "data<3:0>", "dlev<3:0>", "des_clk", "des_clkb", "inp", "inn", "clkp", "clkn", "bias_vincm<7:0>", "scan_divider_clkp", "scan_divider_clkn", "bias_analog<7:0>", "bias_digital<7:0>", "bias_tap1_main<7:0>", "bias_way_0_dlev_p<7:0>", "bias_way_1_dlev_p<7:0>", "bias_way_2_dlev_p<7:0>", "bias_way_3_dlev_p<7:0>", "bias_way_0_ffe_1<7:0>", "bias_way_2_ffe_1<7:0>", "bias_way_3_ffe_1<7:0>", "bias_way_1_main<7:0>", "bias_way_1_dfe_2_s<1:0>", "bias_way_1_ffe_1<7:0>", "bias_way_0_dfe_2_s<1:0>", "bias_way_2_dfe_2_s<1:0>", "bias_way_3_dfe_2_s<1:0>", "bias_way_2_main<7:0>", "bias_way_3_main<7:0>", "bias_way_0_dfe_2_m<7:0>", "bias_way_1_dfe_2_m<7:0>", "bias_way_2_dfe_2_m<7:0>", "bias_way_3_dfe_2_m<7:0>", "bias_way_0_dlev_n<7:0>", "bias_way_1_dlev_n<7:0>", "bias_way_2_dlev_n<7:0>", "bias_way_3_dlev_n<7:0>", "bias_way_0_off_p<7:0>", "bias_way_1_off_p<7:0>", "bias_way_2_off_p<7:0>", "bias_way_3_off_p<7:0>", "bias_way_0_off_n<7:0>", "bias_way_1_off_n<7:0>", "bias_way_2_off_n<7:0>", "bias_way_3_off_n<7:0>", "bias_way_0_dfe_1_m<7:0>", "bias_way_1_dfe_1_m<7:0>", "bias_way_2_dfe_1_m<7:0>", "bias_way_3_dfe_1_m<7:0>", "enable_divider", "bias_way_0_main<7:0>" ]
+instances:
+  XFE:
+    lib_name: bag_serdes_ec
+    cell_name: qdr_frontend
+    instpins:
+      v_way_3_dfe_2_m:
+        direction: input
+        net_name: "v_way_3_dfe_2_m"
+        num_bits: 1
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      data<3:0>:
+        direction: output
+        net_name: "data<3:0>"
+        num_bits: 4
+      des_clk:
+        direction: output
+        net_name: "des_clk"
+        num_bits: 1
+      des_clkb:
+        direction: output
+        net_name: "des_clkb"
+        num_bits: 1
+      dlev<3:0>:
+        direction: output
+        net_name: "dlev<3:0>"
+        num_bits: 4
+      bias_way_0_dfe_2_s<1:0>:
+        direction: input
+        net_name: "bias_way_0_dfe_2_s<1:0>"
+        num_bits: 2
+      bias_way_1_dfe_2_s<1:0>:
+        direction: input
+        net_name: "bias_way_1_dfe_2_s<1:0>"
+        num_bits: 2
+      bias_way_2_dfe_2_s<1:0>:
+        direction: input
+        net_name: "bias_way_2_dfe_2_s<1:0>"
+        num_bits: 2
+      bias_way_3_dfe_2_s<1:0>:
+        direction: input
+        net_name: "bias_way_3_dfe_2_s<1:0>"
+        num_bits: 2
+      clkn:
+        direction: input
+        net_name: "clkn"
+        num_bits: 1
+      clkp:
+        direction: input
+        net_name: "clkp"
+        num_bits: 1
+      enable_divider:
+        direction: input
+        net_name: "enable_divider"
+        num_bits: 1
+      inn:
+        direction: input
+        net_name: "inn_fe"
+        num_bits: 1
+      inp:
+        direction: input
+        net_name: "inp_fe"
+        num_bits: 1
+      scan_divider_clkn:
+        direction: input
+        net_name: "scan_divider_clkn_buf"
+        num_bits: 1
+      scan_divider_clkp:
+        direction: input
+        net_name: "scan_divider_clkp_buf"
+        num_bits: 1
+      v_analog:
+        direction: input
+        net_name: "v_analog"
+        num_bits: 1
+      v_digital:
+        direction: input
+        net_name: "v_digital"
+        num_bits: 1
+      v_tap1_main:
+        direction: input
+        net_name: "v_tap1_main"
+        num_bits: 1
+      v_vincm:
+        direction: input
+        net_name: "v_vincm"
+        num_bits: 1
+      v_way_0_dfe_1_m:
+        direction: input
+        net_name: "v_way_0_dfe_1_m"
+        num_bits: 1
+      v_way_0_dfe_2_m:
+        direction: input
+        net_name: "v_way_0_dfe_2_m"
+        num_bits: 1
+      v_way_0_dlev_n:
+        direction: input
+        net_name: "v_way_0_dlev_n"
+        num_bits: 1
+      v_way_0_dlev_p:
+        direction: input
+        net_name: "v_way_0_dlev_p"
+        num_bits: 1
+      v_way_0_ffe_1:
+        direction: input
+        net_name: "v_way_0_ffe_1"
+        num_bits: 1
+      v_way_0_main:
+        direction: input
+        net_name: "v_way_0_main"
+        num_bits: 1
+      v_way_0_off_n:
+        direction: input
+        net_name: "v_way_0_off_n"
+        num_bits: 1
+      v_way_0_off_p:
+        direction: input
+        net_name: "v_way_0_off_p"
+        num_bits: 1
+      v_way_1_dfe_1_m:
+        direction: input
+        net_name: "v_way_1_dfe_1_m"
+        num_bits: 1
+      v_way_1_dfe_2_m:
+        direction: input
+        net_name: "v_way_1_dfe_2_m"
+        num_bits: 1
+      v_way_1_dlev_n:
+        direction: input
+        net_name: "v_way_1_dlev_n"
+        num_bits: 1
+      v_way_1_dlev_p:
+        direction: input
+        net_name: "v_way_1_dlev_p"
+        num_bits: 1
+      v_way_1_ffe_1:
+        direction: input
+        net_name: "v_way_1_ffe_1"
+        num_bits: 1
+      v_way_1_main:
+        direction: input
+        net_name: "v_way_1_main"
+        num_bits: 1
+      v_way_1_off_n:
+        direction: input
+        net_name: "v_way_1_off_n"
+        num_bits: 1
+      v_way_1_off_p:
+        direction: input
+        net_name: "v_way_1_off_p"
+        num_bits: 1
+      v_way_2_dfe_1_m:
+        direction: input
+        net_name: "v_way_2_dfe_1_m"
+        num_bits: 1
+      v_way_2_dfe_2_m:
+        direction: input
+        net_name: "v_way_2_dfe_2_m"
+        num_bits: 1
+      v_way_2_dlev_n:
+        direction: input
+        net_name: "v_way_2_dlev_n"
+        num_bits: 1
+      v_way_2_dlev_p:
+        direction: input
+        net_name: "v_way_2_dlev_p"
+        num_bits: 1
+      v_way_2_ffe_1:
+        direction: input
+        net_name: "v_way_2_ffe_1"
+        num_bits: 1
+      v_way_2_main:
+        direction: input
+        net_name: "v_way_2_main"
+        num_bits: 1
+      v_way_2_off_n:
+        direction: input
+        net_name: "v_way_2_off_n"
+        num_bits: 1
+      v_way_2_off_p:
+        direction: input
+        net_name: "v_way_2_off_p"
+        num_bits: 1
+      v_way_3_dfe_1_m:
+        direction: input
+        net_name: "v_way_3_dfe_1_m"
+        num_bits: 1
+      v_way_3_dlev_n:
+        direction: input
+        net_name: "v_way_3_dlev_n"
+        num_bits: 1
+      v_way_3_dlev_p:
+        direction: input
+        net_name: "v_way_3_dlev_p"
+        num_bits: 1
+      v_way_3_ffe_1:
+        direction: input
+        net_name: "v_way_3_ffe_1"
+        num_bits: 1
+      v_way_3_main:
+        direction: input
+        net_name: "v_way_3_main"
+        num_bits: 1
+      v_way_3_off_n:
+        direction: input
+        net_name: "v_way_3_off_n"
+        num_bits: 1
+      v_way_3_off_p:
+        direction: input
+        net_name: "v_way_3_off_p"
+        num_bits: 1
+  PIN1:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN0:
+    lib_name: basic
+    cell_name: iopin
+    instpins: {}
+  PIN5:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN4:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN3:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN2:
+    lib_name: basic
+    cell_name: opin
+    instpins: {}
+  PIN53:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN52:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN51:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN50:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN49:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN48:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN47:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN46:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN45:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN44:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN43:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN42:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN41:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN40:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN39:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN38:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN37:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN36:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN35:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN34:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN33:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN32:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN31:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN30:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN29:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN28:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN27:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN26:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN25:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN24:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN23:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN22:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN21:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN20:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN19:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN18:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN17:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN16:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN15:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN14:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN13:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN11:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN10:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN9:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN8:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN7:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  PIN6:
+    lib_name: basic
+    cell_name: ipin
+    instpins: {}
+  XDAC:
+    lib_name: bag_analog_ec
+    cell_name: res_ladder_dac_array
+    instpins:
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      out:
+        direction: output
+        net_name: "v_vincm"
+        num_bits: 1
+      code:
+        direction: input
+        net_name: "bias_vincm<0>"
+        num_bits: 1
+  XTERM:
+    lib_name: bag_serdes_ec
+    cell_name: term_rx
+    instpins:
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      outp:
+        direction: output
+        net_name: "inp_fe"
+        num_bits: 1
+      outn:
+        direction: output
+        net_name: "inn_fe"
+        num_bits: 1
+      inp:
+        direction: input
+        net_name: "inp"
+        num_bits: 1
+      inn:
+        direction: input
+        net_name: "inn"
+        num_bits: 1
+  XBUFB:
+    lib_name: bag_digital_ec
+    cell_name: buffer_array
+    instpins:
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      out<0>:
+        direction: output
+        net_name: "scan_divider_clkn_buf"
+        num_bits: 1
+      in<0>:
+        direction: input
+        net_name: "scan_divider_clkn"
+        num_bits: 1
+  XBUFT:
+    lib_name: bag_digital_ec
+    cell_name: buffer_array
+    instpins:
+      VSS:
+        direction: inputOutput
+        net_name: "VSS"
+        num_bits: 1
+      VDD:
+        direction: inputOutput
+        net_name: "VDD"
+        num_bits: 1
+      out<0>:
+        direction: output
+        net_name: "scan_divider_clkp_buf"
+        num_bits: 1
+      in<0>:
+        direction: input
+        net_name: "scan_divider_clkp"
+        num_bits: 1

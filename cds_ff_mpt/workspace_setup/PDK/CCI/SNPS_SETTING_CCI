@@ -1,0 +1,7 @@
+FLOW: Calibre
+CALIBRE_RUNSET: ./CCI/CCI_decks/calibre_cci.lvs
+DFII_DEVICE_MAP: ./CCI/CCI_decks/dfii_device_map.txt
+DFII_LAYER_MAP: ./CCI/CCI_decks/dfii_layer_map.txt
+INCLUDE_CDL_FILES: ./CCI/CCI_decks/source.added
+EXTRA_CMD_FILE: ./CCI/CCI_decks/star_cmd
+STAR_CMD: ./CCI/CCI_decks/star_cmd

@@ -1,0 +1,45 @@
+
+1. For QRC users:                         
+
+   For QRC users that use unified tech file(qrcTechFile), this techdir contains all the needed LPE 
+   techfile information under each corner directory for each metalization scheme.
+  
+   For transistor level extraction users,please download the corresponding LVS rule deck and recompile 
+   the techdir following below steps.
+
+a.  Download (and un-tar) the QRC tech files; 
+b.  Download (and un-tar) the corresponding LVS files; 
+c.  Create lvsfile under QRC techdir; 
+        * For Assura LVS/QRC flow, Run Assura LVS and copy the runname.xcn file to the QRC techdir
+          and call it lvsfile; 
+d.  Run Techgen -compilation -lvs lvsfile -p2lvs p2lvsfile in the QRC techdir with compilation command 
+    option from TSMC PDK package. Sometimes, these option needs to be adjusted per user needs.
+    In TSMC PDK the "assura_tech.lib" which equivalent to "techlib.defs" is completed for PDK user.
+
+
+   For LEF/DEF/OA flow users:
+
+a. Create an techlib.defs file to point to the completed QRC technology directory.  
+   
+2. For Assura-RCX users:
+ 
+   For RCX users, this techdir contains all the needed RCX techfile information under each corner 
+   for each metalization scheme. If TSMC does not provide LVS extract.rul file in the same tarball, 
+   users need to download the corresponding LVS rule and recompile the techdir following below steps.
+
+a.  Download (and un-tar) the QRC tech files; 
+b.  Download (and un-tar) the corresponding LVS files; 
+c.  Create lvsfile under QRC techdir; 
+	* For Assura LVS/RCX flow, Run Assura LVS and copy the runname.xcn file to the QRC techdir
+	  and call it lvsfile; 
+	* For Calibre/RCX flow, Run calibre2rcx -r calibre.rul:lvsfile to create lvsfile
+d.  Run capgen -C -Csw3d -lvs lvsfile -p2lvs p2lvsfile in the QRC techdir with compilation command 
+    option from TSMC PDK package. Sometimes, these option needs to be adjusted per user needs.
+    In TSMC PDK the "assura_tech.lib" which equivalent to "techlib.defs" is completed for PDK user.
+    - Assura version is AV315 and above.
+
+3. For FireIce QXC users:
+
+   For QXC users, all QXC related data (ict,rcgenTechFile) under each corner for each metal. 
+   rcgenTechFile is the equivalent RCgen techfile .tch
+   - The tool version is EXT62HF2. 

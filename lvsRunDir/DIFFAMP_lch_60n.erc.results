@@ -1,0 +1,25 @@
+DIFFAMP_lch_60n 1000
+mnpg
+0 0 2 Mar  3 22:48:33 2020                                                      
+Rule File Pathname: /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+MOS connected to both power and ground
+mppg
+0 0 2 Mar  3 22:48:33 2020                                                      
+Rule File Pathname: /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+MOS connected to both power and ground
+floating.nxwell_float
+0 0 2 Mar  3 22:48:33 2020                                                      
+Rule File Pathname: /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+Floating nxwell_float is not allowed
+floating.psub
+0 0 2 Mar  3 22:48:33 2020                                                      
+Rule File Pathname: /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+Floating psub is not allowed
+npvss49
+0 0 2 Mar  3 22:48:33 2020                                                      
+Rule File Pathname: /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+ntap connected to GROUND
+ppvdd49
+0 0 2 Mar  3 22:48:33 2020                                                      
+Rule File Pathname: /nfs/ug/groups/haczgrp/Hubert/BAG2_cds_ff_mpt_N65/./lvsRunDir/_calibre.lvs_
+ptap connected to POWER

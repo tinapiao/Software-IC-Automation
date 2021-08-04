@@ -1,0 +1,33 @@
+tsmc_N65_microtemplates_dense:
+  nmos4_fast_boundary:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.136
+    - 0.117
+  nmos4_fast_center_nf2:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.136
+    - 0.117
+  pmos4_fast_boundary:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.136
+    - 0.117
+  pmos4_fast_center_nf2:
+    pins: {}
+    xy0:
+    - 0.0
+    - 0.0
+    xy1:
+    - 0.136
+    - 0.117

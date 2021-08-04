@@ -1,0 +1,14 @@
+File List:
+
+1.FileList.: The file you are currently reading.
+
+2.TSMC_DOC_WM/: 1)COPYRIGHT.pdf: Disclaimer and statement of use. 2)N65_RCtechfile_summary_May_2007.pdf: The download information of N65 RC techfile official release at TSMC online system. 3)Introduction_to_N65_RC_techfile_v1.0d_online.pdf: Introduction to the N65 RC techfile.
+
+3.ReleaseNotes: Important release information and revision history.
+
+
+RC_xCalibre_cln65g+_t1_12c.tar.gz: Metallization options including
+1P5M_3X1Z_alrdl(M2-M4:Mx,M5:Mz,M6:AlRDL) to 1P8M_6X1Z_alrdl(M2-M7:Mx,M8:Mz,M9:AlRDL)
+
+RC_xCalibre_cln65g+_t2_12c.tar.gz: Metallization options including
+1P6M_3X2Z_alrdl(M2-M4:Mx,M5-M6:Mz,M7:AlRDL) to 1P9M_6X2Z_alrdl(M2-M7:Mx,M8-M9:Mz,M10:AlRDL)

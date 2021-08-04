@@ -1,0 +1,5 @@
+CADENCE IHNL11143
+
+AAAFOO_DIFFAMP_PAPER load_pmos schematic cds0
+AAAFOO_DIFFAMP_PAPER gm schematic cds1
+AAAFOO_DIFFAMP_PAPER cml schematic cds2

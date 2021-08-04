@@ -1,0 +1,341 @@
+//*************************************************************************************
+//* CALIBRE MIM ANTENNA DRC COMMAND FILE  - CN65S_4M_2X1U.MIM_ANT.20a (10/16/2009)
+//* FOR TSMC 65NM CMOS 1P4M+APRDL+MIM PROCESS WITH 2X1U METAL OPTION (MIM BETWEEN M4 AND M3)
+//* DESIGN RULE DOCUMENT: 	T-N65-CL-DR-001 	VER 2.0
+//* DRC COMMAND FILE DOCUMENT: 	T-N65-CL-DR-001-C1 	VER 2.0a
+//*************************************************************************************
+
+//*************************************************************************************
+// TSMC has developed this deck using Mentor Graphics proprietary SVRF and TVF formats.
+// The deck is to be used only in Calibre tools.
+//*************************************************************************************
+
+
+//#DEFINE 28K_AP
+
+
+//
+// ENVIRONMENT SETUP
+//==================
+PRECISION    1000
+RESOLUTION      5
+
+LAYOUT SYSTEM GDSII
+LAYOUT PATH "GDSFILENAME"
+LAYOUT PRIMARY "TOPCELLNAME"
+
+DRC RESULTS DATABASE "DRC_RES.db"
+DRC SUMMARY REPORT "DRC.rep"
+DRC KEEP EMPTY NO
+DRC CHECK TEXT ALL
+DRC MAXIMUM RESULTS ALL
+
+LAYOUT PROCESS BOX RECORD YES
+FLAG OFFGRID YES
+FLAG ACUTE YES
+FLAG SKEW YES
+FLAG NONSIMPLE YES
+DRC INCREMENTAL CONNECT YES
+
+VARIABLE LargeNumber 1000000000
+
+#IFDEF 28K_AP
+VARIABLE AP_THICKNESS 2.8
+#ELSE
+VARIABLE AP_THICKNESS 1.45
+#ENDIF
+
+// DRAWN LAYER DEFINITIONS
+//========================
+LAYER  OD_18     16  // define 1.8V thick gate oxides
+LAYER  OD_25     18  // define 2.5V thick gate oxides
+LAYER  OD_33     15  // define 3.3V thick gate oxides
+LAYER  CO        30
+LAYER  VIA1      51     // VIA1 Define connect for M2 to M1
+LAYER  VIA2      52     // VIA2 Define connect for M3 to M2
+LAYER  VIA3      53     // VIA3 Define connect for M4 to M3
+
+LAYER  M1     331  // Metal1 layer
+LAYER MAP 31 DATATYPE 0  331  // Mapping (31;0)  to 331 
+LAYER MAP 31 DATATYPE 7  331  // Mapping (31;7)  to 331
+LAYER MAP 31 DATATYPE 20 331  // Mapping (31;20) to 331 
+LAYER MAP 31 DATATYPE 40 331  // Mapping (31;40) to 331
+LAYER MAP 31 DATATYPE 60 331  // Mapping (31;60) to 331
+LAYER MAP 31 DATATYPE 80 331  // Mapping (31;80) to 331
+LAYER  M2     332  // Metal2 layer
+LAYER MAP 32 DATATYPE 0  332  // Mapping (32;0)  to 332 
+LAYER MAP 32 DATATYPE 7  332  // Mapping (32;7)  to 332
+LAYER MAP 32 DATATYPE 20 332  // Mapping (32;20) to 332 
+LAYER MAP 32 DATATYPE 40 332  // Mapping (32;40) to 332
+LAYER MAP 32 DATATYPE 60 332  // Mapping (32;60) to 332
+LAYER MAP 32 DATATYPE 80 332  // Mapping (32;80) to 332
+LAYER  M3     333  // Metal3 layer
+LAYER MAP 33 DATATYPE 0  333  // Mapping (33;0)  to 333 
+LAYER MAP 33 DATATYPE 7  333  // Mapping (33;7)  to 333
+LAYER MAP 33 DATATYPE 20 333  // Mapping (33;20) to 333 
+LAYER MAP 33 DATATYPE 40 333  // Mapping (33;40) to 333
+LAYER MAP 33 DATATYPE 60 333  // Mapping (33;60) to 333
+LAYER MAP 33 DATATYPE 80 333  // Mapping (33;80) to 333
+LAYER  M4     334  // Metal4 layer
+LAYER MAP 34 DATATYPE 0  334  // Mapping (34;0)  to 334 
+LAYER MAP 34 DATATYPE 7  334  // Mapping (34;7)  to 334
+LAYER MAP 34 DATATYPE 20 334  // Mapping (34;20) to 334 
+LAYER MAP 34 DATATYPE 40 334  // Mapping (34;40) to 334
+LAYER MAP 34 DATATYPE 60 334  // Mapping (34;60) to 334
+LAYER MAP 34 DATATYPE 80 334  // Mapping (34;80) to 334
+
+LAYER AP         74  // AP RDL 
+LAYER Cu_PPI     7410 // Cu_PPI interconnection between Polymide1 and Polymide2 for WLCSP
+LAYER MAP 74 DATATYPE 10 7410
+LAYER RV         85  // RV Define connect for M4 to AP
+LAYER CB         76  // CB Define connect for M4 to AP
+LAYER CBD        169 // CBD Define connect for M4 to AP
+LAYER CBM        88  // Capacitor Bottom metal for MIM capacitor 
+LAYER CTM        77  // Capacitor Top metal for MIM capacitor
+
+LAYER MAP 6 DATATYPE 0 350  // Mapping (6;0) to 350 for 
+LAYER MAP 7 DATATYPE 0 351  // Mapping (7;0) to 351 for PDIFF
+LAYER MAP 8 DATATYPE 0 352  // Mapping (8;0) to 352 for NDIFF
+LAYER DIFFi    350
+LAYER PDIFFi   351  	    // PDIFF active areas
+LAYER NDIFFi   352   	    // NDIFF active areas
+LAYER POLY  365
+LAYER MAP 17 DATATYPE 0 365  // Mapping (17;0) to 341 
+OD = (DIFFi OR PDIFFi) OR NDIFFi
+
+LAYOUT TOP LAYER M1 VIA1 
+LAYOUT TOP LAYER M2 VIA2 
+LAYOUT TOP LAYER M3 VIA3 
+LAYOUT TOP LAYER M4 AP RV CB CBM CTM 
+
+GATE     = OD   AND POLY
+SD       = OD   NOT POLY
+CO_PO    = CO AND POLY
+
+CONNECT GATE POLY
+CONNECT M1 POLY SD BY CO
+CONNECT M2 M1 BY VIA1
+CONNECT M3 M2 BY VIA2
+
+
+
+
+VCAP_CTM = VIA3 AND CTM 
+VCAP_CBM = (VIA3 NOT CTM) AND CBM 
+CTMc = COPY CTM 
+CONNECT VCAP_CTM CTM
+CONNECT VCAP_CBM CBM
+CONNECT CTMc CBM
+
+A.R.MIM.4.VIA3.CTM { @ Maximun ratio of the cumulative via area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 20 in CTM node
+  NET AREA RATIO VCAP_CTM CTM > 0
+       [!!AREA(CTM) * (AREA(VCAP_CTM)/AREA(CTM)-20) ] 
+       RDB A.R.MIM.4.VIA3.CTM.rep VCAP_CTM CTM BY LAYER
+}
+
+
+
+A.R.MIM.4.VIA3.CBM { @  Maximun ratio of the cumulative via area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 20 in CBM node
+    NET AREA RATIO VCAP_CBM CTMc > 0
+       [!!AREA(CTMc) * (AREA(VCAP_CBM)/AREA(CTMc)-20) ] 
+       RDB A.R.MIM.4.VIA3.CBM.rep VCAP_CBM CTMc BY LAYER
+}
+
+ACC_VIA3_CTM = NET AREA RATIO VCAP_CTM CTM > 0 ACCUMULATE
+ACC_VIA3_CTMc = NET AREA RATIO VCAP_CBM CTMc > 0 ACCUMULATE
+
+
+
+CONNECT M4 CTM CBM M3 BY VIA3
+
+CONNECT RV M4
+
+CTM_M4_W_OD = NET AREA RATIO CTM SD > 0                 //CTM connecting  OD
+CBM_M4_W_OD = NET AREA RATIO CBM SD > 0                 //CBM connecting  OD
+CTM_M4_W_GATE = NET AREA RATIO CTM GATE > 0             //CTM connecting  GATE
+CBM_M4_W_GATE = NET AREA RATIO CBM GATE > 0             //CBM connecting  GATE
+CTM_M4_FLOAT = CTM NOT (CTM_M4_W_OD OR CTM_M4_W_GATE) //CTM without connect to OD
+CBM_M4_FLOAT = CBM NOT (CBM_M4_W_OD OR CTM_M4_W_GATE) //CBM without connect to OD
+CTM_M4_1 = CTM_M4_FLOAT INTERACT CBM_M4_FLOAT 
+CTM_M4_2 = CTM_M4_W_OD  INTERACT CBM_M4_W_OD 
+Bal_CTM_M4 = CTM_M4_1 OR CTM_M4_2           		//Balanced MIM 
+unBal_CTM_M4 = CTM NOT Bal_CTM_M4            		//unBalanced MIM 
+CTM_M4_FLOATING = COPY CTM_M4_FLOAT          		// floating CTM, reset connection
+CBM_M4_FLOATING = COPY CBM_M4_FLOAT          		// floating CBM, reset connection
+CTM_M4_CONNECTED = COPY CTM_M4_W_OD          		// connected CTM , reset connection
+CBM_M4_CONNECTED = COPY CBM_M4_W_OD          		// connected CBM , reset connection
+
+MIM_M4_FLOATING_CTM = CTM_M4_FLOATING INTERACT CBM_M4_FLOATING   
+MIM_M4_FLOATING_CTMc = COPY MIM_M4_FLOATING_CTM
+CONNECT MIM_M4_FLOATING_CTM CTM
+CONNECT MIM_M4_FLOATING_CTMc CBM
+
+MIM_M4_CONNECTED_CTM = CTM_M4_CONNECTED INTERACT CBM_M4_CONNECTED   
+MIM_M4_CONNECTED_CTMc = COPY MIM_M4_CONNECTED_CTM
+CONNECT MIM_M4_CONNECTED_CTM CTM
+CONNECT MIM_M4_CONNECTED_CTMc CBM
+
+M4_DIO = NET AREA SD >= 0
+
+A.R.MIM.1.M4 { @ Unbalanced structure is not allowed.  
+     A = STAMP unBal_CTM_M4 BY CTM
+     NET AREA RATIO A M4 >0 [!!AREA(M4)*AREA(A)]
+     B = STAMP unBal_CTM_M4 BY CBM
+     NET AREA RATIO B M4 >0 [!!AREA(M4)*AREA(B)]
+     NET AREA RATIO CTM M4 GATE SD > 0 [!!AREA(M4)*!!AREA(CTM)*!!AREA(GATE)*!AREA(SD)] 
+     NET AREA RATIO CBM M4 GATE SD > 0 [!!AREA(M4)*!!AREA(CBM)*!!AREA(GATE)*!AREA(SD)]
+}
+
+
+
+A.R.MIM.2.M4.CTM { @ Maximun ratio of the cumulative metal area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 1000 in CTM node
+  NET AREA RATIO M4 MIM_M4_FLOATING_CTM > 0
+       [!!AREA(MIM_M4_FLOATING_CTM) *
+	(AREA(M4)/AREA(MIM_M4_FLOATING_CTM)-1000) ] 
+       RDB A.R.MIM.2.M4.CTM.rep M4 MIM_M4_FLOATING_CTM BY LAYER
+}
+
+
+
+A.R.MIM.2.M4.CBM { @ Maximun ratio of the cumulative metal area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 1000 in CBM node
+  NET AREA RATIO M4 MIM_M4_FLOATING_CTMc > 0
+       [!!AREA(MIM_M4_FLOATING_CTMc) *
+	(AREA(M4)/AREA(MIM_M4_FLOATING_CTMc)-1000) ] 
+       RDB A.R.MIM.2.M4.CBM.rep M4 MIM_M4_FLOATING_CTMc BY LAYER
+}
+
+
+ 
+A.R.MIM.3.M4.CTM { @ Maximun ratio of the cumulative metal area to the MIM capacitor for balanced structure when both CTM and CBM are connnected.  <= OD area x 8000 + 1000 in CTM node
+  NET AREA RATIO M4 MIM_M4_CONNECTED_CTM M4_DIO > 0
+       [!!AREA(MIM_M4_CONNECTED_CTM) *
+	(AREA(M4)/AREA(MIM_M4_CONNECTED_CTM)-AREA(M4_DIO)*8000-1000) ] 
+       RDB A.R.MIM.3.M4.CTM.rep M4 MIM_M4_CONNECTED_CTM M4_DIO BY LAYER
+}
+
+A.R.MIM.3.M4.CBM { @ Maximun ratio of the cumulative metal area to the MIM capacitor for balanced structure when both CTM and CBM are connnected.  <= OD area x 8000 + 1000 in CBM node
+  NET AREA RATIO M4 MIM_M4_CONNECTED_CTMc M4_DIO > 0
+       [!!AREA(MIM_M4_CONNECTED_CTMc) *
+	(AREA(M4)/AREA(MIM_M4_CONNECTED_CTMc)-AREA(M4_DIO)*8000-1000) ] 
+       RDB A.R.MIM.3.M4.CBM.rep M4 MIM_M4_CONNECTED_CTMc M4_DIO BY LAYER
+}
+
+ACC_M4_CTM = NET AREA RATIO M4 CTM > 0 ACCUMULATE
+
+ACC_M4_CTMc = NET AREA RATIO M4 CTMc > 0 ACCUMULATE
+
+
+
+
+
+
+
+A.R.MIM.4.RV.CTM { @ Maximun ratio of the cumulative via and RV area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 20 in CTM node
+  NET AREA RATIO RV MIM_M4_FLOATING_CTM CTM > 0 ACCUMULATE ACC_VIA3_CTM
+       [!!AREA(MIM_M4_FLOATING_CTM) *
+	(AREA(RV)/AREA(MIM_M4_FLOATING_CTM)-20) ] 
+       RDB A.R.MIM.4.RV.CTM.rep RV MIM_M4_FLOATING_CTM BY LAYER
+}
+
+
+
+A.R.MIM.4.RV.CBM { @  Maximun ratio of the cumulative via and RV area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 20 in CBM node
+    NET AREA RATIO RV MIM_M4_FLOATING_CTMc CTMc > 0 ACCUMULATE ACC_VIA3_CTMc
+       [!!AREA(MIM_M4_FLOATING_CTMc) *
+	(AREA(RV)/AREA(MIM_M4_FLOATING_CTMc)-20) ] 
+       RDB A.R.MIM.4.RV.CBM.rep RV MIM_M4_FLOATING_CTMc BY LAYER
+}
+
+A.R.MIM.5.RV.CTM { @ Maximun ratio of the cumulative via and RV area to the MIM capacitor for balanced structure when both CTM and CBM are connnected.  <= OD area x 210 + 20 in CTM node
+  NET AREA RATIO RV MIM_M4_CONNECTED_CTM M4_DIO CTM > 0 ACCUMULATE ACC_VIA3_CTM
+       [!!AREA(MIM_M4_CONNECTED_CTM) *
+	(AREA(RV)/AREA(MIM_M4_CONNECTED_CTM)-AREA(M4_DIO)*210-20) ] 
+       RDB A.R.MIM.5.RV.CTM.rep RV MIM_M4_CONNECTED_CTM M4_DIO BY LAYER
+}
+
+A.R.MIM.5.RV.CBM { @ Maximun ratio of the cumulative via RV area to the MIM capacitor for balanced structure when both CTM and CBM are connnected.  <= OD area x 210 + 20 in CBM node
+    NET AREA RATIO RV MIM_M4_CONNECTED_CTMc M4_DIO CTMc > 0 ACCUMULATE ACC_VIA3_CTMc
+       [!!AREA(MIM_M4_CONNECTED_CTMc) *
+	(AREA(RV)/AREA(MIM_M4_CONNECTED_CTMc)-AREA(M4_DIO)*210-20) ] 
+       RDB A.R.MIM.5.RV.CBM.rep RV MIM_M4_CONNECTED_CTMc M4_DIO BY LAYER
+}
+
+
+CONNECT AP M4 BY RV
+CONNECT AP M4 BY CB
+CONNECT AP M4 BY CBD
+
+CTM_AP_W_OD = NET AREA RATIO CTM SD > 0                 //CTM connecting  OD
+CBM_AP_W_OD = NET AREA RATIO CBM SD > 0                 //CBM connecting  OD
+CTM_AP_W_GATE = NET AREA RATIO CTM GATE > 0             //CTM connecting  GATE
+CBM_AP_W_GATE = NET AREA RATIO CBM GATE > 0             //CBM connecting  GATE
+CTM_AP_FLOAT = CTM NOT (CTM_AP_W_OD OR CTM_AP_W_GATE) //CTM without connect to OD
+CBM_AP_FLOAT = CBM NOT (CBM_AP_W_OD OR CTM_AP_W_GATE) //CBM without connect to OD
+CTM_AP_1 = CTM_AP_FLOAT INTERACT CBM_AP_FLOAT 
+CTM_AP_2 = CTM_AP_W_OD  INTERACT CBM_AP_W_OD 
+Bal_CTM_AP = CTM_AP_1 OR CTM_AP_2            //Balanced MIM 
+unBal_CTM_AP = CTM NOT Bal_CTM_AP            //unBalanced MIM 
+CTM_AP_FLOATING = COPY CTM_AP_FLOAT          // floating CTM 
+CBM_AP_FLOATING = COPY CBM_AP_FLOAT          // floating CBM 
+CTM_AP_CONNECTED = COPY CTM_AP_W_OD          // connected CTM 
+CBM_AP_CONNECTED = COPY CBM_AP_W_OD          // connected CBM 
+
+MIM_AP_FLOATING_CTM = CTM_AP_FLOATING INTERACT CBM_AP_FLOATING   
+MIM_AP_FLOATING_CTMc = COPY MIM_AP_FLOATING_CTM
+CONNECT MIM_AP_FLOATING_CTM CTM
+CONNECT MIM_AP_FLOATING_CTMc CBM
+
+
+MIM_AP_CONNECTED_CTM = CTM_AP_CONNECTED INTERACT CBM_AP_CONNECTED   
+MIM_AP_CONNECTED_CTMc = COPY MIM_AP_CONNECTED_CTM
+CONNECT MIM_AP_CONNECTED_CTM CTM
+CONNECT MIM_AP_CONNECTED_CTMc CBM
+
+AP_DIO = NET AREA SD >= 0
+
+
+A.R.MIM.1.AP { @ Unbalanced structure is not allowed.  
+   A = STAMP unBal_CTM_AP BY CTM
+   NET AREA RATIO A AP >0 [!!AREA(AP)*AREA(A)]
+   B = STAMP unBal_CTM_AP BY CBM
+   NET AREA RATIO B AP >0 [!!AREA(AP)*AREA(B)]
+   NET AREA RATIO CTM AP GATE SD > 0 [!!AREA(AP)*!!AREA(CTM)*!!AREA(GATE)*!AREA(SD)] 
+   NET AREA RATIO CBM AP GATE SD > 0 [!!AREA(AP)*!!AREA(CBM)*!!AREA(GATE)*!AREA(SD)]
+}
+
+A.R.MIM.2.AP.CTM { @ Maximun ratio of the cumulative metal area and AP-MD sidewall area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 1000 in CTM node
+  NET AREA RATIO AP M4 MIM_AP_FLOATING_CTM CTM > 0 ACCUMULATE ACC_M4_CTM
+       [!!AREA(AP)*!!AREA(MIM_AP_FLOATING_CTM) *
+	(PERIMETER(AP)*AP_THICKNESS/AREA(MIM_AP_FLOATING_CTM)-1000)
+	- (!AREA(AP)+!AREA(MIM_AP_FLOATING_CTM)) * LargeNumber ] 
+       RDB A.R.MIM.2.AP.CTM.rep AP M4 MIM_AP_FLOATING_CTM CTM BY LAYER
+}
+
+
+
+A.R.MIM.2.AP.CBM { @ Maximun ratio of the cumulative metal area and AP-MD sidewall area to the MIM capacitor for balanced structure when both CTM and CBM are floating  <= 1000 in CBM node
+  NET AREA RATIO AP M4 MIM_AP_FLOATING_CTMc CTMc > 0 ACCUMULATE ACC_M4_CTMc
+       [!!AREA(AP)*!!AREA(MIM_AP_FLOATING_CTMc) *
+	(PERIMETER(AP)*AP_THICKNESS/AREA(MIM_AP_FLOATING_CTMc)-1000) 
+	- (!AREA(AP)+!AREA(MIM_AP_FLOATING_CTMc)) * LargeNumber ] 
+       RDB A.R.MIM.2.AP.CBM.rep AP M4 MIM_AP_FLOATING_CTMc CTMc BY LAYER
+}
+
+
+ 
+A.R.MIM.3.AP.CTM { @ Maximun ratio of the cumulative metal area and AP-MD sidewall area to the MIM capacitor for balanced structure when both CTM and CBM are connnected.  <= OD area x 8000 + 1000 in CTM node
+  NET AREA RATIO AP M4 MIM_AP_CONNECTED_CTM AP_DIO CTM > 0 ACCUMULATE ACC_M4_CTM
+       [!!AREA(AP)*!!AREA(MIM_AP_CONNECTED_CTM) *
+	(PERIMETER(AP)*AP_THICKNESS/AREA(MIM_AP_CONNECTED_CTM)-AREA(AP_DIO)*8000-1000) 
+	- (!AREA(AP)+!AREA(MIM_AP_CONNECTED_CTM)) * LargeNumber ] 
+       RDB A.R.MIM.3.AP.CTM.rep AP M4 MIM_AP_CONNECTED_CTM AP_DIO CTM BY LAYER
+}
+
+A.R.MIM.3.AP.CBM { @ Maximun ratio of the cumulative metal area and AP-MD sidewall area to the MIM capacitor for balanced structure when both CTM and CBM are connnected.  <= OD area x 8000 + 1000 in CBM node
+  NET AREA RATIO AP M4 MIM_AP_CONNECTED_CTMc AP_DIO CTMc > 0 ACCUMULATE ACC_M4_CTMc
+       [!!AREA(AP)*!!AREA(MIM_AP_CONNECTED_CTMc) *
+	(PERIMETER(AP)*AP_THICKNESS/AREA(MIM_AP_CONNECTED_CTMc)-AREA(AP_DIO)*8000-1000) 
+	- (!AREA(AP)+!AREA(MIM_AP_CONNECTED_CTMc)) * LargeNumber ] 
+       RDB A.R.MIM.3.AP.CBM.rep AP M4 MIM_AP_CONNECTED_CTMc AP_DIO CTMc BY LAYER
+}
+
